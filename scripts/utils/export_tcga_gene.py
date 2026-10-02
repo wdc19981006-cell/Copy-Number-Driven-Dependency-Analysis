@@ -12,7 +12,10 @@ def main():
  if a.layer=='reference':
   meta=get_tcga_metadata(layer='reference')[['SampleID','CancerType','SampleType','TumorNormal']]
   frame=frame.merge(meta,on='SampleID',how='left',validate='one_to_one')
- else:frame['CancerType']=frame.ProjectID.str.replace('TCGA-','',regex=False)
+ else:
+  if frame.attrs.get('layer')!='gdc_DR46' or frame.attrs.get('release')!='46.0':raise ValueError('Current export lacks verified DR46 provenance')
+  frame['CancerType']=frame.ProjectID.str.replace('TCGA-','',regex=False)
+  frame['GDCRelease']='DR46';frame['DataLayer']='gdc_DR46'
  target=Path(a.output).resolve()
  if not target.is_relative_to((ROOT/'results').resolve()):raise ValueError('Output must be within project results')
  target.parent.mkdir(parents=True,exist_ok=True);frame.to_csv(target,index=False)

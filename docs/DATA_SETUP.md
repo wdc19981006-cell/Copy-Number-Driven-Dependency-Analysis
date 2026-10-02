@@ -39,3 +39,21 @@ project_root='D:/CodexProjects/Copy Number–Driven Dependency Analysis'
 ```
 
 processed 由脚本生成，不与 raw 混放。单基因查询读取 requested columns / row groups；DuckDB 仅保存 views。没有 raw 数据不要声称复现完成；新的合法导出可能改变本例样本数和结果。
+
+本项目已有完整 current 数据。继续现有清单时只运行下面的协调入口，不再执行发现或重下全量 RNA/CN。协调入口保留已校验 raw，补齐缺失文件，完成 ETL 和 validation；拒绝竞争协调器。
+
+```bash
+/c/Python312/python.exe "$project_root/scripts/utils/complete_gdc_pipeline.py"
+```
+
+确认 RNA/CN verified == selected 且 validation 全部通过后，发布快照并仅重跑需要更新的 TCGA 模块：
+
+```bash
+/c/Python312/python.exe "$project_root/scripts/utils/publish_gdc_snapshot.py"
+/d/R/R-4.5.0/bin/Rscript.exe --version
+/d/R/R-4.5.0/bin/Rscript.exe scripts/R/run_analysis.R --project . --mode tcga_cn_landscape --geneA VPS4B --geneB VPS4A
+/d/R/R-4.5.0/bin/Rscript.exe scripts/R/run_analysis.R --project . --mode tcga_cn_expression --geneA VPS4B --geneB VPS4A
+/d/R/R-4.5.0/bin/Rscript.exe scripts/R/run_analysis.R --project . --mode tcga_cna_prevalence --geneA VPS4B --geneB VPS4A
+```
+
+前两项使用 GDC current DR46；最后一项继续使用明确标记的 PanCanAtlas GISTIC reference。无需重跑已完成的 DepMap 分析。

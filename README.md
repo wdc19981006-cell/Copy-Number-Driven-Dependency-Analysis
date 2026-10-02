@@ -43,7 +43,7 @@ DepMap **26Q1** 有 13 类本地导出。Chronos 为 1,208 × 18,531 基因，CN
 
 保留 `CN_relative`，计算 `CN_log=log2(CN_relative+1)`。CN-Low `<0.585`；Deep `<0.35`；Shallow `[0.35,0.585)`。这些是 **analysis-defined thresholds**，不是 DepMap 官方 GISTIC 分类。
 
-按用户提供的统计核心，连续 dependency 相关与连续调整回归使用 **CN_log**；CN-expression 和 covariation 使用 **CN_relative**。Delta median = low − non-low，负值表示 CN-Low 更依赖目标。筛选分别对 Pearson/Wilcoxon 作 BH 校正，排名按 Wilcoxon FDR、Delta median 排序。方法和限制见 [ANALYSIS_METHODS](docs/ANALYSIS_METHODS.md)。
+按用户提供的统计核心，连续 dependency 相关与连续调整回归使用 **CN_log**；CN-expression 和 covariation 使用 **CN_relative**。Delta median = low − non-low，负值表示 CN-Low 更依赖目标。筛选分别对 Pearson/Wilcoxon 作 BH 校正，原始 Rank 按原代码保留；新增 **Eligible_Rank** 只在 Wilcoxon_FDR 非 NA 的基因中按既有排序编号。VPS4A 原始 Rank=276，Eligible_Rank=1，P/FDR/Delta 均未改变。方法和限制见 [ANALYSIS_METHODS](docs/ANALYSIS_METHODS.md)。
 
 ```text
 data/raw/depmap/26Q1/                    原始导出，内容不变
@@ -66,3 +66,5 @@ docs/                                   设置、方法、来源和准备报告
 Python 使用 C 盘现有 Python 3.12，依赖放入项目 `.runtime`。不要调用 Windows Store 的 python/python3 stub。按 [DATA_SETUP](docs/DATA_SETUP.md) 执行发现、下载和预处理；不要并发启动两个写同一 manifest 的下载器。项目移动后重建 DuckDB views。
 
 仅提交代码、配置、文档、manifest 和 VPS4B/VPS4A 示例结果，单文件不得超过 50 MB。代码使用 MIT License；数据使用条款独立适用。
+
+GDC current **DR46 complete**：RNA 11,505/11,505、CN 11,339/11,339；85 项身份/数值/校验检查通过。完整 RNA/CN Parquet 与 DuckDB views 已生成。VPS4B/VPS4A 最新 TCGA 模块结果见 [案例 Summary](results/VPS4B_VPS4A/Summary/VPS4B_VPS4A_Summary.md)。

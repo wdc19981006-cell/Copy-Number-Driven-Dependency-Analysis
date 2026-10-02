@@ -131,5 +131,26 @@
     "wall_seconds": 5.141,
     "approx_peak_RSS_MiB": 333.23,
     "log": "logs\\VPS4B_VPS4A_tcga_cna_prevalence.log"
+  },
+  {
+    "mode": "tcga_cn_landscape",
+    "exit_code": 0,
+    "wall_seconds": 13.281,
+    "approx_peak_RSS_MiB": 710.3,
+    "log": "logs\\VPS4B_VPS4A_tcga_cn_landscape.log"
+  },
+  {
+    "mode": "tcga_cn_expression",
+    "exit_code": 0,
+    "wall_seconds": 10.219,
+    "approx_peak_RSS_MiB": 1267.03,
+    "log": "logs\\VPS4B_VPS4A_tcga_cn_expression.log"
+  },
+  {
+    "mode": "tcga_cna_prevalence",
+    "exit_code": 0,
+    "wall_seconds": 4.609,
+    "approx_peak_RSS_MiB": 429.68,
+    "log": "logs\\VPS4B_VPS4A_tcga_cna_prevalence.log"
   }
 ]

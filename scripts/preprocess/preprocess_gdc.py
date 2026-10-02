@@ -8,6 +8,10 @@ import json
 import logging
 import os
 import sys
+import time
+from contextlib import contextmanager
+from collections import deque
+from concurrent.futures import ThreadPoolExecutor
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
 from scripts.utils.common import ROOT,setup,write_json,now,hashes
 from scripts.utils.gdc import RAW,PROCESSED,local_path,init_dirs,runtime_path,manifest_path
@@ -15,12 +19,41 @@ import numpy as np
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
+import pyarrow.csv as pacsv
+import pyarrow.compute as pc
 import duckdb
 
 VERSION='gdc-DR46-v1'
 IDMAP={'SampleID':'sample_id','SampleBarcode':'sample','AliquotID':'aliquot_id',
        'AliquotBarcode':'aliquot','CaseID':'case_id','CaseBarcode':'case',
        'ProjectID':'project_id','SampleType':'sample_type','FileID':'file_id'}
+
+
+@contextmanager
+def etl_lock():
+    """Serialize writers; a resumable pipeline may reuse an earlier RNA ETL."""
+    path=PROCESSED/'etl.lock'
+    with path.open('a+b') as handle:
+        if path.stat().st_size==0:handle.write(b'0');handle.flush()
+        waited=0
+        while True:
+            handle.seek(0)
+            try:
+                if os.name=='nt':
+                    import msvcrt
+                    msvcrt.locking(handle.fileno(),msvcrt.LK_NBLCK,1)
+                else:
+                    import fcntl
+                    fcntl.flock(handle.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
+                break
+            except OSError:
+                if waited%60==0:logging.info('Waiting for this project ETL writer to finish; outputs will be verified/reused')
+                time.sleep(1);waited+=1
+        try:yield
+        finally:
+            handle.seek(0)
+            if os.name=='nt':msvcrt.locking(handle.fileno(),msvcrt.LK_UNLCK,1)
+            else:fcntl.flock(handle.fileno(),fcntl.LOCK_UN)
 
 
 def selections(kind):
@@ -83,9 +116,10 @@ def write_wide(dataset,rows,genes,values,stamp,transform=None,workflow=False):
     target=PROCESSED/f'{dataset}.parquet'
     temp=target.with_suffix('.parquet.part')
     missing=0
+    chunk_rows=4096 if workflow else 1024
     with pq.ParquetWriter(temp,schema,compression='zstd',compression_level=6) as writer:
-        for begin in range(0,len(rows),1024):
-            end=min(len(rows),begin+1024)
+        for begin in range(0,len(rows),chunk_rows):
+            end=min(len(rows),begin+chunk_rows)
             block=np.asarray(values[begin:end,:len(genes)])
             if transform: block=transform(block)
             missing+=int(np.isnan(block).sum())
@@ -93,13 +127,13 @@ def write_wide(dataset,rows,genes,values,stamp,transform=None,workflow=False):
             if workflow: arrays.append(pa.array([r['workflow'] for r in rows[begin:end]],type=pa.string()))
             arrays.extend(pa.array(block[:,j],from_pandas=True) for j in range(len(genes)))
             table=pa.Table.from_arrays(arrays,schema=schema)
-            writer.write_table(table,row_group_size=1024)
+            writer.write_table(table,row_group_size=chunk_rows)
             del table,arrays,block
             logging.info('%s Parquet rows %s/%s',dataset,end,len(rows))
     temp.replace(target)
     pq.write_table(pa.Table.from_pandas(genes,preserve_index=False),PROCESSED/f'{dataset}.genes.parquet',compression='zstd')
     return register(dataset,stamp,{'rows':len(rows),'genes':len(genes),'missing_cells':missing,
-          'compression':'ZSTD','orientation':'samples/aliquots x genes','parsed_all_inputs':True})
+          'compression':'ZSTD','orientation':'samples/aliquots x genes','parsed_all_inputs':True,'row_group_size':chunk_rows})
 
 
 def rna_frame(path):
@@ -112,6 +146,38 @@ def rna_frame(path):
     return genes,summary
 
 
+def rna_arrow_frame(path):
+    """Vectorized ETL reader; independent pandas reader remains for validation."""
+    skip=0
+    with path.open('r',encoding='utf-8') as source:
+        for line in source:
+            if not line.startswith('#'):break
+            skip+=1
+    fields=['gene_id','gene_name','gene_type','unstranded','tpm_unstranded','fpkm_unstranded','fpkm_uq_unstranded']
+    types={c:pa.string() if c.startswith('gene_') else pa.float64() for c in fields}
+    table=pacsv.read_csv(path,read_options=pacsv.ReadOptions(skip_rows=skip,use_threads=False),
+        parse_options=pacsv.ParseOptions(delimiter='\t'),
+        convert_options=pacsv.ConvertOptions(include_columns=fields,column_types=types,null_values=['','NA','N/A','n/a']))
+    mask=pc.starts_with(table['gene_id'],'ENSG')
+    return table.filter(mask),table.filter(pc.invert(mask))
+
+
+def source_frames(kind,reader,rows,workers=4):
+    """Read independent files concurrently with bounded prefetch; keep source order."""
+    iterator=iter(rows)
+    pending=deque()
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        for _ in range(workers*2):
+            row=next(iterator,None)
+            if row is None:break
+            pending.append((row,pool.submit(reader,local_path(kind,row))))
+        while pending:
+            row,future=pending.popleft()
+            yield row,future.result()
+            next_row=next(iterator,None)
+            if next_row is not None:pending.append((next_row,pool.submit(reader,local_path(kind,next_row))))
+
+
 def expression():
     rows,stamp=verified_inputs('rna')
     names={'unstranded':'TCGA_STAR_UnstrandedCounts','tpm_unstranded':'TCGA_STAR_TPM',
@@ -121,22 +187,21 @@ def expression():
         return
     first,_=rna_frame(local_path('rna',rows[0]))
     genes=first[['gene_id','gene_name','gene_type']].reset_index(drop=True)
-    baseline=genes.gene_id.to_numpy()
+    baseline=pa.array(genes.gene_id,type=pa.string())
     work=PROCESSED/'_work';work.mkdir(parents=True,exist_ok=True)
     mmaps={field:np.memmap(work/f'{field}.mmap',mode='w+',dtype=np.float64,shape=(len(rows),len(genes))) for field in names}
     stats=[]
-    for index,row in enumerate(rows):
-        frame,summary=rna_frame(local_path('rna',row))
-        if not np.array_equal(frame.gene_id.to_numpy(),baseline):
+    for index,(row,(frame,summary)) in enumerate(source_frames('rna',rna_arrow_frame,rows)):
+        if len(frame)!=len(baseline) or not pc.all(pc.equal(frame['gene_id'],baseline)).as_py():
             raise ValueError(f'Inconsistent STAR annotation/gene order in {row["file_id"]}; no genes silently dropped')
         for field,values in mmaps.items():
-            vector=frame[field].to_numpy(dtype=np.float64)
+            vector=frame[field].to_numpy(zero_copy_only=False)
             if not np.isfinite(vector).all() or (vector<0).any():
                 raise ValueError(f'STAR nonfinite/negative metric {field} in {row["file_id"]}')
             if field=='unstranded' and not np.equal(vector,np.floor(vector)).all():
                 raise ValueError('Non-integer raw count')
             values[index,:]=vector
-        stats.append({'FileID':row['file_id'],**{r.gene_id:float(r.unstranded) for r in summary.itertuples()}})
+        stats.append({'FileID':row['file_id'],**{r['gene_id']:float(r['unstranded']) for r in summary.to_pylist()}})
         if (index+1)%250==0: logging.info('STAR parsed %s/%s files',index+1,len(rows))
     for array in mmaps.values(): array.flush()
     pq.write_table(pa.Table.from_pylist(stats),PROCESSED/'TCGA_STAR_Library_Summary.parquet',compression='zstd')
@@ -161,6 +226,20 @@ def cn_frame(path):
     return frame
 
 
+def cn_arrow_frame(path):
+    skip=0
+    with path.open('r',encoding='utf-8') as source:
+        for line in source:
+            if not line.startswith('#'):break
+            skip+=1
+    fields=['gene_id','gene_name','chromosome','start','end','copy_number']
+    types={c:pa.string() if c in {'gene_id','gene_name','chromosome'} else pa.int64() if c in {'start','end'} else pa.float64() for c in fields}
+    table=pacsv.read_csv(path,read_options=pacsv.ReadOptions(skip_rows=skip,use_threads=False),
+        parse_options=pacsv.ParseOptions(delimiter='\t'),convert_options=pacsv.ConvertOptions(include_columns=fields,column_types=types))
+    if pc.count_distinct(table['gene_id']).as_py()!=len(table):raise ValueError('Duplicate/null CN gene IDs')
+    return table
+
+
 def copy_number():
     rows,stamp=verified_inputs('cn')
     if ready('TCGA_GeneLevel_CN',stamp): return
@@ -172,13 +251,14 @@ def copy_number():
     indices,annotations={},[]
     baseline=None
     baseline_order=None
-    for i,row in enumerate(rows):
-        frame=cn_frame(local_path('cn',row))
-        if baseline is not None and np.array_equal(frame.gene_id.to_numpy(),baseline):
+    for i,(row,frame) in enumerate(source_frames('cn',cn_arrow_frame,rows)):
+        if baseline is not None and len(frame)==len(baseline) and pc.all(pc.equal(frame['gene_id'],baseline)).as_py():
             order=baseline_order
         else:
             order=[]
-            for item in frame[['gene_id','gene_name','chromosome','start','end']].itertuples(index=False,name=None):
+            columns=['gene_id','gene_name','chromosome','start','end']
+            for record in frame.select(columns).to_pylist():
+                item=tuple(record[c] for c in columns)
                 id=item[0]
                 if id not in indices:
                     if len(indices)>=capacity: raise ValueError('Gene union exceeds budgeted capacity; re-estimate space before expanding')
@@ -187,9 +267,9 @@ def copy_number():
                 order.append(indices[id])
             order=np.asarray(order)
             if baseline is None:
-                baseline=frame.gene_id.to_numpy()
+                baseline=frame['gene_id'].combine_chunks()
                 baseline_order=order
-        vector=pd.to_numeric(frame.copy_number,errors='raise').to_numpy(dtype=np.float64)
+        vector=frame['copy_number'].to_numpy(zero_copy_only=False)
         if np.isinf(vector).any() or (vector[~np.isnan(vector)]<0).any(): raise ValueError('Invalid copy-number values')
         matrix[i,order]=vector
         if (i+1)%250==0: logging.info('CN parsed %s/%s files',i+1,len(rows))
@@ -314,12 +394,13 @@ def main():
     parser.add_argument('--kinds',nargs='+',default=['rna','cn','segments','mutation'],choices=['rna','cn','segments','mutation'])
     args=parser.parse_args()
     setup('preprocess_gdc');init_dirs()
-    for kind in args.kinds:
-        if kind=='rna': expression()
-        elif kind=='cn': copy_number()
-        elif kind=='segments': long_table(kind,'TCGA_CN_Segments')
-        elif kind=='mutation': long_table(kind,'TCGA_Masked_Somatic_Mutation')
-    print('Current database complete:',database())
+    with etl_lock():
+        for kind in args.kinds:
+            if kind=='rna': expression()
+            elif kind=='cn': copy_number()
+            elif kind=='segments': long_table(kind,'TCGA_CN_Segments')
+            elif kind=='mutation': long_table(kind,'TCGA_Masked_Somatic_Mutation')
+        print('Current database processed:',database())
 
 
 if __name__=='__main__':

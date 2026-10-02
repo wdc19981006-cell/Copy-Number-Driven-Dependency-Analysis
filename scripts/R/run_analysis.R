@@ -40,6 +40,7 @@ run_metadata <- list(geneA=GENE_A,geneB=GENE_B,DepMap_release="26Q1",R_version=a
  bootstrap=BOOT_R,min_group_n=MIN_N,seed=1234,export_completeness="All supplied gene columns; full-release completeness unverified.",
  source_sha256=jsonlite::fromJSON(file.path(PROJECT_ROOT,"docs/R_CORE_PROVENANCE.json"))$input_sha256,
  input_manifest_sha256=digest::digest(file=file.path(PROJECT_ROOT,"data/manifests/depmap_26Q1_manifest.csv"),algo="sha256"))
+run_metadata$tcga_layers<-list(current="GDC DR46",reference="PanCanAtlas/Xena GISTIC; separate from current")
 jsonlite::write_json(run_metadata,file.path(RESULT_ROOT,"Summary/Analysis_Metadata.json"),pretty=TRUE,auto_unbox=TRUE)
 fun <- list(qc=run_qc,depmap_cn_expression=run_cn_expression,genomewide_dependency=run_genomewide,
  targeted_dependency=run_targeted,lineage_dependency=run_lineage,adjusted_dependency=run_adjusted,

@@ -82,6 +82,7 @@ write_case_summary <- function(){
  if(!is.null(candidates)&&nrow(candidates)){
   for(n in names(candidates))add("Genomewide",n,candidates[[n]][1])
   lines<-c(lines,"",paste(GENE_B,"rank =",candidates$Rank,"; delta median =",signif(candidates$Delta_median,5),"; Wilcoxon P =",signif(candidates$Wilcoxon_P,5),"; FDR =",signif(candidates$Wilcoxon_FDR,5)))
+  if("Eligible_Rank" %in% names(candidates))lines<-c(lines,paste("Eligible_Rank =",candidates$Eligible_Rank,"(non-NA Wilcoxon_FDR genes in the original sorted order; original Rank/P/FDR/effects unchanged)."))
   complete<-read_if(file.path(out_dir("genomewide_dependency"),"GenomeWide_Dependency.csv"))
   if(!is.null(complete)){
    untested<-sum(is.na(complete$Wilcoxon_FDR));preceding<-sum(is.na(complete$Wilcoxon_FDR)&complete$Rank<candidates$Rank[1])
@@ -106,6 +107,16 @@ write_case_summary <- function(){
  if(!is.null(rev))for(i in seq_len(nrow(rev))){for(n in names(rev))add(paste("Direction",rev$direction[i]),n,rev[[n]][i]);lines<-c(lines,"",paste(rev$direction[i],rev$geneA[i],"→",rev$geneB[i],"delta median",signif(rev$delta_median[i],5),"Pearson",signif(rev$pearson_r[i],5),"Wilcoxon P",signif(rev$wilcoxon_p[i],5)))}
  cov<-read_if(file.path(out_dir("cn_covariation"),paste0(GENE_A,"_CN_Covariation.csv")))
  if(!is.null(cov)){hit<-cov[Gene==GENE_B];for(n in names(hit))if(nrow(hit))add("CN covariation candidate",n,hit[[n]][1]);lines<-c(lines,"","CN covariation is an association/co-deletion signal; it does not establish physical proximity or causality.")}
+ landscape<-read_if(file.path(out_dir("tcga"),"TCGA_CN_Landscape.csv"))
+ if(!is.null(landscape)){
+  add("TCGA current DR46","CN_samples",nrow(landscape));add("TCGA current DR46","CN_finite_samples",sum(is.finite(landscape$Value)))
+  lines<-c(lines,"",paste("GDC current DR46 CN landscape:",nrow(landscape),"unique selected samples; finite gene CN",sum(is.finite(landscape$Value)),"; cancer types",length(unique(landscape$CancerType)),". One selected CN workflow per sample; no reference fallback."))
+ }
+ tcga<-read_if(file.path(out_dir("tcga"),"TCGA_CN_Expression_Statistics.csv"))
+ if(!is.null(tcga)){
+  for(n in names(tcga))add("TCGA current DR46 CN-expression",n,tcga[[n]][1])
+  lines<-c(lines,paste("GDC current DR46 CN-expression: matched N",tcga$N,"; Pearson",signif(tcga$Pearson_r,6),"P",signif(tcga$Pearson_P,5),"; Spearman",signif(tcga$Spearman_rho,6),"P",signif(tcga$Spearman_P,5),". Exact sample UUID join, one representative RNA aliquot per sample, audit retained; RNA is log2(TPM+1)."))
+ }
  runs<-read_if(file.path(summary_dir,"Module_Runs.csv"));if(!is.null(runs)){lines<-c(lines,"","Module status (latest per mode):")
   latest<-runs[!duplicated(mode,fromLast=TRUE)];for(i in seq_len(nrow(latest)))lines<-c(lines,paste0("- ",latest$mode[i],": ",latest$status[i],if(is.na(latest$detail[i])) "." else paste0(". ",latest$detail[i])))}
  lines<-c(lines,"","These are observational cell-line associations. Lineage adjustment reduces measured lineage confounding; it does not establish a causal synthetic-lethal mechanism or clinical benefit.")

@@ -15,6 +15,7 @@ Matched CN-NonLow N = 782
 Matched CN-Low N = 76
 
 VPS4A rank = 276 ; delta median = -0.56074 ; Wilcoxon P = 1.1534e-22 ; FDR = 2.1056e-18
+Eligible_Rank = 1 (non-NA Wilcoxon_FDR genes in the original sorted order; original Rank/P/FDR/effects unchanged).
 The supplied setorder() places NA FDR first: 275 untested rows precede this candidate. Original Rank is retained unchanged. The candidate has the minimum eligible-test FDR: TRUE
 
 CN_vs_expression Pearson 0.45427 P 2.3042e-57 ; Spearman 0.55246 P 2.6288e-89 ; N 1105
@@ -46,18 +47,21 @@ reverse VPS4A → VPS4B delta median 0.0040105 Pearson 0.24466 Wilcoxon P 0.9459
 
 CN covariation is an association/co-deletion signal; it does not establish physical proximity or causality.
 
+GDC current DR46 CN landscape: 11339 unique selected samples; finite gene CN 11330 ; cancer types 33 . One selected CN workflow per sample; no reference fallback.
+GDC current DR46 CN-expression: matched N 10542 ; Pearson 0.223246 P 3.4073e-119 ; Spearman 0.236553 P 5.266e-134 . Exact sample UUID join, one representative RNA aliquot per sample, audit retained; RNA is log2(TPM+1).
+
 Module status (latest per mode):
 - genomewide_dependency: completed.
 - lineage_dependency: completed.
 - reverse_dependency: completed.
 - cn_covariation: completed.
-- tcga_cn_landscape: skipped. TCGA module skipped because current GDC data are not ready.
-- tcga_cn_expression: skipped. TCGA module skipped because current GDC data are not ready.
 - qc: completed.
 - depmap_cn_expression: completed.
 - mutation_dependency: completed.
 - adjusted_dependency: completed.
 - targeted_dependency: completed.
+- tcga_cn_landscape: completed.
+- tcga_cn_expression: completed.
 - tcga_cna_prevalence: completed.
 
 These are observational cell-line associations. Lineage adjustment reduces measured lineage confounding; it does not establish a causal synthetic-lethal mechanism or clinical benefit.

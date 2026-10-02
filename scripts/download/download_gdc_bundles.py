@@ -8,7 +8,7 @@ from pathlib import Path
 import argparse, csv, json, subprocess, sys, tarfile, logging, time, hashlib, shutil
 from concurrent.futures import ThreadPoolExecutor,as_completed
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
-from scripts.utils.common import ROOT,setup,now,curl_binary,fetch_text
+from scripts.utils.common import ROOT,setup,now,curl_binary,fetch_text,hashes,write_json
 from scripts.utils.gdc import RAW,API,local_path,manifest_path
 from scripts.download.download_gdc_api import base,save_manifest,summary,finalize
 
@@ -22,7 +22,7 @@ def transfer(kind,batch,number):
   result=subprocess.run([curl_binary(),'--fail','--location','--silent','--show-error','--connect-timeout','30',
    '--max-time','1800','--retry','4','--retry-delay','3','--retry-all-errors','--request','POST','--header','Content-Type: application/json',
    '--data-binary','@'+payload.relative_to(RAW).as_posix(),'--output',archive.relative_to(RAW).as_posix(),API+'/data'],
-   cwd=str(RAW),stdout=output,stderr=subprocess.STDOUT)
+   cwd=str(RAW),stdout=output,stderr=subprocess.STDOUT,creationflags=subprocess.CREATE_NO_WINDOW if sys.platform=='win32' else 0)
  if result.returncode:raise RuntimeError(f'{kind} archive {number}: curl exit {result.returncode}; retained {archive.name}')
  expected={r['file_id']:r for r in batch};found={};results=[]
  with tarfile.open(archive,'r|gz') as tar:
@@ -63,7 +63,7 @@ def main():
  manifest=manifest_path()
  if manifest.exists():
   with manifest.open(encoding='utf-8',newline='') as f:records={r['file_id']:r for r in csv.DictReader(f)}
- tasks=[]
+ tasks=[];migrations=[]
  for kind in args.kinds:
   rows=json.loads((RAW/f'metadata/{kind}_selected.json').read_text(encoding='utf-8'))
   rows=list({r['file_id']:r for r in rows}.values());pending=[]
@@ -72,13 +72,26 @@ def main():
    previous=records.get(row['file_id'],{})
    curl_part=path.with_name(path.name+'.curl.part')
    if path.exists() or (curl_part.exists() and curl_part.stat().st_size==int(row['file_size'])):
-    if path.exists() and previous.get('status')=='verified' and path.stat().st_size==int(row['file_size']):continue
+    if path.exists() and previous.get('status')=='verified' and path.stat().st_size==int(row['file_size']):
+     if not previous.get('publisher_md5'):
+      sha,md5=hashes(path)
+      if md5!=row['md5sum'] or sha!=previous.get('SHA256') or md5!=previous.get('MD5'):raise ValueError('Legacy verified record does not match actual pinned checksums; raw preserved')
+      previous['publisher_md5']=row['md5sum'];previous['release']='46.0'
+      migrations.append({'file_id':row['file_id'],'kind':kind,'publisher_md5':row['md5sum'],'method':'Missing legacy publisher field filled only after actual raw MD5/SHA256 matches both prior record and pinned official metadata; no redownload'})
+      logging.info('Restored missing legacy publisher MD5 after actual checksum verification: %s',row['file_id'])
+     if previous['publisher_md5']!=row['md5sum']:raise ValueError('Manifest publisher checksum differs from pinned selected metadata')
+     continue
     record=finalize(kind,row,records)
     if record['status']!='verified':raise ValueError('Existing raw integrity failure; will not overwrite')
    else:pending.append(row)
   if args.limit:pending=pending[:args.limit]
   for number,start in enumerate(range(0,len(pending),args.batch_size)):tasks.append((kind,pending[start:start+args.batch_size],number))
  if sum(sum(r['file_size'] for r in batch) for _,batch,_ in tasks)>shutil.disk_usage(ROOT).free*.8:raise ValueError('Insufficient disk reserve')
+ if migrations:
+  from scripts.utils.gdc import runtime_path
+  target=runtime_path('gdc_manifest_migrations.json')
+  audit=json.loads(target.read_text(encoding='utf-8')) if target.exists() else {'migrations':[]}
+  audit['migrations'].extend(migrations);audit['updated_at']=now();write_json(target,audit)
  save_manifest(records);summary(records)
  failed=[]
  with ThreadPoolExecutor(max_workers=args.workers) as pool:

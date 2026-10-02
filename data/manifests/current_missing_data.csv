@@ -1,6 +1,4 @@
 dataset,status,remaining_files,note
-rna,in_progress,2,See live pipeline state and UUID manifest
-cn,in_progress,10520,See live pipeline state and UUID manifest
 DepMap full somatic variants,not_supplied,unknown,Optional extension; no full official export acquired
 DepMap fusion supplement,not_supplied,unknown,Optional extension; no full official export acquired
 DepMap all-gene stranded expression,not_supplied,unknown,Optional extension; no full official export acquired

@@ -1,0 +1,79 @@
+{
+  "created_at": "2026-10-02T20:05:27+08:00",
+  "files": 11505,
+  "genes": 60660,
+  "unique_samples": 11370,
+  "unique_aliquots": 11505,
+  "datasets": {
+    "TCGA_STAR_UnstrandedCounts": {
+      "created_at": "2026-10-02T19:52:26+08:00",
+      "release": "46.0",
+      "processor_version": "gdc-DR46-v1",
+      "source_set_sha256": "eafdf12a1958db896f3e34493b29ec4cf2e74b15bafe543ab48e8164bf1b07c3",
+      "SHA256": "24ed1d5749233431970143854b8e52a68142d72d9f577a2e5b275d5853256e97",
+      "bytes": 930848580,
+      "rows": 11505,
+      "genes": 60660,
+      "missing_cells": 0,
+      "compression": "ZSTD",
+      "orientation": "samples/aliquots x genes",
+      "parsed_all_inputs": true
+    },
+    "TCGA_STAR_TPM": {
+      "created_at": "2026-10-02T19:55:50+08:00",
+      "release": "46.0",
+      "processor_version": "gdc-DR46-v1",
+      "source_set_sha256": "eafdf12a1958db896f3e34493b29ec4cf2e74b15bafe543ab48e8164bf1b07c3",
+      "SHA256": "e1923bb4d64bb67d921166a0360bdff998a4b4f498850251c9ee5fa3234e3ebc",
+      "bytes": 2682181013,
+      "rows": 11505,
+      "genes": 60660,
+      "missing_cells": 0,
+      "compression": "ZSTD",
+      "orientation": "samples/aliquots x genes",
+      "parsed_all_inputs": true
+    },
+    "TCGA_STAR_log2TPMplus1": {
+      "created_at": "2026-10-02T19:58:42+08:00",
+      "release": "46.0",
+      "processor_version": "gdc-DR46-v1",
+      "source_set_sha256": "eafdf12a1958db896f3e34493b29ec4cf2e74b15bafe543ab48e8164bf1b07c3",
+      "SHA256": "87ad62e1097dd6260752dbc24d19b41388d69c372503827b6e886ca209059a4c",
+      "bytes": 3493702851,
+      "rows": 11505,
+      "genes": 60660,
+      "missing_cells": 0,
+      "compression": "ZSTD",
+      "orientation": "samples/aliquots x genes",
+      "parsed_all_inputs": true
+    },
+    "TCGA_STAR_FPKM": {
+      "created_at": "2026-10-02T20:02:23+08:00",
+      "release": "46.0",
+      "processor_version": "gdc-DR46-v1",
+      "source_set_sha256": "eafdf12a1958db896f3e34493b29ec4cf2e74b15bafe543ab48e8164bf1b07c3",
+      "SHA256": "b47c03142e6cb14cb805214b6f786cee4a97d1b69199ca7553fa6ee0b3f467d8",
+      "bytes": 2527920671,
+      "rows": 11505,
+      "genes": 60660,
+      "missing_cells": 0,
+      "compression": "ZSTD",
+      "orientation": "samples/aliquots x genes",
+      "parsed_all_inputs": true
+    },
+    "TCGA_STAR_FPKMUQ": {
+      "created_at": "2026-10-02T20:05:19+08:00",
+      "release": "46.0",
+      "processor_version": "gdc-DR46-v1",
+      "source_set_sha256": "eafdf12a1958db896f3e34493b29ec4cf2e74b15bafe543ab48e8164bf1b07c3",
+      "SHA256": "16f4ed504de59760259f9f563efb7dedcbe3caac2645911b42cdd94d754889e7",
+      "bytes": 2539531741,
+      "rows": 11505,
+      "genes": 60660,
+      "missing_cells": 0,
+      "compression": "ZSTD",
+      "orientation": "samples/aliquots x genes",
+      "parsed_all_inputs": true
+    }
+  }
+}

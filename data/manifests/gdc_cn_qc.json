@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-10-02T20:08:59+08:00",
+  "files": 11339,
+  "genes": 60623,
+  "unique_samples": 11339,
+  "datasets": {
+    "TCGA_GeneLevel_CN": {
+      "created_at": "2026-10-02T20:08:57+08:00",
+      "release": "46.0",
+      "processor_version": "gdc-DR46-v1",
+      "source_set_sha256": "4a0865d2ad6dd1645bd1923cbd14fdb41e2dabeb514d7c44046dc1def2760cae",
+      "SHA256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63",
+      "bytes": 232306410,
+      "rows": 11339,
+      "genes": 60623,
+      "missing_cells": 50027665,
+      "compression": "ZSTD",
+      "orientation": "samples/aliquots x genes",
+      "parsed_all_inputs": true,
+      "row_group_size": 4096
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Current data sources
 
-As of 2026-10-02T19:03:52+08:00, all **13 user-supplied DepMap 26Q1 exports are active** and organized under `data/raw/depmap/26Q1/`. Before/after SHA256 checks verified unchanged content. No duplicate exports were present. Original names, dimensions, imported timestamps, raw paths and SHA256 are in [DepMap manifest](../data/manifests/depmap_26Q1_manifest.csv). Original download dates and publisher MD5 for these exports were not supplied; local SHA256 is a content fingerprint, not publisher verification.
+As of 2026-10-02T20:24:55+08:00, all **13 user-supplied DepMap 26Q1 exports are active** and organized under `data/raw/depmap/26Q1/`. Before/after SHA256 checks verified unchanged content. No duplicate exports were present. Original names, dimensions, imported timestamps, raw paths and SHA256 are in [DepMap manifest](../data/manifests/depmap_26Q1_manifest.csv). Original download dates and publisher MD5 for these exports were not supplied; local SHA256 is a content fingerprint, not publisher verification.
 
 | Active canonical file | Rows × columns including IDs | Unique models | Gene columns |
 |---|---:|---:|---:|
@@ -22,6 +22,6 @@ Exact ModelID overlaps: CN/Chronos **858**, CN/expression **1,105**, expression/
 
 The [official DepMap catalog](https://depmap.org/portal/api/no-captcha/download/files) selected Public 26Q1 in the acquisition snapshot. Initial official-file acquisition was skipped at the user's request when links required browser verification; these later local exports now satisfy the R inputs. Several supplied names contain `subsetted`; their completeness against official full files is unverified. Full somatic variant, fusion supplement and all-gene stranded expression were not supplied. Optional combined/array CN was unavailable in that catalog. No older release is substituted.
 
-TCGA current and reference: see [TCGA sources](TCGA_DATA_SOURCES.md) and [dated current preparation report](TCGA_CURRENT_REPORT.md). Current RNA/CN remain incomplete at this snapshot; reference GISTIC is available and explicitly labeled.
+TCGA current and reference: see [TCGA sources](TCGA_DATA_SOURCES.md) and [dated current preparation report](TCGA_CURRENT_REPORT.md). Current DR46 status: **complete**, validation **passed**; selected RNA 11,505/11,505, selected CN 11,339/11,339. Reference GISTIC remains separately available and explicitly labeled.
 
 Manifest scopes: `depmap_26Q1_manifest.csv` and `depmap_26Q1_local_qc.json` describe the current local exports; `gdc_*` are dated current snapshots; `data_manifest.csv`, `not_downloaded.csv`, `preparation_summary.json`, `depmap_26Q1_qc.json` and the initial preparation report describe the earlier official-download stage, not the current local-export state. [current_missing_data.csv](../data/manifests/current_missing_data.csv) provides the current missing-data summary. Ongoing GDC state lives in the ignored `raw/manifests/live` directory.

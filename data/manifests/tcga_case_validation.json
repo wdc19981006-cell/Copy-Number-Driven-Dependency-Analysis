@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-10-02T20:24:26+08:00",
+  "all_passed": true,
+  "current_release": "DR46",
+  "current_CN_samples": 11339,
+  "current_CN_finite_samples": 11330,
+  "matched_N": 10542,
+  "Pearson_r": 0.22324630047598001,
+  "Spearman_rho": 0.23655325440441052,
+  "max_absolute_CSV_rounding_difference": 5.773159728050814e-15,
+  "CSV_rounding_tolerance": {
+    "rtol": 1e-14,
+    "atol": 1e-14
+  },
+  "unique_sample_mapping": true,
+  "workflow_selection_matches_official_audit": true,
+  "RNA_representative_selection_validated": true,
+  "current_reference_separation": true,
+  "latest_TCGA_modes_completed": true
+}

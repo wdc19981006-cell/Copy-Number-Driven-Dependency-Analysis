@@ -16,6 +16,9 @@ tcga_gene <- function(dataset,layer="current"){
 run_tcga_landscape <- function(){
  if(!tcga_ready())return(skip_module("TCGA module skipped because current GDC data are not ready."))
  dat<-tcga_gene("cn");fwrite(dat,file.path(out_dir("tcga"),"TCGA_CN_Landscape.csv"))
+ if(anyDuplicated(dat$SampleID))stop("Duplicate selected CN sample UUID")
+ stat<-dat[,.(N_samples=.N,N_finite=sum(is.finite(Value)),CN_median=median(Value,na.rm=TRUE)),by=.(CancerType,Workflow,GDCRelease,DataLayer)]
+ fwrite(stat,file.path(out_dir("tcga"),"TCGA_CN_Landscape_Statistics.csv"))
  p<-ggplot(dat,aes(reorder(CancerType,Value,median,na.rm=TRUE),Value))+geom_boxplot(outlier.shape=NA)+coord_flip()+theme_classic()+labs(x=NULL,y="GDC gene-level copy number",title=paste(GENE_A,"GDC DR46 CN by cancer"))
  save_pdf(p,out_dir("tcga"),"TCGA_CN_Landscape",height=9)
 }
@@ -39,13 +42,13 @@ run_tcga_expression <- function(){
  ex[is.na(matches_CN_aliquot),matches_CN_aliquot:=FALSE]
  setorder(ex,SampleID,-matches_CN_aliquot,FileID)
  ex[,selected_for_sample_analysis:=!duplicated(SampleID)]
- fwrite(ex[,.(SampleID,AliquotID,FileID,matches_CN_aliquot,selected_for_sample_analysis)],file.path(out_dir("tcga"),"TCGA_RNA_Representative_Selection.csv"))
+ fwrite(ex[,.(SampleID,AliquotID,FileID,matches_CN_aliquot,selected_for_sample_analysis,GDCRelease="DR46",DataLayer="gdc_DR46")],file.path(out_dir("tcga"),"TCGA_RNA_Representative_Selection.csv"))
  ex<-ex[selected_for_sample_analysis==TRUE]
  dat<-inner_join(cn,ex,by="SampleID",suffix=c("_CN","_RNA")) %>% filter(is.finite(Value_CN),is.finite(Value_RNA))
  if(anyDuplicated(dat$SampleID))stop("Sample representative selection failed")
  fwrite(dat,file.path(out_dir("tcga"),"TCGA_CN_Expression_Samples.csv"))
  pe<-cor.test(dat$Value_CN,dat$Value_RNA);sp<-cor.test(dat$Value_CN,dat$Value_RNA,method="spearman",exact=FALSE)
- fwrite(data.table(N=nrow(dat),Pearson_r=unname(pe$estimate),Pearson_P=pe$p.value,Spearman_rho=unname(sp$estimate),Spearman_P=sp$p.value),file.path(out_dir("tcga"),"TCGA_CN_Expression_Statistics.csv"))
+ fwrite(data.table(N=nrow(dat),Pearson_r=unname(pe$estimate),Pearson_P=pe$p.value,Spearman_rho=unname(sp$estimate),Spearman_P=sp$p.value,GDCRelease="DR46",DataLayer="gdc_DR46"),file.path(out_dir("tcga"),"TCGA_CN_Expression_Statistics.csv"))
  p<-ggplot(dat,aes(Value_CN,Value_RNA))+geom_point(alpha=.25,size=.8)+geom_smooth(method="lm",se=FALSE)+theme_classic()+labs(x="GDC gene-level CN",y="log2(TPM + 1)",title=paste(GENE_A,"GDC DR46 CN-expression"))
  save_pdf(p,out_dir("tcga"),"TCGA_CN_Expression")
 }

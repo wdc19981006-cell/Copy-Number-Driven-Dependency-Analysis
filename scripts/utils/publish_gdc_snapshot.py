@@ -1,6 +1,6 @@
 """Explicitly publish a dated manifest/report snapshot; live jobs never call this."""
 from pathlib import Path
-import csv,json,sys,shutil,collections
+import csv,json,sys,shutil,collections,argparse,hashlib
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
 from scripts.utils.common import ROOT,now,write_json
 from scripts.utils.gdc import RAW,PROCESSED,manifest_path,report_path,runtime_path
@@ -9,32 +9,44 @@ def write(path,text):
  (ROOT/path).write_text(text.strip()+'\n',encoding='utf-8')
 
 def main():
+ parser=argparse.ArgumentParser();parser.add_argument('--allow-incomplete',action='store_true');args=parser.parse_args()
+ layers=json.loads(runtime_path('current_layer_status.json').read_text(encoding='utf-8'))
+ validation_path=runtime_path('gdc_validation_report.json')
+ validation=json.loads(validation_path.read_text(encoding='utf-8')) if validation_path.exists() else {}
+ if not args.allow_incomplete and (layers.get('current_status')!='complete' or not validation.get('all_passed')):
+  raise ValueError('Refusing to publish completion before successful current validation. Historical incomplete snapshots require explicit --allow-incomplete.')
  stamp=now();target=ROOT/'data/manifests'
  # Atomic live replacements allow this read to obtain one complete generation.
  content=manifest_path().read_bytes()
+ if not args.allow_incomplete and hashlib.sha256(content).hexdigest()!=validation.get('input_manifest_sha256'):raise ValueError('Manifest differs from the successfully validated generation')
  rows=list(csv.DictReader(content.decode('utf-8').splitlines()))
- (target/'gdc_data_manifest.csv').write_bytes(content)
  counts={}
  for kind in ['rna','cn','segments','mutation']:
   group=[r for r in rows if r['kind']==kind];good=[r for r in group if r['status']=='verified']
   counts[kind]={'files':len(group),'verified':len(good),'selected_bytes':sum(int(r['file_size']) for r in group),'verified_bytes':sum(int(r['file_size']) for r in good)}
+ if not args.allow_incomplete and any(v['files']!=v['verified'] for v in counts.values()):raise ValueError('Raw coverage incomplete despite layer flag')
+ (target/'gdc_data_manifest.csv').write_bytes(content)
  report={'created_at':stamp,'snapshot':True,'method':'Official GDC API multi-UUID POST / per-file fallback; official DTT attempted first','counts':counts,'status_counts':dict(collections.Counter(r['status'] for r in rows)),
   'failures':[{'kind':r['kind'],'file_id':r['file_id'],'status':r['status'],'error':r.get('error','')} for r in rows if r['status']!='verified'],
   'note':'Dated repository snapshot. Local current progress is in ignored raw/manifests/live; pending is not a permanent download error.'}
  write_json(target/'gdc_download_summary.json',report)
- for name in ['gdc_clinical_qc.json','gdc_segments_qc.json','gdc_mutation_qc.json','gdc_maf_identity_qc.json','gdc_rna_qc.json','gdc_cn_qc.json','gdc_validation_report.json']:
+ for name in ['gdc_clinical_qc.json','gdc_segments_qc.json','gdc_mutation_qc.json','gdc_maf_identity_qc.json','gdc_expression_qc.json','gdc_cn_qc.json','gdc_raw_integrity.json','gdc_manifest_migrations.json','gdc_validation_report.json']:
   source=report_path(name)
   if source.exists() and source!=target/name:shutil.copyfile(source,target/name)
- layers=json.loads(runtime_path('current_layer_status.json').read_text(encoding='utf-8'));layers['snapshot_at']=stamp
+ layers['snapshot_at']=stamp
  write_json(ROOT/'config/tcga_layers.json',layers)
  discovery=json.loads((RAW/'metadata/discovery_summary.json').read_text(encoding='utf-8'))
  clinical=json.loads((target/'gdc_clinical_qc.json').read_text(encoding='utf-8'))
  size=sum(p.stat().st_size for p in PROCESSED.rglob('*') if p.is_file())
  table='\n'.join(f"| {k} | {v['verified']:,} / {v['files']:,} | {v['verified_bytes']:,} / {v['selected_bytes']:,} |" for k,v in counts.items())
+ completed=layers['current_status']=='complete' and validation.get('all_passed',False)
+ processed_table='\n'.join(f"| {name} | {v['rows']:,} | {v.get('columns',v.get('genes',0)):,} | {v['bytes']:,} |" for name,v in validation.get('processed',{}).items())
+ progress_text='All selected raw files, complete RNA/CN ETL, DuckDB views and identity/numerical validation have completed. The current layer is available; case output status is determined by its latest R run.' if completed else 'Current preparation remains incomplete; this report is a dated snapshot, not a live counter.'
+ matrix_text='Full RNA/CN matrices have been generated and validated.' if completed else 'Full RNA/CN matrices remain pending while preparation is incomplete.'
  write('docs/TCGA_CURRENT_REPORT.md',f'''
 # GDC current preparation snapshot
 
-Snapshot: **{stamp}**. Current status: **{layers['current_status']}**. Download/ETL/validation continues locally; this report is not a live counter. The VPS4B/VPS4A example records the readiness at its run time.
+Snapshot: **{stamp}**. Current status: **{layers['current_status']}**. {progress_text}
 
 1. Official release: **46.0**, API version {discovery['api_version']}, tag {discovery['api_tag']}; query snapshot {discovery['created_at']}.
 2. TCGA projects: **{discovery['project_count']}**.
@@ -46,7 +58,7 @@ Snapshot: **{stamp}**. Current status: **{layers['current_status']}**. Download/
 
 5. Selected CN workflows: {json.dumps(discovery['cn_workflow_distribution'])}. Priority per sample UUID: ABSOLUTE LiftOver > ASCAT3 > AscatNGS > ASCAT2. A deterministic same-workflow aliquot/file tie break is audited.
 8. Clinical: **{clinical['clinical_cases']:,} cases**; {clinical['processed']['TCGA_Biospecimen']['rows']:,} biospecimen rows; {clinical['processed']['TCGA_Sample_Map']['rows']:,} sample/file map rows.
-9. Current processed directory at snapshot: **{size:,} bytes**. Segments: 1,070,293 rows; masked MAF: 2,570,542 rows. Full RNA/CN matrices remain pending while raw downloads are incomplete.
+9. Current processed directory at snapshot: **{size:,} bytes**. Segments: 1,070,293 rows; masked MAF: 2,570,542 rows. {matrix_text}
 10. Outstanding raw files: **{len(report['failures']):,}**. Status counts: {json.dumps(report['status_counts'])}. Complete UUID list is in [gdc_data_manifest.csv](../data/manifests/gdc_data_manifest.csv). Earlier DTT TLS errors, a truncated large bundle and a corrected live-tracking indentation error are retained in local logs; none is represented as a successful transfer. Verified raw was retained.
 11. Free D-drive space at snapshot: **{shutil.disk_usage(ROOT).free:,} bytes**. Initial conservative required estimate {discovery['required_bytes']:,} bytes was within 80% of initial free {discovery['free_bytes']:,} bytes; ongoing transfers also check remaining space.
 
@@ -55,7 +67,22 @@ Segments for 150 selected CN samples are not published in the queried source. 10
 Two file-level MAF biospecimen inconsistencies were found. Each source Tumor_Sample_UUID/barcode was resolved against the full official case hierarchy, with case/barcode validation; source tumor identity is canonical and the file API association is retained for audit. See [identity QC](../data/manifests/gdc_maf_identity_qc.json).
 
 Local continuation: `scripts/utils/complete_gdc_pipeline.py` resumes verified files, then performs complete ETL and numerical/identity validation. Progress: `data/raw/tcga/gdc_current_DR46/manifests/live/pipeline_status.json`; detail: `logs/gdc_pipeline.log`. A failed phase is recorded and can be resumed with the same script. Only successful validation marks current complete. Run `scripts/utils/publish_gdc_snapshot.py` explicitly to refresh repository snapshots, and rerun desired R TCGA modes to update example results. Do not run competing coordinators.
+
+Validation: **{'passed' if completed else 'pending/failed'}**; {len(validation.get('checks',[]))} recorded checks. Actual raw MD5/SHA256 audit, all selected RNA/CN identities, full biospecimen mapping, original CN workflow priority, source numerical values and exact log2(TPM+1) are checked; no reference substitution. See [validation report](../data/manifests/gdc_validation_report.json) and [raw integrity](../data/manifests/gdc_raw_integrity.json).
+
+| Processed dataset | Rows | Columns including identity fields | Bytes |
+|---|---:|---:|---:|
+{processed_table}
+
+Parquet is samples/aliquots × original gene IDs, ZSTD. STAR has five matrices: counts, TPM, FPKM, FPKM-UQ and log2(TPM+1), with gene annotation and N_* library summaries stored separately. CN is one selected workflow per sample. DuckDB contains views over these Parquet files, without duplicating matrices. RNA/CN do not silently collapse samples to patients.
 ''')
+ case_path=target/'tcga_case_validation.json'
+ if completed and case_path.exists():
+  case=json.loads(case_path.read_text(encoding='utf-8'))
+  if case.get('all_passed') and case.get('current_release')=='DR46':
+   path=ROOT/'docs/TCGA_CURRENT_REPORT.md'
+   with path.open('a',encoding='utf-8') as f:
+    f.write(f"\nVPS4B/VPS4A current modules completed under R 4.5.0; independently checked at {case['checked_at']}. CN landscape: {case['current_CN_samples']:,} unique selected samples, {case['current_CN_finite_samples']:,} finite VPS4B CN values. CN-expression: {case['matched_N']:,} unique sample UUID pairs, Pearson r={case['Pearson_r']:.12g}, Spearman rho={case['Spearman_rho']:.12g}. Source workflow/file selection, RNA representatives and current/reference separation passed [case validation](../data/manifests/tcga_case_validation.json). PanCanAtlas GISTIC prevalence remains a separate reference module.\n")
  write('docs/TCGA_DATA_SOURCES.md',f'''
 # TCGA source layers
 
@@ -84,7 +111,7 @@ Exact ModelID overlaps: CN/Chronos **858**, CN/expression **1,105**, expression/
 
 The [official DepMap catalog](https://depmap.org/portal/api/no-captcha/download/files) selected Public 26Q1 in the acquisition snapshot. Initial official-file acquisition was skipped at the user's request when links required browser verification; these later local exports now satisfy the R inputs. Several supplied names contain `subsetted`; their completeness against official full files is unverified. Full somatic variant, fusion supplement and all-gene stranded expression were not supplied. Optional combined/array CN was unavailable in that catalog. No older release is substituted.
 
-TCGA current and reference: see [TCGA sources](TCGA_DATA_SOURCES.md) and [dated current preparation report](TCGA_CURRENT_REPORT.md). Current RNA/CN remain incomplete at this snapshot; reference GISTIC is available and explicitly labeled.
+TCGA current and reference: see [TCGA sources](TCGA_DATA_SOURCES.md) and [dated current preparation report](TCGA_CURRENT_REPORT.md). Current DR46 status: **{layers['current_status']}**, validation **{'passed' if completed else 'pending/failed'}**; selected RNA {counts['rna']['verified']:,}/{counts['rna']['files']:,}, selected CN {counts['cn']['verified']:,}/{counts['cn']['files']:,}. Reference GISTIC remains separately available and explicitly labeled.
 
 Manifest scopes: `depmap_26Q1_manifest.csv` and `depmap_26Q1_local_qc.json` describe the current local exports; `gdc_*` are dated current snapshots; `data_manifest.csv`, `not_downloaded.csv`, `preparation_summary.json`, `depmap_26Q1_qc.json` and the initial preparation report describe the earlier official-download stage, not the current local-export state. [current_missing_data.csv](../data/manifests/current_missing_data.csv) provides the current missing-data summary. Ongoing GDC state lives in the ignored `raw/manifests/live` directory.
 ''')

@@ -21,6 +21,10 @@ move_output <- function(folder,old,new){
 }
 finalize_outputs <- function(mode){
  prefix<-paste0(GENE_A,"_",GENE_B)
+ if(mode=="genomewide_dependency"){
+  status<-system2("C:/Python312/python.exe",c(shQuote(file.path(PROJECT_ROOT,"scripts/utils/add_eligible_rank.py")),"--case",prefix,"--candidate",GENE_B))
+  if(status!=0)stop("Eligible_Rank decoration failed")
+ }
  if(mode=="depmap_cn_expression"){
   f<-out_dir("cn_expression");s<-fread(file.path(f,"CN_Expression_Statistics.csv"))
   cn<-read_gene(FILES$cn,GENE_A,"CN_relative");ex<-read_gene(FILES$expression,GENE_A,"Expression_A");dep<-read_gene(FILES$chronos,GENE_B,"Chronos_B")

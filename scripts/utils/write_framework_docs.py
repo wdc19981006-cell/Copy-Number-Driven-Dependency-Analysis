@@ -55,7 +55,7 @@ DepMap **26Q1** 有 13 类本地导出。Chronos 为 1,208 × 18,531 基因，CN
 
 保留 `CN_relative`，计算 `CN_log=log2(CN_relative+1)`。CN-Low `<0.585`；Deep `<0.35`；Shallow `[0.35,0.585)`。这些是 **analysis-defined thresholds**，不是 DepMap 官方 GISTIC 分类。
 
-按用户提供的统计核心，连续 dependency 相关与连续调整回归使用 **CN_log**；CN-expression 和 covariation 使用 **CN_relative**。Delta median = low − non-low，负值表示 CN-Low 更依赖目标。筛选分别对 Pearson/Wilcoxon 作 BH 校正，排名按 Wilcoxon FDR、Delta median 排序。方法和限制见 [ANALYSIS_METHODS](docs/ANALYSIS_METHODS.md)。
+按用户提供的统计核心，连续 dependency 相关与连续调整回归使用 **CN_log**；CN-expression 和 covariation 使用 **CN_relative**。Delta median = low − non-low，负值表示 CN-Low 更依赖目标。筛选分别对 Pearson/Wilcoxon 作 BH 校正，原始 Rank 按原代码保留；新增 **Eligible_Rank** 只在 Wilcoxon_FDR 非 NA 的基因中按既有排序编号。VPS4A 原始 Rank=276，Eligible_Rank=1，P/FDR/Delta 均未改变。方法和限制见 [ANALYSIS_METHODS](docs/ANALYSIS_METHODS.md)。
 
 ```text
 data/raw/depmap/26Q1/                    原始导出，内容不变
@@ -121,6 +121,24 @@ project_root='D:/CodexProjects/Copy Number–Driven Dependency Analysis'
 ```
 
 processed 由脚本生成，不与 raw 混放。单基因查询读取 requested columns / row groups；DuckDB 仅保存 views。没有 raw 数据不要声称复现完成；新的合法导出可能改变本例样本数和结果。
+
+本项目已有完整 current 数据。继续现有清单时只运行下面的协调入口，不再执行发现或重下全量 RNA/CN。协调入口保留已校验 raw，补齐缺失文件，完成 ETL 和 validation；拒绝竞争协调器。
+
+```bash
+/c/Python312/python.exe "$project_root/scripts/utils/complete_gdc_pipeline.py"
+```
+
+确认 RNA/CN verified == selected 且 validation 全部通过后，发布快照并仅重跑需要更新的 TCGA 模块：
+
+```bash
+/c/Python312/python.exe "$project_root/scripts/utils/publish_gdc_snapshot.py"
+/d/R/R-4.5.0/bin/Rscript.exe --version
+/d/R/R-4.5.0/bin/Rscript.exe scripts/R/run_analysis.R --project . --mode tcga_cn_landscape --geneA VPS4B --geneB VPS4A
+/d/R/R-4.5.0/bin/Rscript.exe scripts/R/run_analysis.R --project . --mode tcga_cn_expression --geneA VPS4B --geneB VPS4A
+/d/R/R-4.5.0/bin/Rscript.exe scripts/R/run_analysis.R --project . --mode tcga_cna_prevalence --geneA VPS4B --geneB VPS4A
+```
+
+前两项使用 GDC current DR46；最后一项继续使用明确标记的 PanCanAtlas GISTIC reference。无需重跑已完成的 DepMap 分析。
 ''')
  write('docs/ANALYSIS_METHODS.md','''
 # Statistical methods
@@ -131,7 +149,7 @@ CN_relative is the supplied WGS value; CN_log=log2(CN_relative+1). Analysis-defi
 
 CN-expression uses relative CN and original expression. Targeted CN-dependency uses CN_log, matching the supplied code. Pearson and Spearman (exact=FALSE) are reported. Two-sided Wilcoxon uses exact=FALSE and R default continuity correction. Chronos is gene effect, with more negative scores indicating greater dependency. Three-group comparison requires all groups >=3; optional pairwise tests report raw P and separate BH-FDR.
 
-The genome-wide function tests every supplied Chronos gene column. Pearson requires >=10 finite models, uses the correlation t statistic (df=n−2), and retains the supplied undefined P at absolute r=1. Group effects require each group >=min_group_n. Delta mean/median are low minus non-low. Pearson and Wilcoxon have separate complete-screen BH families. Rank sorts Wilcoxon FDR then delta median, retaining the supplied NA ordering; rank is not a causal-priority score.
+The genome-wide function tests every supplied Chronos gene column. Pearson requires >=10 finite models, uses the correlation t statistic (df=n−2), and retains the supplied undefined P at absolute r=1. Group effects require each group >=min_group_n. Delta mean/median are low minus non-low. Pearson and Wilcoxon have separate complete-screen BH families. Rank sorts Wilcoxon FDR then delta median, retaining the supplied NA ordering. Eligible_Rank numbers only non-NA Wilcoxon_FDR rows in that existing sorted order; excluded rows remain NA. The adapter adds this column without changing any original numeric CSV tokens, verified against the initial committed CSVs. Neither rank is a causal-priority score.
 
 Lineage groups each require >=3. Bootstrap independently resamples both groups and takes percentile 95% CI for median-low minus median-nonlow, default 1000 draws and seed 1234. BH applies to eligible lineages. Forest magnitude represents effect size, not P value.
 
@@ -139,7 +157,7 @@ Adjusted models exactly match the source: Chronos ~ CN_log + OncotreeLineage; Ch
 
 Additional mutation modes define positive finite mutation values as Mutant, zero as WT, and exclude missing values. Damaging and hotspot remain separate. Missing columns do not imply WT; groups below three skip. BH applies to eligible damaging/hotspot comparisons. CN covariation uses relative CN, Pearson (>=10 finite values), and BH across supplied CN genes; self-correlation remains in CSV with undefined r=1 P, excluded from the top-other-gene plot.
 
-TCGA current uses source total gene CN and STAR log2(TPM+1). For sample-level CN-expression, one RNA aliquot is selected per exact sample UUID: prefer the chosen CN aliquot, then lexical RNA file UUID; selection and excluded alternatives are audited. Raw aliquots remain intact. Five-state prevalence uses explicitly labeled reference GISTIC, with denominators of tumor samples having a finite gene value. These are sample-level prevalences. Aliquot/sample/file provenance remains available; no patient-level average is silently created. Current modes remain unverified on real RNA/CN until full current preparation completes.
+TCGA current uses source total gene CN and STAR log2(TPM+1). For sample-level CN-expression, one RNA aliquot is selected per exact sample UUID: prefer the chosen CN aliquot, then lexical RNA file UUID; selection and excluded alternatives are audited. Raw aliquots remain intact. Five-state prevalence uses explicitly labeled reference GISTIC, with denominators of tumor samples having a finite gene value. These are sample-level prevalences. Aliquot/sample/file provenance remains available; no patient-level average is silently created. Actual current validation and readiness are recorded in TCGA_CURRENT_REPORT.md and gdc_validation_report.json.
 
 Observational associations do not establish a causal synthetic-lethal mechanism or clinical benefit. Lineage adjustment addresses measured lineage differences; CN covariation does not establish chromosomal adjacency or causality. Insufficient groups, absent genes and unfinished current TCGA are explicitly recorded.
 ''')
@@ -213,5 +231,14 @@ Results are under results/VPS4B_VPS4A/. Each core module has its named subdirect
 
 Missing data or inadequate group sizes produce documented skips; they never produce fabricated values. Resource_Monitor records observed native process exits and approximate RSS, sampled every 0.5 s. No file above 50 MB is uploaded.
 ''')
+
+ layers=json.loads((ROOT/'config/tcga_layers.json').read_text(encoding='utf-8'))
+ validation=ROOT/'data/manifests/gdc_validation_report.json'
+ if layers.get('current_status')=='complete' and validation.exists():
+  report=json.loads(validation.read_text(encoding='utf-8'))
+  if report.get('all_passed'):
+   path=ROOT/'README.md'
+   with path.open('a',encoding='utf-8') as f:
+    f.write(f"\nGDC current **DR46 complete**：RNA 11,505/11,505、CN 11,339/11,339；{len(report['checks'])} 项身份/数值/校验检查通过。完整 RNA/CN Parquet 与 DuckDB views 已生成。VPS4B/VPS4A 最新 TCGA 模块结果见 [案例 Summary](results/VPS4B_VPS4A/Summary/VPS4B_VPS4A_Summary.md)。\n")
 
 if __name__=='__main__':main()

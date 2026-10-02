@@ -1,0 +1,23 @@
+{
+  "migrations": [
+    {
+      "file_id": "0000387a-9d49-410a-bab8-436144bb1850",
+      "kind": "segments",
+      "publisher_md5": "3b3ebfc3d70f52d6a1ff36e16a6d1f06",
+      "method": "Missing legacy publisher field filled only after actual raw MD5/SHA256 matches both prior record and pinned official metadata; no redownload"
+    },
+    {
+      "file_id": "0000e8b4-1361-41b9-b11d-bcd26d4c5ee1",
+      "kind": "mutation",
+      "publisher_md5": "ef87a17f3ba4577abad461c3e35a1df5",
+      "method": "Missing legacy publisher field filled only after actual raw MD5/SHA256 matches both prior record and pinned official metadata; no redownload"
+    },
+    {
+      "file_id": "7ea03a29-4b65-4134-84af-37fe6fc261ab",
+      "kind": "cn",
+      "publisher_md5": "547e63565f3dfffb4497ac4c8fe7c921",
+      "method": "Missing legacy publisher field filled only after actual raw MD5/SHA256 matches both prior record and pinned official metadata; no redownload"
+    }
+  ],
+  "updated_at": "2026-10-02T20:13:45+08:00"
+}

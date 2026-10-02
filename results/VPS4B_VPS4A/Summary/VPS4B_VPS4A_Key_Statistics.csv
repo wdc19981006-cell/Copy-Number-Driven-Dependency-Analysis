@@ -18,6 +18,7 @@ Genomewide,Wilcoxon_P,1.15337648533155e-22
 Genomewide,Pearson_FDR,4.19490168543306e-47
 Genomewide,Wilcoxon_FDR,2.10560411162129e-18
 Genomewide,Rank,276
+Genomewide,Eligible_Rank,1
 Genomewide,undefined_Wilcoxon_FDR_rows,275
 Genomewide,undefined_rows_preceding_candidate,275
 CN_vs_expression,pearson,0.454274479411112
@@ -161,3 +162,12 @@ CN covariation candidate,N,1118
 CN covariation candidate,Pearson_r,-0.0819607129863332
 CN covariation candidate,P,0.00610610123302242
 CN covariation candidate,FDR,0.0377298661891334
+TCGA current DR46,CN_samples,11339
+TCGA current DR46,CN_finite_samples,11330
+TCGA current DR46 CN-expression,N,10542
+TCGA current DR46 CN-expression,Pearson_r,0.22324630047598
+TCGA current DR46 CN-expression,Pearson_P,3.40726023771065e-119
+TCGA current DR46 CN-expression,Spearman_rho,0.236553254404411
+TCGA current DR46 CN-expression,Spearman_P,5.26595970893279e-134
+TCGA current DR46 CN-expression,GDCRelease,DR46
+TCGA current DR46 CN-expression,DataLayer,gdc_DR46

@@ -1,0 +1,541 @@
+{
+  "created_at": "2026-10-02T20:16:08+08:00",
+  "release": "DR46",
+  "input_manifest_sha256": "6b036b99030354f181a265a07defd85590b03c28d7422215382ce1020df8c917",
+  "checks": [
+    {
+      "name": "rna complete publisher checksums",
+      "passed": true,
+      "detail": {
+        "expected": 11505,
+        "verified": 11505
+      }
+    },
+    {
+      "name": "cn complete publisher checksums",
+      "passed": true,
+      "detail": {
+        "expected": 11339,
+        "verified": 11339
+      }
+    },
+    {
+      "name": "segments complete publisher checksums",
+      "passed": true,
+      "detail": {
+        "expected": 11189,
+        "verified": 11189
+      }
+    },
+    {
+      "name": "mutation complete publisher checksums",
+      "passed": true,
+      "detail": {
+        "expected": 10640,
+        "verified": 10640
+      }
+    },
+    {
+      "name": "All selected raw actual MD5/SHA256 rechecked",
+      "passed": true,
+      "detail": {
+        "rna": {
+          "checked_at": "2026-10-02T19:32:56+08:00",
+          "files": 11505,
+          "bytes": 48743334626,
+          "all_passed": true,
+          "raw_fingerprint": "fefc906b85c1dd036baf63646013b1133207295148a2204e9b488002dce9f06c",
+          "method": "Actual raw MD5 and SHA256; reuse only when all pinned checksum/size/mtime fingerprints remain unchanged"
+        },
+        "segments": {
+          "checked_at": "2026-10-02T19:33:30+08:00",
+          "files": 11189,
+          "bytes": 72026450,
+          "all_passed": true,
+          "raw_fingerprint": "d2f473ecbe413dd70ed25c2e6a93742afa7e3222f0315cb275bdec9bc3b4e75d",
+          "method": "Actual raw MD5 and SHA256; reuse only when all pinned checksum/size/mtime fingerprints remain unchanged"
+        },
+        "mutation": {
+          "checked_at": "2026-10-02T19:34:02+08:00",
+          "files": 10640,
+          "bytes": 820724927,
+          "all_passed": true,
+          "raw_fingerprint": "639d1c8b04234523c441abeae4131cfc76dfa1d9c2550da4b7b58959fc0d36fa",
+          "method": "Actual raw MD5 and SHA256; reuse only when all pinned checksum/size/mtime fingerprints remain unchanged"
+        },
+        "cn": {
+          "checked_at": "2026-10-02T20:15:12+08:00",
+          "files": 11339,
+          "bytes": 38946368973,
+          "all_passed": true,
+          "raw_fingerprint": "1aa1677672de1904c021f2e5370c8dc459aa6f2a1ca722ea106487c774b8f3d8",
+          "method": "Actual raw MD5 and SHA256; reuse only when all pinned checksum/size/mtime fingerprints remain unchanged"
+        }
+      }
+    },
+    {
+      "name": "TCGA_STAR_UnstrandedCounts derived SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_UnstrandedCounts nonempty",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_UnstrandedCounts source file coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_UnstrandedCounts DR46 schema provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_UnstrandedCounts complete gene annotation/columns",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_TPM derived SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_TPM nonempty",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_TPM source file coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_TPM DR46 schema provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_TPM complete gene annotation/columns",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKM derived SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKM nonempty",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKM source file coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKM DR46 schema provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKM complete gene annotation/columns",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKMUQ derived SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKMUQ nonempty",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKMUQ source file coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKMUQ DR46 schema provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKMUQ complete gene annotation/columns",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_log2TPMplus1 derived SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_log2TPMplus1 nonempty",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_log2TPMplus1 source file coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_log2TPMplus1 DR46 schema provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_log2TPMplus1 complete gene annotation/columns",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_GeneLevel_CN derived SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_GeneLevel_CN nonempty",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_GeneLevel_CN DR46 schema provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_GeneLevel_CN complete gene annotation/columns",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_CN_Segments derived SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_CN_Segments nonempty",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_Masked_Somatic_Mutation derived SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_Masked_Somatic_Mutation nonempty",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_Clinical nonempty",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_Biospecimen nonempty",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_Sample_Map nonempty",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "STAR N_* library summary coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "CN unique sample representative",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "CN workflow priority and aliquot/file tie break",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "rna processed identity matches selected metadata",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "rna official biospecimen hierarchy identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cn processed identity matches selected metadata",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cn official biospecimen hierarchy identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_UnstrandedCounts original values 0007888f-8d96-4c01-8251-7fef6cc71596",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_UnstrandedCounts original values 41cf0bac-87b0-428c-84af-4d246521a0d0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_UnstrandedCounts original values 7f84b583-d817-4e6b-ba5a-eefeea0696a1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_UnstrandedCounts original values bf5f0863-853a-4c34-bc0d-bfdef8c14739",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_UnstrandedCounts original values fff8886a-3620-4bac-815a-d1815dcce9fb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_TPM original values 0007888f-8d96-4c01-8251-7fef6cc71596",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "log2(TPM+1) exact transformation 0007888f-8d96-4c01-8251-7fef6cc71596",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_TPM original values 41cf0bac-87b0-428c-84af-4d246521a0d0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "log2(TPM+1) exact transformation 41cf0bac-87b0-428c-84af-4d246521a0d0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_TPM original values 7f84b583-d817-4e6b-ba5a-eefeea0696a1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "log2(TPM+1) exact transformation 7f84b583-d817-4e6b-ba5a-eefeea0696a1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_TPM original values bf5f0863-853a-4c34-bc0d-bfdef8c14739",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "log2(TPM+1) exact transformation bf5f0863-853a-4c34-bc0d-bfdef8c14739",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_TPM original values fff8886a-3620-4bac-815a-d1815dcce9fb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "log2(TPM+1) exact transformation fff8886a-3620-4bac-815a-d1815dcce9fb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKM original values 0007888f-8d96-4c01-8251-7fef6cc71596",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKM original values 41cf0bac-87b0-428c-84af-4d246521a0d0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKM original values 7f84b583-d817-4e6b-ba5a-eefeea0696a1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKM original values bf5f0863-853a-4c34-bc0d-bfdef8c14739",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKM original values fff8886a-3620-4bac-815a-d1815dcce9fb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKMUQ original values 0007888f-8d96-4c01-8251-7fef6cc71596",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKMUQ original values 41cf0bac-87b0-428c-84af-4d246521a0d0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKMUQ original values 7f84b583-d817-4e6b-ba5a-eefeea0696a1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKMUQ original values bf5f0863-853a-4c34-bc0d-bfdef8c14739",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_STAR_FPKMUQ original values fff8886a-3620-4bac-815a-d1815dcce9fb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_GeneLevel_CN original values 7ea03a29-4b65-4134-84af-37fe6fc261ab",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_GeneLevel_CN original values 6d341834-071c-4ecc-9c03-a47fc498d372",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_GeneLevel_CN original values e5c9c3e8-3def-442b-9aef-8452980321cf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_GeneLevel_CN original values 0f3fcf1a-e9ad-48bd-9d8b-30407f3f8f4f",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_GeneLevel_CN original values 3efc9349-bf69-48c5-9477-e37b07497440",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_GeneLevel_CN original values 68d09156-c10a-49bf-a8e9-a05225a91a33",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_GeneLevel_CN original values 9645a357-35d4-4501-bbb1-7ce1fa996cde",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TCGA_GeneLevel_CN original values 8cb556f5-c7e1-41a2-9ab2-f71fc40d0ff3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "MAF source tumor identity preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "VAF range",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "clinical 11428 cases",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "clinical 33 projects",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "all_passed": true,
+  "processed": {
+    "TCGA_STAR_UnstrandedCounts": {
+      "rows": 11505,
+      "columns": 60669,
+      "bytes": 930848580,
+      "genes": 60660
+    },
+    "TCGA_STAR_TPM": {
+      "rows": 11505,
+      "columns": 60669,
+      "bytes": 2682181013,
+      "genes": 60660
+    },
+    "TCGA_STAR_FPKM": {
+      "rows": 11505,
+      "columns": 60669,
+      "bytes": 2527920671,
+      "genes": 60660
+    },
+    "TCGA_STAR_FPKMUQ": {
+      "rows": 11505,
+      "columns": 60669,
+      "bytes": 2539531741,
+      "genes": 60660
+    },
+    "TCGA_STAR_log2TPMplus1": {
+      "rows": 11505,
+      "columns": 60669,
+      "bytes": 3493702851,
+      "genes": 60660
+    },
+    "TCGA_GeneLevel_CN": {
+      "rows": 11339,
+      "columns": 60633,
+      "bytes": 232306410,
+      "genes": 60623
+    },
+    "TCGA_CN_Segments": {
+      "rows": 1070293,
+      "columns": 26,
+      "bytes": 94409553
+    },
+    "TCGA_Masked_Somatic_Mutation": {
+      "rows": 2570542,
+      "columns": 158,
+      "bytes": 1216475251
+    },
+    "TCGA_Clinical": {
+      "rows": 11428,
+      "columns": 20,
+      "bytes": 7335564
+    },
+    "TCGA_Biospecimen": {
+      "rows": 175065,
+      "columns": 17,
+      "bytes": 17334135
+    },
+    "TCGA_Sample_Map": {
+      "rows": 44673,
+      "columns": 15,
+      "bytes": 3905657
+    }
+  }
+}
