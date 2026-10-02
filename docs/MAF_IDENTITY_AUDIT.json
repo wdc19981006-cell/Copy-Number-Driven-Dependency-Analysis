@@ -1,0 +1,29 @@
+{
+  "number": 1982,
+  "selected": {
+    "project_id": "TCGA-DLBC",
+    "case_id": "f8cf647b-1447-4ac3-8c43-bef07765cabf",
+    "case": "TCGA-G8-6326",
+    "sample_id": "8a9378c5-50c3-4998-a6c6-c1b3dfa82917",
+    "sample": "TCGA-G8-6326-10A",
+    "sample_type": "Blood Derived Normal",
+    "aliquot_id": "7b21bfff-b5f1-4796-b0bc-d4c529ebcbfd",
+    "aliquot": "TCGA-G8-6326-10A-01D-2210-10",
+    "mapping_method": "unique API-linked biospecimen",
+    "file_id": "2e9bd269-a8f7-46ec-86ad-d75828867d06",
+    "file_name": "aedfcf75-942d-47b0-85b8-b8d095c11bd7.wxs.aliquot_ensemble_masked.maf.gz",
+    "file_size": 1823,
+    "md5sum": "ec4c1fd13ad13b19bd76e23b2712562c",
+    "workflow": "Aliquot Ensemble Somatic Variant Merging and Masking",
+    "access": "open",
+    "state": "released",
+    "data_type": "Masked Somatic Mutation"
+  },
+  "source_ids": [
+    {
+      "uuid": "6ae5496e-cf5b-4e6d-8bb1-a2c0cb904077",
+      "barcode": "TCGA-G8-6326-01A-11D-2210-10",
+      "rows": 1
+    }
+  ]
+}

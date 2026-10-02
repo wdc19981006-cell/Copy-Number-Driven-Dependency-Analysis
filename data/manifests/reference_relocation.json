@@ -1,0 +1,48 @@
+{
+  "relocated_at": "2026-10-02T16:47:11+08:00",
+  "files": [
+    {
+      "file": "Gistic2_CopyNumber_Gistic2_all_data_by_genes.tsv.gz",
+      "old_path": "data/raw/tcga/pancan/Gistic2_CopyNumber_Gistic2_all_data_by_genes.tsv.gz",
+      "new_path": "data/raw/tcga/pancanatlas_reference/Gistic2_CopyNumber_Gistic2_all_data_by_genes.tsv.gz",
+      "SHA256": "9f98810361c9d0e262c79da256ab5b663b0530f890348200b9ce0ed40dd9b1b6",
+      "status": "verified"
+    },
+    {
+      "file": "Gistic2_CopyNumber_Gistic2_all_thresholded.by_genes.tsv.gz",
+      "old_path": "data/raw/tcga/pancan/Gistic2_CopyNumber_Gistic2_all_thresholded.by_genes.tsv.gz",
+      "new_path": "data/raw/tcga/pancanatlas_reference/Gistic2_CopyNumber_Gistic2_all_thresholded.by_genes.tsv.gz",
+      "SHA256": "818e3a5ed5a9c0b8e7d7da73cacba48d79a75e0fa515694e381f4ae7e58ae6ce",
+      "status": "verified"
+    },
+    {
+      "file": "TCGA_phenotype_denseDataOnlyDownload.tsv.gz",
+      "old_path": "data/raw/tcga/pancan/TCGA_phenotype_denseDataOnlyDownload.tsv.gz",
+      "new_path": "data/raw/tcga/pancanatlas_reference/TCGA_phenotype_denseDataOnlyDownload.tsv.gz",
+      "SHA256": "ac3923bb155ada3391b653a811f6c8c9c4734593b0c2b0a1555728928d83e5a2",
+      "status": "verified"
+    },
+    {
+      "file": "mc3.v0.2.8.PUBLIC.maf.gz",
+      "old_path": "data/raw/tcga/pancan/mc3.v0.2.8.PUBLIC.maf.gz",
+      "new_path": "data/raw/tcga/pancanatlas_reference/mc3.v0.2.8.PUBLIC.maf.gz",
+      "SHA256": "",
+      "status": "failed"
+    },
+    {
+      "file": "mc3.v0.2.8.PUBLIC.xena.tsv.gz",
+      "old_path": "data/raw/tcga/pancan/mc3.v0.2.8.PUBLIC.xena.tsv.gz",
+      "new_path": "data/raw/tcga/pancanatlas_reference/mc3.v0.2.8.PUBLIC.xena.tsv.gz",
+      "SHA256": "50f6301defc8468fb4bdb7407236d75545edaade3bb73778da3c4bb954485cc6",
+      "status": "verified"
+    },
+    {
+      "file": "tcga_RSEM_Hugo_norm_count.tsv.gz",
+      "old_path": "data/raw/tcga/pancan/tcga_RSEM_Hugo_norm_count.tsv.gz",
+      "new_path": "data/raw/tcga/pancanatlas_reference/tcga_RSEM_Hugo_norm_count.tsv.gz",
+      "SHA256": "fdf320a8fb80ab9dc9b9ca230a3221b66be4023efde10fa6a71aea1569b4c023",
+      "status": "verified"
+    }
+  ],
+  "hashes_preserved": true
+}

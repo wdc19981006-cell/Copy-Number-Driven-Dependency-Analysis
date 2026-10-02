@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-10-02T16:15:46+08:00",
+  "qc": {
+    "rows": 2907335,
+    "columns": 12,
+    "row_groups": 9,
+    "compression": [
+      "ZSTD"
+    ],
+    "unique_samples": 9104,
+    "unique_genes": 21273,
+    "parsed_all_rows": true,
+    "sample_id_format": "passed",
+    "source_filter": "Xena retained source MAF FILTER=PASS only",
+    "is_original_maf": false
+  }
+}

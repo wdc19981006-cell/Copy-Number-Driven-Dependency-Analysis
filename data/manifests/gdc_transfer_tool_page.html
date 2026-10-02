@@ -1,0 +1,2482 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-33523145-1"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag("js", new Date());gtag("set", "developer_id.dMDhkMT", true);gtag("config", "UA-33523145-1", {"groups":"default","anonymize_ip":true,"page_placeholder":"PLACEHOLDER_page_path"});</script>
+<meta name="Generator" content="Drupal 11 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://assets.adobedtm.com/6a4249cd0a2c/785de09de161/launch-70d67a6a40a8.min.js" async></script>
+<meta http-equiv="ImageToolbar" content="false" />
+<link rel="icon" href="/themes/custom/gdc_foundation/images/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="canonical" href="https://gdc.cancer.gov/access-data/gdc-data-transfer-tool" />
+<link rel="shortlink" href="https://gdc.cancer.gov/node/159" />
+
+    <title>GDC Data Transfer Tool | NCI Genomic Data Commons</title>
+    <link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/align.module.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/container-inline.module.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/clearfix.module.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/hidden.module.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/js.module.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/modules/contrib/extlink/css/extlink.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/layouts/layout_discovery/onecol/onecol.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/modules/contrib/tb_megamenu/dist/base.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/modules/contrib/tb_megamenu/dist/styles.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/themes/contrib/zurb_foundation/css/foundation.min.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/themes/contrib/zurb_foundation/css/motion-ui.min.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/themes/contrib/zurb_foundation/css/zurb_foundation.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/themes/custom/gdc_foundation/css/gdc_font.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/themes/custom/gdc_foundation/css/test.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/themes/custom/gdc_foundation/css/tbmenu_override.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/themes/custom/gdc_foundation/css/menu.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/themes/custom/gdc_foundation/css/block.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/themes/custom/gdc_foundation/css/gdc_foundation.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/themes/custom/gdc_foundation/css/gdc_app.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/themes/custom/gdc_foundation/css/style.css?tm9ayf" />
+<link rel="stylesheet" media="all" href="/themes/custom/gdc_foundation/css/lightbox.css?tm9ayf" />
+
+    
+  </head>
+  <body class="lang-en section-access-data path-node node--type-page page-node-type-page">
+  <a href="#main-content" class="show-on-focus skip-link">
+    Skip to main content
+  </a>
+  
+    <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="off-canvas-wrapper">
+  <div class="inner-wrap off-canvas-wrapper-inner" id="inner-wrap" data-off-canvas-wrapper>
+    <aside id="left-off-canvas-menu" class="off-canvas left-off-canvas-menu position-left" role="complementary" data-off-canvas>
+      
+    </aside>
+
+    <aside id="right-off-canvas-menu" class="off-canvas right-off-canvas-menu position-right" role="complementary" data-off-canvas>
+      
+    </aside>
+
+    <div class="off-canvas-content" data-off-canvas-content>
+            <header class="header" role="banner" aria-label="Site header">
+      <div class="usa-banner__container">
+<div class="grid-container">
+          <!-- Start USA Banner -->
+          <section id="usa-banner" class="usa-banner" aria-label="Official government website">
+            <header class="usa-banner__header">
+              <div class="usa-banner__inner">
+                <div class="usa-banner__header-text">
+      An official website of the United States government
+                </div>
+              </div>
+            </header>
+          </section>
+          <!-- End USA Banner -->
+</div>
+</div>
+                  <div class="grid-container">
+
+              <div>
+    <div id="block-gdc-foundation-site-branding" class="block-gdc-foundation-site-branding block block-system block-system-branding-block">
+  
+    
+
+  
+    
+<div class="grid-container">
+  <div class="grid-x grid-margin-x">
+    <div class="cell auto algin-self-middle">
+                                                             
+         <a href="/" rel="home" aria-label="Genomic Data Commons Homepage">                            
+           <img src="/themes/custom/gdc_foundation/images/GDC_LOGO.svg" alt="Home" />                   
+         </a>                                                                   
+          </div>
+    <div class="cell auto">
+      <div id="block-gdc-header-menu">
+    <nav>
+        <ul>
+            <li>
+               <!-- <a href="http://cancer.gov/aboutnci/organization/ccg/">CCG Web Site&nbsp;</a> -->
+	       <a href="/about-data/publications">Publications</a>
+            </li>
+            <li>
+                <a href="/contact-us">Contact Us</a>
+            </li>
+            <li>
+                <a class="button" href="https://portal.gdc.cancer.gov"><span>Launch Data Portal</span></a>
+            </li>
+            <li>
+
+<a role="button" id="gdc-apps" data-toggle="gdc-apps-table-container" type="button" title="GDC Apps" alt="GDC Applications">GDC Apps</a>
+<div id="gdc-apps-table-container" class="dropdown-pane" data-dropdown data-auto-focus="false" data-close-on-click="true" data-position="bottom" data-alignment="right">
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+	<a href='https://portal.gdc.cancer.gov' title="Data Portal" target="_blank">
+          <span class="icon"><img src='/themes/custom/gdc_foundation/images/gdc-apps-data-portal-blue.svg' alt="Data Portal"></span>
+          <p>Data Portal</p>
+      	</a>
+      </td>
+      <td>
+        <a href='/' title="Website" target="_blank">
+          <span class="icon"><img src='/themes/custom/gdc_foundation/images/gdc-app-website-blue.svg' alt="Website"></span><p>Website</p></a></td>
+    </tr>
+    <tr>
+      <td>
+     <a href="/developers/gdc-application-programming-interface-api" title="API" target="_blank"> 
+<span class="icon icon-gdc-portal-api" style="font-size: 26px; margin-bottom: 5px;"><span class="path0"></span><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span></span>
+	<p>API</p>
+	</a>
+      </td>
+      <td><a href='/access-data/gdc-data-transfer-tool' title="Data Transfer Tool">
+
+<span class="icon icon-gdc-data-transfer-tool" style="font-size: 26px; margin-bottom: 5px;"><span class="path0"></span><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span></span>
+
+        <p>Data Transfer Tool</p>
+      </a></td>
+    </tr>
+    <tr>
+      <td>
+<a href="https://docs.gdc.cancer.gov" title="GDC Docs" target="_blank"><span class="icon icon-gdc-docs" style="font-size: 26px; margin-bottom: 5px;"><span class="path0"></span><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span></span>
+
+	<p>Documentation</p>
+</a>
+
+      </td>
+      <td>
+<a href="https://portal.gdc.cancer.gov/submission" title="GDC Data Submission Portal" target="_blank"><span class="icon icon-gdc-submission-portal" style="font-size: 26px; margin-bottom: 5px;"><span class="path0"></span><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span></span>
+
+	<p>Data Submission Portal</p>
+</a>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+<a href="/about-data/publications" title="GDC Publications" target="_blank"><img alt="GDC Publications" class="icon icon-gdc-publications" src="/themes/custom/gdc_foundation/images/GDC-App-publications.57f98809.svg">
+	<p>Publications</p>
+</a>
+      </td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+	    </li>
+        </ul>
+    </nav>
+</div>
+<div>
+<!-- Removing search block for mobile for now -->
+<div id="block-gdc-foundation-searchform-main" role="search" class="search-block-form block-gdc-foundation-searchform-main block block-search block-search-form-block" data-drupal-selector="search-block-form">
+  
+    
+
+  
+          <form action="/search/node" method="get" id="search-block-form" accept-charset="UTF-8">
+  <div class="js-form-item form-item js-form-type-search form-item-keys js-form-item-keys form-no-label">
+      <label for="edit-keys" class="show-for-sr">Search</label>
+        <input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128" class="form-search" />
+
+        </div>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input class="success button radius js-form-submit form-submit" data-drupal-selector="edit-submit" type="submit" id="edit-submit" value="Search" />
+</div>
+
+</form>
+
+    
+    
+</div>
+
+    <!-- Hard coded Search form because it produced the same -->
+    <!--
+    <div class="search-block-form">
+    <form action="/search/node" method="get" id="search-block-form-2" accept-charset="UTF-8">
+  <div class="js-form-item form-item js-form-type-search form-item-keys js-form-item-keys form-no-label">
+    <label for="edit-keys-2" class="show-for-sr">Search</label>
+    <input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys-2" type="search" id="edit-keys-2" name="keys" value="" size="15" maxlength="128" class="form-search">
+  </div>
+  <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions-2">
+    <input class="success button radius js-form-submit form-submit" data-drupal-selector="edit-submit" type="submit" id="edit-submit-2" value="Search">
+  </div>
+</form>
+</div>
+-->
+
+</div>
+<div sytle="clear: both;"></div>
+
+
+  </div>
+</div>
+
+
+    
+<div style="clear:both;"></div>
+
+    
+</div>
+
+<div id="block-gdc-foundation-searchform" role="search" class="search-block-form block-gdc-foundation-searchform block block-search block-search-form-block" data-drupal-selector="search-block-form-2">
+  
+    
+
+  
+          <form action="/search/node" method="get" id="search-block-form--2" accept-charset="UTF-8">
+  <div class="js-form-item form-item js-form-type-search form-item-keys js-form-item-keys form-no-label">
+      <label for="edit-keys--2" class="show-for-sr">Search</label>
+        <input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" type="search" id="edit-keys--2" name="keys" value="" size="15" maxlength="128" class="form-search" />
+
+        </div>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions--2"><input class="success button radius js-form-submit form-submit" data-drupal-selector="edit-submit" type="submit" id="edit-submit--2" value="Search" />
+</div>
+
+</form>
+
+    
+    
+</div>
+<div id="block-gdc-foundation-obtainingaccesstocontrolleddata" class="block-gdc-foundation-obtainingaccesstocontrolleddata block block-block-content block-block-contentd75f5c38-e330-45d1-bc6c-c9a348c8db59">
+  
+    
+
+  
+          
+            <div class="body field field--block-content-body field--name-body field--type-text-with-summary field--label-hidden field__item"><p><a href="https://gdc.cancer.gov/access-data/obtaining-access-controlled-data"><strong>Obtaining Access to Controlled Data</strong></a></p>
+</div>
+      
+
+    
+    
+</div>
+<div id="block-gdc-foundation-mainmenu" class="block-gdc-foundation-mainmenu block block-tb-megamenu block-tb-megamenu-menu-blockmain">
+  
+    
+
+  
+          <nav  class="tbm tbm-main tbm-no-arrows" id="15231623-9fdc-4553-a188-8b0b8f4f667c" data-breakpoint="1200" aria-label="main navigation">
+      <button class="tbm-button" type="button">
+       Menu
+    </button>
+    <div class="tbm-collapse  always-show">
+    <ul  class="tbm-nav level-0 items-8" >
+        <li  class="tbm-item level-1 tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+            <a href="/about-gdc"  class="tbm-link level-1 tbm-toggle" title="NCI&#039;s Genomic Data Commons (GDC) is not just a database or a tool." aria-expanded="false">
+                About the GDC
+          </a>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    <div  class="tbm-submenu tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Learn About the GDC
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-3">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-gdc/gdc-overview"  class="tbm-link level-3">
+                GDC Overview
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/gdc-resources"  class="tbm-link level-3">
+                GDC Resources
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-gdc/gdc-policies"  class="tbm-link level-3">
+                GDC Policies
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                GDC Organization
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-3">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-gdc/gdc-team"  class="tbm-link level-3">
+                GDC Team
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://www.cancer.gov/ccg/"  class="tbm-link level-3">
+                Office of Cancer Genomics
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-gdc/gdc-collaborations"  class="tbm-link level-3" title="GDC Collaborations">
+                GDC Collaborations
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Any Questions?
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-3">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-gdc/gdc-faqs"  class="tbm-link level-3">
+                GDC FAQs
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/contact-us"  class="tbm-link level-3">
+                Contact Us
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/news-and-announcements/media"  class="tbm-link level-3">
+                Media Inquiries
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+        <li  class="tbm-item level-1 tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+            <a href="/about-data"  class="tbm-link level-1 tbm-toggle" title="The GDC provides researchers with access to standardized data from cancer studies." aria-expanded="false">
+                About the Data
+          </a>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    <div  class="tbm-submenu tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Get Started
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-5">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-data/data-types-and-file-formats"  class="tbm-link level-3" title="Data Types and File Formats">
+                Data Types and File Formats
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-data/data-dictionary"  class="tbm-link level-3" title="GDC Data Dictionary">
+                GDC Data Dictionary
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/developers/gdc-data-model"  class="tbm-link level-3">
+                GDC Data Model
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://gdc.cancer.gov/content/gdc-and-artificial-intelligence-ai"  class="tbm-link level-3">
+                GDC and AI
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Data Processing
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-6">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-data/data-standards"  class="tbm-link level-3" title="Data Standards">
+                Data Standards
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-data/gdc-data-processing"  class="tbm-link level-3">
+                GDC Data Processing
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://github.com/NCI-GDC/gdc-workflow-overview"  class="tbm-link level-3">
+                GDC Workflows in GitHub
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-data/gdc-data-processing/gdc-reference-files"  class="tbm-link level-3" title="GDC Reference Files">
+                GDC Reference Files
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/resources-tcga-users"  class="tbm-link level-3">
+                TCGA Resources
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Data Summary
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-4">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-data/gdc-data-quality"  class="tbm-link level-3" title="GDC Data Quality">
+                GDC Data Quality
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-data/gdc-data-security"  class="tbm-link level-3">
+                GDC Data Security
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-data/data-sources"  class="tbm-link level-3">
+                Data Sources
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-data/publications"  class="tbm-link level-3">
+                Publications
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+        <li  class="tbm-item level-1 tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+            <a href="/analyze-data"  class="tbm-link level-1 tbm-toggle" title="The GDC provides user-friendly and interactive Data Analysis, Visualization, and Exploration (DAVE) Tools supporting gene and variant level analysis." aria-expanded="false">
+                Analyze Data
+          </a>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    <div  class="tbm-submenu tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span3">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Get Started
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-2">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/analyze-data/data-analysis-processes-and-tools"  class="tbm-link level-3">
+                Data Analysis Processes and Tools
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/analyze-data/data-analysis-policies"  class="tbm-link level-3">
+                Data Analysis Policies
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span3">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Tools
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-3">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/analyze-data/cohort-builder"  class="tbm-link level-3">
+                GDC Cohort Builder
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/analyze-data/gdc-analysis-tools"  class="tbm-link level-3">
+                GDC Analysis Tools
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/access-data/community-tools"  class="tbm-link level-3">
+                GDC Community Tools
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span3">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Documentation
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-3">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/getting_started/"  class="tbm-link level-3">
+                GDC Data Portal User’s Guide
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-gdc/gdc-faqs?field_subject_tag_target_id%5B0%5D=108"  class="tbm-link level-3">
+                Data Analysis FAQs
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span3">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Analyze Data Now
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-2">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://portal.gdc.cancer.gov"  class="tbm-link level-3">
+                Launch Data Portal
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://docs.gdc.cancer.gov/API/Users_Guide/Data_Analysis"  class="tbm-link level-3">
+                Perform API Analysis
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+        <li  class="tbm-item level-1 tbm-item--has-dropdown active active-trail" aria-level="1" >
+      <div class="tbm-link-container">
+            <a href="/access-data"  class="tbm-link level-1 tbm-toggle active-trail" title="The GDC provides a platform for efficiently querying and downloading high-quality and complete data." aria-expanded="false">
+                Access Data
+          </a>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    <div  class="tbm-submenu tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span3">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Get Started
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-3">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/access-data/data-access-processes-and-tools"  class="tbm-link level-3">
+                Data Access Processes and Tools
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/access-data/obtaining-access-controlled-data"  class="tbm-link level-3">
+                Obtaining Access to Controlled Data
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/access-data/data-access-policies"  class="tbm-link level-3">
+                Data Access Policies
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span3">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Tools
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-3">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/access-data/gdc-data-portal"  class="tbm-link level-3">
+                GDC Data Portal
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/access-data/gdc-data-transfer-tool"  class="tbm-link level-3">
+                GDC Data Transfer Tool
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/access-data/community-tools"  class="tbm-link level-3">
+                GDC Community Tools
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span3">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Documentation
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-5">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="http://docs.gdc.cancer.gov/Data_Portal/Users_Guide/getting_started"  class="tbm-link level-3">
+                GDC Data Portal User&#039;s Guide
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="http://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/"  class="tbm-link level-3">
+                GDC Data Transfer Tool User&#039;s Guide
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-data/data-types-and-file-formats"  class="tbm-link level-3" title="Data Types and File Formats">
+                Data Types and File Formats
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-gdc/gdc-faqs?field_subject_tag_target_id%5B0%5D=45"  class="tbm-link level-3">
+                Data Access FAQs
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span3">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group active active-trail" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title active-trail" aria-expanded="false">
+                Get Data Now
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-3">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://portal.gdc.cancer.gov"  class="tbm-link level-3">
+                Launch Data Portal
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3 active active-trail" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/access-data/gdc-data-transfer-tool"  class="tbm-link level-3 active-trail">
+                Get GDC Data Transfer Tool
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://docs.gdc.cancer.gov/API/Users_Guide/Search_and_Retrieval/"  class="tbm-link level-3">
+                Perform API Query
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+        <li  class="tbm-item level-1 tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+            <a href="/submit-data"  class="tbm-link level-1 tbm-toggle" title="The GDC processes and tools guide data submission." aria-expanded="false">
+                Submit Data
+          </a>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    <div  class="tbm-submenu tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span3">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Get Started
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-3">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/submit-data/data-submission-processes-and-tools"  class="tbm-link level-3">
+                Data Submission Processes and Tools
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/submit-data/obtaining-access-submit-data"  class="tbm-link level-3">
+                Obtaining Access to Submit Data
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/submit-data/data-submission-policies"  class="tbm-link level-3">
+                Data Submission Policies
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span3">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Tools
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-2">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/submit-data/gdc-data-submission-portal"  class="tbm-link level-3" title="GDC Data Portal Submission Web Form">
+                GDC Data Submission Portal
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/access-data/gdc-data-transfer-tool"  class="tbm-link level-3">
+                GDC Data Transfer Tool
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span3">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Documentation
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-5">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Checklist/"  class="tbm-link level-3">
+                GDC Data Submission Portal User&#039;s Guide
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="http://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/"  class="tbm-link level-3">
+                GDC Data Transfer Tool User&#039;s Guide
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-data/data-types-and-file-formats"  class="tbm-link level-3">
+                Data Types and File Formats
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-gdc/gdc-faqs?field_subject_tag_target_id%5B0%5D=48"  class="tbm-link level-3">
+                Data Submission FAQs
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span3">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Submit Data Now
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-4">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://portal.gdc.cancer.gov/submission/"  class="tbm-link level-3">
+                Launch Data Submission Portal
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/submit-data/requesting-data-submission"  class="tbm-link level-3" title="Request Data Submission">
+                Request Data Submission
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/access-data/gdc-data-transfer-tool"  class="tbm-link level-3">
+                Get GDC Data Transfer Tool
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://docs.gdc.cancer.gov/API/Users_Guide/Submission/"  class="tbm-link level-3">
+                Perform API Submission
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+        <li  class="tbm-item level-1 tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+            <a href="/developers"  class="tbm-link level-1 tbm-toggle" title="The GDC API is the external facing REST interface for the GDC." aria-expanded="false">
+                For Developers
+          </a>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    <div  class="tbm-submenu tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Get Started
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-3">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/developers/gdc-application-programming-interface-api"  class="tbm-link level-3">
+                GDC Application Programming Interface (API)
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/developers/gdc-analysis-tool-sdk"  class="tbm-link level-3">
+                GDC Analysis Tool Software Development Kit (SDK)
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/developers/gdc-component-library"  class="tbm-link level-3" title="GDC Component Library">
+                GDC Component Library
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Documentation
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-4">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Developers_Guide/"  class="tbm-link level-3">
+                GDC Application Developer Guide
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="http://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/"  class="tbm-link level-3">
+                GDC API User&#039;s Guide
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/developers/gdc-data-model"  class="tbm-link level-3">
+                GDC Data Model
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-gdc/gdc-faqs?field_subject_tag_target_id%5B0%5D=46"  class="tbm-link level-3">
+                GDC Developer FAQs
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Get Source Code
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-1">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://github.com/NCI-GDC"  class="tbm-link level-3">
+                View on GitHub
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+        <li  class="tbm-item level-1 tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+            <a href="/support"  class="tbm-link level-1 tbm-toggle" title="The GDC provides documentation and support resources to assist users." aria-expanded="false">
+                Support
+          </a>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    <div  class="tbm-submenu tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Training
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-4">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/support/gdc-webinars"  class="tbm-link level-3">
+                GDC Webinars
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Video_Tutorials/"  class="tbm-link level-3">
+                GDC Tutorial Videos
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://www.youtube.com/playlist?list=PLaXJeOudgf60aE6tqrZcIhm9B4Ivxar4a"  class="tbm-link level-3">
+                NCI GDC YouTube Playlist
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Documentation
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-6">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/getting_started/"  class="tbm-link level-3">
+                GDC Data Portal User&#039;s Guide
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="http://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/"  class="tbm-link level-3" title="GDC Data Transfer Tool User&#039;s Guide">
+                GDC Data Transfer Tool User&#039;s Guide
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="http://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Checklist/"  class="tbm-link level-3">
+                GDC Data Submission Portal User&#039;s Guide
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="http://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/"  class="tbm-link level-3">
+                GDC API User&#039;s Guide
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Developers_Guide/"  class="tbm-link level-3">
+                GDC Application Developer Guide
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about-gdc/gdc-faqs"  class="tbm-link level-3">
+                GDC FAQs
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Get Support
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-4">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="mailto:support@nci-gdc.datacommons.io"  class="tbm-link level-3">
+                Contact GDC Help Desk
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://list.nih.gov/cgi-bin/wa.exe?SUBED1=gdc-users-l&amp;A=1"  class="tbm-link level-3">
+                Join the GDC User Listserv
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://www.linkedin.com/showcase/nci-division-of-cancer-biology/"  class="tbm-link level-3">
+                Subscribe to NCI Division of Cancer Biology
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://www.linkedin.com/showcase/nci-precision-oncology/"  class="tbm-link level-3">
+                Subscribe to NCI Precision Oncology
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+        <li  class="tbm-item level-1 tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+            <a href="/news-and-announcements"  class="tbm-link level-1 tbm-toggle" title="The latest news and more about the GDC." aria-expanded="false">
+                News
+          </a>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    <div  class="tbm-submenu tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span6">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Stay Informed
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-2">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/news-and-announcements/media"  class="tbm-link level-3">
+                For the Media
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/news-and-announcements/media/fact-sheets"  class="tbm-link level-3">
+                GDC Fact Sheets
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span6">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 tbm-group-title" aria-expanded="false">
+                Follow GDC
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-2">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://www.linkedin.com/showcase/nci-division-of-cancer-biology/"  class="tbm-link level-3">
+                NCI Division of Cancer Biology
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://www.linkedin.com/showcase/nci-precision-oncology/"  class="tbm-link level-3">
+                 NCI Precision Oncology
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+  </nav>
+
+    
+    
+</div>
+<div id="block-gdc-foundation-breadcrumbs" class="block-gdc-foundation-breadcrumbs block block-system block-system-breadcrumb-block">
+  
+    
+
+  
+            <nav role="navigation" aria-labelledby="system-breadcrumb">
+    <h2 id="system-breadcrumb" class="show-for-sr">Breadcrumb</h2>
+    <ul class="breadcrumbs" id="breadcrumbs" data-active-menu="Access Data">
+                <li>
+                          <a href="/">Home</a>
+                      </li>
+                <li>
+                          <a href="/access-data">Access Data</a>
+                      </li>
+      <!--
+      <li><span>Active Menu: Access Data</span></li>
+-->
+      <li class="current"><span class="show-for-sr"></span> GDC Data Transfer Tool</li>
+    </ul>
+  </nav>
+
+    
+    
+</div>
+
+  </div>
+
+          </div>
+              </header>
+
+      
+      <div class="grid-container">
+	<main id="main" class="grid-x grid-margin-x" role="main">
+          <a id="main-content" tabindex="-1">Main Content</a>
+                      <div id="highlighted" class="cell">
+                <div class="region-highlighted panel">
+    <div data-drupal-messages-fallback class="hidden"></div>
+
+  </div>
+
+            </div>
+          
+          
+          <div class="cell small-12 medium-9 medium-order-2">
+                <div>
+    <div id="block-gdc-foundation-pagetitle" class="block-gdc-foundation-pagetitle block block-core block-page-title-block">
+  
+    
+
+  
+          
+  <h1><span>GDC Data Transfer Tool</span>
+</h1>
+
+
+    
+    
+</div>
+<article  data-history-node-id="159">
+
+  
+    
+
+  
+  <div class="view-mode-full">
+      <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="block block-layout-builder block-field-blocknodepagebody">
+  
+    
+
+  
+          
+            <div class="body field field--node-body field--name-body field--type-text-with-summary field--label-hidden field__item"><table class="imgspacing" style="width:100%;">
+<tbody>
+<tr>
+<td style="padding:0px;vertical-align:top;width:100%;"><img src="/system/files/inline-images/icon-client-tool_1.png" data-entity-uuid="29e6068c-c45b-4814-972a-3801ff32167e" data-entity-type="file" alt="GDC Data Submission Client Tool icon" width="77" height="75" class="align-left"><br />
+<p class="text-leading with-sidebar with-icon">&nbsp;<span class="intro-tool-content">The GDC provides a standard client-based mechanism supporting high-performance data downloads and submission.</span></p>
+<p class="text-leading with-sidebar with-icon"><span class="intro-tool-content">Raw sequence files, typically stored as BAM or FASTQ,&nbsp;make up the bulk of data in the GDC. The size for a single file can vary greatly depending on the specific analysis; However, some of the whole genome BAM files in The Cancer Genome Atlas (TCGA) reach sizes of 200-300 GB. In such cases, a high-performance data download and submission tool, such as the GDC Data Transfer Tool, is essential.</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Optimized for Data Transfer</h2>
+<p>The GDC Data Transfer Tool (DTT) provides an optimized method of transferring data to and from the GDC and enables resumption of interrupted transfers. The GDC Data Transfer Tool is a command-line tool supporting both GDC data downloads and submissions, and is recommended for users with command line experience that require large data transfers of GDC data or need to download a large numbers of data files.</p>
+<p>Below are basic instructions and links for downloading the GDC Data Transfer Tool Client. For additional instructions, please visit the <a href="http://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/">GDC Data Transfer Tool User's Guide</a>.</p>
+<h2>Downloading the GDC Data Transfer Tool</h2>
+<p><strong>The GDC DTT is a client with a command line interface (i.e., no user interface)</strong>. To install the GDC DTT, download the respective binary distribution and unzip the distribution's archive to a location on the target system. It is recommended that the binary be copied to a location that is in the user's path so that is it accessible from any location within the terminal or command prompt.</p>
+<h3>System Recommendations</h3>
+<ul>
+<li>OS: Linux (Ubuntu 14.x or later, CentOS 7), OS X (10.9 Mavericks or later), or Windows (7 or later)</li>
+<li>CPU: Two 64-bit cores, Intel or AMD</li>
+<li>RAM: 8 GiB or more</li>
+<li>Storage: Enterprise-class storage system capable of ≥1 Gb/s (Gigabit per second) write throughput and sufficient free space for BAM files, most of which are in the 50 MB - 40 GB size range, with some reaching sizes of 200-300 GB.</li>
+</ul>
+<h3>Binary Distributions</h3>
+<table>
+<thead>
+<tr>
+<th width="35%">Platform</th>
+<th>
+<p><br>GDC Data Transfer Tool Client</p>
+<p style="font-weight:normal;"><a href="https://docs.gdc.cancer.gov/Data_Transfer_Tool/Release_Notes/DTT_Release_Notes/">Release Notes </a>| <a href="https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/">User's Guide</a></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAC OSX x64 (Intel Processor)</td>
+<td>
+<p><img src="/system/files/inline-images/package-x-generic.png" data-entity-uuid="f2ba04ab-74ab-4890-b72b-b725c01f9486" data-entity-type="file" alt="Package icon" width="16" height="16"><a href="https://gdc.cancer.gov/system/files/public/file/gdc-client_2.3_OSX_x64-py3.8-macos-12.zip"><span class="file">gdc-client_2.3.0_OSX_x64-py3.8-macos-12</span></a></p>
+<p>md5sum: fee6a557d16a6c1a9388bd859224e638</p>
+</td>
+</tr>
+<tr>
+<td>MAC OSX x64 (Silicon Processor)</td>
+<td>
+<p><br><img src="/system/files/inline-images/package-x-generic.png" data-entity-uuid="f2ba04ab-74ab-4890-b72b-b725c01f9486" data-entity-type="file" alt="Package icon" width="16" height="16"><a href="https://gdc.cancer.gov/system/files/public/file/gdc-client_2.3_OSX_x64-py3.8-macos-14.zip">gdc-client_2.3.0_OSX_x64-py3.8-macos-14</a></p>
+<p>md5sum: <span class="s1">56cca3594fa5fb47bc8297f5b6fd0e20</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td>Windows x64</td>
+<td>
+<p><img src="/system/files/inline-images/package-x-generic.png" data-entity-uuid="f2ba04ab-74ab-4890-b72b-b725c01f9486" data-entity-type="file" alt="Package icon" width="16" height="16"><a href="https://gdc.cancer.gov/system/files/public/file/gdc-client_2.3_Windows_x64-py3.8-windows-2019.zip" type="application/zip; length=19525629"><span class="file">gdc-client_2.3.0_Windows_x64-py3.8-windows-2019</span></a></p>
+<p>md5sum: <span class="s1">525ce44bb5f3f0624066b906c7dbdaf4</span></p>
+</td>
+</tr>
+<tr>
+<td>Ubuntu x64</td>
+<td>
+<p><img src="/system/files/inline-images/package-x-generic.png" data-entity-uuid="f2ba04ab-74ab-4890-b72b-b725c01f9486" data-entity-type="file" alt="Package icon" width="16" height="16"><a href="https://gdc.cancer.gov/system/files/public/file/gdc-client_2.3_Ubuntu_x64-py3.8-ubuntu-20.04.zip" type="application/zip; length=23940006"><span class="file">gdc-client_2.3.0_Ubuntu_x64-py3.8-ubuntu-20.04</span></a></p>
+<p><span class="file">md5sum: </span><span class="s1">18591d74de07cdcd396dab71c52663da</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If you are a user of RedHat Enterprise Release 6 and wish to use the Data Transfer Tool Client, please contact the <a href="/node/169">GDC Help Desk</a> for assistance. For building the binaries from the source code, please refer to the <a href="https://github.com/NCI-GDC/gdc-client">GDC DTT Client GitHub Repository</a>. The GDC Data Transfer Tool User Interface (UI) has been retired. Please contact the <a href="/support">GDC Help Desk</a> if assistance is needed with using the client.</p>
+</div>
+      
+
+    
+    
+</div>
+<div class="block block-layout-builder block-field-blocknodepagecomment-node-page">
+  
+    
+
+  
+          <section>
+  
+  
+
+  
+</section>
+
+    
+    
+</div>
+
+    </div>
+  </div>
+
+  </div>
+
+</article>
+
+  </div>
+
+          </div>
+                      <div id="sidebar-first" class="cell medium-3 medium-order-1 hide-for-small-only sidebar" role="complementary">
+                <div>
+        
+<nav role="navigation" aria-labelledby="block-gdc-foundation-accessdata-menu" id="block-gdc-foundation-accessdata" class="block-gdc-foundation-accessdata">
+      
+    <a href="/access-data">
+      <h2 class="block-title" id="block-gdc-foundation-accessdata-menu">Access Data</h2>
+    </a>
+  
+
+        
+          <ul  class="menu menu--level-1">
+                                      
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="/access-data/data-access-processes-and-tools" class="menu__link menu__link--link menu__link--level-1" data-drupal-link-system-path="node/217">Data Access Processes and Tools</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="/access-data/obtaining-access-controlled-data" class="menu__link menu__link--link menu__link--level-1" data-drupal-link-system-path="node/205">Obtaining Access to Controlled Data</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="/access-data/data-access-policies" class="menu__link menu__link--link menu__link--level-1" data-drupal-link-system-path="node/177">Data Access Policies</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="/access-data/gdc-data-portal" class="menu__link menu__link--link menu__link--level-1" data-drupal-link-system-path="node/170">GDC Data Portal</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1 menu__item--active-trail">
+                    
+          <a href="/access-data/gdc-data-transfer-tool" class="menu__link menu__link--link menu__link--level-1 menu__link--active-trail is-active" data-drupal-link-system-path="node/159" aria-current="page">GDC Data Transfer Tool</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="/access-data/community-tools" class="menu__link menu__link--link menu__link--level-1" data-drupal-link-system-path="access-data/community-tools">GDC Community Tools</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/getting_started/" class="menu__link menu__link--link menu__link--level-1">GDC Data Portal User&#039;s Guide</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/" class="menu__link menu__link--link menu__link--level-1">GDC Data Transfer Tool User&#039;s Guide</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="https://portal.gdc.cancer.gov/" class="menu__link menu__link--link menu__link--level-1">Launch Data Portal</a>
+
+          
+        </li>
+          </ul>
+  
+
+
+  </nav>
+<div id="block-gdc-foundation-gdc-bootstrap-block-29" class="block-gdc-foundation-gdc-bootstrap-block-29 block block-block-content block-block-contentf3ee8cf5-1b19-4bff-a4b0-465ca2fadf4d">
+  
+      <div class="h4"  class="block-title">Need Assistance?</div>
+    
+
+  
+          
+            <div class="body field field--block-content-body field--name-body field--type-text-with-summary field--label-hidden field__item"><p>Need help with data retrieval, download, or submission?</p>
+<ul class="more">
+<li><a href="/node/169">Visit the GDC Support Page</a></li>
+</ul>
+</div>
+      
+
+    
+    
+</div>
+
+  </div>
+
+            </div>
+                  </main>
+      </div>
+              <footer id="footer">
+	<div class="grid-container">
+                      <div class="grid-x grid-margin-x grid-padding-x grid-margin-y grid-padding-y">
+                              <div id="footer-first" class="cell medium-6 large-3">
+                    <div>
+    <div id="block-gdc-foundation-gdc-footer-info" class="block-gdc-foundation-gdc-footer-info block block-block-content block-block-content81a5be4c-0490-4f4c-9a38-7f0442b0002d">
+  
+    
+
+  
+          
+            <div class="body field field--block-content-body field--name-body field--type-text-with-summary field--label-hidden field__item"><div>
+<h3 class="font-bold text-lg">National Cancer Institute</h3>
+<h4 class="font-bold">at the National Institutes of Health</h4>
+</div>
+</div>
+      
+
+    
+    
+</div>
+
+  </div>
+
+                </div>
+                                            <div id="footer-second" class="cell medium-6 large-3">
+                    <div>
+        
+<nav role="navigation" aria-labelledby="block-gdc-foundation-gdcfooterapplications-menu" id="block-gdc-foundation-gdcfooterapplications" class="block-gdc-foundation-gdcfooterapplications">
+      
+    <a href="#">
+      <h2 class="block-title" id="block-gdc-foundation-gdcfooterapplications-menu">APPLICATIONS</h2>
+    </a>
+  
+
+        
+          <ul  class="menu menu--level-1">
+                                      
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="/developers/gdc-application-programming-interface-api" class="menu__link menu__link--link menu__link--level-1" data-drupal-link-system-path="node/166">API</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="https://portal.gdc.cancer.gov/" class="menu__link menu__link--link menu__link--level-1">Data Portal</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="https://portal.gdc.cancer.gov/submission" class="menu__link menu__link--link menu__link--level-1">Data Submission Portal</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/" class="menu__link menu__link--link menu__link--level-1">Data Transfer Tool</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="https://docs.gdc.cancer.gov/" class="menu__link menu__link--link menu__link--level-1">Documentation</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="/about-data/publications" class="menu__link menu__link--link menu__link--level-1" data-drupal-link-system-path="about-data/publications">Publications</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="https://gdc.cancer.gov/" class="menu__link menu__link--link menu__link--level-1">Website</a>
+
+          
+        </li>
+          </ul>
+  
+
+
+  </nav>
+
+  </div>
+
+                </div>
+                                            <div id="footer-third" class="cell medium-6 large-3">
+                    <div>
+        
+<nav role="navigation" aria-labelledby="block-gdc-foundation-gdcfootermoreinformation-menu" id="block-gdc-foundation-gdcfootermoreinformation" class="block-gdc-foundation-gdcfootermoreinformation">
+      
+    <a href="#">
+      <h2 class="block-title" id="block-gdc-foundation-gdcfootermoreinformation-menu">MORE INFORMATION</h2>
+    </a>
+  
+
+        
+          <ul  class="menu menu--level-1">
+                                      
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="https://list.nih.gov/cgi-bin/wa.exe?SUBED1=gdc-users-l&amp;A=1" class="menu__link menu__link--link menu__link--level-1">Listserv</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="/content/next-generation-cancer-knowledge-base" class="menu__link menu__link--link menu__link--level-1" data-drupal-link-system-path="node/31">Site Home</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="/support" class="menu__link menu__link--link menu__link--level-1" data-drupal-link-system-path="node/169">Support</a>
+
+          
+        </li>
+          </ul>
+  
+
+
+  </nav>
+
+  </div>
+
+                </div>
+                                                                                    
+                <div id="footer-fourth" class="cell medium-6 large-3">                                    
+                    <div>
+        
+<nav role="navigation" aria-labelledby="block-gdc-foundation-gdcfooterpolicies-menu" id="block-gdc-foundation-gdcfooterpolicies" class="block-gdc-foundation-gdcfooterpolicies">
+      
+    <a href="#">
+      <h2 class="block-title" id="block-gdc-foundation-gdcfooterpolicies-menu">POLICIES</h2>
+    </a>
+  
+
+        
+          <ul  class="menu menu--level-1">
+                                      
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="https://www.cancer.gov/policies/accessibility" class="menu__link menu__link--link menu__link--level-1">Accessibility</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="https://www.cancer.gov/policies/disclaimer" class="menu__link menu__link--link menu__link--level-1">Disclaimer</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="https://www.cancer.gov/policies/foia" class="menu__link menu__link--link menu__link--level-1">FOIA</a>
+
+          
+        </li>
+                                
+        
+        
+        <li class="menu__item menu__item--link menu__item--level-1">
+                    
+          <a href="https://www.hhs.gov/vulnerability-disclosure-policy/" class="menu__link menu__link--link menu__link--level-1">HHS Vulnerability Disclosure</a>
+
+          
+        </li>
+          </ul>
+  
+
+
+  </nav>
+
+  </div>
+                                                       
+                </div>                                                                                                               
+               
+            </div>
+          	              <hr class="footer-break">
+            <div class="grid-x grid-margin-x grid-padding-x grid-margin-y grid-paddying-y">
+              <div id="footer-bottom" class="cell">
+                  <div>
+    <div id="block-gdc-foundation-gdcfooterbottom" class="block-gdc-foundation-gdcfooterbottom block block-block-content block-block-content3dbf7b60-4f34-445e-b90a-933dbc0624a2">
+  
+    
+
+  
+          
+            <div class="body field field--block-content-body field--name-body field--type-text-with-summary field--label-hidden field__item"><div>
+<ul class="divide-x divide-solid p-8 font-content">
+<li class="inline-block px-1 leading-none font-bold"><a href="https://www.hhs.gov/" data-testid="" title="https://www.hhs.gov/" target="_blank" rel="noopener noreferrer">U.S. Department of Health and Human Services</a></li>
+<li class="inline-block px-1 leading-none font-bold"><a href="https://www.nih.gov/" data-testid="" title="https://www.nih.gov/" target="_blank" rel="noopener noreferrer">National Institutes of Health</a></li>
+<li class="inline-block px-1 leading-none font-bold"><a href="https://www.cancer.gov/" data-testid="" title="https://www.cancer.gov/" target="_blank" rel="noopener noreferrer">National Cancer Institute</a></li>
+<li class="inline-block px-1 leading-none font-bold"><a href="https://www.usa.gov/" data-testid="" title="https://www.usa.gov/" target="_blank" rel="noopener noreferrer">USA.gov</a></li>
+</ul>
+</div>
+<div class="text-sm leading-none font-content">NIH... Turning Discovery Into Health <span class="text-[1rem]">®</span></div>
+</div>
+      
+
+    
+    
+</div>
+
+  </div>
+
+              </div>
+            </div>
+          	</div>
+        </footer>
+      
+      
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  
+  <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"node\/159","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"google_analytics":{"account":"UA-33523145-1","trackOutbound":true,"trackMailto":true,"trackTel":true,"trackDownload":true,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"data":{"extlink":{"extTarget":true,"extTargetAppendNewWindowDisplay":true,"extTargetAppendNewWindowLabel":"(opens in a new window)","extTargetNoOverride":false,"extNofollow":false,"extTitleNoOverride":false,"extNoreferrer":false,"extFollowNoOverride":false,"extClass":"ext","extLabel":"(link is external)","extImgClass":false,"extSubdomains":true,"extExclude":"","extInclude":"","extCssExclude":"","extCssInclude":"","extCssExplicit":"","extAlert":false,"extAlertText":"This link will take you to an external web site. We are not responsible for their content.","extHideIcons":false,"mailtoClass":"mailto","telClass":"","mailtoLabel":"(link sends email)","telLabel":"(link is a phone number)","extUseFontAwesome":false,"extIconPlacement":"append","extPreventOrphan":false,"extFaLinkClasses":"fa fa-external-link","extFaMailtoClasses":"fa fa-envelope-o","extAdditionalLinkClasses":"","extAdditionalMailtoClasses":"","extAdditionalTelClasses":"","extFaTelClasses":"fa fa-phone","allowedDomains":[],"extExcludeNoreferrer":""}},"TBMegaMenu":{"TBElementsCounter":{"column":null},"theme":"gdc_foundation","15231623-9fdc-4553-a188-8b0b8f4f667c":{"arrows":"0"}},"ajaxTrustedUrl":{"\/search\/node":true},"user":{"uid":0,"permissionsHash":"0194704cab1bd3b06134c770fd28d60cf82f6f64f5096e4a36330f1714bb320e"}}</script>
+<script src="/core/assets/vendor/jquery/jquery.min.js?v=4.0.0"></script>
+<script src="/core/assets/vendor/once/once.min.js?v=1.0.1"></script>
+<script src="/core/misc/drupalSettingsLoader.js?v=11.4.5"></script>
+<script src="/core/misc/drupal.js?v=11.4.5"></script>
+<script src="/core/misc/drupal.init.js?v=11.4.5"></script>
+<script src="/modules/contrib/extlink/js/extlink.js?tm9ayf"></script>
+<script src="/modules/contrib/google_analytics/js/google_analytics.js?v=11.4.5"></script>
+<script src="/modules/contrib/tb_megamenu/dist/js/frontend.js?v=1.x"></script>
+<script src="/themes/contrib/zurb_foundation/js/foundation.min.js?v=11.4.5"></script>
+<script src="/themes/contrib/zurb_foundation/js/foundation_init.js?v=11.4.5"></script>
+<script src="/themes/contrib/zurb_foundation/js/motion-ui.min.js?v=11.4.5"></script>
+<script src="/themes/custom/gdc_foundation/js/gdc_foundation.js?v=11.4.5"></script>
+<script src="/themes/custom/gdc_foundation/js/foundation_init.js?v=11.4.5"></script>
+<script src="/themes/custom/gdc_foundation/js/lightbox.min.js?v=11.4.5"></script>
+<script src="/themes/contrib/zurb_foundation/js/top_bar_active.js?v=11.4.5"></script>
+
+  </body>
+</html>

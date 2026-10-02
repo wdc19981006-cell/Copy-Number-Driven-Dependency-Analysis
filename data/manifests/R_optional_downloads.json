@@ -1,0 +1,16 @@
+[
+  {
+    "package": "arrow",
+    "version": "25.0.1",
+    "url": "https://cloud.r-project.org/bin/windows/contrib/4.5/arrow_25.0.1.zip",
+    "bytes": 19898381,
+    "SHA256": "4a7e9d53589647d5ec818ffdbbefb9d7d537bac62e72c27548efc895aea538bc"
+  },
+  {
+    "package": "duckdb",
+    "version": "1.5.5",
+    "url": "https://cloud.r-project.org/bin/windows/contrib/4.5/duckdb_1.5.5.zip",
+    "bytes": 15461399,
+    "SHA256": "ff059de9ab132fa9bba03f56066347ea47f097a1b8fad52f8d084b767c80623c"
+  }
+]

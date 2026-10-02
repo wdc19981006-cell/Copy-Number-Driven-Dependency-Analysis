@@ -1,0 +1,29 @@
+{
+  "depmap": [
+    {"filename":"Model.csv","purpose":"ModelID, lineage, disease, OncoTree and tissue metadata"},
+    {"filename":"ModelCondition.csv","purpose":"Model conditions and ModelID mapping"},
+    {"filename":"OmicsProfiles.csv","purpose":"Omics ProfileID to ModelID and default-profile mapping"},
+    {"filename":"CRISPRScreenMap.csv","purpose":"CRISPR screen to model mapping"},
+    {"filename":"ScreenSequenceMap.csv","purpose":"Screen and sequencing mapping"},
+    {"filename":"CRISPRGeneEffect.csv","purpose":"Genome-wide Chronos gene effect; more negative means stronger growth defect"},
+    {"filename":"CRISPRGeneDependency.csv","purpose":"Genome-wide dependency probability"},
+    {"filename":"OmicsCNGeneWGS.csv","purpose":"Primary WGS gene-level relative copy number"},
+    {"filename":"OmicsCNGene.csv","optional":true,"purpose":"Supplementary combined gene-level copy number, when provided"},
+    {"filename":"OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv","purpose":"Default protein-coding expression, official log(TPM+1) scale"},
+    {"filename":"OmicsExpressionTPMLogp1HumanAllGenesStranded.csv","optional":true,"purpose":"Complete stranded all-gene expression for future extensions"},
+    {"filename":"OmicsSomaticMutations.csv","purpose":"Full somatic variant table"},
+    {"filename":"OmicsSomaticMutationsMatrixDamaging.csv","purpose":"Damaging mutation binary matrix"},
+    {"filename":"OmicsSomaticMutationsMatrixHotspot.csv","purpose":"Hotspot mutation binary matrix"},
+    {"filename":"OmicsGlobalSignatures.csv","purpose":"Genomic signatures: ploidy, WGD, aneuploidy, CIN, MSI when available"},
+    {"filename":"OmicsInferredMolecularSubtypes.csv","purpose":"Inferred molecular subtypes and driver context"},
+    {"filename":"OmicsFusionFilteredSupplementary.csv","purpose":"Fusion supplement for future fusion-defined analysis"}
+  ],
+  "tcga": [
+    {"dataset":"TCGA.PANCAN.sampleMap/Gistic2_CopyNumber_Gistic2_all_data_by_genes","filename":"Gistic2_CopyNumber_Gistic2_all_data_by_genes.tsv.gz","url":"https://tcga.xenahubs.net/download/TCGA.PANCAN.sampleMap%2FGistic2_CopyNumber_Gistic2_all_data_by_genes.gz","purpose":"Continuous GISTIC2 gene-level CN, all samples and genes"},
+    {"dataset":"TCGA.PANCAN.sampleMap/Gistic2_CopyNumber_Gistic2_all_thresholded.by_genes","filename":"Gistic2_CopyNumber_Gistic2_all_thresholded.by_genes.tsv.gz","url":"https://tcga.xenahubs.net/download/TCGA.PANCAN.sampleMap%2FGistic2_CopyNumber_Gistic2_all_thresholded.by_genes.gz","purpose":"Thresholded CNA: -2 deep deletion, -1 shallow deletion, 0 diploid, 1 gain, 2 amplification"},
+    {"dataset":"tcga_RSEM_Hugo_norm_count","filename":"tcga_RSEM_Hugo_norm_count.tsv.gz","url":"https://toil.xenahubs.net/download/tcga_RSEM_Hugo_norm_count.gz","purpose":"Full Toil TCGA expression; log2(norm_count+1), not TPM"},
+    {"dataset":"TCGA_phenotype_denseDataOnlyDownload.tsv","filename":"TCGA_phenotype_denseDataOnlyDownload.tsv.gz","url":"https://pancanatlas.xenahubs.net/download/TCGA_phenotype_denseDataOnlyDownload.tsv.gz","purpose":"Cancer abbreviation, primary disease and sample type"},
+    {"dataset":"MC3 v0.2.8 PUBLIC MAF","filename":"mc3.v0.2.8.PUBLIC.maf.gz","url":"https://api.gdc.cancer.gov/data/1c8cfe5f-e52d-41ba-94da-f15ea1337efc","optional":true,"purpose":"Official public MC3 MAF; published GDC UUID is unavailable at acquisition time; not replaced or mislabeled"},
+    {"dataset":"mc3.v0.2.8.PUBLIC.xena","filename":"mc3.v0.2.8.PUBLIC.xena.tsv.gz","url":"https://pancanatlas.xenahubs.net/download/mc3.v0.2.8.PUBLIC.xena.gz","purpose":"Full official Xena MC3 mutation table, restricted by Xena to source MAF FILTER=PASS; not the original MAF"}
+  ]
+}

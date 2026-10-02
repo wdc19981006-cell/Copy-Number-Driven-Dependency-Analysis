@@ -1,0 +1,10 @@
+{
+  "depmap_release": "26Q1",
+  "download_date": null,
+  "catalog_checked_at": "2026-10-02T16:18:40+08:00",
+  "source": "DepMap Portal",
+  "catalog_url": "https://depmap.org/portal/api/no-captcha/download/files",
+  "installation_status": "local_exports_available",
+  "note": "User-supplied 26Q1 exports; original download date and export URLs not provided. SHA256 recorded; contents unchanged.",
+  "imported_at": "2026-10-02T17:28:34.707849"
+}

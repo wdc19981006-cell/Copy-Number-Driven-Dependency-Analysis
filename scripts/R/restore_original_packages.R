@@ -1,0 +1,5 @@
+invisible(Sys.setlocale("LC_CTYPE","English_United States.utf8"))
+source(".Rprofile")
+renv::restore(packages=c("rlang","cli"),prompt=FALSE)
+library(rlang);library(cli);library(dplyr);library(ggplot2)
+cat("R",as.character(getRversion()),"native package probe completed\n")

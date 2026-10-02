@@ -1,0 +1,7 @@
+{
+  "executable": "tools/gdc-client/distribution/contents/gdc-client.exe",
+  "download_url": "https://gdc.cancer.gov/system/files/public/file/gdc-client_2.3_Windows_x64-py3.8-windows-2019.zip",
+  "publisher_md5": "525ce44bb5f3f0624066b906c7dbdaf4",
+  "SHA256": "505c0ad212a73031eabf844f70cff62fbac5c56fa9705902271c7cd4ed4e77f1",
+  "installed_at": "2026-10-02T16:51:24+08:00"
+}

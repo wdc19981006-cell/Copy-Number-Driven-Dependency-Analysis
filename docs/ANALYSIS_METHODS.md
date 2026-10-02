@@ -1,0 +1,19 @@
+# Statistical methods
+
+The user-supplied R source is retained verbatim, with SHA256 and section mapping in R_CORE_PROVENANCE.json. tests/test_r_core.R compares ten core function bodies to that source. Adapters recognize V1 as the blank CSV ID, route folders and restore state after reverse analysis. Formulae, thresholds, correlations, Wilcoxon calculations, BH families and ranking remain unchanged.
+
+CN_relative is the supplied WGS value; CN_log=log2(CN_relative+1). Analysis-defined low is <0.585, deep <0.35, shallow [0.35,0.585), non-low >=0.585. These are not DepMap official GISTIC states. Finite observations join by exact ModelID. OncotreeLineage defines stratification/adjustment; disease, subtype and code remain available.
+
+CN-expression uses relative CN and original expression. Targeted CN-dependency uses CN_log, matching the supplied code. Pearson and Spearman (exact=FALSE) are reported. Two-sided Wilcoxon uses exact=FALSE and R default continuity correction. Chronos is gene effect, with more negative scores indicating greater dependency. Three-group comparison requires all groups >=3; optional pairwise tests report raw P and separate BH-FDR.
+
+The genome-wide function tests every supplied Chronos gene column. Pearson requires >=10 finite models, uses the correlation t statistic (df=n−2), and retains the supplied undefined P at absolute r=1. Group effects require each group >=min_group_n. Delta mean/median are low minus non-low. Pearson and Wilcoxon have separate complete-screen BH families. Rank sorts Wilcoxon FDR then delta median, retaining the supplied NA ordering; rank is not a causal-priority score.
+
+Lineage groups each require >=3. Bootstrap independently resamples both groups and takes percentile 95% CI for median-low minus median-nonlow, default 1000 draws and seed 1234. BH applies to eligible lineages. Forest magnitude represents effect size, not P value.
+
+Adjusted models exactly match the source: Chronos ~ CN_log + OncotreeLineage; Chronos ~ I(CN_binary == "CN-Low") + OncotreeLineage. All coefficients, estimates, SE, t and P are retained. Reverse swaps genes, rebuilds CN groups and applies the same targeted statistics before restoring the original gene/root state.
+
+Additional mutation modes define positive finite mutation values as Mutant, zero as WT, and exclude missing values. Damaging and hotspot remain separate. Missing columns do not imply WT; groups below three skip. BH applies to eligible damaging/hotspot comparisons. CN covariation uses relative CN, Pearson (>=10 finite values), and BH across supplied CN genes; self-correlation remains in CSV with undefined r=1 P, excluded from the top-other-gene plot.
+
+TCGA current uses source total gene CN and STAR log2(TPM+1). For sample-level CN-expression, one RNA aliquot is selected per exact sample UUID: prefer the chosen CN aliquot, then lexical RNA file UUID; selection and excluded alternatives are audited. Raw aliquots remain intact. Five-state prevalence uses explicitly labeled reference GISTIC, with denominators of tumor samples having a finite gene value. These are sample-level prevalences. Aliquot/sample/file provenance remains available; no patient-level average is silently created. Current modes remain unverified on real RNA/CN until full current preparation completes.
+
+Observational associations do not establish a causal synthetic-lethal mechanism or clinical benefit. Lineage adjustment addresses measured lineage differences; CN covariation does not establish chromosomal adjacency or causality. Insufficient groups, absent genes and unfinished current TCGA are explicitly recorded.

@@ -1,0 +1,28 @@
+{
+  "created_at": "2026-10-02T18:35:49+08:00",
+  "source_sha256": "d8f3158b999e86d3c3b84ec50b36ce88e8195e45650bb0eab8a0d627a755e0bf",
+  "clinical_cases": 11428,
+  "project_count": 33,
+  "sample_ids": 33939,
+  "aliquot_ids": 165261,
+  "processed": {
+    "TCGA_Clinical": {
+      "rows": 11428,
+      "columns": 20,
+      "bytes": 7335564,
+      "SHA256": "c5dbc933fd92e3204329d1ab0d83e2b2706741eabed39b5cf2dcbcdbc04bfb3e"
+    },
+    "TCGA_Biospecimen": {
+      "rows": 175065,
+      "columns": 17,
+      "bytes": 17334135,
+      "SHA256": "23f3fe73efd24a52f31293e9a2bc1ca3b8c977b7bef0f532fffe31508e558a3f"
+    },
+    "TCGA_Sample_Map": {
+      "rows": 44673,
+      "columns": 15,
+      "bytes": 3905657,
+      "SHA256": "16e50b5918d9981b48bba34c3347b5f3a81968d3bdbc9e49b2443d9838350fc2"
+    }
+  }
+}

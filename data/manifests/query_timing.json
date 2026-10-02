@@ -1,0 +1,26 @@
+[
+  {
+    "dataset": "get_tcga_expression",
+    "gene": "TP53",
+    "samples": 10535,
+    "seconds": 0.224
+  },
+  {
+    "dataset": "get_tcga_expression",
+    "gene": "EGFR",
+    "samples": 10535,
+    "seconds": 0.004
+  },
+  {
+    "dataset": "get_tcga_cn",
+    "gene": "TP53",
+    "samples": 10845,
+    "seconds": 0.075
+  },
+  {
+    "dataset": "get_tcga_cn",
+    "gene": "EGFR",
+    "samples": 10845,
+    "seconds": 0.004
+  }
+]

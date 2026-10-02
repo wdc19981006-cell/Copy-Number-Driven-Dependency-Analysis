@@ -1,0 +1,8 @@
+dataset,status,remaining_files,note
+rna,in_progress,2,See live pipeline state and UUID manifest
+cn,in_progress,10520,See live pipeline state and UUID manifest
+DepMap full somatic variants,not_supplied,unknown,Optional extension; no full official export acquired
+DepMap fusion supplement,not_supplied,unknown,Optional extension; no full official export acquired
+DepMap all-gene stranded expression,not_supplied,unknown,Optional extension; no full official export acquired
+DepMap combined/array CN,unavailable_optional,unknown,Not available in selected official catalog; WGS export is active
+PanCanAtlas original full MC3 MAF,source_unavailable,1,Old UUID unavailable; acquired Xena FILTER=PASS table is separately labeled

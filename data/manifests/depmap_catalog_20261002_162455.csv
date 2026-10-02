@@ -1,0 +1,1437 @@
+release,release_date,filename,url,md5_hash
+DepMap Public 26Q1,2026-04-01,ScreenSequenceMap.csv,,57d6c76444a5a413353c07c4c75eb10e
+DepMap Public 26Q1,2026-04-01,README.txt,,21469e5912e9deb841d0356c65a491da
+DepMap Public 26Q1,2026-04-01,SubtypeMatrix.csv,,1265c224eecadb85244fa41d9b846bc0
+DepMap Public 26Q1,2026-04-01,SubtypeTree.csv,,725f2af77bb9ae787d4c81f7a6048769
+DepMap Public 26Q1,2026-04-01,ScreenGeneEffect.csv,,fa6009b05e0de97ea1e9cc1a59032251
+DepMap Public 26Q1,2026-04-01,ScreenGeneEffectUncorrected.csv,,62ffa56fce9378b599a66b479cd74258
+DepMap Public 26Q1,2026-04-01,ScreenNaiveGeneScore.csv,,b4dbb052ac5c9d7239cef4669489d2e3
+DepMap Public 26Q1,2026-04-01,ScreenGeneDependency.csv,,3ddc4795f1db01c0029989bce1d3edd0
+DepMap Public 26Q1,2026-04-01,CRISPRScreenMap.csv,,31e6beabaf716e9f0e2ee23a29309974
+DepMap Public 26Q1,2026-04-01,CRISPRGeneEffect.csv,,e4f75f92348388459c91401d20a9724e
+DepMap Public 26Q1,2026-04-01,CRISPRGeneEffectUncorrected.csv,,b47defe8ac4171b1db636359ca5ecccf
+DepMap Public 26Q1,2026-04-01,CRISPRInferredLibraryEffect.csv,,317703462348ff9fcceab86c2e60b1fb
+DepMap Public 26Q1,2026-04-01,CRISPRInitialOffset.csv,,5a2ac359978914bf4f46c972f2cc8fc0
+DepMap Public 26Q1,2026-04-01,CRISPRGeneDependency.csv,,c77718247936dd31246cf6e0627e2b31
+DepMap Public 26Q1,2026-04-01,CRISPRInferredGuideEfficacy.csv,,8724b9f529d7fba460ff55dcc45124ce
+DepMap Public 26Q1,2026-04-01,CRISPRInferredModelGrowthRate.csv,,df14f90a417abf4d9b9feeb510ed6f26
+DepMap Public 26Q1,2026-04-01,CRISPRInferredModelEfficacy.csv,,f0f9c08c7cfa9a4eb324ba901dc8ca0c
+DepMap Public 26Q1,2026-04-01,CRISPRInferredSequenceOverdispersion.csv,,d46b5613e12c7bb864cf81d22f18c6d6
+DepMap Public 26Q1,2026-04-01,CRISPRInferredCommonEssentials.csv,,f9b12f368abf7684fcd97af31e8a39a2
+DepMap Public 26Q1,2026-04-01,AchillesCommonEssentialControls.csv,,3aff5af7acc908a459ce32c36959cb92
+DepMap Public 26Q1,2026-04-01,AchillesNonessentialControls.csv,,75edb9c1aa3bff283fb8df95a87de8df
+DepMap Public 26Q1,2026-04-01,AvanaRawReadcounts.csv,,afcb62febacf06e3ef347a12788a27a2
+DepMap Public 26Q1,2026-04-01,HumagneRawReadcounts.csv,,7bd9df52e5250781fecb825d13b62ae5
+DepMap Public 26Q1,2026-04-01,KYRawReadcounts.csv,,c52023e6e2fb060a66625d0b559faa5e
+DepMap Public 26Q1,2026-04-01,AvanaLogfoldChange.csv,,19475922c1bf02ff9147b7caf51a0682
+DepMap Public 26Q1,2026-04-01,HumagneLogfoldChange.csv,,20d24d7617f17c0e2121c59030383e0d
+DepMap Public 26Q1,2026-04-01,KYLogfoldChange.csv,,9f008318b1c597f2d55c00460b8f92db
+DepMap Public 26Q1,2026-04-01,AvanaGuideMap.csv,,5d3ee9efa33f3c2da801b1c7826d414c
+DepMap Public 26Q1,2026-04-01,HumagneGuideMap.csv,,89e1b038076c446832e9b4fdb24ab974
+DepMap Public 26Q1,2026-04-01,KYGuideMap.csv,,57cee32fa01451890bed56d7eabc939a
+DepMap Public 26Q1,2026-04-01,AchillesScreenQCReport.csv,,1d80c8acd7b175a4fdf5eac21022fa6a
+DepMap Public 26Q1,2026-04-01,AchillesSequenceQCReport.csv,,d4e22aa4a387eee95d447bd7365f8185
+DepMap Public 26Q1,2026-04-01,AchillesHighVarianceGeneControls.csv,,f50e28c6a4efa0adc10ec14038f6a6ac
+DepMap Public 26Q1,2026-04-01,OmicsCNSegmentsWGS.csv,,2fc4a6e75f80939b468e3e7dbdc09787
+DepMap Public 26Q1,2026-04-01,PortalOmicsCNGeneLog2.csv,,8e8b34e894bce50fb271019189a12e51
+DepMap Public 26Q1,2026-04-01,OmicsSomaticMutations.csv,,d5b0b87ba8852c50da54ba1442b7518f
+DepMap Public 26Q1,2026-04-01,OmicsSomaticMutationsMAF.maf,,dc742d7ebba9edfde8b5768fcb5a4bc0
+DepMap Public 26Q1,2026-04-01,OmicsSomaticMutationsMatrixHotspot.csv,,5a402d51d95f625ae79bcd5bb71bcf77
+DepMap Public 26Q1,2026-04-01,OmicsSomaticMutationsMatrixDamaging.csv,,e3a8019fd4c52d7e4e9ca51fccdf3c31
+DepMap Public 26Q1,2026-04-01,OmicsProfiles.csv,,5943032f3359af5894c30523ca32f2a8
+DepMap Public 26Q1,2026-04-01,OmicsGuideMutationsBinaryKY.csv,,d042e6a80e5d55b99c9c25d3afd287f0
+DepMap Public 26Q1,2026-04-01,OmicsGuideMutationsBinaryHumagne.csv,,7854c845fa8bb3de6424e5d94791e0ea
+DepMap Public 26Q1,2026-04-01,OmicsGuideMutationsBinaryAvana.csv,,b43dcecd787db16a698d12cced550399
+DepMap Public 26Q1,2026-04-01,OmicsGlobalSignatures.csv,,70795931333b44e188773c9097fb5c0d
+DepMap Public 26Q1,2026-04-01,Model.csv,,a15d75dffcc5219111ca39598948df9a
+DepMap Public 26Q1,2026-04-01,ModelCondition.csv,,ed90c04828d7beb0adc6b2e3067c2185
+DepMap Public 26Q1,2026-04-01,OmicsMicrosatelliteRepeats.csv,,03eec2ab2e67a7555647d13d35cf76fc
+DepMap Public 26Q1,2026-04-01,Gene.csv,,f7522367476002c85c1bdc7c092bd98a
+DepMap Public 26Q1,2026-04-01,PortalCompounds.csv,,09e6566efdcb944265748c40e7425617
+DepMap Public 26Q1,2026-04-01,OmicsCNGeneWGS.csv,,96a13bf6531b7140ce4b8188d7d73bc6
+DepMap Public 26Q1,2026-04-01,OmicsCNGeneMC_WES.csv,,ce3a35883326194c3d955d1dca34d06e
+DepMap Public 26Q1,2026-04-01,OmicsExpressionEffectiveLengthHumanAllGenes.csv,,a0985a043ed8b54625e2f072b21ba809
+DepMap Public 26Q1,2026-04-01,OmicsExpressionEffectiveLengthHumanAllGenesStranded.csv,,7e4e0bde5ab1b5c9e90e52710284219f
+DepMap Public 26Q1,2026-04-01,OmicsExpressionEffectiveLengthHumanProteinCodingGenes.csv,,b2ad0c56ddf933718808e3864ff358fe
+DepMap Public 26Q1,2026-04-01,OmicsExpressionEffectiveLengthHumanProteinCodingGenesStranded.csv,,7e8e3f39c5c450ccaa9f778779a73fdb
+DepMap Public 26Q1,2026-04-01,OmicsExpressionExpectedCountHumanAllGenes.csv,,a5396d1913abae99e89ea08234357278
+DepMap Public 26Q1,2026-04-01,OmicsExpressionExpectedCountHumanAllGenesStranded.csv,,5297cc8f89ad0851d25c7a9b38068263
+DepMap Public 26Q1,2026-04-01,OmicsExpressionExpectedCountHumanProteinCodingGenes.csv,,40bcad07ab8b993c932ee37a5839ed31
+DepMap Public 26Q1,2026-04-01,OmicsExpressionExpectedCountHumanProteinCodingGenesStranded.csv,,5a0199f0fd53bb28f2fe9ff9b537221b
+DepMap Public 26Q1,2026-04-01,OmicsExpressionRawReadCountHumanAllGenes.csv,,08427ab68f2943e9aa03fbfae3e38d86
+DepMap Public 26Q1,2026-04-01,OmicsExpressionRawReadCountHumanAllGenesStranded.csv,,08427ab68f2943e9aa03fbfae3e38d86
+DepMap Public 26Q1,2026-04-01,OmicsExpressionRawReadCountHumanProteinCodingGenes.csv,,9b67e6990d1a8c47a68cfd38b2002ab9
+DepMap Public 26Q1,2026-04-01,OmicsExpressionRawReadCountHumanProteinCodingGenesStranded.csv,,9b67e6990d1a8c47a68cfd38b2002ab9
+DepMap Public 26Q1,2026-04-01,OmicsExpressionTPMLogp1HumanAllGenes.csv,,ad6bf5a8651d93b6882e0a20a503b37e
+DepMap Public 26Q1,2026-04-01,OmicsExpressionTPMLogp1HumanAllGenesStranded.csv,,dc25ade6ffa04a0ed013e22b94847ffd
+DepMap Public 26Q1,2026-04-01,OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv,,559245dfb8dc496a8e30bba4c97d9b25
+DepMap Public 26Q1,2026-04-01,OmicsExpressionTPMLogp1HumanProteinCodingGenesStranded.csv,,08ad8fcfb9602b46aa338145d27c2dd1
+DepMap Public 26Q1,2026-04-01,OmicsExpressionTranscriptEffectiveLengthHumanAllGenes.csv,,79833fd9e12733697e3b45e7f77eaa0e
+DepMap Public 26Q1,2026-04-01,OmicsExpressionTranscriptEffectiveLengthHumanAllGenesStranded.csv,,ad59ad1bace606aaa3ee6ee42c8e91e8
+DepMap Public 26Q1,2026-04-01,OmicsExpressionTranscriptExpectedCountHumanAllGenes.csv,,0c2746ace503f904c15529fc3108d2a2
+DepMap Public 26Q1,2026-04-01,OmicsExpressionTranscriptExpectedCountHumanAllGenesStranded.csv,,eb88a34f4c0bb4f0c4eca5d1743e98ca
+DepMap Public 26Q1,2026-04-01,OmicsExpressionTranscriptTPMLogp1HumanAllGenes.csv,,57a385576d7e79e1ac97605f0e773684
+DepMap Public 26Q1,2026-04-01,OmicsExpressionTranscriptTPMLogp1HumanAllGenesStranded.csv,,da4b4c34a5e25fc19e2413872c32c917
+DepMap Public 26Q1,2026-04-01,OmicsFusionFiltered.csv,,f00a75ba9404aa3546fad51064c43f77
+DepMap Public 26Q1,2026-04-01,OmicsFusionFilteredSupplementary.csv,,f4fbecd5990e4f204d99eac1ad6420ab
+DepMap Public 26Q1,2026-04-01,OmicsInferredMolecularSubtypes.csv,,9acb7b0974fc5b2007b04e4351a1fd73
+DepMap Public 26Q1,2026-04-01,BrunelloGuideMap.csv,,054f875a2076a3b2090630162582ccdb
+DepMap Public 26Q1,2026-04-01,BrunelloLogfoldChange.csv,,b6d4de4e37b8d29f39bc8cf67f334f68
+DepMap Public 26Q1,2026-04-01,BrunelloRawReadcounts.csv,,911594ecaa6d4c65f3271c8caba60fa8
+DepMap Public 26Q1,2026-04-01,OmicsGuideMutationsBinaryBrunello.csv,,b4916da4dc273ebf0ce30da630f8aa89
+DepMap Public 26Q1,2026-04-01,OmicsGuideMutationsBinaryTKOv3.csv,,7a1e5d9e490d60efcc2dbac838afba5d
+DepMap Public 26Q1,2026-04-01,TKOv3GuideMap.csv,,049ce98f2813875b95980727946124bb
+DepMap Public 26Q1,2026-04-01,TKOv3LogfoldChange.csv,,e57a4587d844d880aa8c9e0a5af9cefe
+DepMap Public 26Q1,2026-04-01,TKOv3RawReadcounts.csv,,0319797f01bb8982d49d2bd06474424b
+DepMap Public 26Q1,2026-04-01,CRISPRConfounders.csv,,8990a4c12ebb254f5237f020d8ff2e08
+DepMap Public 25Q3,2025-09-25,ScreenSequenceMap.csv,,89d80c3c894672e80bdb8eb165c298dd
+DepMap Public 25Q3,2025-09-25,README.txt,,cb60b69f708e3afe7bf82f32c0183417
+DepMap Public 25Q3,2025-09-25,SubtypeMatrix.csv,,f8559717a257ed3d69559e133ccb0397
+DepMap Public 25Q3,2025-09-25,SubtypeTree.csv,,f0cf2ed6630fc0f4ad27a1a83c6332a4
+DepMap Public 25Q3,2025-09-25,ScreenGeneEffect.csv,,2a8d9149bc2623cb0dd53361f2d7c5bc
+DepMap Public 25Q3,2025-09-25,ScreenGeneEffectUncorrected.csv,,87b17cb29cdce052c79b322ee1cea01f
+DepMap Public 25Q3,2025-09-25,ScreenNaiveGeneScore.csv,,ce0d3c5bb8ab0844107e70ce9b3f0d53
+DepMap Public 25Q3,2025-09-25,ScreenGeneDependency.csv,,020168d1b7b5cfab98e70ccad01d27fd
+DepMap Public 25Q3,2025-09-25,CRISPRScreenMap.csv,,660871c09b697afa11b02f87a8996a35
+DepMap Public 25Q3,2025-09-25,CRISPRGeneEffect.csv,,ad2fcd4af2e8e2cf28a9fc49f0c822da
+DepMap Public 25Q3,2025-09-25,CRISPRGeneEffectUncorrected.csv,,790bf5e827ae81d1938bf7b04cd0124a
+DepMap Public 25Q3,2025-09-25,CRISPRInferredLibraryEffect.csv,,600e310905d0dd8cbb8d74c54b2f52d5
+DepMap Public 25Q3,2025-09-25,CRISPRInitialOffset.csv,,6b48e038f497b6d9a5d8aef6e5da72b1
+DepMap Public 25Q3,2025-09-25,CRISPRGeneDependency.csv,,4cff08ca439440782afe646303d5784b
+DepMap Public 25Q3,2025-09-25,CRISPRInferredGuideEfficacy.csv,,bd645054d312b642711189f080ff9c9b
+DepMap Public 25Q3,2025-09-25,CRISPRInferredModelGrowthRate.csv,,10da31c7b7c98a722152f42c2bb8b30e
+DepMap Public 25Q3,2025-09-25,CRISPRInferredModelEfficacy.csv,,f2c0d8737bc6755f9f7f5d5d712e52fd
+DepMap Public 25Q3,2025-09-25,CRISPRInferredSequenceOverdispersion.csv,,e4a694cf53efc35e92d6adc26ecb5d2b
+DepMap Public 25Q3,2025-09-25,CRISPRInferredCommonEssentials.csv,,106d87fad497a60430d2bf75fcbc5d7a
+DepMap Public 25Q3,2025-09-25,AchillesCommonEssentialControls.csv,,3aff5af7acc908a459ce32c36959cb92
+DepMap Public 25Q3,2025-09-25,AchillesNonessentialControls.csv,,75edb9c1aa3bff283fb8df95a87de8df
+DepMap Public 25Q3,2025-09-25,AvanaRawReadcounts.csv,,66871dfdc0d941f7e4d77e92cd651173
+DepMap Public 25Q3,2025-09-25,HumagneRawReadcounts.csv,,9d1cdc16ed4280c0539a57ae0b22046e
+DepMap Public 25Q3,2025-09-25,KYRawReadcounts.csv,,92c509bf5880febfab811e9a38ca95ea
+DepMap Public 25Q3,2025-09-25,AvanaLogfoldChange.csv,,4b0442de74db4913779eedae6b4944f2
+DepMap Public 25Q3,2025-09-25,HumagneLogfoldChange.csv,,21b8bf8de51c8b6832d07d877c75e441
+DepMap Public 25Q3,2025-09-25,KYLogfoldChange.csv,,867450b781a5110e1dcdaf1a1e67246c
+DepMap Public 25Q3,2025-09-25,AvanaGuideMap.csv,,5d3ee9efa33f3c2da801b1c7826d414c
+DepMap Public 25Q3,2025-09-25,HumagneGuideMap.csv,,89e1b038076c446832e9b4fdb24ab974
+DepMap Public 25Q3,2025-09-25,KYGuideMap.csv,,57cee32fa01451890bed56d7eabc939a
+DepMap Public 25Q3,2025-09-25,AchillesScreenQCReport.csv,,5c7fcb8c437abcad2e75b7563ac25639
+DepMap Public 25Q3,2025-09-25,AchillesSequenceQCReport.csv,,7637163c2d117fb2550e926f7da5e539
+DepMap Public 25Q3,2025-09-25,AchillesHighVarianceGeneControls.csv,,f50e28c6a4efa0adc10ec14038f6a6ac
+DepMap Public 25Q3,2025-09-25,OmicsCNSegmentsWGS.csv,,e66dd971662f29a3680982106c591c96
+DepMap Public 25Q3,2025-09-25,PortalOmicsCNGeneLog2.csv,,3213469c924635700b86218de832f23d
+DepMap Public 25Q3,2025-09-25,OmicsSomaticMutations.csv,,8037aafae3c47ba80a8fb311a83de436
+DepMap Public 25Q3,2025-09-25,OmicsSomaticMutationsMAF.maf,,039fa2c2130b5965a22c79841d308441
+DepMap Public 25Q3,2025-09-25,OmicsSomaticMutationsMatrixHotspot.csv,,46af6589effde6b4eeb7f6b5027264bf
+DepMap Public 25Q3,2025-09-25,OmicsSomaticMutationsMatrixDamaging.csv,,1a1d0b79094ac973e587e4035c5f3c76
+DepMap Public 25Q3,2025-09-25,OmicsProfiles.csv,,3d7dfe968a307ccc0b69df755f689747
+DepMap Public 25Q3,2025-09-25,OmicsGuideMutationsBinaryKY.csv,,53f58f558f040c277e088987a8d01a52
+DepMap Public 25Q3,2025-09-25,OmicsGuideMutationsBinaryHumagne.csv,,eae1da89e1296e28d192027d3a306d2a
+DepMap Public 25Q3,2025-09-25,OmicsGuideMutationsBinaryAvana.csv,,91e2a9b63f3c43b39804eb173eda45fb
+DepMap Public 25Q3,2025-09-25,OmicsGlobalSignatures.csv,,355fd68e45ef25084a49c92c0111d79d
+DepMap Public 25Q3,2025-09-25,Model.csv,,af4472ab734ea3aec974d992b504c7e5
+DepMap Public 25Q3,2025-09-25,ModelCondition.csv,,9694706745479d8457083cfeeb7d52a4
+DepMap Public 25Q3,2025-09-25,OmicsMicrosatelliteRepeats.csv,,7a4722498845e62ef3dce592030980f1
+DepMap Public 25Q3,2025-09-25,Gene.csv,,bc9ecc2929051de9876f30305b8f8caf
+DepMap Public 25Q3,2025-09-25,PortalCompounds.csv,,8d5450b7e702cbce91d2be6e734a95ae
+DepMap Public 25Q3,2025-09-25,OmicsCNGeneWGS.csv,,2b39b0441e00574f0322d4925938c045
+DepMap Public 25Q3,2025-09-25,OmicsCNGeneMC_WES.csv,,ce3a35883326194c3d955d1dca34d06e
+DepMap Public 25Q3,2025-09-25,OmicsExpressionEffectiveLengthHumanAllGenes.csv,,7b05d21b52c7151d10dfea42025c7c25
+DepMap Public 25Q3,2025-09-25,OmicsExpressionEffectiveLengthHumanAllGenesStranded.csv,,a77355a5911e261e66bc66c2b0b9fb48
+DepMap Public 25Q3,2025-09-25,OmicsExpressionEffectiveLengthHumanProteinCodingGenes.csv,,b621183f1103f2005e9a6faf4f1df2e7
+DepMap Public 25Q3,2025-09-25,OmicsExpressionEffectiveLengthHumanProteinCodingGenesStranded.csv,,7072e38e6dbaa76cac3eaa4b024f1d25
+DepMap Public 25Q3,2025-09-25,OmicsExpressionExpectedCountHumanAllGenes.csv,,467a8d7c37fbe4fe3cdff2ed757b5bb2
+DepMap Public 25Q3,2025-09-25,OmicsExpressionExpectedCountHumanAllGenesStranded.csv,,880e6176880909b60005859ce14d870a
+DepMap Public 25Q3,2025-09-25,OmicsExpressionExpectedCountHumanProteinCodingGenes.csv,,c51fc0f921b862201dc93a8687067d5c
+DepMap Public 25Q3,2025-09-25,OmicsExpressionExpectedCountHumanProteinCodingGenesStranded.csv,,b6b033c71189c2a3482f4559f534cf7a
+DepMap Public 25Q3,2025-09-25,OmicsExpressionRawReadCountHumanAllGenes.csv,,a0608a865df59e402722d5ab294bdb2a
+DepMap Public 25Q3,2025-09-25,OmicsExpressionRawReadCountHumanAllGenesStranded.csv,,a0608a865df59e402722d5ab294bdb2a
+DepMap Public 25Q3,2025-09-25,OmicsExpressionRawReadCountHumanProteinCodingGenes.csv,,c45b4e98debdb89492f03952a27037e8
+DepMap Public 25Q3,2025-09-25,OmicsExpressionRawReadCountHumanProteinCodingGenesStranded.csv,,c45b4e98debdb89492f03952a27037e8
+DepMap Public 25Q3,2025-09-25,OmicsExpressionTPMLogp1HumanAllGenes.csv,,4dd75c302e4f5e38ec415a4e9a0d37d9
+DepMap Public 25Q3,2025-09-25,OmicsExpressionTPMLogp1HumanAllGenesStranded.csv,,3a59970d39565f0f3f56fdb39267bbb8
+DepMap Public 25Q3,2025-09-25,OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv,,90ae19f02ccebe3aba5d16bbf67ef6f2
+DepMap Public 25Q3,2025-09-25,OmicsExpressionTPMLogp1HumanProteinCodingGenesStranded.csv,,6b26356b8c211ad1909c00845bcda5b8
+DepMap Public 25Q3,2025-09-25,OmicsExpressionTranscriptEffectiveLengthHumanAllGenes.csv,,595cb1215f9e8dcb2e17890f69c24045
+DepMap Public 25Q3,2025-09-25,OmicsExpressionTranscriptEffectiveLengthHumanAllGenesStranded.csv,,006b862de5de2a833e7edc2b5be2871d
+DepMap Public 25Q3,2025-09-25,OmicsExpressionTranscriptExpectedCountHumanAllGenes.csv,,107b1e6310db98c02975344f971b5408
+DepMap Public 25Q3,2025-09-25,OmicsExpressionTranscriptExpectedCountHumanAllGenesStranded.csv,,3407c7dc896b3411bd069a26950e3979
+DepMap Public 25Q3,2025-09-25,OmicsExpressionTranscriptTPMLogp1HumanAllGenes.csv,,e369c7d1835cb1a10d1515ac0346b6fc
+DepMap Public 25Q3,2025-09-25,OmicsExpressionTranscriptTPMLogp1HumanAllGenesStranded.csv,,f1d8137c0c9e1b44e2ea5775f4e7ebc0
+DepMap Public 25Q3,2025-09-25,OmicsFusionFiltered.csv,,07c5abff9e75add6cc56c1f06485a1ca
+DepMap Public 25Q3,2025-09-25,OmicsFusionFilteredSupplementary.csv,,c7e2638f61ed2c697f8e560fa6ab87f4
+DepMap Public 25Q3,2025-09-25,OmicsInferredMolecularSubtypes.csv,,19823a18fdd59cc70b04264b28620403
+DepMap Public 25Q2,2025-06-27,ScreenSequenceMap.csv,,de3851113937416711f83025d7b39329
+DepMap Public 25Q2,2025-06-27,README.txt,,7d98c9cc4d8f501fc43645d58090fe8d
+DepMap Public 25Q2,2025-06-27,ScreenGeneEffect.csv,,e5544f419d5ee98f3a74f60924650e32
+DepMap Public 25Q2,2025-06-27,ScreenGeneEffectUncorrected.csv,,7e20454e32f8526ceaabec35949462bc
+DepMap Public 25Q2,2025-06-27,ScreenNaiveGeneScore.csv,,76e0ba75e6cec6e651c888aad7190e42
+DepMap Public 25Q2,2025-06-27,ScreenGeneDependency.csv,,dd59db89241243736c10e6b020584131
+DepMap Public 25Q2,2025-06-27,CRISPRScreenMap.csv,,e1328914f4d9f4d4fac9fbc9e47c7f41
+DepMap Public 25Q2,2025-06-27,CRISPRGeneEffect.csv,,821aa040fdb366c6204a220a5f9fe316
+DepMap Public 25Q2,2025-06-27,CRISPRGeneEffectUncorrected.csv,,7931796486abcd6a1c6490d092ef17d5
+DepMap Public 25Q2,2025-06-27,CRISPRInferredLibraryEffect.csv,,14d015f9f4c47f6856338e8dfea23463
+DepMap Public 25Q2,2025-06-27,CRISPRInitialOffset.csv,,614960625f99f96cdeaa9342c7800bec
+DepMap Public 25Q2,2025-06-27,CRISPRGeneDependency.csv,,3c559fc6a5945916f591bd04f2e98f15
+DepMap Public 25Q2,2025-06-27,CRISPRInferredGuideEfficacy.csv,,44d2dd36796cfd1b5511ff130be72bcd
+DepMap Public 25Q2,2025-06-27,CRISPRInferredModelGrowthRate.csv,,81d40e5e5a7f52f12b4fe05de01527f9
+DepMap Public 25Q2,2025-06-27,CRISPRInferredModelEfficacy.csv,,1e4c5c27954eb40a86b539f2cb0717d0
+DepMap Public 25Q2,2025-06-27,CRISPRInferredSequenceOverdispersion.csv,,f8ce41be42954d9078503c954c154e53
+DepMap Public 25Q2,2025-06-27,CRISPRInferredCommonEssentials.csv,,ccb9b7379f5afa69b3863e22fd8b1bae
+DepMap Public 25Q2,2025-06-27,AchillesCommonEssentialControls.csv,,9cc07e7ebc282984d8107341dfde8f26
+DepMap Public 25Q2,2025-06-27,AchillesNonessentialControls.csv,,ca6a757db1cae49b913423ce73b818cf
+DepMap Public 25Q2,2025-06-27,AvanaRawReadcounts.csv,,dfac0ae52f428b5a2ad827c40d4b9dc0
+DepMap Public 25Q2,2025-06-27,HumagneRawReadcounts.csv,,08a42c5337b38b055938cf74a7270b9e
+DepMap Public 25Q2,2025-06-27,KYRawReadcounts.csv,,adcf2163ecfb2d5de90f32fb8d967a54
+DepMap Public 25Q2,2025-06-27,AvanaLogfoldChange.csv,,098bb5c851339838262dfc517ae5d0e9
+DepMap Public 25Q2,2025-06-27,HumagneLogfoldChange.csv,,449ff784b3f18d2a17bb7f9756f53096
+DepMap Public 25Q2,2025-06-27,KYLogfoldChange.csv,,f4ab93920b692363cba32362272440e8
+DepMap Public 25Q2,2025-06-27,AvanaGuideMap.csv,,380bb5e44d36e16bbc66123e3560e302
+DepMap Public 25Q2,2025-06-27,HumagneGuideMap.csv,,b39017ad2f2bcd0a23200fdeb76861c9
+DepMap Public 25Q2,2025-06-27,KYGuideMap.csv,,2e9f561a2514acb038af644a21065bee
+DepMap Public 25Q2,2025-06-27,AchillesScreenQCReport.csv,,a72aee750f0daba5d55e46785c682db1
+DepMap Public 25Q2,2025-06-27,AchillesSequenceQCReport.csv,,a44550590b702e8872f233febb2665c5
+DepMap Public 25Q2,2025-06-27,AchillesHighVarianceGeneControls.csv,,5e774422fe172a3a99caa51e2bb0faaa
+DepMap Public 25Q2,2025-06-27,OmicsCNSegmentsProfileWGS.csv,,e711e6ae41c59a68247e15b4e2a81d81
+DepMap Public 25Q2,2025-06-27,OmicsCNGeneWGS.csv,,ec326394dcb8838d02fb9c6447c7b5fd
+DepMap Public 25Q2,2025-06-27,PortalOmicsCNGeneLog2.csv,,e1aaa01a8d076f676f16dde37196c0cc
+DepMap Public 25Q2,2025-06-27,OmicsSomaticMutations.csv,,7cf311223a79558cf40dc3159fe28d8a
+DepMap Public 25Q2,2025-06-27,OmicsSomaticMutationsProfile.csv,,d5ffcdc58ffe02a6223816d4caa7fc45
+DepMap Public 25Q2,2025-06-27,OmicsSomaticMutationsMAFProfile.maf,,35cd622fc33b59ee2db20389a914c39d
+DepMap Public 25Q2,2025-06-27,OmicsSomaticMutationsMatrixHotspot.csv,,da3252e8a1b40aab2472545b8d67b521
+DepMap Public 25Q2,2025-06-27,OmicsSomaticMutationsMatrixDamaging.csv,,72d07df307e82e9ca6f0c569fc28ccd6
+DepMap Public 25Q2,2025-06-27,OmicsProfiles.csv,,aff44325f8abbbb4ee4d2f8e6282ea56
+DepMap Public 25Q2,2025-06-27,OmicsDefaultModelConditionProfiles.csv,,dfd699119a16f0d5c5f63116144f5a98
+DepMap Public 25Q2,2025-06-27,OmicsGuideMutationsBinaryKY.csv,,403c32ba1312ae567a61b0e48dc4b6b8
+DepMap Public 25Q2,2025-06-27,OmicsGuideMutationsBinaryHumagne.csv,,50a62e6031d80b3a2a6f882b0fee31b4
+DepMap Public 25Q2,2025-06-27,OmicsGuideMutationsBinaryAvana.csv,,cc2c289816f379cdab047d888e75f3ac
+DepMap Public 25Q2,2025-06-27,OmicsGlobalSignatures.csv,,204b29163af151a620aed952203dd41c
+DepMap Public 25Q2,2025-06-27,OmicsGlobalSignaturesProfile.csv,,de675d447a480daf813b91b5ba3e47f6
+DepMap Public 25Q2,2025-06-27,Model.csv,,9f7b51859a22c6fbe4c8cce43ae4bdf5
+DepMap Public 25Q2,2025-06-27,ModelCondition.csv,,3f3ee2d2a2425f9b8da776c4ea63474d
+DepMap Public 25Q2,2025-06-27,OmicsMicrosatelliteRepeatsProfile.csv,,f4bb8d5e27779fd6356a1a5b2afd6e1b
+DepMap Public 25Q2,2025-06-27,Gene.csv,,db5fb3f1f06365f59664bb6ec6578947
+DepMap Public 25Q2,2025-06-27,PortalCompounds.csv,,8d5450b7e702cbce91d2be6e734a95ae
+DepMap Public 25Q2,2025-06-27,OmicsCNGeneWES.csv,,f8f989c13cb3d1f99a0fd2857dc3ac47
+DepMap Public 25Q2,2025-06-27,OmicsCNSegmentsProfileWES.csv,,ca71f9786d3657b9013ef1f9d5ac228e
+DepMap Public 25Q2,2025-06-27,OmicsCNGeneProfileWGS.csv,,99dab46e8846eacac982fa5e0d65daa9
+DepMap Public 25Q2,2025-06-27,OmicsCNGeneProfileWES.csv,,35655d640152a421df57e7d8acbad0a1
+DepMap Public 25Q2,2025-06-27,OmicsExpressionEffectiveLengthHumanAllGenes.csv,,45c97d2364c25c9d89d715f15cb32601
+DepMap Public 25Q2,2025-06-27,OmicsExpressionEffectiveLengthHumanAllGenesStranded.csv,,22d49213b788d9d4db796906b689b773
+DepMap Public 25Q2,2025-06-27,OmicsExpressionEffectiveLengthHumanProteinCodingGenes.csv,,0413fca7da8b0c1c928b70b40984ea5b
+DepMap Public 25Q2,2025-06-27,OmicsExpressionEffectiveLengthHumanProteinCodingGenesStranded.csv,,00c5dfdf1694b632e8af8642bdef01f0
+DepMap Public 25Q2,2025-06-27,OmicsExpressionExpectedCountHumanAllGenes.csv,,35097aaee13492662d104b883938e1e2
+DepMap Public 25Q2,2025-06-27,OmicsExpressionExpectedCountHumanAllGenesStranded.csv,,7a1c64300afcf4c467baa96138679e0e
+DepMap Public 25Q2,2025-06-27,OmicsExpressionExpectedCountHumanProteinCodingGenes.csv,,02767cac20c00636ec277cd10d446693
+DepMap Public 25Q2,2025-06-27,OmicsExpressionExpectedCountHumanProteinCodingGenesStranded.csv,,d4d6389b1c0d4a4bfe314300db9795a4
+DepMap Public 25Q2,2025-06-27,OmicsExpressionProteinCodingGenesTPMLogp1.csv,,f47da0b6f8f3bbd4fe62e272e53bba4f
+DepMap Public 25Q2,2025-06-27,OmicsExpressionProteinCodingGenesTPMLogp1Stranded.csv,,79810ff3a98b283e8500180e8f8b6e7e
+DepMap Public 25Q2,2025-06-27,OmicsExpressionRawReadCountHumanAllGenes.csv,,86a5658abd423a6cd27979b2d767ced7
+DepMap Public 25Q2,2025-06-27,OmicsExpressionRawReadCountHumanAllGenesStranded.csv,,86a5658abd423a6cd27979b2d767ced7
+DepMap Public 25Q2,2025-06-27,OmicsExpressionRawReadCountHumanProteinCodingGenes.csv,,ad473b96fe9754c977f4d5402ee74f6c
+DepMap Public 25Q2,2025-06-27,OmicsExpressionRawReadCountHumanProteinCodingGenesStranded.csv,,ad473b96fe9754c977f4d5402ee74f6c
+DepMap Public 25Q2,2025-06-27,OmicsExpressionTPMLogp1HumanAllGenes.csv,,1f23c888c26ff9f2157fa1817712651d
+DepMap Public 25Q2,2025-06-27,OmicsExpressionTPMLogp1HumanAllGenesStranded.csv,,c4c39b69f23c1a161364de9902859504
+DepMap Public 25Q2,2025-06-27,OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv,,7faca22777202d0ce404fcede315bc12
+DepMap Public 25Q2,2025-06-27,OmicsExpressionTPMLogp1HumanProteinCodingGenesStranded.csv,,1355b34d9fa6d635410fc585cd899bbc
+DepMap Public 25Q2,2025-06-27,OmicsExpressionTranscriptEffectiveLengthHumanAllGenes.csv,,0512e1763a2530356e8669935f54f131
+DepMap Public 25Q2,2025-06-27,OmicsExpressionTranscriptEffectiveLengthHumanAllGenesStranded.csv,,73d3b3c2de1069d9f651ede8e89c5fa1
+DepMap Public 25Q2,2025-06-27,OmicsExpressionTranscriptExpectedCountHumanAllGenes.csv,,49da0ebb5dcd1559cefc58d36f41cfe0
+DepMap Public 25Q2,2025-06-27,OmicsExpressionTranscriptExpectedCountHumanAllGenesStranded.csv,,d11597abe1667fcc04c1590387ecafa8
+DepMap Public 25Q2,2025-06-27,OmicsExpressionTranscriptTPMLogp1HumanAllGenes.csv,,0fdfd45582309a4fb8662a7e35e9a5d0
+DepMap Public 25Q2,2025-06-27,OmicsExpressionTranscriptTPMLogp1HumanAllGenesStranded.csv,,dbfe4e9dae862060af33a3808e36ad8c
+DepMap Public 25Q2,2025-06-27,OmicsFusionFiltered.csv,,9050e35d078256c762fcb6dc84fec4f1
+DepMap Public 25Q2,2025-06-27,OmicsFusionFilteredSupplementary.csv,,06f222b727c4105e56728cb55723cf94
+DepMap Public 24Q4,2024-12-16,ScreenSequenceMap.csv,https://ndownloader.figshare.com/files/51065828,401ceaf675bfba78942be3c8546ef558
+DepMap Public 24Q4,2024-12-16,README.txt,https://ndownloader.figshare.com/files/51065795,54628c15a10b9ff6536db245cfed5231
+DepMap Public 24Q4,2024-12-16,ScreenGeneEffect.csv,https://ndownloader.figshare.com/files/51065804,35d57d08147456fdb3a3e46359aff179
+DepMap Public 24Q4,2024-12-16,ScreenGeneEffectUncorrected.csv,https://ndownloader.figshare.com/files/51065807,fa6a37a29bb7021dcfaab3c0e681edf7
+DepMap Public 24Q4,2024-12-16,ScreenNaiveGeneScore.csv,https://ndownloader.figshare.com/files/51065810,0620878321e6ee1a81197658f9edf659
+DepMap Public 24Q4,2024-12-16,ScreenGeneDependency.csv,https://ndownloader.figshare.com/files/51065801,2be16b26efe0111fdddeb6a4bedb373f
+DepMap Public 24Q4,2024-12-16,CRISPRScreenMap.csv,https://ndownloader.figshare.com/files/51065159,dda4409d030d486e8a66915990731a62
+DepMap Public 24Q4,2024-12-16,CRISPRGeneEffect.csv,https://ndownloader.figshare.com/files/51064667,6edf7ade09b9b34199210b559d4745d3
+DepMap Public 24Q4,2024-12-16,CRISPRGeneEffectUncorrected.csv,https://ndownloader.figshare.com/files/51064880,e676d7be715a902f315e0f996954fa7c
+DepMap Public 24Q4,2024-12-16,CRISPRInferredLibraryEffect.csv,https://ndownloader.figshare.com/files/51064952,07f7022362c7e46fa91ce848f114479f
+DepMap Public 24Q4,2024-12-16,CRISPRInitialOffset.csv,https://ndownloader.figshare.com/files/51065120,f5be2b1b6938b76a292d99e5556fd61d
+DepMap Public 24Q4,2024-12-16,CRISPRGeneDependency.csv,https://ndownloader.figshare.com/files/51064631,0d3bdadf0c59264e39f7fbadf232ccdb
+DepMap Public 24Q4,2024-12-16,CRISPRInferredGuideEfficacy.csv,https://ndownloader.figshare.com/files/51064919,db6d7628d6a545180763ff179af246b6
+DepMap Public 24Q4,2024-12-16,CRISPRInferredModelGrowthRate.csv,https://ndownloader.figshare.com/files/51065027,0a3ff506d991f3f5f9a308b18c39bf5c
+DepMap Public 24Q4,2024-12-16,CRISPRInferredModelEfficacy.csv,https://ndownloader.figshare.com/files/51064994,dc1764de570b7b0adac1da60954ae930
+DepMap Public 24Q4,2024-12-16,CRISPRInferredSequenceOverdispersion.csv,https://ndownloader.figshare.com/files/51065072,d333cd8ccd658052de5eb2ad80ead74c
+DepMap Public 24Q4,2024-12-16,CRISPRInferredCommonEssentials.csv,https://ndownloader.figshare.com/files/51064916,545edef0d377f252db6e5e675201bd77
+DepMap Public 24Q4,2024-12-16,AchillesCommonEssentialControls.csv,https://ndownloader.figshare.com/files/51063560,9cc07e7ebc282984d8107341dfde8f26
+DepMap Public 24Q4,2024-12-16,AchillesNonessentialControls.csv,https://ndownloader.figshare.com/files/51063566,ca6a757db1cae49b913423ce73b818cf
+DepMap Public 24Q4,2024-12-16,AvanaRawReadcounts.csv,https://ndownloader.figshare.com/files/51064568,8bf184136edbcb187e2c9844cea96ea9
+DepMap Public 24Q4,2024-12-16,HumagneRawReadcounts.csv,https://ndownloader.figshare.com/files/51065252,f43d5d558c7fa4674d734e14d8fe1ce5
+DepMap Public 24Q4,2024-12-16,KYRawReadcounts.csv,https://ndownloader.figshare.com/files/51065288,0765f924355f5883ce3e1cafa769a2f5
+DepMap Public 24Q4,2024-12-16,AvanaLogfoldChange.csv,https://ndownloader.figshare.com/files/51063578,5e84369ee79fb9c042b007fecd8f9846
+DepMap Public 24Q4,2024-12-16,HumagneLogfoldChange.csv,https://ndownloader.figshare.com/files/51065237,b4dc13aff03624666f4da2c4aeb42927
+DepMap Public 24Q4,2024-12-16,KYLogfoldChange.csv,https://ndownloader.figshare.com/files/51065282,bd178085069de8171ed2e699fb859479
+DepMap Public 24Q4,2024-12-16,AvanaGuideMap.csv,https://ndownloader.figshare.com/files/51063575,380bb5e44d36e16bbc66123e3560e302
+DepMap Public 24Q4,2024-12-16,HumagneGuideMap.csv,https://ndownloader.figshare.com/files/51065234,81a6fdfd9601c4420dc08528fffcc9ed
+DepMap Public 24Q4,2024-12-16,KYGuideMap.csv,https://ndownloader.figshare.com/files/51065258,2e9f561a2514acb038af644a21065bee
+DepMap Public 24Q4,2024-12-16,AchillesScreenQCReport.csv,https://ndownloader.figshare.com/files/51063569,701f9dda05e9e560b160e039487a9d8d
+DepMap Public 24Q4,2024-12-16,AchillesSequenceQCReport.csv,https://ndownloader.figshare.com/files/51063572,e33382a1b193b0a24fe3c5d9e09ae49d
+DepMap Public 24Q4,2024-12-16,AchillesHighVarianceGeneControls.csv,https://ndownloader.figshare.com/files/51063563,5e774422fe172a3a99caa51e2bb0faaa
+DepMap Public 24Q4,2024-12-16,OmicsExpressionGenesExpectedCountProfile.csv,https://ndownloader.figshare.com/files/51065477,0cf3ab585fa9571186a1f5e92bc15ccb
+DepMap Public 24Q4,2024-12-16,OmicsExpressionProteinCodingGenesTPMLogp1.csv,https://ndownloader.figshare.com/files/51065489,71794802b750ce77c422dad0720a40af
+DepMap Public 24Q4,2024-12-16,OmicsExpressionProteinCodingGenesTPMLogp1BatchCorrected.csv,https://ndownloader.figshare.com/files/51065492,afefd19098154a62972eb975a55a36c9
+DepMap Public 24Q4,2024-12-16,OmicsExpressionProteinCodingGenesTPMLogp1Stranded.csv,https://ndownloader.figshare.com/files/51065495,2426172ba8da8760bfc9b477a1c90843
+DepMap Public 24Q4,2024-12-16,OmicsExpressionTranscriptsExpectedCountProfile.csv,https://ndownloader.figshare.com/files/51065519,d2c0756632eabcf0e097d3f744ccd4ba
+DepMap Public 24Q4,2024-12-16,OmicsExpressionTranscriptsTPMLogp1Profile.csv,https://ndownloader.figshare.com/files/51065534,db2f0c037ff8be1c73818fd9a43ac2d9
+DepMap Public 24Q4,2024-12-16,OmicsExpressionAllGenesTPMLogp1Profile.csv,https://ndownloader.figshare.com/files/51065360,41392c4fe828d80afa39da000bc0f70a
+DepMap Public 24Q4,2024-12-16,OmicsExpressionAllGenesEffectiveLengthProfile.csv,https://ndownloader.figshare.com/files/51065342,0190e53f95137b3b51286a2a4b1803b3
+DepMap Public 24Q4,2024-12-16,OmicsExpressionRNASeQCGeneCountProfile.csv,https://ndownloader.figshare.com/files/51065501,9ab6b559a83b0886563cf7f52e5da15e
+DepMap Public 24Q4,2024-12-16,OmicsExpressionRNASeQCGeneCountStrandedProfile.csv,https://ndownloader.figshare.com/files/51065513,5d3c6b924fd2107a4d6b64f3dfb67f18
+DepMap Public 24Q4,2024-12-16,OmicsCNSegmentsProfile.csv,https://ndownloader.figshare.com/files/51065333,79fc5cf5c46f215ef085dddaa0e56860
+DepMap Public 24Q4,2024-12-16,OmicsCNGene.csv,https://ndownloader.figshare.com/files/51065324,4696565fa74dc805983bc278b4a41802
+DepMap Public 24Q4,2024-12-16,PortalOmicsCNGeneLog2.csv,https://ndownloader.figshare.com/files/51065765,e7e07461820e47bfe4871e8cfb848977
+DepMap Public 24Q4,2024-12-16,OmicsFusionFiltered.csv,https://ndownloader.figshare.com/files/51065693,16ebb6c5cab1e066d904ac6d7488f82e
+DepMap Public 24Q4,2024-12-16,OmicsFusionUnfilteredProfile.csv,https://ndownloader.figshare.com/files/51065696,50e631c5de5d125ff30847d8c9c04865
+DepMap Public 24Q4,2024-12-16,OmicsSomaticMutations.csv,https://ndownloader.figshare.com/files/51065732,7bdba347a1602fe96d5654a74d6e52f1
+DepMap Public 24Q4,2024-12-16,OmicsSomaticMutationsProfile.csv,https://ndownloader.figshare.com/files/51065753,f78599f73d0b696dde81ffe5007e004c
+DepMap Public 24Q4,2024-12-16,OmicsSomaticMutationsMAFProfile.maf,https://ndownloader.figshare.com/files/51065741,84a4f416449abe9b54b87c47210fbb43
+DepMap Public 24Q4,2024-12-16,OmicsSomaticMutationsMatrixHotspot.csv,https://ndownloader.figshare.com/files/51065750,a5aeb1deef897ead3c955c372148d840
+DepMap Public 24Q4,2024-12-16,OmicsSomaticMutationsMatrixDamaging.csv,https://ndownloader.figshare.com/files/51065747,cb20fdbe1cf3b9b0d8ed4f53e1f399b6
+DepMap Public 24Q4,2024-12-16,OmicsExpressionGeneSetEnrichment.csv,https://ndownloader.figshare.com/files/51065381,c23d7d4a0166f36b78c8dbb20c8908f6
+DepMap Public 24Q4,2024-12-16,OmicsExpressionGeneSetEnrichmentProfile.csv,https://ndownloader.figshare.com/files/51065450,b6c8c37a34b6dc0c8109d63466a8eba8
+DepMap Public 24Q4,2024-12-16,OmicsProfiles.csv,https://ndownloader.figshare.com/files/51065723,7195088a5fc41eddb3f896c6e984a992
+DepMap Public 24Q4,2024-12-16,OmicsDefaultModelProfiles.csv,https://ndownloader.figshare.com/files/51065339,4d342a03701c0a4c0742fedb56c1de40
+DepMap Public 24Q4,2024-12-16,OmicsDefaultModelConditionProfiles.csv,https://ndownloader.figshare.com/files/51065336,b10103a813975dc204630e70d825c12c
+DepMap Public 24Q4,2024-12-16,OmicsGuideMutationsBinaryKY.csv,https://ndownloader.figshare.com/files/51065714,c66aa7272d6a4c399edc7dadf8a39cba
+DepMap Public 24Q4,2024-12-16,OmicsGuideMutationsBinaryHumagne.csv,https://ndownloader.figshare.com/files/51065708,89f5db84325fc164d19a1e4b4a4bbaeb
+DepMap Public 24Q4,2024-12-16,OmicsGuideMutationsBinaryAvana.csv,https://ndownloader.figshare.com/files/51065699,1a455b4ff3595ac4dd055f681c291301
+DepMap Public 24Q4,2024-12-16,OmicsAbsoluteCNGene.csv,https://ndownloader.figshare.com/files/51065303,16afffb33230de2fd13e15e753e28a9b
+DepMap Public 24Q4,2024-12-16,OmicsAbsoluteCNSegmentsProfile.csv,https://ndownloader.figshare.com/files/51065321,e5d3a4425a3ce6d77c42ca75cd13b71b
+DepMap Public 24Q4,2024-12-16,OmicsLoH.csv,https://ndownloader.figshare.com/files/51065717,55d0c2557fa7f987fc0259dff0792f80
+DepMap Public 24Q4,2024-12-16,OmicsSignatures.csv,https://ndownloader.figshare.com/files/51065726,14bdb13656a584dab52e2959a1e11c5a
+DepMap Public 24Q4,2024-12-16,OmicsSignaturesProfile.csv,https://ndownloader.figshare.com/files/51065729,94f8afe88b5a896126b4f122d836bb44
+DepMap Public 24Q4,2024-12-16,Model.csv,https://ndownloader.figshare.com/files/51065297,675210d17675f3517b0ce39a3c274f16
+DepMap Public 24Q4,2024-12-16,ModelCondition.csv,https://ndownloader.figshare.com/files/51065300,1f6033eb5b7a843b20cebe5ab63d3feb
+DepMap Public 24Q4,2024-12-16,OmicsMicrosatelliteRepeatsProfile.csv,https://ndownloader.figshare.com/files/51065720,ad8c498cf0979bcfdef95ff16386ed61
+DepMap Public 24Q4,2024-12-16,OmicsExpressionAllGenesTPMLogp1StrandedProfile.csv,https://ndownloader.figshare.com/files/51065378,e812c308e311f4b2275c6d51e683f3a9
+DepMap Public 24Q4,2024-12-16,OmicsExpressionTranscriptsTPMLogp1StrandedProfile.csv,https://ndownloader.figshare.com/files/51065690,2175eb72675adf4693c3e79ba092a7bc
+DepMap Public 24Q4,2024-12-16,OmicsExpressionGenesExpectedCountStrandedProfile.csv,https://ndownloader.figshare.com/files/51065486,cfd63e39aec4617f18f7cbb5763e22f4
+DepMap Public 24Q4,2024-12-16,OmicsExpressionTranscriptsExpectedCountStrandedProfile.csv,https://ndownloader.figshare.com/files/51065522,d0ea04befa9ccf5274ce4482a81bf0a6
+DepMap Public 24Q4,2024-12-16,Gene.csv,https://ndownloader.figshare.com/files/51065183,ec139ccb21b8ccb0714f21bdcc6f4137
+DepMap Public 24Q4,2024-12-16,PortalCompounds.csv,https://ndownloader.figshare.com/files/51065762,8234f528f1c9e157753fa006263798d6
+DepMap Public 24Q2,2024-05-22,ScreenSequenceMap.csv,https://ndownloader.figshare.com/files/46500445,
+DepMap Public 24Q2,2024-05-22,README.txt,https://ndownloader.figshare.com/files/46500415,
+DepMap Public 24Q2,2024-05-22,ScreenGeneEffect.csv,https://ndownloader.figshare.com/files/46500430,
+DepMap Public 24Q2,2024-05-22,ScreenGeneEffectUncorrected.csv,https://ndownloader.figshare.com/files/46500436,
+DepMap Public 24Q2,2024-05-22,ScreenNaiveGeneScore.csv,https://ndownloader.figshare.com/files/46500439,
+DepMap Public 24Q2,2024-05-22,ScreenGeneDependency.csv,https://ndownloader.figshare.com/files/46500418,
+DepMap Public 24Q2,2024-05-22,CRISPRScreenMap.csv,https://ndownloader.figshare.com/files/46489624,e8c2b3902baf7e6c82fac1cf2aec8bff
+DepMap Public 24Q2,2024-05-22,CRISPRGeneEffect.csv,https://ndownloader.figshare.com/files/46489063,d10d73692672380b3792231549e97d5a
+DepMap Public 24Q2,2024-05-22,CRISPRGeneEffectUncorrected.csv,https://ndownloader.figshare.com/files/46489171,70d5190d363b1b5596bb6e9572dde3ef
+DepMap Public 24Q2,2024-05-22,CRISPRInferredLibraryEffect.csv,https://ndownloader.figshare.com/files/46489609,db52f1648af58157ceb8902cd6de6003
+DepMap Public 24Q2,2024-05-22,CRISPRInitialOffset.csv,https://ndownloader.figshare.com/files/46489621,1b660df6b9a8906a9d58cd5123c9a1db
+DepMap Public 24Q2,2024-05-22,CRISPRGeneDependency.csv,https://ndownloader.figshare.com/files/46489021,6aaa6c239dfb4060e5a68906644d9f69
+DepMap Public 24Q2,2024-05-22,CRISPRInferredGuideEfficacy.csv,https://ndownloader.figshare.com/files/46489603,fb0490b55d7da55d6975b6bfd495a05b
+DepMap Public 24Q2,2024-05-22,CRISPRInferredModelGrowthRate.csv,https://ndownloader.figshare.com/files/46489615,49f1ad52ef650d6737e2a501b823a4ae
+DepMap Public 24Q2,2024-05-22,CRISPRInferredModelEfficacy.csv,https://ndownloader.figshare.com/files/46489612,eede56d7d3d619237f64601322233e26
+DepMap Public 24Q2,2024-05-22,CRISPRInferredSequenceOverdispersion.csv,https://ndownloader.figshare.com/files/46489618,232b6498b55e8e7b41fc0d4bc8b1a880
+DepMap Public 24Q2,2024-05-22,CRISPRInferredCommonEssentials.csv,https://ndownloader.figshare.com/files/46489597,76dd2c044e9aa42bdfa344c8681904f7
+DepMap Public 24Q2,2024-05-22,AchillesCommonEssentialControls.csv,https://ndownloader.figshare.com/files/46486180,1cbfa612d5d4d16e287bb9f23964839c
+DepMap Public 24Q2,2024-05-22,AchillesNonessentialControls.csv,https://ndownloader.figshare.com/files/46486201,9b210b75fdc9c9af6408941f730279ab
+DepMap Public 24Q2,2024-05-22,AvanaRawReadcounts.csv,https://ndownloader.figshare.com/files/46488025,c902ca420f421d78e95c878eb05f1a57
+DepMap Public 24Q2,2024-05-22,HumagneRawReadcounts.csv,https://ndownloader.figshare.com/files/46489633,510793f0870e0b9dce9e50fc4e8c09da
+DepMap Public 24Q2,2024-05-22,KYRawReadcounts.csv,https://ndownloader.figshare.com/files/46489693,2227039fa0f3eeffdbc489cca66217a7
+DepMap Public 24Q2,2024-05-22,AvanaLogfoldChange.csv,https://ndownloader.figshare.com/files/46486252,ab2f2266698d2b2281de83ee795595f5
+DepMap Public 24Q2,2024-05-22,HumagneLogfoldChange.csv,https://ndownloader.figshare.com/files/46489630,cc4b74231a3ea7f64febffcd80171a73
+DepMap Public 24Q2,2024-05-22,KYLogfoldChange.csv,https://ndownloader.figshare.com/files/46489642,5c69ca9f02dade68760e2480ca0c77e9
+DepMap Public 24Q2,2024-05-22,AvanaGuideMap.csv,https://ndownloader.figshare.com/files/46486231,b694af3982d70117fd6214fdd8ce2e2e
+DepMap Public 24Q2,2024-05-22,HumagneGuideMap.csv,https://ndownloader.figshare.com/files/46489627,73ac49f7b505b7f26b1dd5b83dbe1352
+DepMap Public 24Q2,2024-05-22,KYGuideMap.csv,https://ndownloader.figshare.com/files/46489639,2ef1cb175dd2c3314edd86705a598fd5
+DepMap Public 24Q2,2024-05-22,AchillesScreenQCReport.csv,https://ndownloader.figshare.com/files/46486213,678c331e87b758a66f41e29de0284e96
+DepMap Public 24Q2,2024-05-22,AchillesSequenceQCReport.csv,https://ndownloader.figshare.com/files/46486222,13a826add1ac949863796146143591ed
+DepMap Public 24Q2,2024-05-22,AchillesHighVarianceGeneControls.csv,https://ndownloader.figshare.com/files/46486192,3ac0c7bfd07132bf2718592c1e138d62
+DepMap Public 24Q2,2024-05-22,OmicsExpressionGenesExpectedCountProfile.csv,https://ndownloader.figshare.com/files/46490866,dbc27743c7d208a17c7dd8992eddd192
+DepMap Public 24Q2,2024-05-22,OmicsExpressionProteinCodingGenesTPMLogp1.csv,https://ndownloader.figshare.com/files/46490878,f00c434db50d811544ac4d047003979f
+DepMap Public 24Q2,2024-05-22,OmicsExpressionProteinCodingGenesTPMLogp1BatchCorrected.csv,https://ndownloader.figshare.com/files/46493230,2078593f44c851aa9668655e5521debe
+DepMap Public 24Q2,2024-05-22,OmicsExpressionProteinCodingGenesTPMLogp1Stranded.csv,https://ndownloader.figshare.com/files/46493242,c4eac54206a1856b464b9bfdd924dca0
+DepMap Public 24Q2,2024-05-22,OmicsExpressionTranscriptsExpectedCountProfile.csv,https://ndownloader.figshare.com/files/46493425,8d58d5537d4a89949d30aaeeb94c3491
+DepMap Public 24Q2,2024-05-22,OmicsExpressionTranscriptsTPMLogp1Profile.csv,https://ndownloader.figshare.com/files/46493506,b0ead1173f587b1b95840e59c6e1faef
+DepMap Public 24Q2,2024-05-22,OmicsExpressionAllGenesTPMLogp1Profile.csv,https://ndownloader.figshare.com/files/46490482,51cd754cbf6ddd15c0d1c03c982829a8
+DepMap Public 24Q2,2024-05-22,OmicsExpressionAllGenesEffectiveLengthProfile.csv,https://ndownloader.figshare.com/files/46489834,c3cac74f772e4f38fcff4481ba7db680
+DepMap Public 24Q2,2024-05-22,OmicsExpressionRNASeQCGeneCountProfile.csv,https://ndownloader.figshare.com/files/46493254,a9ec0c2d9bf8db871dc71220880688a8
+DepMap Public 24Q2,2024-05-22,OmicsExpressionRNASeQCGeneCountStrandedProfile.csv,https://ndownloader.figshare.com/files/46493422,4722c43b21789cb36fd6aeca867395e3
+DepMap Public 24Q2,2024-05-22,OmicsCNSegmentsProfile.csv,https://ndownloader.figshare.com/files/46489822,3010d029e9a294779c0429fb74c8608c
+DepMap Public 24Q2,2024-05-22,OmicsCNGene.csv,https://ndownloader.figshare.com/files/46489771,36ad55120ccae96671ceaa235e331f81
+DepMap Public 24Q2,2024-05-22,PortalOmicsCNGeneLog2.csv,https://ndownloader.figshare.com/files/46500397,
+DepMap Public 24Q2,2024-05-22,OmicsFusionFiltered.csv,https://ndownloader.figshare.com/files/46494667,775f63df2036c962989bd8969fd2a32a
+DepMap Public 24Q2,2024-05-22,OmicsFusionUnfilteredProfile.csv,https://ndownloader.figshare.com/files/46494682,7c40057acda48461e80cf115982eb828
+DepMap Public 24Q2,2024-05-22,OmicsSomaticMutations.csv,https://ndownloader.figshare.com/files/46500367,b81d9886ab222683038a0a93544a26a5
+DepMap Public 24Q2,2024-05-22,OmicsSomaticMutationsProfile.csv,https://ndownloader.figshare.com/files/46500382,
+DepMap Public 24Q2,2024-05-22,OmicsSomaticMutationsMAFProfile.maf,https://ndownloader.figshare.com/files/46500373,72c2ac77a376f1641523fc871a913c37
+DepMap Public 24Q2,2024-05-22,OmicsSomaticMutationsMatrixHotspot.csv,https://ndownloader.figshare.com/files/46500379,4adce91be0ca472f4e0e14772e0baced
+DepMap Public 24Q2,2024-05-22,OmicsSomaticMutationsMatrixDamaging.csv,https://ndownloader.figshare.com/files/46500376,02f3568b71af0ca3e8d10e681eefac86
+DepMap Public 24Q2,2024-05-22,OmicsExpressionGeneSetEnrichment.csv,https://ndownloader.figshare.com/files/46490557,ffaaff1504af8cd2bec4d289a00d5691
+DepMap Public 24Q2,2024-05-22,OmicsExpressionGeneSetEnrichmentProfile.csv,https://ndownloader.figshare.com/files/46490821,3dfb4c46b8107265c23ce9ab7c3d9062
+DepMap Public 24Q2,2024-05-22,OmicsProfiles.csv,https://ndownloader.figshare.com/files/46500358,928c5c410288a229bc84f9e05cd9a117
+DepMap Public 24Q2,2024-05-22,OmicsDefaultModelProfiles.csv,https://ndownloader.figshare.com/files/46489831,b8b534fe407fe6beefe06ba86266bf84
+DepMap Public 24Q2,2024-05-22,OmicsDefaultModelConditionProfiles.csv,https://ndownloader.figshare.com/files/46489828,6165c2126c2ee64bf29909294a5a81b6
+DepMap Public 24Q2,2024-05-22,OmicsGuideMutationsBinaryKY.csv,https://ndownloader.figshare.com/files/46500340,bd9a12491aacb8f2bdf70403e9e80d1d
+DepMap Public 24Q2,2024-05-22,OmicsGuideMutationsBinaryHumagne.csv,https://ndownloader.figshare.com/files/46494931,1485540bb6d9b6caba60a83ac8c5115d
+DepMap Public 24Q2,2024-05-22,OmicsGuideMutationsBinaryAvana.csv,https://ndownloader.figshare.com/files/46494727,3a9c9e29f7aed2523c45a9f32806a9a5
+DepMap Public 24Q2,2024-05-22,OmicsAbsoluteCNGene.csv,https://ndownloader.figshare.com/files/46489741,f784a67fa640d7e353a052cb3694668b
+DepMap Public 24Q2,2024-05-22,OmicsAbsoluteCNSegmentsProfile.csv,https://ndownloader.figshare.com/files/46489762,14f9dcf6efc3beabe9662a0179338793
+DepMap Public 24Q2,2024-05-22,OmicsLoH.csv,https://ndownloader.figshare.com/files/46500346,26042d3e055bf8f7a3ebfffb4dd81c6f
+DepMap Public 24Q2,2024-05-22,OmicsSignatures.csv,https://ndownloader.figshare.com/files/46500361,e742d97381d05111ce7d960ece1550de
+DepMap Public 24Q2,2024-05-22,OmicsSignaturesProfile.csv,https://ndownloader.figshare.com/files/46500364,dc5209a7f84fee24ecfbd89537b0f1e2
+DepMap Public 24Q2,2024-05-22,Model.csv,https://ndownloader.figshare.com/files/46489732,e5b60d1ce7636542d93f45494019eded
+DepMap Public 24Q2,2024-05-22,ModelCondition.csv,https://ndownloader.figshare.com/files/46489738,875f8352144d2ec52adf59ae0fdb9a18
+DepMap Public 23Q4,2023-11-20,README.txt,https://ndownloader.figshare.com/files/43347678,4d2dae9dedf976048eab4827643bdf79
+DepMap Public 23Q4,2023-11-20,ScreenGeneEffect.csv,https://ndownloader.figshare.com/files/43347738,b9dfbcacc6077afdbdf6dfa2f4cdf9f3
+DepMap Public 23Q4,2023-11-20,ScreenGeneEffectUncorrected.csv,https://ndownloader.figshare.com/files/43347750,a143942e36d172a4afc31dd75470886a
+DepMap Public 23Q4,2023-11-20,ScreenNaiveGeneScore.csv,https://ndownloader.figshare.com/files/43347798,265f8372e9cd0fad56c1a6b66b8a783d
+DepMap Public 23Q4,2023-11-20,ScreenGeneDependency.csv,https://ndownloader.figshare.com/files/43347693,8116b5377032a4836719d64179b55f84
+DepMap Public 23Q4,2023-11-20,CRISPRScreenMap.csv,https://ndownloader.figshare.com/files/43346742,f1ed6aa82b884c7123291cbe1dde28cd
+DepMap Public 23Q4,2023-11-20,CRISPRGeneEffect.csv,https://ndownloader.figshare.com/files/43346616,8bfb35c18b7469020dbd5ae4b6274492
+DepMap Public 23Q4,2023-11-20,CRISPRGeneEffectUncorrected.csv,https://ndownloader.figshare.com/files/43346670,7a810cfab5b443ff38bb8b942bba233e
+DepMap Public 23Q4,2023-11-20,CRISPRGeneDependency.csv,https://ndownloader.figshare.com/files/43346574,b5816e6f4e3380f175bb1746494e6886
+DepMap Public 23Q4,2023-11-20,CRISPRInferredGuideEfficacy.csv,https://ndownloader.figshare.com/files/43346709,6f42112866c56ac369b6ab8f0735e297
+DepMap Public 23Q4,2023-11-20,CRISPRInferredLibraryEffect.csv,https://ndownloader.figshare.com/files/43346715,33c7e4587245d92f5b66d8da32f9d592
+DepMap Public 23Q4,2023-11-20,CRISPRInitialOffset.csv,https://ndownloader.figshare.com/files/43346733,b7d634eb2572f0fca44b7a493bbfeb5d
+DepMap Public 23Q4,2023-11-20,CRISPRInferredModelGrowthRate.csv,https://ndownloader.figshare.com/files/43346724,35d1548713f0371d18f57e571d6c9ae8
+DepMap Public 23Q4,2023-11-20,CRISPRInferredModelEfficacy.csv,https://ndownloader.figshare.com/files/43346718,9bddfb466de2704d1ce24cb568bce76a
+DepMap Public 23Q4,2023-11-20,CRISPRInferredSequenceOverdispersion.csv,https://ndownloader.figshare.com/files/43346727,553d71e26ae537145e11309339fe100a
+DepMap Public 23Q4,2023-11-20,CRISPRInferredCommonEssentials.csv,https://ndownloader.figshare.com/files/43346706,4e47903610d7aeeb65f09341f094ff6d
+DepMap Public 23Q4,2023-11-20,AchillesCommonEssentialControls.csv,https://ndownloader.figshare.com/files/43346361,1cbfa612d5d4d16e287bb9f23964839c
+DepMap Public 23Q4,2023-11-20,AchillesNonessentialControls.csv,https://ndownloader.figshare.com/files/43346370,9b210b75fdc9c9af6408941f730279ab
+DepMap Public 23Q4,2023-11-20,AvanaRawReadcounts.csv,https://ndownloader.figshare.com/files/43346505,a7b583863872e08e905f1c9fb68f7d2c
+DepMap Public 23Q4,2023-11-20,HumagneRawReadcounts.csv,https://ndownloader.figshare.com/files/43346760,246535076efb3ecb86eb29cacf8a7e96
+DepMap Public 23Q4,2023-11-20,KYRawReadcounts.csv,https://ndownloader.figshare.com/files/43346832,6eb52de059a73e43add1d54a9ba07c6d
+DepMap Public 23Q4,2023-11-20,AvanaLogfoldChange.csv,https://ndownloader.figshare.com/files/43346409,58b1f479091a9f8b3e858d69d55413c4
+DepMap Public 23Q4,2023-11-20,HumagneLogfoldChange.csv,https://ndownloader.figshare.com/files/43346751,8a0c196a44f145f3ea3b83d3351fa68a
+DepMap Public 23Q4,2023-11-20,KYLogfoldChange.csv,https://ndownloader.figshare.com/files/43346778,c711c9413b63fe7c55b734e43cdeca91
+DepMap Public 23Q4,2023-11-20,AvanaGuideMap.csv,https://ndownloader.figshare.com/files/43346391,b694af3982d70117fd6214fdd8ce2e2e
+DepMap Public 23Q4,2023-11-20,HumagneGuideMap.csv,https://ndownloader.figshare.com/files/43346748,73ac49f7b505b7f26b1dd5b83dbe1352
+DepMap Public 23Q4,2023-11-20,KYGuideMap.csv,https://ndownloader.figshare.com/files/43346769,2ef1cb175dd2c3314edd86705a598fd5
+DepMap Public 23Q4,2023-11-20,ScreenSequenceMap.csv,https://ndownloader.figshare.com/files/43347852,45af41b90041848b2c7d54c70ab6c6bc
+DepMap Public 23Q4,2023-11-20,AchillesScreenQCReport.csv,https://ndownloader.figshare.com/files/43346379,c5dd63bb4df6c5d68d59a520eab22307
+DepMap Public 23Q4,2023-11-20,AchillesSequenceQCReport.csv,https://ndownloader.figshare.com/files/43346382,6ade416bb89754686d001318dddb2fcb
+DepMap Public 23Q4,2023-11-20,AchillesHighVarianceGeneControls.csv,https://ndownloader.figshare.com/files/43346367,3ac0c7bfd07132bf2718592c1e138d62
+DepMap Public 23Q4,2023-11-20,OmicsExpressionGenesExpectedCountProfile.csv,https://ndownloader.figshare.com/files/43347165,cd29c812d1d5e1c1d35c4f62e4b9eec7
+DepMap Public 23Q4,2023-11-20,OmicsExpressionProteinCodingGenesTPMLogp1.csv,https://ndownloader.figshare.com/files/43347204,9402aa25a19279bb20a5d6cf8791a88f
+DepMap Public 23Q4,2023-11-20,OmicsExpressionTranscriptsExpectedCountProfile.csv,https://ndownloader.figshare.com/files/43347255,7c6da6177171779c1037b94770ac6051
+DepMap Public 23Q4,2023-11-20,OmicsExpressionTranscriptsTPMLogp1Profile.csv,https://ndownloader.figshare.com/files/43347351,66fd825a90d00ca03c3c6c7bb8291ceb
+DepMap Public 23Q4,2023-11-20,OmicsExpressionAllGenesTPMLogp1Profile.csv,https://ndownloader.figshare.com/files/43346994,07b6111b1b886b34f6f2f120512d9627
+DepMap Public 23Q4,2023-11-20,OmicsExpressionAllGenesEffectiveLengthProfile.csv,https://ndownloader.figshare.com/files/43346964,9cc0bd103307c20eab944b4d0fff1930
+DepMap Public 23Q4,2023-11-20,OmicsCNSegmentsProfile.csv,https://ndownloader.figshare.com/files/43346952,5379ca773a09664c071e343be290876a
+DepMap Public 23Q4,2023-11-20,OmicsCNGene.csv,https://ndownloader.figshare.com/files/43346913,ed05d76452b97f4ef6921f75c74e4ca0
+DepMap Public 23Q4,2023-11-20,OmicsFusionFiltered.csv,https://ndownloader.figshare.com/files/43347369,71f8873b8763e379393f31bfd969c472
+DepMap Public 23Q4,2023-11-20,OmicsFusionUnfilteredProfile.csv,https://ndownloader.figshare.com/files/43347372,7f92334ce7c6ed07ec6b9755aeeba234
+DepMap Public 23Q4,2023-11-20,OmicsSomaticMutations.csv,https://ndownloader.figshare.com/files/43347498,0954f65e49eb7ca4a78ac87f4dca433f
+DepMap Public 23Q4,2023-11-20,OmicsSomaticMutationsProfile.csv,https://ndownloader.figshare.com/files/43347537,159827ee5065a70cd6cbf36b8378be1c
+DepMap Public 23Q4,2023-11-20,OmicsSomaticMutationsMAFProfile.maf,https://ndownloader.figshare.com/files/43347510,fca6e6d6544df792c6f8e26944df680c
+DepMap Public 23Q4,2023-11-20,OmicsSomaticMutationsMatrixHotspot.csv,https://ndownloader.figshare.com/files/43347528,021bac4ff8b7805c95b964d16dbbbeda
+DepMap Public 23Q4,2023-11-20,OmicsSomaticMutationsMatrixDamaging.csv,https://ndownloader.figshare.com/files/43347516,020e51a826b37f1ed034bdf7938dc712
+DepMap Public 23Q4,2023-11-20,OmicsExpressionGeneSetEnrichment.csv,https://ndownloader.figshare.com/files/43347060,db8ae22bc9026b2f1f429adc29237264
+DepMap Public 23Q4,2023-11-20,OmicsExpressionGeneSetEnrichmentProfile.csv,https://ndownloader.figshare.com/files/43347114,0494a1667aac68426da655ff374827ef
+DepMap Public 23Q4,2023-11-20,OmicsProfiles.csv,https://ndownloader.figshare.com/files/43347492,06ee7e3a1d11c43e80fc145ccc2d4cd2
+DepMap Public 23Q4,2023-11-20,OmicsDefaultModelProfiles.csv,https://ndownloader.figshare.com/files/43346961,7851b336c0dbaae93a8ed4a829f79c30
+DepMap Public 23Q4,2023-11-20,OmicsDefaultModelConditionProfiles.csv,https://ndownloader.figshare.com/files/43346958,2e9caf303a2de9a6cc983dfa9c797d2e
+DepMap Public 23Q4,2023-11-20,OmicsGuideMutationsBinaryKY.csv,https://ndownloader.figshare.com/files/43347465,7f070bb17014728216877650c8c2f088
+DepMap Public 23Q4,2023-11-20,OmicsGuideMutationsBinaryHumagne.csv,https://ndownloader.figshare.com/files/43347432,a39db63621ed7ba4d46591968e9a6217
+DepMap Public 23Q4,2023-11-20,OmicsGuideMutationsBinaryAvana.csv,https://ndownloader.figshare.com/files/43347378,fa242f255113a00809019ed2e7be1ad1
+DepMap Public 23Q4,2023-11-20,Model.csv,https://ndownloader.figshare.com/files/43346895,c14f90f02609b9507c8b31e6d5db309b
+DepMap Public 23Q4,2023-11-20,Model_v2.csv,https://ndownloader.figshare.com/files/43746708,74ca5c14f118e445f1ad5a1a0335492e
+DepMap Public 23Q4,2023-11-20,ModelCondition.csv,https://ndownloader.figshare.com/files/43346901,ffdb4caee3a3e28cf9844d874c080f66
+DepMap Public 23Q2,2023-05-08,README.txt,https://ndownloader.figshare.com/files/40473113,e425d5a9e85a6090770cfe725b957d92
+DepMap Public 23Q2,2023-05-08,ScreenGeneEffect.csv,https://ndownloader.figshare.com/files/40449692,0dd665a40c03fcc7bec279a813df1e99
+DepMap Public 23Q2,2023-05-08,ScreenGeneEffectUncorrected.csv,https://ndownloader.figshare.com/files/40449695,3a0093af9ec0d50cd8ea0174e2be7046
+DepMap Public 23Q2,2023-05-08,ScreenNaiveGeneScore.csv,https://ndownloader.figshare.com/files/40449698,682ba4dd7147e09b52707e38f80174f0
+DepMap Public 23Q2,2023-05-08,ScreenGeneDependency.csv,https://ndownloader.figshare.com/files/40449659,83b870eb58f6cad97cbdb0cbf10618e2
+DepMap Public 23Q2,2023-05-08,CRISPRScreenMap.csv,https://ndownloader.figshare.com/files/40448702,5e3a11fae4dbafed12d77d078ecb9926
+DepMap Public 23Q2,2023-05-08,CRISPRGeneEffect.csv,https://ndownloader.figshare.com/files/40448555,53813b3e465ea35baf5e8d581acd914b
+DepMap Public 23Q2,2023-05-08,CRISPRGeneDependency.csv,https://ndownloader.figshare.com/files/40448549,4f8d7f745052e61618e415ef5e603780
+DepMap Public 23Q2,2023-05-08,CRISPRInferredGuideEfficacy.csv,https://ndownloader.figshare.com/files/40448693,2ed9e009e43485cebadbe7579920269a
+DepMap Public 23Q2,2023-05-08,CRISPRInferredModelGrowthRate.csv,https://ndownloader.figshare.com/files/40448696,48bc34cf7eeceaa481ba6f6a07368bb6
+DepMap Public 23Q2,2023-05-08,CRISPRInferredModelEfficacy.csv,https://ndownloader.figshare.com/files/40448690,521dffe3f948b4ac5b0119648bc17c54
+DepMap Public 23Q2,2023-05-08,CRISPRInferredSequenceOverdispersion.csv,https://ndownloader.figshare.com/files/40448699,1f96f023e7851448e89dd82a25f4b443
+DepMap Public 23Q2,2023-05-08,CRISPRInferredCommonEssentials.csv,https://ndownloader.figshare.com/files/40448687,373eb583059ae763ab62c4686188bc44
+DepMap Public 23Q2,2023-05-08,AchillesCommonEssentialControls.csv,https://ndownloader.figshare.com/files/40448429,1cbfa612d5d4d16e287bb9f23964839c
+DepMap Public 23Q2,2023-05-08,AchillesNonessentialControls.csv,https://ndownloader.figshare.com/files/40448438,9b210b75fdc9c9af6408941f730279ab
+DepMap Public 23Q2,2023-05-08,AvanaRawReadcounts.csv,https://ndownloader.figshare.com/files/40448591,2e926c07f0a923e1a9a14bf592e5bb10
+DepMap Public 23Q2,2023-05-08,KYRawReadcounts.csv,https://ndownloader.figshare.com/files/40448732,8e02307e3ee4071542dd29f01b3f2995
+DepMap Public 23Q2,2023-05-08,AvanaLogfoldChange.csv,https://ndownloader.figshare.com/files/40448942,fff11fedeab9635c4cf33965da23db6c
+DepMap Public 23Q2,2023-05-08,KYLogfoldChange.csv,https://ndownloader.figshare.com/files/40448786,2a2fba2fbd3b77c30252f94b42dd09c6
+DepMap Public 23Q2,2023-05-08,AvanaGuideMap.csv,https://ndownloader.figshare.com/files/40448450,b694af3982d70117fd6214fdd8ce2e2e
+DepMap Public 23Q2,2023-05-08,KYGuideMap.csv,https://ndownloader.figshare.com/files/40448705,2ef1cb175dd2c3314edd86705a598fd5
+DepMap Public 23Q2,2023-05-08,ScreenSequenceMap.csv,https://ndownloader.figshare.com/files/40449701,a652c33d2a7fc0fa7810c973dfde400c
+DepMap Public 23Q2,2023-05-08,AchillesScreenQCReport.csv,https://ndownloader.figshare.com/files/40448441,7353109ddedc7ba4d84a9760f95a7097
+DepMap Public 23Q2,2023-05-08,AchillesSequenceQCReport.csv,https://ndownloader.figshare.com/files/40448447,6686420657454243f4458f15c6387a75
+DepMap Public 23Q2,2023-05-08,AchillesHighVarianceGeneControls.csv,https://ndownloader.figshare.com/files/40448432,3ac0c7bfd07132bf2718592c1e138d62
+DepMap Public 23Q2,2023-05-08,OmicsExpressionGenesExpectedCountProfile.csv,https://ndownloader.figshare.com/files/40449107,a4d706a885f9e26988b5965c97449f3e
+DepMap Public 23Q2,2023-05-08,OmicsExpressionProteinCodingGenesTPMLogp1.csv,https://ndownloader.figshare.com/files/40449128,e785fe0e00f0f4fae1e7d841336970a0
+DepMap Public 23Q2,2023-05-08,OmicsExpressionTranscriptsExpectedCountProfile.csv,https://ndownloader.figshare.com/files/40449281,b69be6a1629c481e6eb1eaf75e4de3db
+DepMap Public 23Q2,2023-05-08,OmicsExpressionTranscriptsTPMLogp1Profile.csv,https://ndownloader.figshare.com/files/40449689,2d49e190334b3bb3d74c84c2686c85ae
+DepMap Public 23Q2,2023-05-08,OmicsCNSegmentsProfile.csv,https://ndownloader.figshare.com/files/40448876,5b4839745ea81e0e240bff0ab978d69f
+DepMap Public 23Q2,2023-05-08,OmicsCNGene.csv,https://ndownloader.figshare.com/files/40448840,32b989ce2d1c1f897fed114961b919ab
+DepMap Public 23Q2,2023-05-08,OmicsFusionFiltered.csv,https://ndownloader.figshare.com/files/40449266,eb5dc2e62943d059775a6a8142932a2a
+DepMap Public 23Q2,2023-05-08,OmicsFusionUnfilteredProfile.csv,https://ndownloader.figshare.com/files/40449284,08230ab5e15fd9795b3fa0d3b5364f2d
+DepMap Public 23Q2,2023-05-08,OmicsSomaticMutations.csv,https://ndownloader.figshare.com/files/40449638,d1b023717f6a913747ac5c1ee85f0e04
+DepMap Public 23Q2,2023-05-08,OmicsSomaticMutationsProfile.csv,https://ndownloader.figshare.com/files/40449653,64cf4c14646235d106ffc0d68f1a3b91
+DepMap Public 23Q2,2023-05-08,OmicsSomaticMutationsMAFProfile.maf,https://ndownloader.figshare.com/files/40449641,2e9897bb29330224c1417870a688c417
+DepMap Public 23Q2,2023-05-08,OmicsSomaticMutationsMatrixHotspot.csv,https://ndownloader.figshare.com/files/40449650,bdf4957673fc4a95ede2fc63a5bef531
+DepMap Public 23Q2,2023-05-08,OmicsSomaticMutationsMatrixDamaging.csv,https://ndownloader.figshare.com/files/40449647,ba41652cf2548228737267a8f82c9a00
+DepMap Public 23Q2,2023-05-08,OmicsExpressionGeneSetEnrichment.csv,https://ndownloader.figshare.com/files/40448933,60dd08137c1bed3f0685199af9196b78
+DepMap Public 23Q2,2023-05-08,OmicsExpressionGeneSetEnrichmentProfile.csv,https://ndownloader.figshare.com/files/40449044,6d63d5df427f1b841867f999738879c9
+DepMap Public 23Q2,2023-05-08,OmicsProfiles.csv,https://ndownloader.figshare.com/files/40449635,eb15a0ce95c53b56db7d85e539b448e0
+DepMap Public 23Q2,2023-05-08,OmicsDefaultModelProfiles.csv,https://ndownloader.figshare.com/files/40448903,9b29f2e210d3525a7a2b6712a395979f
+DepMap Public 23Q2,2023-05-08,OmicsDefaultModelConditionProfiles.csv,https://ndownloader.figshare.com/files/40448894,39bebfaf0d448e64538dd94675591463
+DepMap Public 23Q2,2023-05-08,OmicsGuideMutationsBinaryKY.csv,https://ndownloader.figshare.com/files/40449620,272a5eeca8f802e57cb2df6d52a64a37
+DepMap Public 23Q2,2023-05-08,OmicsGuideMutationsBinaryHumagne.csv,https://ndownloader.figshare.com/files/40449605,58c9d752fb92de9346cf3051003b9fdc
+DepMap Public 23Q2,2023-05-08,OmicsGuideMutationsBinaryAvana.csv,https://ndownloader.figshare.com/files/40449359,070fad9bc4ac0615c4c93521704797ac
+DepMap Public 23Q2,2023-05-08,Model.csv,https://ndownloader.figshare.com/files/40448834,05edfe0f5e687d5b55e5affb17e8545f
+DepMap Public 23Q2,2023-05-08,ModelCondition.csv,https://ndownloader.figshare.com/files/40448837,fcb39d76b9884eb5a3479893d77bcbbc
+DepMap Public 23Q2,2023-05-08,Media.csv,https://ndownloader.figshare.com/files/40473116,c3733c89378fb7e729972df8da9d767e
+DepMap Public 22Q4,2022-12-01,README.txt,https://ndownloader.figshare.com/files/38357510,5c429c63da6ab77efa27dee820e8db2a
+DepMap Public 22Q4,2022-12-01,ScreenGeneEffect.csv,https://ndownloader.figshare.com/files/38357516,7331cbdee6a3f25e6fe0fb03e4179bec
+DepMap Public 22Q4,2022-12-01,ScreenGeneEffectUncorrected.csv,https://ndownloader.figshare.com/files/38357522,f1f868518ae259e77c9a34a91254d7a9
+DepMap Public 22Q4,2022-12-01,ScreenNaiveGeneScore.csv,https://ndownloader.figshare.com/files/38357528,585ff3c9631a625c180338451f245cdb
+DepMap Public 22Q4,2022-12-01,ScreenGeneDependency.csv,https://ndownloader.figshare.com/files/38357513,97d7029fb9a62a8a9d67e14fc420ff7d
+DepMap Public 22Q4,2022-12-01,CRISPRScreenMap.csv,https://ndownloader.figshare.com/files/38357414,3e219a8824e992fc33332a9f778b1f26
+DepMap Public 22Q4,2022-12-01,CRISPRGeneEffect.csv,https://ndownloader.figshare.com/files/38357390,41c32e0472edbb7da35aa127a0c1f759
+DepMap Public 22Q4,2022-12-01,CRISPRGeneDependency.csv,https://ndownloader.figshare.com/files/38357387,dd12ba1ed4b2dce26aad6131810ade61
+DepMap Public 22Q4,2022-12-01,CRISPRInferredGuideEfficacy.csv,https://ndownloader.figshare.com/files/38357402,ece365e2c2c21e6a2adb9e0b1d4fa8ea
+DepMap Public 22Q4,2022-12-01,CRISPRInferredModelGrowthRate.csv,https://ndownloader.figshare.com/files/38357408,024b7f4d6563f9ecc5aa81a937efb0b4
+DepMap Public 22Q4,2022-12-01,CRISPRInferredModelEfficacy.csv,https://ndownloader.figshare.com/files/38357405,72e3c4ccc8bd7f5b1d1a2f95461bde51
+DepMap Public 22Q4,2022-12-01,CRISPRInferredSequenceOverdispersion.csv,https://ndownloader.figshare.com/files/38357411,6eb4872b1405eb197584fb3207d2ca18
+DepMap Public 22Q4,2022-12-01,CRISPRInferredCommonEssentials.csv,https://ndownloader.figshare.com/files/38357399,f185ef36eeb1981cc926cd42515567d5
+DepMap Public 22Q4,2022-12-01,AchillesCommonEssentialControls.csv,https://ndownloader.figshare.com/files/38357369,1cbfa612d5d4d16e287bb9f23964839c
+DepMap Public 22Q4,2022-12-01,AchillesNonessentialControls.csv,https://ndownloader.figshare.com/files/38357372,9b210b75fdc9c9af6408941f730279ab
+DepMap Public 22Q4,2022-12-01,AvanaRawReadcounts.csv,https://ndownloader.figshare.com/files/38357396,55c25dc3a701368f2bf78f12ba927672
+DepMap Public 22Q4,2022-12-01,KYRawReadcounts.csv,https://ndownloader.figshare.com/files/38357420,0f7b301374cbcede9baf14e55e88ecd7
+DepMap Public 22Q4,2022-12-01,AvanaLogfoldChange.csv,https://ndownloader.figshare.com/files/38357468,21eab80cb52361c90535d4106950e243
+DepMap Public 22Q4,2022-12-01,KYLogfoldChange.csv,https://ndownloader.figshare.com/files/38357423,4860029243fdd0ad1dfe2c75c4e0e49d
+DepMap Public 22Q4,2022-12-01,AvanaGuideMap.csv,https://ndownloader.figshare.com/files/38357384,f4d19466011211ce336ce1d5123aa213
+DepMap Public 22Q4,2022-12-01,KYGuideMap.csv,https://ndownloader.figshare.com/files/38357417,6ab8765d4cf73a848489c713a875228d
+DepMap Public 22Q4,2022-12-01,ScreenSequenceMap.csv,https://ndownloader.figshare.com/files/38357531,6a637caf2f6012e7629c40b6aaab7ca5
+DepMap Public 22Q4,2022-12-01,AchillesScreenQCReport.csv,https://ndownloader.figshare.com/files/38357378,9bdeb09ae88ccec171ccbc458e44a5f2
+DepMap Public 22Q4,2022-12-01,AchillesSequenceQCReport.csv,https://ndownloader.figshare.com/files/38357381,0e8d9541056d3482cbd43919785218f4
+DepMap Public 22Q4,2022-12-01,AchillesHighVarianceGeneControls.csv,https://ndownloader.figshare.com/files/38357375,3ac0c7bfd07132bf2718592c1e138d62
+DepMap Public 22Q4,2022-12-01,OmicsExpressionGenesExpectedCountProfile.csv,https://ndownloader.figshare.com/files/38357459,7f06bd7772111f942acc0218a9e01864
+DepMap Public 22Q4,2022-12-01,OmicsExpressionProteinCodingGenesTPMLogp1.csv,https://ndownloader.figshare.com/files/38357462,0f502b8300df0c33bc5ac260110b8ddd
+DepMap Public 22Q4,2022-12-01,OmicsExpressionTranscriptsExpectedCountProfile.csv,https://ndownloader.figshare.com/files/38357474,8fb22c1dfb3dc36913ea3df85d02d9c4
+DepMap Public 22Q4,2022-12-01,OmicsCNSegmentsProfile.csv,https://ndownloader.figshare.com/files/38357441,1fdf40e508a7ffb5475f4a428b6f25d4
+DepMap Public 22Q4,2022-12-01,OmicsCNGene.csv,https://ndownloader.figshare.com/files/38357438,6ab82f1dff27d4de247b7841ed6fb0cd
+DepMap Public 22Q4,2022-12-01,OmicsFusionFiltered.csv,https://ndownloader.figshare.com/files/38357471,44986d7ea68edc4330bb731a654856ec
+DepMap Public 22Q4,2022-12-01,OmicsFusionUnfilteredProfile.csv,https://ndownloader.figshare.com/files/38357477,adb97cedf302ca0a06d518313549ed40
+DepMap Public 22Q4,2022-12-01,OmicsSomaticMutations.csv,https://ndownloader.figshare.com/files/38357492,a3366ec0e0caea6555e93f6ee3a67786
+DepMap Public 22Q4,2022-12-01,OmicsSomaticMutationsProfile.csv,https://ndownloader.figshare.com/files/38357507,1a37b0e2bbc2cde7bae00abd7a22a04a
+DepMap Public 22Q4,2022-12-01,OmicsSomaticMutationsMatrixHotspot.csv,https://ndownloader.figshare.com/files/38357504,e55b6aed27dcb52742cd871fc4dd6908
+DepMap Public 22Q4,2022-12-01,OmicsSomaticMutationsMatrixDamaging.csv,https://ndownloader.figshare.com/files/38357498,2a5edcc74d53628277c387800b883d1e
+DepMap Public 22Q4,2022-12-01,OmicsExpressionGeneSetEnrichment.csv,https://ndownloader.figshare.com/files/38357450,5554ed75e569e31bde8a219efab4a625
+DepMap Public 22Q4,2022-12-01,OmicsExpressionGeneSetEnrichmentProfile.csv,https://ndownloader.figshare.com/files/38357456,962bba4060e00a1a1584c886b569debb
+DepMap Public 22Q4,2022-12-01,OmicsProfiles.csv,https://ndownloader.figshare.com/files/38357489,a137dad93806a2811923daa1f6bc9af6
+DepMap Public 22Q4,2022-12-01,OmicsDefaultModelProfiles.csv,https://ndownloader.figshare.com/files/38357447,7e6f52b8ad688f21f9c30b127f3751ae
+DepMap Public 22Q4,2022-12-01,OmicsDefaultModelConditionProfiles.csv,https://ndownloader.figshare.com/files/38357444,07935d14eca71aed1613ceb8035d568d
+DepMap Public 22Q4,2022-12-01,OmicsGuideMutationsBinaryKY.csv,https://ndownloader.figshare.com/files/38357486,82638d220ea8ebfc2d9d36144f7816e5
+DepMap Public 22Q4,2022-12-01,OmicsGuideMutationsBinaryHumagne.csv,https://ndownloader.figshare.com/files/38357483,d54bccf3263e81bde3bc60e23d58ab41
+DepMap Public 22Q4,2022-12-01,OmicsGuideMutationsBinaryAvana.csv,https://ndownloader.figshare.com/files/38357480,85b43da27a3a32be993544925c2898d7
+DepMap Public 22Q4,2022-12-01,Model_v2.csv,https://ndownloader.figshare.com/files/38466923,528c0c17d4e7c4c18b88e50add1c1c0f
+DepMap Public 22Q4,2022-12-01,Media.csv,https://ndownloader.figshare.com/files/38357429,e65e6653e63e1cbbd01f6bf9737bb33a
+DepMap Public 22Q4,2022-12-01,ModelCondition.csv,https://ndownloader.figshare.com/files/38466920,a5f63fc0308793faddf4f4641feeaa35
+DepMap Public 22Q2,2022-05-09,README.txt,https://ndownloader.figshare.com/files/34990054,d415bd268980832d115553eac967be86
+DepMap Public 22Q2,2022-05-09,Achilles_gene_effect.csv,https://ndownloader.figshare.com/files/34989889,4843a0c78ef50ae52ea560222c73730d
+DepMap Public 22Q2,2022-05-09,Achilles_gene_effect_uncorrected.csv,https://ndownloader.figshare.com/files/34989892,f7a883f2191bb0be298cfd69715360cc
+DepMap Public 22Q2,2022-05-09,Achilles_gene_dependency.csv,https://ndownloader.figshare.com/files/34989886,015e0b62a0c4f82c54679aa722dce5db
+DepMap Public 22Q2,2022-05-09,Achilles_common_essentials.csv,https://ndownloader.figshare.com/files/34989871,ec90d2baa0ebafde3abbeb69e809745e
+DepMap Public 22Q2,2022-05-09,Achilles_guide_efficacy.csv,https://ndownloader.figshare.com/files/34989877,14767807325cbae5d80759a5df53c2d7
+DepMap Public 22Q2,2022-05-09,Achilles_cell_line_efficacy.csv,https://ndownloader.figshare.com/files/34989865,501d15c0cce78153c7dfe5241990e45d
+DepMap Public 22Q2,2022-05-09,Achilles_cell_line_growth_rate.csv,https://ndownloader.figshare.com/files/34989868,2237e794639c92f946383c70ca6caee0
+DepMap Public 22Q2,2022-05-09,CRISPR_dataset_sources.csv,https://ndownloader.figshare.com/files/34990030,203785b9f436766664a9cda7ded0c3ac
+DepMap Public 22Q2,2022-05-09,CRISPR_gene_effect.csv,https://ndownloader.figshare.com/files/34990036,729a33b49291aca69409210c8447a838
+DepMap Public 22Q2,2022-05-09,CRISPR_gene_dependency.csv,https://ndownloader.figshare.com/files/34990033,757ffb0c2ed3f59065c42783e8766030
+DepMap Public 22Q2,2022-05-09,CRISPR_common_essentials.csv,https://ndownloader.figshare.com/files/34990027,bf4ee18846231c93554c9671cca5a007
+DepMap Public 22Q2,2022-05-09,common_essentials.csv,https://ndownloader.figshare.com/files/34990024,39ab8260b3a36bdea44419aa4ad1c1db
+DepMap Public 22Q2,2022-05-09,nonessentials.csv,https://ndownloader.figshare.com/files/34990051,402f2f70dde770bbeaf63faf00de4b5f
+DepMap Public 22Q2,2022-05-09,Achilles_raw_readcounts.csv,https://ndownloader.figshare.com/files/34989904,d823f5f60d668655949b162ea0f9ff46
+DepMap Public 22Q2,2022-05-09,Achilles_raw_readcounts_failures.csv,https://ndownloader.figshare.com/files/34989910,48386fddc74262bef1abdfde346e55ee
+DepMap Public 22Q2,2022-05-09,Achilles_logfold_change.csv,https://ndownloader.figshare.com/files/34989955,37944384492d215e0450c61fe8d5a8d4
+DepMap Public 22Q2,2022-05-09,Achilles_logfold_change_failures.csv,https://ndownloader.figshare.com/files/34989895,b24f81293263a51690b4bcc6d614ac0d
+DepMap Public 22Q2,2022-05-09,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/34989880,fc53a2613ef29733a98369cc5a6bbdb6
+DepMap Public 22Q2,2022-05-09,Achilles_replicate_map.csv,https://ndownloader.figshare.com/files/34989913,fa937079bb8ffca6c1eecd9361fe598f
+DepMap Public 22Q2,2022-05-09,Achilles_replicate_QC_report_failing.csv,https://ndownloader.figshare.com/files/34989916,ac19304213b5ad0c33fedccabf4832a4
+DepMap Public 22Q2,2022-05-09,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/34989874,6085a9b2eba6998a53c284cf30d8f0e7
+DepMap Public 22Q2,2022-05-09,Achilles_high_variance_genes.csv,https://ndownloader.figshare.com/files/34989883,82f331bcc83d8c08b926e3dec08b3edb
+DepMap Public 22Q2,2022-05-09,CCLE_RNAseq_reads.csv,https://ndownloader.figshare.com/files/34989958,2cd0cad38a6d9ab153e86bbfa5a9b101
+DepMap Public 22Q2,2022-05-09,CCLE_expression_full.csv,https://ndownloader.figshare.com/files/34989922,aadbbf68c587db63eba025b8bf7a792a
+DepMap Public 22Q2,2022-05-09,CCLE_expression.csv,https://ndownloader.figshare.com/files/34989919,0b8a120a368ff69a80368629afee39fb
+DepMap Public 22Q2,2022-05-09,CCLE_expression_transcripts_expected_count.csv,https://ndownloader.figshare.com/files/34989985,903b8ce40dd7ed1cf4be79d21b265a3b
+DepMap Public 22Q2,2022-05-09,CCLE_expression_proteincoding_genes_expected_count.csv,https://ndownloader.figshare.com/files/34989928,5d06e6d6a609a0848eec74fd1fc9390d
+DepMap Public 22Q2,2022-05-09,CCLE_RNAseq_transcripts.csv,https://ndownloader.figshare.com/files/34990048,27c3a830bb788920b6139ce089618999
+DepMap Public 22Q2,2022-05-09,CCLE_segment_cn.csv,https://ndownloader.figshare.com/files/34989970,ef9d8edcf0abfd38bd7789890693b92e
+DepMap Public 22Q2,2022-05-09,CCLE_wes_segment_cn.csv,https://ndownloader.figshare.com/files/34990021,9760849a1142cba07a57343d7c14c2fe
+DepMap Public 22Q2,2022-05-09,CCLE_gene_cn.csv,https://ndownloader.figshare.com/files/34989937,d4f8801b0b20483dfae7cab2b6919c83
+DepMap Public 22Q2,2022-05-09,CCLE_wes_gene_cn.csv,https://ndownloader.figshare.com/files/34990018,cc45e95147377c4db18032a4335757f9
+DepMap Public 22Q2,2022-05-09,CCLE_fusions.csv,https://ndownloader.figshare.com/files/34989931,dd72eaee86c1720b4e084f6beaa9c68e
+DepMap Public 22Q2,2022-05-09,CCLE_fusions_unfiltered.csv,https://ndownloader.figshare.com/files/34989934,0178394ecd0822d1c133179b452492f4
+DepMap Public 22Q2,2022-05-09,CCLE_mutations.csv,https://ndownloader.figshare.com/files/34989940,37273356f1adb580f2d5442300baaa0c
+DepMap Public 22Q2,2022-05-09,CCLE_mutations_bool_hotspot.csv,https://ndownloader.figshare.com/files/34989946,e88e3eacbd9fb529a3679f43cf237423
+DepMap Public 22Q2,2022-05-09,CCLE_mutations_bool_damaging.csv,https://ndownloader.figshare.com/files/34989943,4bb3f75f798cfa867c34f9abd4553490
+DepMap Public 22Q2,2022-05-09,CCLE_mutations_bool_nonconserving.csv,https://ndownloader.figshare.com/files/34989949,20edb88840c3b2c4376631acd5d40416
+DepMap Public 22Q2,2022-05-09,CCLE_mutations_bool_otherconserving.csv,https://ndownloader.figshare.com/files/34989952,e326d68750a3e2056a2a2bd472cd59d2
+DepMap Public 22Q2,2022-05-09,sample_info.csv,https://ndownloader.figshare.com/files/35020903,0a485aebbbea895cd150e3d8b622c167
+DepMap Public 22Q2,2022-05-09,Achilles_metadata.csv,https://ndownloader.figshare.com/files/34989901,90b91c5c39b5c1b287241b408aacd7e7
+DepMap Public 22Q1,2022-02-14,README.txt,https://ndownloader.figshare.com/files/34008500,
+DepMap Public 22Q1,2022-02-14,Achilles_gene_effect.csv,https://ndownloader.figshare.com/files/34008383,
+DepMap Public 22Q1,2022-02-14,Achilles_gene_effect_uncorrected.csv,https://ndownloader.figshare.com/files/34008380,
+DepMap Public 22Q1,2022-02-14,Achilles_gene_dependency.csv,https://ndownloader.figshare.com/files/34008377,
+DepMap Public 22Q1,2022-02-14,Achilles_common_essentials.csv,https://ndownloader.figshare.com/files/34008353,
+DepMap Public 22Q1,2022-02-14,Achilles_guide_efficacy.csv,https://ndownloader.figshare.com/files/34008359,
+DepMap Public 22Q1,2022-02-14,Achilles_cell_line_efficacy.csv,https://ndownloader.figshare.com/files/34008347,
+DepMap Public 22Q1,2022-02-14,Achilles_cell_line_growth_rate.csv,https://ndownloader.figshare.com/files/34008356,
+DepMap Public 22Q1,2022-02-14,CRISPR_dataset_sources.csv,https://ndownloader.figshare.com/files/34008476,
+DepMap Public 22Q1,2022-02-14,CRISPR_gene_effect.csv,https://ndownloader.figshare.com/files/34008491,
+DepMap Public 22Q1,2022-02-14,CRISPR_gene_dependency.csv,https://ndownloader.figshare.com/files/34008485,
+DepMap Public 22Q1,2022-02-14,CRISPR_common_essentials.csv,https://ndownloader.figshare.com/files/34008473,
+DepMap Public 22Q1,2022-02-14,common_essentials.csv,https://ndownloader.figshare.com/files/34008470,
+DepMap Public 22Q1,2022-02-14,nonessentials.csv,https://ndownloader.figshare.com/files/34008497,
+DepMap Public 22Q1,2022-02-14,Achilles_raw_readcounts.csv,https://ndownloader.figshare.com/files/34008395,
+DepMap Public 22Q1,2022-02-14,Achilles_raw_readcounts_failures.csv,https://ndownloader.figshare.com/files/34008392,
+DepMap Public 22Q1,2022-02-14,Achilles_logfold_change.csv,https://ndownloader.figshare.com/files/34008443,
+DepMap Public 22Q1,2022-02-14,Achilles_logfold_change_failures.csv,https://ndownloader.figshare.com/files/34008389,
+DepMap Public 22Q1,2022-02-14,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/34008362,
+DepMap Public 22Q1,2022-02-14,Achilles_replicate_map.csv,https://ndownloader.figshare.com/files/34008398,
+DepMap Public 22Q1,2022-02-14,Achilles_replicate_QC_report_failing.csv,https://ndownloader.figshare.com/files/34008401,
+DepMap Public 22Q1,2022-02-14,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/34008350,
+DepMap Public 22Q1,2022-02-14,Achilles_high_variance_genes.csv,https://ndownloader.figshare.com/files/34008365,
+DepMap Public 22Q1,2022-02-14,CCLE_RNAseq_reads.csv,https://ndownloader.figshare.com/files/34008455,
+DepMap Public 22Q1,2022-02-14,CCLE_expression_full.csv,https://ndownloader.figshare.com/files/34008407,
+DepMap Public 22Q1,2022-02-14,CCLE_expression.csv,https://ndownloader.figshare.com/files/34008404,
+DepMap Public 22Q1,2022-02-14,CCLE_expression_transcripts_expected_count.csv,https://ndownloader.figshare.com/files/34008419,
+DepMap Public 22Q1,2022-02-14,CCLE_expression_proteincoding_genes_expected_count.csv,https://ndownloader.figshare.com/files/34008410,
+DepMap Public 22Q1,2022-02-14,CCLE_RNAseq_transcripts.csv,https://ndownloader.figshare.com/files/34008506,
+DepMap Public 22Q1,2022-02-14,CCLE_segment_cn.csv,https://ndownloader.figshare.com/files/34008464,
+DepMap Public 22Q1,2022-02-14,CCLE_wes_segment_cn.csv,https://ndownloader.figshare.com/files/34008467,
+DepMap Public 22Q1,2022-02-14,CCLE_gene_cn.csv,https://ndownloader.figshare.com/files/34008428,
+DepMap Public 22Q1,2022-02-14,CCLE_wes_gene_cn.csv,https://ndownloader.figshare.com/files/34008482,
+DepMap Public 22Q1,2022-02-14,CCLE_fusions.csv,https://ndownloader.figshare.com/files/34008422,
+DepMap Public 22Q1,2022-02-14,CCLE_fusions_unfiltered.csv,https://ndownloader.figshare.com/files/34008425,
+DepMap Public 22Q1,2022-02-14,CCLE_mutations.csv,https://ndownloader.figshare.com/files/34008434,
+DepMap Public 22Q1,2022-02-14,CCLE_mutations_bool_hotspot.csv,https://ndownloader.figshare.com/files/34008446,
+DepMap Public 22Q1,2022-02-14,CCLE_mutations_bool_damaging.csv,https://ndownloader.figshare.com/files/34008440,
+DepMap Public 22Q1,2022-02-14,CCLE_mutations_bool_nonconserving.csv,https://ndownloader.figshare.com/files/34008449,
+DepMap Public 22Q1,2022-02-14,CCLE_mutations_bool_otherconserving.csv,https://ndownloader.figshare.com/files/34008452,
+DepMap Public 22Q1,2022-02-14,sample_info.csv,https://ndownloader.figshare.com/files/34008503,
+DepMap Public 22Q1,2022-02-14,Achilles_metadata.csv,https://ndownloader.figshare.com/files/34008386,
+DepMap Public 21Q4,2021-11-04,README.txt,https://ndownloader.figshare.com/files/31316008,
+DepMap Public 21Q4,2021-11-04,Achilles_gene_effect.csv,https://ndownloader.figshare.com/files/31315831,
+DepMap Public 21Q4,2021-11-04,Achilles_gene_dependency.csv,https://ndownloader.figshare.com/files/31315828,
+DepMap Public 21Q4,2021-11-04,Achilles_common_essentials.csv,https://ndownloader.figshare.com/files/31315810,
+DepMap Public 21Q4,2021-11-04,Achilles_guide_efficacy.csv,https://ndownloader.figshare.com/files/31315822,
+DepMap Public 21Q4,2021-11-04,Achilles_cell_line_efficacy.csv,https://ndownloader.figshare.com/files/31315804,
+DepMap Public 21Q4,2021-11-04,Achilles_cell_line_growth_rate.csv,https://ndownloader.figshare.com/files/31315807,
+DepMap Public 21Q4,2021-11-04,CRISPR_dataset_sources.csv,https://ndownloader.figshare.com/files/31315987,
+DepMap Public 21Q4,2021-11-04,CRISPR_gene_effect.csv,https://ndownloader.figshare.com/files/31315996,
+DepMap Public 21Q4,2021-11-04,CRISPR_gene_dependency.csv,https://ndownloader.figshare.com/files/31315990,
+DepMap Public 21Q4,2021-11-04,CRISPR_common_essentials.csv,https://ndownloader.figshare.com/files/31315984,
+DepMap Public 21Q4,2021-11-04,common_essentials.csv,https://ndownloader.figshare.com/files/31315981,
+DepMap Public 21Q4,2021-11-04,nonessentials.csv,https://ndownloader.figshare.com/files/31316005,
+DepMap Public 21Q4,2021-11-04,Achilles_raw_readcounts.csv,https://ndownloader.figshare.com/files/31315861,
+DepMap Public 21Q4,2021-11-04,Achilles_raw_readcounts_failures.csv,https://ndownloader.figshare.com/files/31315867,
+DepMap Public 21Q4,2021-11-04,Achilles_logfold_change.csv,https://ndownloader.figshare.com/files/31315903,
+DepMap Public 21Q4,2021-11-04,Achilles_logfold_change_failures.csv,https://ndownloader.figshare.com/files/31315843,
+DepMap Public 21Q4,2021-11-04,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/31315819,
+DepMap Public 21Q4,2021-11-04,Achilles_replicate_map.csv,https://ndownloader.figshare.com/files/31315876,
+DepMap Public 21Q4,2021-11-04,Achilles_replicate_QC_report_failing.csv,https://ndownloader.figshare.com/files/31315879,
+DepMap Public 21Q4,2021-11-04,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/31315813,
+DepMap Public 21Q4,2021-11-04,Achilles_high_variance_genes.csv,https://ndownloader.figshare.com/files/31315825,
+DepMap Public 21Q4,2021-11-04,CCLE_RNAseq_reads.csv,https://ndownloader.figshare.com/files/31315951,
+DepMap Public 21Q4,2021-11-04,CCLE_expression_full.csv,https://ndownloader.figshare.com/files/31315885,
+DepMap Public 21Q4,2021-11-04,CCLE_expression.csv,https://ndownloader.figshare.com/files/31315882,
+DepMap Public 21Q4,2021-11-04,CCLE_expression_transcripts_expected_count.csv,https://ndownloader.figshare.com/files/31315918,
+DepMap Public 21Q4,2021-11-04,CCLE_expression_proteincoding_genes_expected_count.csv,https://ndownloader.figshare.com/files/31315900,
+DepMap Public 21Q4,2021-11-04,CCLE_RNAseq_transcripts.csv,https://ndownloader.figshare.com/files/31315963,
+DepMap Public 21Q4,2021-11-04,CCLE_segment_cn.csv,https://ndownloader.figshare.com/files/31315960,
+DepMap Public 21Q4,2021-11-04,CCLE_wes_segment_cn.csv,https://ndownloader.figshare.com/files/31315972,
+DepMap Public 21Q4,2021-11-04,CCLE_gene_cn.csv,https://ndownloader.figshare.com/files/31315924,
+DepMap Public 21Q4,2021-11-04,CCLE_wes_gene_cn.csv,https://ndownloader.figshare.com/files/31315978,
+DepMap Public 21Q4,2021-11-04,CCLE_fusions.csv,https://ndownloader.figshare.com/files/31315912,
+DepMap Public 21Q4,2021-11-04,CCLE_fusions_unfiltered.csv,https://ndownloader.figshare.com/files/31315915,
+DepMap Public 21Q4,2021-11-04,CCLE_mutations.csv,https://ndownloader.figshare.com/files/31315930,
+DepMap Public 21Q4,2021-11-04,CCLE_mutations_bool_hotspot.csv,https://ndownloader.figshare.com/files/31315936,
+DepMap Public 21Q4,2021-11-04,CCLE_mutations_bool_damaging.csv,https://ndownloader.figshare.com/files/31315933,
+DepMap Public 21Q4,2021-11-04,CCLE_mutations_bool_nonconserving.csv,https://ndownloader.figshare.com/files/31315939,
+DepMap Public 21Q4,2021-11-04,CCLE_mutations_bool_otherconserving.csv,https://ndownloader.figshare.com/files/31315942,
+DepMap Public 21Q4,2021-11-04,sample_info.csv,https://ndownloader.figshare.com/files/31316011,
+DepMap Public 21Q3,2021-08-12,README.txt,https://ndownloader.figshare.com/files/29125329,
+DepMap Public 21Q3,2021-08-12,Achilles_gene_effect_unscaled_CERES.csv,https://ndownloader.figshare.com/files/29124486,
+DepMap Public 21Q3,2021-08-12,Achilles_gene_effect_CERES.csv,https://ndownloader.figshare.com/files/29124195,
+DepMap Public 21Q3,2021-08-12,Achilles_gene_dependency_CERES.csv,https://ndownloader.figshare.com/files/29124204,
+DepMap Public 21Q3,2021-08-12,Achilles_guide_efficacy_CERES.csv,https://ndownloader.figshare.com/files/29124489,
+DepMap Public 21Q3,2021-08-12,Achilles_common_essentials_CERES.csv,https://ndownloader.figshare.com/files/29124105,
+DepMap Public 21Q3,2021-08-12,CRISPR_gene_effect_CERES.csv,https://ndownloader.figshare.com/files/29125326,
+DepMap Public 21Q3,2021-08-12,CRISPR_gene_dependency_CERES.csv,https://ndownloader.figshare.com/files/29125296,
+DepMap Public 21Q3,2021-08-12,CRISPR_common_essentials_CERES.csv,https://ndownloader.figshare.com/files/29125287,
+DepMap Public 21Q3,2021-08-12,Achilles_gene_effect.csv,https://ndownloader.figshare.com/files/29124198,
+DepMap Public 21Q3,2021-08-12,Achilles_gene_dependency.csv,https://ndownloader.figshare.com/files/29124201,
+DepMap Public 21Q3,2021-08-12,Achilles_common_essentials.csv,https://ndownloader.figshare.com/files/29124102,
+DepMap Public 21Q3,2021-08-12,Achilles_guide_efficacy.csv,https://ndownloader.figshare.com/files/29124483,
+DepMap Public 21Q3,2021-08-12,Achilles_cell_line_efficacy.csv,https://ndownloader.figshare.com/files/29124108,
+DepMap Public 21Q3,2021-08-12,Achilles_cell_line_growth_rate.csv,https://ndownloader.figshare.com/files/29124111,
+DepMap Public 21Q3,2021-08-12,CRISPR_dataset_sources.csv,https://ndownloader.figshare.com/files/29125290,
+DepMap Public 21Q3,2021-08-12,CRISPR_gene_effect.csv,https://ndownloader.figshare.com/files/29125323,
+DepMap Public 21Q3,2021-08-12,CRISPR_gene_dependency.csv,https://ndownloader.figshare.com/files/29125293,
+DepMap Public 21Q3,2021-08-12,CRISPR_common_essentials.csv,https://ndownloader.figshare.com/files/29125284,
+DepMap Public 21Q3,2021-08-12,common_essentials.csv,https://ndownloader.figshare.com/files/29125281,
+DepMap Public 21Q3,2021-08-12,nonessentials.csv,https://ndownloader.figshare.com/files/29125332,
+DepMap Public 21Q3,2021-08-12,Achilles_raw_readcounts.csv,https://ndownloader.figshare.com/files/29124612,
+DepMap Public 21Q3,2021-08-12,Achilles_raw_readcounts_failures.csv,https://ndownloader.figshare.com/files/29124720,
+DepMap Public 21Q3,2021-08-12,Achilles_logfold_change.csv,https://ndownloader.figshare.com/files/29125299,
+DepMap Public 21Q3,2021-08-12,Achilles_logfold_change_failures.csv,https://ndownloader.figshare.com/files/29124513,
+DepMap Public 21Q3,2021-08-12,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/29124492,
+DepMap Public 21Q3,2021-08-12,Achilles_replicate_map.csv,https://ndownloader.figshare.com/files/29124735,
+DepMap Public 21Q3,2021-08-12,Achilles_replicate_QC_report_failing.csv,https://ndownloader.figshare.com/files/29124738,
+DepMap Public 21Q3,2021-08-12,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/29124123,
+DepMap Public 21Q3,2021-08-12,Achilles_high_variance_genes.csv,https://ndownloader.figshare.com/files/29124495,
+DepMap Public 21Q3,2021-08-12,CCLE_RNAseq_reads.csv,https://ndownloader.figshare.com/files/29125254,
+DepMap Public 21Q3,2021-08-12,CCLE_expression_full.csv,https://ndownloader.figshare.com/files/29124810,
+DepMap Public 21Q3,2021-08-12,CCLE_expression.csv,https://ndownloader.figshare.com/files/29124747,
+DepMap Public 21Q3,2021-08-12,CCLE_expression_transcripts_expected_count.csv,https://ndownloader.figshare.com/files/29125182,
+DepMap Public 21Q3,2021-08-12,CCLE_expression_proteincoding_genes_expected_count.csv,https://ndownloader.figshare.com/files/29124876,
+DepMap Public 21Q3,2021-08-12,CCLE_RNAseq_transcripts.csv,https://ndownloader.figshare.com/files/29125338,
+DepMap Public 21Q3,2021-08-12,CCLE_segment_cn.csv,https://ndownloader.figshare.com/files/29125278,
+DepMap Public 21Q3,2021-08-12,CCLE_gene_cn.csv,https://ndownloader.figshare.com/files/29125230,
+DepMap Public 21Q3,2021-08-12,CCLE_fusions.csv,https://ndownloader.figshare.com/files/29125107,
+DepMap Public 21Q3,2021-08-12,CCLE_fusions_unfiltered.csv,https://ndownloader.figshare.com/files/29125146,
+DepMap Public 21Q3,2021-08-12,CCLE_mutations.csv,https://ndownloader.figshare.com/files/29125233,
+DepMap Public 21Q3,2021-08-12,CCLE_mutations_bool_hotspot.csv,https://ndownloader.figshare.com/files/29125245,
+DepMap Public 21Q3,2021-08-12,CCLE_mutations_bool_damaging.csv,https://ndownloader.figshare.com/files/29125239,
+DepMap Public 21Q3,2021-08-12,CCLE_mutations_bool_nonconserving.csv,https://ndownloader.figshare.com/files/29125248,
+DepMap Public 21Q3,2021-08-12,CCLE_mutations_bool_otherconserving.csv,https://ndownloader.figshare.com/files/29125251,
+DepMap Public 21Q3,2021-08-12,sample_info_v2.csv,https://ndownloader.figshare.com/files/31839590,
+DepMap Public 21Q2,2021-05-01,README,https://ndownloader.figshare.com/files/27902373,
+DepMap Public 21Q2,2021-05-01,Achilles_gene_effect_unscaled.csv,https://ndownloader.figshare.com/files/27902055,
+DepMap Public 21Q2,2021-05-01,Achilles_gene_effect.csv,https://ndownloader.figshare.com/files/27902046,
+DepMap Public 21Q2,2021-05-01,Achilles_gene_dependency.csv,https://ndownloader.figshare.com/files/27902040,
+DepMap Public 21Q2,2021-05-01,Achilles_guide_efficacy.csv,https://ndownloader.figshare.com/files/27902052,
+DepMap Public 21Q2,2021-05-01,Achilles_common_essentials.csv,https://ndownloader.figshare.com/files/27902028,
+DepMap Public 21Q2,2021-05-01,CRISPR_gene_effect.csv,https://ndownloader.figshare.com/files/27902226,
+DepMap Public 21Q2,2021-05-01,CRISPR_gene_dependency.csv,https://ndownloader.figshare.com/files/27902169,
+DepMap Public 21Q2,2021-05-01,CRISPR_common_essentials.csv,https://ndownloader.figshare.com/files/27902163,
+DepMap Public 21Q2,2021-05-01,Achilles_gene_effect_Chronos.csv,https://ndownloader.figshare.com/files/27902043,
+DepMap Public 21Q2,2021-05-01,Achilles_gene_dependency_Chronos.csv,https://ndownloader.figshare.com/files/27902049,
+DepMap Public 21Q2,2021-05-01,Achilles_common_essentials_Chronos.csv,https://ndownloader.figshare.com/files/27902031,
+DepMap Public 21Q2,2021-05-01,Achilles_guide_efficacy_Chronos.csv,https://ndownloader.figshare.com/files/27902058,
+DepMap Public 21Q2,2021-05-01,Achilles_cell_line_efficacy.csv,https://ndownloader.figshare.com/files/27902034,
+DepMap Public 21Q2,2021-05-01,Achilles_cell_line_growth_rate.csv,https://ndownloader.figshare.com/files/27902025,
+DepMap Public 21Q2,2021-05-01,CRISPR_gene_effect_Chronos.csv,https://ndownloader.figshare.com/files/27902229,
+DepMap Public 21Q2,2021-05-01,CRISPR_gene_dependency_Chronos.csv,https://ndownloader.figshare.com/files/27902175,
+DepMap Public 21Q2,2021-05-01,CRISPR_common_essentials_Chronos.csv,https://ndownloader.figshare.com/files/27902166,
+DepMap Public 21Q2,2021-05-01,common_essentials.csv,https://ndownloader.figshare.com/files/27902160,
+DepMap Public 21Q2,2021-05-01,nonessentials.csv,https://ndownloader.figshare.com/files/27902370,
+DepMap Public 21Q2,2021-05-01,Achilles_raw_readcounts.csv,https://ndownloader.figshare.com/files/27902079,
+DepMap Public 21Q2,2021-05-01,Achilles_raw_readcounts_failures.csv,https://ndownloader.figshare.com/files/27902073,
+DepMap Public 21Q2,2021-05-01,Achilles_logfold_change.csv,https://ndownloader.figshare.com/files/27902121,
+DepMap Public 21Q2,2021-05-01,Achilles_logfold_change_failures.csv,https://ndownloader.figshare.com/files/27902067,
+DepMap Public 21Q2,2021-05-01,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/27902061,
+DepMap Public 21Q2,2021-05-01,Achilles_replicate_map.csv,https://ndownloader.figshare.com/files/27902085,
+DepMap Public 21Q2,2021-05-01,Achilles_replicate_QC_report_failing.csv,https://ndownloader.figshare.com/files/27902088,
+DepMap Public 21Q2,2021-05-01,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/27902037,
+DepMap Public 21Q2,2021-05-01,Achilles_high_variance_genes.csv,https://ndownloader.figshare.com/files/27902064,
+DepMap Public 21Q2,2021-05-01,CCLE_RNAseq_reads.csv,https://ndownloader.figshare.com/files/27902148,
+DepMap Public 21Q2,2021-05-01,CCLE_expression_full.csv,https://ndownloader.figshare.com/files/27902097,
+DepMap Public 21Q2,2021-05-01,CCLE_expression.csv,https://ndownloader.figshare.com/files/27902091,
+DepMap Public 21Q2,2021-05-01,CCLE_expression_transcripts_expected_count.csv,https://ndownloader.figshare.com/files/27902112,
+DepMap Public 21Q2,2021-05-01,CCLE_expression_proteincoding_genes_expected_count.csv,https://ndownloader.figshare.com/files/27902103,
+DepMap Public 21Q2,2021-05-01,CCLE_RNAseq_transcripts.csv,https://ndownloader.figshare.com/files/27902382,
+DepMap Public 21Q2,2021-05-01,CCLE_segment_cn.csv,https://ndownloader.figshare.com/files/27902157,
+DepMap Public 21Q2,2021-05-01,CCLE_gene_cn.csv,https://ndownloader.figshare.com/files/27902124,
+DepMap Public 21Q2,2021-05-01,CCLE_fusions.csv,https://ndownloader.figshare.com/files/27902109,
+DepMap Public 21Q2,2021-05-01,CCLE_fusions_unfiltered.csv,https://ndownloader.figshare.com/files/27902115,
+DepMap Public 21Q2,2021-05-01,CCLE_mutations.csv,https://ndownloader.figshare.com/files/27902118,
+DepMap Public 21Q2,2021-05-01,CCLE_mutations_bool_hotspot.csv,https://ndownloader.figshare.com/files/27902130,
+DepMap Public 21Q2,2021-05-01,CCLE_mutations_bool_damaging.csv,https://ndownloader.figshare.com/files/27902127,
+DepMap Public 21Q2,2021-05-01,CCLE_mutations_bool_nonconserving.csv,https://ndownloader.figshare.com/files/27902133,
+DepMap Public 21Q2,2021-05-01,CCLE_mutations_bool_otherconserving.csv,https://ndownloader.figshare.com/files/27902136,
+DepMap Public 21Q2,2021-05-01,sample_info.csv,https://ndownloader.figshare.com/files/27902376,
+DepMap Public 21Q1,2021-02-01,README.txt,https://ndownloader.figshare.com/files/26261566,
+DepMap Public 21Q1,2021-02-01,Achilles_gene_effect_unscaled.csv,https://ndownloader.figshare.com/files/26261296,
+DepMap Public 21Q1,2021-02-01,Achilles_gene_effect.csv,https://ndownloader.figshare.com/files/26261293,
+DepMap Public 21Q1,2021-02-01,Achilles_gene_dependency.csv,https://ndownloader.figshare.com/files/26261290,
+DepMap Public 21Q1,2021-02-01,Achilles_guide_efficacy.csv,https://ndownloader.figshare.com/files/26261284,
+DepMap Public 21Q1,2021-02-01,Achilles_common_essentials.csv,https://ndownloader.figshare.com/files/26261275,
+DepMap Public 21Q1,2021-02-01,CRISPR_gene_effect.csv,https://ndownloader.figshare.com/files/26261563,
+DepMap Public 21Q1,2021-02-01,CRISPR_gene_dependency.csv,https://ndownloader.figshare.com/files/26261554,
+DepMap Public 21Q1,2021-02-01,CRISPR_common_essentials.csv,https://ndownloader.figshare.com/files/26261551,
+DepMap Public 21Q1,2021-02-01,common_essentials.csv,https://ndownloader.figshare.com/files/26261545,
+DepMap Public 21Q1,2021-02-01,nonessentials.csv,https://ndownloader.figshare.com/files/26261557,
+DepMap Public 21Q1,2021-02-01,Achilles_raw_readcounts.csv,https://ndownloader.figshare.com/files/26261398,
+DepMap Public 21Q1,2021-02-01,Achilles_raw_readcounts_failures.csv,https://ndownloader.figshare.com/files/26261401,
+DepMap Public 21Q1,2021-02-01,Achilles_logfold_change.csv,https://ndownloader.figshare.com/files/26261431,
+DepMap Public 21Q1,2021-02-01,Achilles_logfold_change_failures.csv,https://ndownloader.figshare.com/files/26261386,
+DepMap Public 21Q1,2021-02-01,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/26261287,
+DepMap Public 21Q1,2021-02-01,Achilles_replicate_map.csv,https://ndownloader.figshare.com/files/26261434,
+DepMap Public 21Q1,2021-02-01,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/26261278,
+DepMap Public 21Q1,2021-02-01,Achilles_high_variance_genes.csv,https://ndownloader.figshare.com/files/26261299,
+DepMap Public 21Q1,2021-02-01,CCLE_RNAseq_reads.csv,https://ndownloader.figshare.com/files/26261530,
+DepMap Public 21Q1,2021-02-01,CCLE_expression_full.csv,https://ndownloader.figshare.com/files/26261500,
+DepMap Public 21Q1,2021-02-01,CCLE_expression.csv,https://ndownloader.figshare.com/files/26261476,
+DepMap Public 21Q1,2021-02-01,CCLE_RNAseq_transcripts.csv,https://ndownloader.figshare.com/files/26261560,
+DepMap Public 21Q1,2021-02-01,CCLE_segment_cn.csv,https://ndownloader.figshare.com/files/26261542,
+DepMap Public 21Q1,2021-02-01,CCLE_gene_cn.csv,https://ndownloader.figshare.com/files/26261524,
+DepMap Public 21Q1,2021-02-01,CCLE_fusions.csv,https://ndownloader.figshare.com/files/26261512,
+DepMap Public 21Q1,2021-02-01,CCLE_fusions_unfiltered.csv,https://ndownloader.figshare.com/files/26261515,
+DepMap Public 21Q1,2021-02-01,CCLE_mutations.csv,https://ndownloader.figshare.com/files/26261527,
+DepMap Public 21Q1,2021-02-01,sample_info.csv,https://ndownloader.figshare.com/files/26261569,
+DepMap Public 20Q4 v2,2020-12-18,Achilles_common_essentials.csv,https://ndownloader.figshare.com/files/25770002,380fa2680e0fd2a6919d9d904494222e
+DepMap Public 20Q4 v2,2020-12-18,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/25494350,f5fd91e4b221599b968122e3f5e5bd08
+DepMap Public 20Q4 v2,2020-12-18,Achilles_gene_dependency.csv,https://ndownloader.figshare.com/files/25770032,ef1de323d4827e31b4a40beb70cbdd3b
+DepMap Public 20Q4 v2,2020-12-18,Achilles_gene_effect.csv,https://ndownloader.figshare.com/files/25770029,146b4847741c75ae58c1471adae15fff
+DepMap Public 20Q4 v2,2020-12-18,Achilles_gene_effect_unscaled.csv,https://ndownloader.figshare.com/files/25770041,9fe9e45ebcbc65fbc0d770ec23ef208f
+DepMap Public 20Q4 v2,2020-12-18,Achilles_guide_efficacy.csv,https://ndownloader.figshare.com/files/25770008,950610921105bdda687cd5ad197f7116
+DepMap Public 20Q4 v2,2020-12-18,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/25494356,530fe04ad28f61db9f6d9c1d52be46bc
+DepMap Public 20Q4 v2,2020-12-18,Achilles_high_variance_genes.csv,https://ndownloader.figshare.com/files/25494368,c473da4b21a15b702f9afad4bd2e3801
+DepMap Public 20Q4 v2,2020-12-18,Achilles_logfold_change.csv,https://ndownloader.figshare.com/files/25770053,859028160f4a642b7744fed08a2082e7
+DepMap Public 20Q4 v2,2020-12-18,Achilles_logfold_change_failures.csv,https://ndownloader.figshare.com/files/25770038,86c91874a74ed512cdd7ef0bd12e5c5d
+DepMap Public 20Q4 v2,2020-12-18,Achilles_raw_readcounts.csv,https://ndownloader.figshare.com/files/25770044,8fa5c4c85ff72de96f6ed6422c2e3aa6
+DepMap Public 20Q4 v2,2020-12-18,Achilles_raw_readcounts_failures.csv,https://ndownloader.figshare.com/files/25770050,8fa5c4c85ff72de96f6ed6422c2e3aa6
+DepMap Public 20Q4 v2,2020-12-18,Achilles_replicate_map.csv,https://ndownloader.figshare.com/files/25770047,9ea0db66e8c6c131d9bb8e1e469770dc
+DepMap Public 20Q4 v2,2020-12-18,CCLE_RNAseq_reads.csv,https://ndownloader.figshare.com/files/25797008,6784a751f9b0cce12899b7fda14be83a
+DepMap Public 20Q4 v2,2020-12-18,CCLE_RNAseq_transcripts.csv,https://ndownloader.figshare.com/files/25797206,a26c80bf05451b1c34a0cfd6075e11e7
+DepMap Public 20Q4 v2,2020-12-18,CCLE_expression.csv,https://ndownloader.figshare.com/files/25797011,c694db391bd09d922d9843f68f705346
+DepMap Public 20Q4 v2,2020-12-18,CCLE_expression_full.csv,https://ndownloader.figshare.com/files/25797014,81fffc13e4f626f6d76a40a673dced26
+DepMap Public 20Q4 v2,2020-12-18,CCLE_fusions.csv,https://ndownloader.figshare.com/files/25494407,46f9decef8e40dd6bbad0a669f9d0361
+DepMap Public 20Q4 v2,2020-12-18,CCLE_fusions_unfiltered.csv,https://ndownloader.figshare.com/files/25494410,be791befcea6ab15ffb0f8ffced9e739
+DepMap Public 20Q4 v2,2020-12-18,CCLE_gene_cn.csv,https://ndownloader.figshare.com/files/25770017,04e5fd598c1b41c74a5987d9ffd804ec
+DepMap Public 20Q4 v2,2020-12-18,CCLE_mutations.csv,https://ndownloader.figshare.com/files/25494419,53069669c00d924785435defde132cdd
+DepMap Public 20Q4 v2,2020-12-18,CCLE_segment_cn.csv,https://ndownloader.figshare.com/files/25770014,bcf1fb505c6c0ec633245aef43153f6a
+DepMap Public 20Q4 v2,2020-12-18,README.txt,https://ndownloader.figshare.com/files/25797005,97e008c2a794dc3f607f5ce1d5c6c01d
+DepMap Public 20Q4 v2,2020-12-18,common_essentials.csv,https://ndownloader.figshare.com/files/25494434,585c16921f2effa765a9c7cc66105a82
+DepMap Public 20Q4 v2,2020-12-18,nonessentials.csv,https://ndownloader.figshare.com/files/25494437,99250c5fd97405997a3f4e3f433e1835
+DepMap Public 20Q4 v2,2020-12-18,sample_info.csv,https://ndownloader.figshare.com/files/25494443,596a6c7e5d8fe4d25fffd18ba56725e6
+DepMap Public 20Q4,2020-11-15,common_essentials.csv,https://ndownloader.figshare.com/files/25494434,585c16921f2effa765a9c7cc66105a82
+DepMap Public 20Q4,2020-11-15,nonessentials.csv,https://ndownloader.figshare.com/files/25494437,99250c5fd97405997a3f4e3f433e1835
+DepMap Public 20Q4,2020-11-15,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/25494356,530fe04ad28f61db9f6d9c1d52be46bc
+DepMap Public 20Q4,2020-11-15,Achilles_high_variance_genes.csv,https://ndownloader.figshare.com/files/25494368,c473da4b21a15b702f9afad4bd2e3801
+DepMap Public 20Q4,2020-11-15,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/25494350,f5fd91e4b221599b968122e3f5e5bd08
+DepMap Public 20Q4,2020-11-15,CCLE_expression.csv,https://ndownloader.figshare.com/files/25494389,c694db391bd09d922d9843f68f705346
+DepMap Public 20Q4,2020-11-15,CCLE_fusions.csv,https://ndownloader.figshare.com/files/25494407,46f9decef8e40dd6bbad0a669f9d0361
+DepMap Public 20Q4,2020-11-15,CCLE_fusions_unfiltered.csv,https://ndownloader.figshare.com/files/25494410,be791befcea6ab15ffb0f8ffced9e739
+DepMap Public 20Q4,2020-11-15,CCLE_mutations.csv,https://ndownloader.figshare.com/files/25494419,53069669c00d924785435defde132cdd
+DepMap Public 20Q4,2020-11-15,README.txt,https://ndownloader.figshare.com/files/25494749,24b07fff2b5a2fd795f4c3c33fc78995
+DepMap Public 20Q4,2020-11-15,sample_info.csv,https://ndownloader.figshare.com/files/25494443,596a6c7e5d8fe4d25fffd18ba56725e6
+DepMap Public 20Q3,2020-09-09,Achilles_gene_effect_unscaled.csv,https://ndownloader.figshare.com/files/24613301,9fe9e45ebcbc65fbc0d770ec23ef208f
+DepMap Public 20Q3,2020-09-09,Achilles_gene_effect.csv,https://ndownloader.figshare.com/files/24613292,146b4847741c75ae58c1471adae15fff
+DepMap Public 20Q3,2020-09-09,Achilles_gene_dependency.csv,https://ndownloader.figshare.com/files/24613298,ef1de323d4827e31b4a40beb70cbdd3b
+DepMap Public 20Q3,2020-09-09,Achilles_guide_efficacy.csv,https://ndownloader.figshare.com/files/24613289,950610921105bdda687cd5ad197f7116
+DepMap Public 20Q3,2020-09-09,Achilles_common_essentials.csv,https://ndownloader.figshare.com/files/24613283,380fa2680e0fd2a6919d9d904494222e
+DepMap Public 20Q3,2020-09-09,common_essentials.csv,https://ndownloader.figshare.com/files/24613385,585c16921f2effa765a9c7cc66105a82
+DepMap Public 20Q3,2020-09-09,nonessentials.csv,https://ndownloader.figshare.com/files/24613388,99250c5fd97405997a3f4e3f433e1835
+DepMap Public 20Q3,2020-09-09,Achilles_logfold_change.csv,https://ndownloader.figshare.com/files/24613358,859028160f4a642b7744fed08a2082e7
+DepMap Public 20Q3,2020-09-09,Achilles_logfold_change_failures.csv,https://ndownloader.figshare.com/files/24613313,86c91874a74ed512cdd7ef0bd12e5c5d
+DepMap Public 20Q3,2020-09-09,Achilles_raw_readcounts.csv,https://ndownloader.figshare.com/files/24613316,8fa5c4c85ff72de96f6ed6422c2e3aa6
+DepMap Public 20Q3,2020-09-09,Achilles_raw_readcounts_failures.csv,https://ndownloader.figshare.com/files/24613319,8fa5c4c85ff72de96f6ed6422c2e3aa6
+DepMap Public 20Q3,2020-09-09,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/24613295,3d4319fee96301f1adbeb52b8534d9fa
+DepMap Public 20Q3,2020-09-09,Achilles_high_variance_genes.csv,https://ndownloader.figshare.com/files/24613304,c473da4b21a15b702f9afad4bd2e3801
+DepMap Public 20Q3,2020-09-09,Achilles_replicate_map.csv,https://ndownloader.figshare.com/files/24613322,9ea0db66e8c6c131d9bb8e1e469770dc
+DepMap Public 20Q3,2020-09-09,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/24613286,3eb1726276886249811d36bb29e0e7b9
+DepMap Public 20Q3,2020-09-09,CCLE_RNAseq_reads.csv,https://ndownloader.figshare.com/files/24613361,541baa0ad8f016a8759b9e30a60b330d
+DepMap Public 20Q3,2020-09-09,CCLE_expression_full.csv,https://ndownloader.figshare.com/files/24613349,5768d8c5c7e0d65812fb4077543994fd
+DepMap Public 20Q3,2020-09-09,CCLE_expression.csv,https://ndownloader.figshare.com/files/24613325,72ec057ef348693313c2c4eaf548a2d7
+DepMap Public 20Q3,2020-09-09,CCLE_RNAseq_transcripts.csv,https://ndownloader.figshare.com/files/24613373,b81c272d49bb2efaf41e5dcb8881c08b
+DepMap Public 20Q3,2020-09-09,CCLE_gene_cn.csv,https://ndownloader.figshare.com/files/24613352,04e5fd598c1b41c74a5987d9ffd804ec
+DepMap Public 20Q3,2020-09-09,CCLE_segment_cn.csv,https://ndownloader.figshare.com/files/24613379,bcf1fb505c6c0ec633245aef43153f6a
+DepMap Public 20Q3,2020-09-09,CCLE_fusions.csv,https://ndownloader.figshare.com/files/24613343,91191fab6600eacbb44aa184ccad27e0
+DepMap Public 20Q3,2020-09-09,CCLE_fusions_unfiltered.csv,https://ndownloader.figshare.com/files/24613346,45f4fd1c0cc5e2ccdb3dadd375af8a3e
+DepMap Public 20Q3,2020-09-09,CCLE_mutations.csv,https://ndownloader.figshare.com/files/24613355,c8f722f070fa057a0e9f0df498933d58
+DepMap Public 20Q3,2020-09-09,README,https://ndownloader.figshare.com/files/24613391,f5dd21f5adac800a9fd38d08cc841790
+DepMap Public 20Q3,2020-09-09,sample_info.csv,https://ndownloader.figshare.com/files/24613394,0b57bad913cc8c282c8a6a3b82678c44
+DepMap Public 20Q2,2020-05-12,Achilles_gene_effect_unscaled.csv,https://ndownloader.figshare.com/files/22629077,3644ce3fc9f58206b274812ca30f098e
+DepMap Public 20Q2,2020-05-12,Achilles_gene_effect.csv,https://ndownloader.figshare.com/files/22629068,c0f8ad484a5b96b035255196dac0e3e3
+DepMap Public 20Q2,2020-05-12,Achilles_gene_dependency.csv,https://ndownloader.figshare.com/files/22629071,bed2e161adfdcd2673af5dc4cce589cc
+DepMap Public 20Q2,2020-05-12,Achilles_guide_efficacy.csv,https://ndownloader.figshare.com/files/22629065,170188e09c89ab05dca223152e57a9bd
+DepMap Public 20Q2,2020-05-12,Achilles_common_essentials.csv,https://ndownloader.figshare.com/files/22629059,b20c45b7e5e8a3b231afc934cccef9ad
+DepMap Public 20Q2,2020-05-12,common_essentials.csv,https://ndownloader.figshare.com/files/22629128,585c16921f2effa765a9c7cc66105a82
+DepMap Public 20Q2,2020-05-12,nonessentials.csv,https://ndownloader.figshare.com/files/22629131,99250c5fd97405997a3f4e3f433e1835
+DepMap Public 20Q2,2020-05-12,Achilles_logfold_change.csv,https://ndownloader.figshare.com/files/22629083,0c96dd44f625294a5f265969922649dc
+DepMap Public 20Q2,2020-05-12,Achilles_raw_readcounts.csv,https://ndownloader.figshare.com/files/22629089,830242ace3fac94465db13ec83f4e016
+DepMap Public 20Q2,2020-05-12,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/22629074,c701db4f2a71c420cf597aab319fbf06
+DepMap Public 20Q2,2020-05-12,Achilles_high_variance_genes.csv,https://ndownloader.figshare.com/files/22629080,c473da4b21a15b702f9afad4bd2e3801
+DepMap Public 20Q2,2020-05-12,Achilles_replicate_map.csv,https://ndownloader.figshare.com/files/22629086,c0a94066befa8c299bfadabfe0bf7166
+DepMap Public 20Q2,2020-05-12,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/22629062,3eb1726276886249811d36bb29e0e7b9
+DepMap Public 20Q2,2020-06-05,CCLE_RNAseq_reads_v2.csv,https://ndownloader.figshare.com/files/22897973,541baa0ad8f016a8759b9e30a60b330d
+DepMap Public 20Q2,2020-06-05,CCLE_expression_full_v2.csv,https://ndownloader.figshare.com/files/22897979,5768d8c5c7e0d65812fb4077543994fd
+DepMap Public 20Q2,2020-06-05,CCLE_expression_v2.csv,https://ndownloader.figshare.com/files/22897976,72ec057ef348693313c2c4eaf548a2d7
+DepMap Public 20Q2,2020-06-05,CCLE_RNAseq_transcripts_v2.csv,https://ndownloader.figshare.com/files/22897985,194a2f62905b7909e16a8bcb0fcf88ab
+DepMap Public 20Q2,2020-05-12,CCLE_gene_cn.csv,https://ndownloader.figshare.com/files/22629107,04e5fd598c1b41c74a5987d9ffd804ec
+DepMap Public 20Q2,2020-05-12,CCLE_segment_cn.csv,https://ndownloader.figshare.com/files/22629122,bcf1fb505c6c0ec633245aef43153f6a
+DepMap Public 20Q2,2020-05-12,CCLE_fusions.csv,https://ndownloader.figshare.com/files/22629101,91191fab6600eacbb44aa184ccad27e0
+DepMap Public 20Q2,2020-05-12,CCLE_fusions_unfiltered.csv,https://ndownloader.figshare.com/files/22629104,45f4fd1c0cc5e2ccdb3dadd375af8a3e
+DepMap Public 20Q2,2020-05-12,CCLE_mutations.csv,https://ndownloader.figshare.com/files/22629110,c8f722f070fa057a0e9f0df498933d58
+DepMap Public 20Q2,2020-06-05,README_v2.txt,https://ndownloader.figshare.com/files/22897970,d447e4c6875f00135e6f45496e963b40
+DepMap Public 20Q2,2020-05-12,sample_info.csv,https://ndownloader.figshare.com/files/22629137,449514d879d0eb65838cb816a2efd420
+DepMap Public 20Q1,2020-05-05,Achilles_gene_effect_unscaled_v2.csv,https://ndownloader.figshare.com/files/22543841,545c212fe3d8e7a99bf85ba18423079b
+DepMap Public 20Q1,2020-05-05,Achilles_gene_effect_v2.csv,https://ndownloader.figshare.com/files/22543691,6e819c723e3842470f30b9e26c1ec7b1
+DepMap Public 20Q1,2020-05-05,Achilles_gene_dependency_v2.csv,https://ndownloader.figshare.com/files/22543826,9524fa36777aefea2bc936134f606ece
+DepMap Public 20Q1,2020-02-01,Achilles_guide_efficacy.csv,https://ndownloader.figshare.com/files/21521913,1ffdaa12f6564151db472477c9558de0
+DepMap Public 20Q1,2020-02-01,Achilles_common_essentials.csv,https://ndownloader.figshare.com/files/21521865,a12e54019cb5c6488099a5e0537fa40e
+DepMap Public 20Q1,2020-02-01,common_essentials.csv,https://ndownloader.figshare.com/files/21521991,e6e83eff018b4a1c24e8690a51ae5f32
+DepMap Public 20Q1,2020-02-01,nonessentials.csv,https://ndownloader.figshare.com/files/21521994,204ccbd0bfb5f9e319456b2c6e305771
+DepMap Public 20Q1,2020-05-05,Achilles_logfold_change_v2.csv,https://ndownloader.figshare.com/files/22543823,f824cca41d64e4750978a766253190d1
+DepMap Public 20Q1,2020-05-05,Achilles_raw_readcounts_v2.csv,https://ndownloader.figshare.com/files/22544348,c7e6ee81303ca63ca8fb3eb3f570e2ee
+DepMap Public 20Q1,2020-02-01,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/21521916,8aa69455d560aaa143d7ea03f90eb5a7
+DepMap Public 20Q1,2020-02-01,Achilles_high_variance_genes.csv,https://ndownloader.figshare.com/files/21521919,f251cabfb68aa621aa81059ea4fe6899
+DepMap Public 20Q1,2020-02-01,Achilles_replicate_map.csv,https://ndownloader.figshare.com/files/21521928,3dd6a4776707dac963545d710eb72e8f
+DepMap Public 20Q1,2020-02-01,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/21521868,c72efce070965f14b45a04ac3b20e8bd
+DepMap Public 20Q1,2020-02-01,CCLE_RNAseq_reads.csv,https://ndownloader.figshare.com/files/21521976,555ede7813920426c0438f4e7e45ccee
+DepMap Public 20Q1,2020-02-01,CCLE_expression_full.csv,https://ndownloader.figshare.com/files/21521937,646a8ed1ea5d081ce17599f5ce02b4f4
+DepMap Public 20Q1,2020-02-01,CCLE_expression.csv,https://ndownloader.figshare.com/files/21521940,b1172b7d8c5a46e59c7e2bfa768b2d9d
+DepMap Public 20Q1,2020-02-01,CCLE_RNAseq_transcripts.csv,https://ndownloader.figshare.com/files/21521985,797a8bd30cf00dc8bce001e103456713
+DepMap Public 20Q1,2020-02-01,CCLE_gene_cn.csv,https://ndownloader.figshare.com/files/21521964,45189464093e3061000fbb43a665b30d
+DepMap Public 20Q1,2020-02-01,CCLE_segmented_cn.csv,https://ndownloader.figshare.com/files/21521988,e58a1e48814a57b7c06accac4cf79354
+DepMap Public 20Q1,2020-02-01,CCLE_fusions.csv,https://ndownloader.figshare.com/files/21521946,775fa49d6aa7e6fb3c7d072bc6707d31
+DepMap Public 20Q1,2020-02-01,CCLE_fusions_unfiltered.csv,https://ndownloader.figshare.com/files/21521943,c18bcb5a075012957839fb00f022b287
+DepMap Public 20Q1,2020-02-01,CCLE_mutations.csv,https://ndownloader.figshare.com/files/21521967,9a7f547c5624670dce789940780c796b
+DepMap Public 20Q1,2020-05-05,README_v2.txt,https://ndownloader.figshare.com/files/22543694,e49f7c22cd3ab8e734e1c2d5b5d2d451
+DepMap Public 20Q1,2020-02-21,sample_info_v2.csv,https://ndownloader.figshare.com/files/21522000,
+DepMap Public 19Q4,2020-05-05,Achilles_gene_effect_unscaled_v2.csv,https://ndownloader.figshare.com/files/22543637,984a4ea24ae74472b68ebf8a06baa930
+DepMap Public 19Q4,2020-05-05,Achilles_gene_effect_v2.csv,https://ndownloader.figshare.com/files/22543640,df6b1213998cf815b33f74b13a28ea58
+DepMap Public 19Q4,2020-05-05,Achilles_gene_dependency_v2.csv,https://ndownloader.figshare.com/files/22543634,f1815471441d727572b0c14391e4b8e9
+DepMap Public 19Q4,2019-12-19,Achilles_guide_efficacy.csv,https://ndownloader.figshare.com/files/20234079,8fe453425187d52afbc704de522cc833
+DepMap Public 19Q4,2019-12-19,Achilles_common_essentials.csv,https://ndownloader.figshare.com/files/20233980,66bca0aaa226ce9f56166a19c6c76525
+DepMap Public 19Q4,2019-12-19,common_essentials.csv,https://ndownloader.figshare.com/files/20234406,e6e83eff018b4a1c24e8690a51ae5f32
+DepMap Public 19Q4,2019-12-19,nonessentials.csv,https://ndownloader.figshare.com/files/20234409,204ccbd0bfb5f9e319456b2c6e305771
+DepMap Public 19Q4,2020-05-05,Achilles_logfold_change_v2.csv,https://ndownloader.figshare.com/files/22543652,2be366baf157ff9d4169b91c8343672f
+DepMap Public 19Q4,2020-05-05,Achilles_raw_readcounts_v2.csv,https://ndownloader.figshare.com/files/22544357,ef84ee4ac88e4a24af4924e4710c5e92
+DepMap Public 19Q4,2019-12-19,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/20234082,bf20fa3355068f4c03a4bea01f596f7a
+DepMap Public 19Q4,2019-12-19,Achilles_high_variance_genes.csv,https://ndownloader.figshare.com/files/20234088,f251cabfb68aa621aa81059ea4fe6899
+DepMap Public 19Q4,2019-12-19,Achilles_replicate_map.csv,https://ndownloader.figshare.com/files/20234331,2d7415389d1deac13434521aec4ba8ee
+DepMap Public 19Q4,2019-12-19,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/20233983,c72efce070965f14b45a04ac3b20e8bd
+DepMap Public 19Q4,2019-12-19,CCLE_RNAseq_reads.csv,https://ndownloader.figshare.com/files/20234382,fa40def14ccab73ae0dd34d9d547be10
+DepMap Public 19Q4,2019-12-19,CCLE_expression_full.csv,https://ndownloader.figshare.com/files/20234343,f40d4734899efc99c0c40e77c8f79c63
+DepMap Public 19Q4,2019-12-19,CCLE_expression.csv,https://ndownloader.figshare.com/files/20234346,684862866f2b03b5597b0adcbcbad31d
+DepMap Public 19Q4,2019-12-19,CCLE_RNAseq_transcripts.csv,https://ndownloader.figshare.com/files/20234397,8963a7b256121b1c1fef186cc25e8fce
+DepMap Public 19Q4,2019-12-19,CCLE_gene_cn.csv,https://ndownloader.figshare.com/files/20234367,5357e30dbfdd421563d9b132d7803535
+DepMap Public 19Q4,2019-12-19,CCLE_segmented_cn.csv,https://ndownloader.figshare.com/files/20237421,3b0e650f67df8f2ea4c0edd7e82bb999
+DepMap Public 19Q4,2020-01-13,CCLE_fusions_v2.csv,https://ndownloader.figshare.com/files/20967591,1ee360c490b5891f4870a9bf5a544171
+DepMap Public 19Q4,2020-01-13,CCLE_fusions_unfiltered_v2.csv,https://ndownloader.figshare.com/files/20967588,828f2157d64a7a80df005b1aecad9279
+DepMap Public 19Q4,2019-12-19,CCLE_mutations.csv,https://ndownloader.figshare.com/files/20274747,b758ac100a51b6b2c9117df01babcf70
+DepMap Public 19Q4,2020-05-05,README_v2.txt,https://ndownloader.figshare.com/files/22543658,ac16d4a1f6e96c83a3849e83aa95aff1
+DepMap Public 19Q4,2019-12-19,sample_info.csv,https://ndownloader.figshare.com/files/20274744,2b239bf8bcbbb267bbe13351ac9c5109
+DepMap Public 19Q3,2019-08-07,Achilles_gene_effect.csv,https://ndownloader.figshare.com/files/16757666,
+DepMap Public 19Q3,2019-08-07,Achilles_gene_effect_unscaled.csv,https://ndownloader.figshare.com/files/16757663,
+DepMap Public 19Q3,2019-08-07,Achilles_gene_dependency.csv,https://ndownloader.figshare.com/files/16757660,
+DepMap Public 19Q3,2019-08-07,Achilles_guide_efficacy.csv,https://ndownloader.figshare.com/files/16757669,
+DepMap Public 19Q3,2019-08-07,Achilles_common_essentials.csv,https://ndownloader.figshare.com/files/16757654,
+DepMap Public 19Q3,2019-08-07,common_essentials.csv,https://ndownloader.figshare.com/files/16757714,
+DepMap Public 19Q3,2019-08-07,nonessentials.csv,https://ndownloader.figshare.com/files/16757717,
+DepMap Public 19Q3,2019-08-07,Achilles_logfold_change.csv,https://ndownloader.figshare.com/files/16757678,
+DepMap Public 19Q3,2019-08-07,Achilles_raw_readcounts.csv,https://ndownloader.figshare.com/files/16757681,
+DepMap Public 19Q3,2019-08-07,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/16757672,
+DepMap Public 19Q3,2019-08-07,Achilles_high_variance_genes.csv,https://ndownloader.figshare.com/files/16757675,
+DepMap Public 19Q3,2019-08-07,Achilles_replicate_map.csv,https://ndownloader.figshare.com/files/16757684,
+DepMap Public 19Q3,2019-08-07,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/16757657,
+DepMap Public 19Q3,2019-08-07,CCLE_RNAseq_reads.csv,https://ndownloader.figshare.com/files/16757705,
+DepMap Public 19Q3,2019-08-07,CCLE_expression.csv,https://ndownloader.figshare.com/files/16757690,
+DepMap Public 19Q3,2019-08-07,CCLE_expression_full.csv,https://ndownloader.figshare.com/files/16757687,
+DepMap Public 19Q3,2019-08-07,CCLE_RNAseq_transcripts.csv,https://ndownloader.figshare.com/files/16757708,
+DepMap Public 19Q3,2019-11-14,CCLE_gene_cn_v3.csv,https://ndownloader.figshare.com/files/18731303,
+DepMap Public 19Q3,2019-08-07,CCLE_segmented_cn.csv,https://ndownloader.figshare.com/files/16757711,
+DepMap Public 19Q3,2019-08-07,CCLE_fusions.csv,https://ndownloader.figshare.com/files/16757696,
+DepMap Public 19Q3,2019-08-07,CCLE_fusions_unfiltered.csv,https://ndownloader.figshare.com/files/16757693,
+DepMap Public 19Q3,2019-08-07,CCLE_mutations.csv,https://ndownloader.figshare.com/files/16757702,
+DepMap Public 19Q3,2019-08-07,README.txt,https://ndownloader.figshare.com/files/16757720,
+DepMap Public 19Q3,2019-08-07,sample_info.csv,https://ndownloader.figshare.com/files/16757723,
+DepMap Public 19Q2,2019-05-01,Achilles_gene_effect.csv,https://ndownloader.figshare.com/files/15023465,
+DepMap Public 19Q2,2019-05-01,Achilles_gene_effect_unscaled.csv,https://ndownloader.figshare.com/files/15023462,
+DepMap Public 19Q2,2019-05-01,Achilles_gene_dependency.csv,https://ndownloader.figshare.com/files/15023459,
+DepMap Public 19Q2,2019-05-01,Achilles_guide_efficacy.csv,https://ndownloader.figshare.com/files/15023468,
+DepMap Public 19Q2,2019-05-01,Achilles_common_essentials.csv,https://ndownloader.figshare.com/files/15023453,
+DepMap Public 19Q2,2019-05-01,common_essentials.csv,https://ndownloader.figshare.com/files/15023519,
+DepMap Public 19Q2,2019-05-01,nonessentials.csv,https://ndownloader.figshare.com/files/15023522,
+DepMap Public 19Q2,2019-05-01,Achilles_logfold_change.csv,https://ndownloader.figshare.com/files/15023477,
+DepMap Public 19Q2,2019-05-01,Achilles_raw_readcounts.csv,https://ndownloader.figshare.com/files/15023450,
+DepMap Public 19Q2,2019-05-01,Achilles_guide_map.csv,https://ndownloader.figshare.com/files/15023471,
+DepMap Public 19Q2,2019-05-01,Achilles_replicate_map.csv,https://ndownloader.figshare.com/files/15023480,
+DepMap Public 19Q2,2019-05-01,Achilles_dropped_guides.csv,https://ndownloader.figshare.com/files/15023456,
+DepMap Public 19Q2,2019-05-01,Achilles_README.txt,https://ndownloader.figshare.com/files/15023474,
+DepMap Public 19Q2,2019-05-01,CCLE_RNAseq_reads.csv,https://ndownloader.figshare.com/files/15023504,
+DepMap Public 19Q2,2019-05-01,CCLE_expression.csv,https://ndownloader.figshare.com/files/15023486,
+DepMap Public 19Q2,2019-05-01,CCLE_expression_full.csv,https://ndownloader.figshare.com/files/15023483,
+DepMap Public 19Q2,2019-05-01,CCLE_RNAseq_transcripts.csv,https://ndownloader.figshare.com/files/15023513,
+DepMap Public 19Q2,2019-05-01,CCLE_gene_cn.csv,https://ndownloader.figshare.com/files/15023495,
+DepMap Public 19Q2,2019-05-01,CCLE_segmented_cn.csv,https://ndownloader.figshare.com/files/15023516,
+DepMap Public 19Q2,2019-05-01,CCLE_fusions.csv,https://ndownloader.figshare.com/files/15023492,
+DepMap Public 19Q2,2019-05-01,CCLE_fusions_unfiltered.csv,https://ndownloader.figshare.com/files/15023489,
+DepMap Public 19Q2,2019-05-01,CCLE_mutations.csv,https://ndownloader.figshare.com/files/15023498,
+DepMap Public 19Q2,2019-05-01,CCLE_README.raw,https://ndownloader.figshare.com/files/15023501,
+DepMap Public 19Q2,2019-05-01,sample_info.csv,https://ndownloader.figshare.com/files/15023525,
+DepMap Public 19Q1,2019-02-01,CCLE_depMap_19Q1_RNAseq_reads.csv,,
+DepMap Public 19Q1,2019-02-01,CCLE_depMap_19Q1_TPM.csv,,
+DepMap Public 19Q1,2019-02-01,CCLE_depMap_19Q1_TPM_transcripts.csv,,
+DepMap Public 19Q1,2019-03-27,depmap_19Q1_mutation_calls_v2.csv,,
+DepMap Public 19Q1,2019-02-01,public_19Q1_gene_cn.csv,,
+DepMap Public 19Q1,2019-02-20,DepMap-2019q1-celllines_v2.csv,,
+DepMap Public 19Q1,2019-02-01,gene_effect_corrected.csv,https://ndownloader.figshare.com/files/14221385,
+DepMap Public 19Q1,2019-02-01,gene_effect.csv,https://ndownloader.figshare.com/files/14221388,
+DepMap Public 19Q1,2019-02-01,gene_dependency_corrected.csv,https://ndownloader.figshare.com/files/14221373,
+DepMap Public 19Q1,2019-02-01,gene_dependency.csv,https://ndownloader.figshare.com/files/14221376,
+DepMap Public 19Q1,2019-02-01,README.txt,https://ndownloader.figshare.com/files/14221409,
+DepMap Public 19Q1,2019-02-01,copy_number.csv,https://ndownloader.figshare.com/files/14221364,
+DepMap Public 19Q1,2019-02-01,dropped_guides.txt,https://ndownloader.figshare.com/files/14221370,
+DepMap Public 19Q1,2019-02-01,essential_genes.txt,https://ndownloader.figshare.com/files/14221367,
+DepMap Public 19Q1,2019-02-01,guide_efficacy.csv,https://ndownloader.figshare.com/files/14221391,
+DepMap Public 19Q1,2019-02-01,guide_gene_map.csv,https://ndownloader.figshare.com/files/14221394,
+DepMap Public 19Q1,2019-02-01,logfold_change.csv,https://ndownloader.figshare.com/files/14225294,
+DepMap Public 19Q1,2019-02-01,nonessential_genes.txt,https://ndownloader.figshare.com/files/14221397,
+DepMap Public 19Q1,2019-02-01,pan_dependent_genes_corrected.txt,https://ndownloader.figshare.com/files/14221400,
+DepMap Public 19Q1,2019-02-01,pan_dependent_genes.txt,https://ndownloader.figshare.com/files/14221403,
+DepMap Public 19Q1,2019-02-01,raw_readcounts.csv,https://ndownloader.figshare.com/files/14221406,
+DepMap Public 19Q1,2019-02-01,replicate_map.csv,https://ndownloader.figshare.com/files/14221412,
+DepMap Public 19Q1,2019-02-01,sample_info.csv,https://ndownloader.figshare.com/files/14221415,
+DepMap Public 18Q4,2018-11-09,CCLE_depMap_18Q4_TPM_v2.csv,,
+DepMap Public 18Q4,2019-02-01,CCLE_depMap_18Q4_TPM_transcripts_v3.csv,,
+DepMap Public 18Q4,2018-11-01,depmap_18Q4_mutation_calls.csv,,
+DepMap Public 18Q4,2018-11-01,public_18Q4_gene_cn.csv,,
+DepMap Public 18Q4,2018-11-01,DepMap-2018q4-celllines.csv,,
+DepMap Public 18Q4,2018-11-01,gene_effect.csv,https://ndownloader.figshare.com/files/13396070,
+DepMap Public 18Q4,2018-11-01,gene_dependency.csv,https://ndownloader.figshare.com/files/13396064,
+DepMap Public 18Q4,2018-11-01,README.txt,https://ndownloader.figshare.com/files/13869356,
+DepMap Public 18Q4,2018-11-01,copy_number.csv,https://ndownloader.figshare.com/files/13396055,
+DepMap Public 18Q4,2018-11-01,dropped_guides.txt,https://ndownloader.figshare.com/files/13396058,
+DepMap Public 18Q4,2018-11-01,essential_genes.txt,https://ndownloader.figshare.com/files/13396061,
+DepMap Public 18Q4,2018-11-01,guide_efficacy.csv,https://ndownloader.figshare.com/files/13396073,
+DepMap Public 18Q4,2018-11-01,guide_gene_map.csv,https://ndownloader.figshare.com/files/13396076,
+DepMap Public 18Q4,2018-11-01,logfold_change.csv,https://ndownloader.figshare.com/files/13396082,
+DepMap Public 18Q4,2018-11-01,nonessential_genes.txt,https://ndownloader.figshare.com/files/13396085,
+DepMap Public 18Q4,2018-11-01,pan_dependent_genes.txt,https://ndownloader.figshare.com/files/13396088,
+DepMap Public 18Q4,2018-11-01,raw_readcounts.csv,https://ndownloader.figshare.com/files/13396091,
+DepMap Public 18Q4,2018-11-01,replicate_map.csv,https://ndownloader.figshare.com/files/13396097,
+DepMap Public 18Q4,2018-11-01,sample_info.csv,https://ndownloader.figshare.com/files/13396100,
+DepMap Public 18Q3,2018-08-03,CCLE_DepMap_18q3_RNAseq_RPKM_20180718.gct,,
+DepMap Public 18Q3,2018-08-03,CCLE_DepMap_18q3_RNAseq_reads_20180718.gct,,
+DepMap Public 18Q3,2018-08-03,CCLE_DepMap_18q3_maf_20180718.txt,,
+DepMap Public 18Q3,2018-08-29,public_18Q3_gene_cn_v2.csv,,
+DepMap Public 18Q3,2018-08-03,DepMap-2018q3-celllines.csv,,
+DepMap Public 18Q3,2018-08-03,gene_effect.csv,https://ndownloader.figshare.com/files/12704099,
+DepMap Public 18Q3,2018-08-03,gene_dependency.csv,https://ndownloader.figshare.com/files/12704096,
+DepMap Public 18Q3,2018-08-03,README.txt,https://ndownloader.figshare.com/files/12704606,
+DepMap Public 18Q3,2018-08-03,copy_number.csv,https://ndownloader.figshare.com/files/12704084,
+DepMap Public 18Q3,2018-08-03,dropped_guides.txt,https://ndownloader.figshare.com/files/12704087,
+DepMap Public 18Q3,2018-08-03,essential_genes.txt,https://ndownloader.figshare.com/files/12704090,
+DepMap Public 18Q3,2018-08-03,gene_fdr.csv,https://ndownloader.figshare.com/files/12704102,
+DepMap Public 18Q3,2018-08-03,guide_efficacy.csv,https://ndownloader.figshare.com/files/12704105,
+DepMap Public 18Q3,2018-08-03,guide_gene_map.csv,https://ndownloader.figshare.com/files/12704108,
+DepMap Public 18Q3,2018-08-03,logfold_change.csv,https://ndownloader.figshare.com/files/12704429,
+DepMap Public 18Q3,2018-08-03,nonessential_genes.txt,https://ndownloader.figshare.com/files/12704438,
+DepMap Public 18Q3,2018-08-03,pan_dependent_genes.txt,https://ndownloader.figshare.com/files/12704441,
+DepMap Public 18Q3,2018-08-03,raw_readcounts.csv,https://ndownloader.figshare.com/files/12704603,
+DepMap Public 18Q3,2018-08-03,replicate_map.csv,https://ndownloader.figshare.com/files/12704609,
+DepMap Public 18Q3,2018-08-03,sample_info.csv,https://ndownloader.figshare.com/files/12704612,
+DepMap Public 18Q2,2018-05-02,CCLE_DepMap_18Q2_RNAseq_RPKM_20180502.gct,,
+DepMap Public 18Q2,2018-05-02,CCLE_DepMap_18Q2_RNAseq_reads_20180502.gct,,
+DepMap Public 18Q2,2018-05-02,CCLE_DepMap_18Q2_maf_20180502.txt,,
+DepMap Public 18Q2,2018-08-28,public_18Q2_gene_cn_v2.csv,,
+DepMap Public 18Q2,2018-05-02,gene_effect.csv,https://ndownloader.figshare.com/files/11282177,
+DepMap Public 18Q2,2018-05-02,gene_dependency.csv,https://ndownloader.figshare.com/files/11282138,
+DepMap Public 18Q2,2018-05-02,README.txt,https://ndownloader.figshare.com/files/11282801,
+DepMap Public 18Q2,2018-05-02,copy_number.csv,https://ndownloader.figshare.com/files/11282129,
+DepMap Public 18Q2,2018-05-02,copy_number_source.csv,https://ndownloader.figshare.com/files/11282126,
+DepMap Public 18Q2,2018-05-02,dropped_guides.txt,https://ndownloader.figshare.com/files/11282132,
+DepMap Public 18Q2,2018-05-02,essential_genes.txt,https://ndownloader.figshare.com/files/11282135,
+DepMap Public 18Q2,2018-05-02,gene_fdr.csv,https://ndownloader.figshare.com/files/11282237,
+DepMap Public 18Q2,2018-05-02,guide_efficacy.csv,https://ndownloader.figshare.com/files/11282240,
+DepMap Public 18Q2,2018-05-02,guide_gene_map.csv,https://ndownloader.figshare.com/files/11282249,
+DepMap Public 18Q2,2018-05-02,logfold_change.csv,https://ndownloader.figshare.com/files/11282789,
+DepMap Public 18Q2,2018-05-02,nonessential_genes.txt,https://ndownloader.figshare.com/files/11282792,
+DepMap Public 18Q2,2018-05-02,pan_dependent_genes.txt,https://ndownloader.figshare.com/files/11282795,
+DepMap Public 18Q2,2018-05-02,raw_readcounts.csv,https://ndownloader.figshare.com/files/11282798,
+DepMap Public 18Q2,2018-05-02,replicate_map.csv,https://ndownloader.figshare.com/files/11282804,
+DepMap Public 18Q2,2018-05-02,sample_info.csv,https://ndownloader.figshare.com/files/11282807,
+DepMap Public 18Q1,2018-02-09,CCLE_DepMap_18Q1_RNAseq_RPKM_20180214.gct,,
+DepMap Public 18Q1,2018-02-09,CCLE_DepMap_18Q1_RNAseq_reads_20180214.gct,,
+DepMap Public 18Q1,2018-02-09,CCLE_DepMap_18Q1_maf_20180207.txt,,
+DepMap Public 18Q1,2018-08-29,public_18Q1_gene_cn_v2.csv,,
+DepMap Public 18Q1,2018-02-09,gene_effect.csv,https://ndownloader.figshare.com/files/10416309,
+DepMap Public 18Q1,2018-02-09,gene_dependency.csv,https://ndownloader.figshare.com/files/10416306,
+DepMap Public 18Q1,2018-02-09,README.txt,https://ndownloader.figshare.com/files/10416336,
+DepMap Public 18Q1,2018-02-09,copy_number.csv,https://ndownloader.figshare.com/files/10416297,
+DepMap Public 18Q1,2018-02-09,dropped_guides.txt,https://ndownloader.figshare.com/files/10416300,
+DepMap Public 18Q1,2018-02-09,essential_genes.txt,https://ndownloader.figshare.com/files/10416303,
+DepMap Public 18Q1,2018-02-09,gene_fdr.csv,https://ndownloader.figshare.com/files/10416312,
+DepMap Public 18Q1,2018-02-09,guide_efficacy.csv,https://ndownloader.figshare.com/files/10416315,
+DepMap Public 18Q1,2018-02-09,guide_gene_map.csv,https://ndownloader.figshare.com/files/10416318,
+DepMap Public 18Q1,2018-02-09,logfold_change.csv,https://ndownloader.figshare.com/files/10416324,
+DepMap Public 18Q1,2018-02-09,nonessential_genes.txt,https://ndownloader.figshare.com/files/10416327,
+DepMap Public 18Q1,2018-02-09,pan_dependent_genes.txt,https://ndownloader.figshare.com/files/10416330,
+DepMap Public 18Q1,2018-02-09,raw_readcounts.csv,https://ndownloader.figshare.com/files/10416333,
+DepMap Public 18Q1,2018-02-09,replicate_map.csv,https://ndownloader.figshare.com/files/10416339,
+DepMap Public 18Q1,2018-02-09,sample_info.csv,https://ndownloader.figshare.com/files/10416342,
+NextGen Model Manuscript 2026,2026-07-16,screen_gene_dependency.csv,,e4e8ce644a9987f38851576ca1b5aeb5
+NextGen Model Manuscript 2026,2026-07-16,CDK6vsCN.csv,,c0440918ec4bdcb308d66c20b7b3d5cd
+NextGen Model Manuscript 2026,2026-07-16,geneset_table_updated.csv,,3a8540ae7d2d6525ccbb8bc04fd8a9c5
+NextGen Model Manuscript 2026,2026-07-16,minipool_guide_metadata.csv,,1237c7c99c85283bb66e2eb2492f9949
+NextGen Model Manuscript 2026,2026-07-16,model_metadata.csv,,3f4f83603a4334a02b735c0b01a7a510
+NextGen Model Manuscript 2026,2026-07-16,traditional_hotspot.csv,,b7371437654155ca525706a057928f3e
+NextGen Model Manuscript 2026,2026-07-16,GlialvsMesenchymal_1.csv,,8ea73781151d439b5563a02d24daf963
+NextGen Model Manuscript 2026,2026-07-16,minipool_readcounts.csv,,00bd96b7973452858681a01c83e45596
+NextGen Model Manuscript 2026,2026-07-16,crispr_control_genes.csv,,4712cc962e96970a783c79ac5d7f4abd
+NextGen Model Manuscript 2026,2026-07-16,mONCTSG_Gene.csv,,c9623fa7db07b10553b94d242a180818
+NextGen Model Manuscript 2026,2026-07-16,minipool_library_composition.csv,,97a6b403dd0a4046ec3c1b1feaafd768
+NextGen Model Manuscript 2026,2026-07-16,CDK6dep_CDKN2ACN.csv,,4f079c4fc9b65dd71d914db32a6e81d0
+NextGen Model Manuscript 2026,2026-07-16,OncTSG_annotations.csv,,00225ca415cdf8f4fba42fad11449b3e
+NextGen Model Manuscript 2026,2026-07-16,mONCTSG_Pathway.csv,,15bd33fc732a7fb9895e2311e133b035
+NextGen Model Manuscript 2026,2026-07-16,PDACc_Chronos_wnt3a.csv,,dd61ad31c27095690d17135da410d83b
+NextGen Model Manuscript 2026,2026-07-16,screen_gene_effect.csv,,8ce7247337a4e0f53657654c9b58aebe
+NextGen Model Manuscript 2026,2026-07-16,next_gen_copy_number.csv,,4d596696bdb720747a05ddf50e42367b
+NextGen Model Manuscript 2026,2026-07-16,GlialvsMesenchymal_2.csv,,34d4282503aa7f60adcc7858cd1025ac
+NextGen Model Manuscript 2026,2026-07-16,celligner_corrected_expr_w_hcmi.csv.gz,,34e5c1c8e945ec5a77cd75f15af11023
+NextGen Model Manuscript 2026,2026-07-16,screen_metadata.csv,,a7977d5b676e156681d24870976df9ae
+NextGen Model Manuscript 2026,2026-07-16,CNS_NextGen2D3D_HV.csv,,f2643a9515c48970d9522939b17f578e
+NextGen Model Manuscript 2026,2026-07-16,DepMapHan.csv,,0387457b8b67ad5ef4354ad9531a5886
+NextGen Model Manuscript 2026,2026-07-16,GlialvsNextGen_1.csv,,5693f3dc105184a3c9c40151f68d285c
+NextGen Model Manuscript 2026,2026-07-16,crispr_screen_qc.csv,,a24fd1f4fd317f80a06f2d645218b839
+NextGen Model Manuscript 2026,2026-07-16,minipool_screen_metadata.csv,,75bef6385c911b8a45ba2ced27f0421e
+NextGen Model Manuscript 2026,2026-07-16,tcga_select_mutations.csv,,595ee67ac70211479eaf4a00b0e5bf3b
+NextGen Model Manuscript 2026,2026-07-16,RepMut_Org.csv,,5787d8ce9b46beb26e1fede81b6e5338
+NextGen Model Manuscript 2026,2026-07-16,mONCTSG_MutFree.csv,,75bd807cad6e5f9f5cecbc1b1eefec57
+NextGen Model Manuscript 2026,2026-07-16,celligner_distance_matrix_w_hcmi.csv,,6a2aea2b374cddaccf7700c3c4a74a30
+NextGen Model Manuscript 2026,2026-07-16,traditional_copy_number.csv,,ac8587eb0bc3455c0f816d9ee17986d1
+NextGen Model Manuscript 2026,2026-07-16,next_gen_damaging.csv,,4d2a28648a1e7b496f860a9e54049c8e
+NextGen Model Manuscript 2026,2026-07-16,next_gen_hotspot.csv,,edbc65d708635b95e124b17f998982e8
+NextGen Model Manuscript 2026,2026-07-16,CDK6_GBM_MutAssociation.csv,,4caaae271f3f45b660970929102f10de
+NextGen Model Manuscript 2026,2026-07-16,traditional_omics_signatures.csv,,b043e1f1f379fd3e4475486f4398db3d
+NextGen Model Manuscript 2026,2026-07-16,CommonEssential_25q3p.csv,,2e4193d7fd43dee01fada9d2210a7e99
+NextGen Model Manuscript 2026,2026-07-16,GlialvsNextGen_2.csv,,38a211c83a942db10b0e51ff377ccdaa
+NextGen Model Manuscript 2026,2026-07-16,traditional_damaging.csv,,20de98ce3ceed6491924348bec590d90
+NextGen Model Manuscript 2026,2026-07-16,ChrLocus.csv,,6701b28c8125188dc0df501b6e2a3162
+NextGen Model Manuscript 2026,2026-07-16,next_gen_expression.csv,,c1d7ad711eb825a661cb2c28ef35f916
+NextGen Model Manuscript 2026,2026-07-16,OncoKB_mutant_class.csv,,8acf0c9610571faf2a4d813feba7c504
+NextGen Model Manuscript 2026,2026-07-16,celligner_coordinates_w_hcmi.csv,,e10dd53d33219f030a7262582aec9460
+NextGen Model Manuscript 2026,2026-07-16,WntTop5_Org.csv,,f2b202cb923395d6066615282cba3fc8
+NextGen Model Manuscript 2026,2026-07-16,CNS2D3D_2.csv,,cf8c38d58e23884e4152b0bde587d7a5
+NextGen Model Manuscript 2026,2026-07-16,crispr_naive_gene_score.csv,,7c22767cade6fe28c0ca7f02452cbc80
+NextGen Model Manuscript 2026,2026-07-16,minipool_sequence_metadata.csv,,d1abe6a04b91df1890e2b8b2208a101f
+NextGen Model Manuscript 2026,2026-07-16,next_gen_omics_signatures.csv,,64c1d6b412e4513f2a5e61e7f5d3e33e
+NextGen Model Manuscript 2026,2026-07-16,hgnc_table.csv,,1347c64d2c978fd9b4f819546469cee9
+NextGen Model Manuscript 2026,2026-07-16,traditional_expression.csv,,a0716490b2182cc0aeef0bade3065352
+NextGen Model Manuscript 2026,2026-07-16,paralog_pair_table.csv,,50fdcb671fd105196307cb6a0a3a83fb
+NextGen Model Manuscript 2026,2026-07-16,CDK6vsCN_glial.csv,,a229372a4fb58d23ce8c326eab286808
+NextGen Model Manuscript 2026,2026-07-16,CNS2D3D_1.csv,,682acd2a76d64015f755fb97dc25ef8b
+NextGen Model Manuscript 2026,2026-07-16,ChronosCNS_AN.csv,,9fc080075700f9f1860483c0982e8982
+NextGen Model Manuscript 2026,2026-07-16,ChronosCNS_OZ.csv,,f9df2818c4c5cfd0e3529098302e7cdb
+NextGen Model Manuscript 2026,2026-07-16,ChronosOrg_AN.csv,,8aa363358f16c571c054a751721cbabc
+NextGen Model Manuscript 2026,2026-07-16,ChronosOrg_OZ.csv,,31f5f2d2d243a4ac2f16e047a7e150d4
+NextGen Model Manuscript 2026,2026-07-16,README.txt,,b3ed3d2ee3e900479dbb8f7c002161c0
+PRISM Primary Repurposing DepMap Public 24Q2,2024-05-28,Repurposing_Public_24Q2_Cell_Line_Meta_Data.csv,https://ndownloader.figshare.com/files/46630978,da769165afe40ac83888bcc6dac0932a
+PRISM Primary Repurposing DepMap Public 24Q2,2024-05-28,Repurposing_Public_24Q2_Treatment_Meta_Data.csv,https://ndownloader.figshare.com/files/46631146,ab143170aa2134f13485670e26056d23
+PRISM Primary Repurposing DepMap Public 24Q2,2024-05-28,Repurposing_Public_24Q2_LMFI_matrix.csv,https://ndownloader.figshare.com/files/46631125,066fa5115c4e337df3881aff36bb7b65
+PRISM Primary Repurposing DepMap Public 24Q2,2024-05-28,Repurposing_Public_24Q2_LMFI_NORMALIZED.csv,https://ndownloader.figshare.com/files/46631059,6aa105c138e791b0860fedbb543fb4db
+PRISM Primary Repurposing DepMap Public 24Q2,2024-05-28,Repurposing_Public_24Q2_QC_table.csv,https://ndownloader.figshare.com/files/46631128,6301c3da0428c8bd1c3d4e4c4759c54a
+PRISM Primary Repurposing DepMap Public 24Q2,2024-05-28,Repurposing_Public_24Q2_LFC.csv,https://ndownloader.figshare.com/files/46630987,8887cc382781bbb123d78b330bae56d2
+PRISM Primary Repurposing DepMap Public 24Q2,2024-05-28,Repurposing_Public_24Q2_LFC_COLLAPSED.csv,https://ndownloader.figshare.com/files/46631056,5c9513303760567a38b3ffd5997195b3
+PRISM Primary Repurposing DepMap Public 24Q2,2024-05-28,Repurposing_Public_24Q2_Extended_Primary_Data_Matrix.csv,https://ndownloader.figshare.com/files/46630984,042b15d3ebcc138a80a571b9286451ae
+PRISM Primary Repurposing DepMap Public 24Q2,2024-05-28,Repurposing_Public_24Q2_Extended_Primary_Compound_List.csv,https://ndownloader.figshare.com/files/46630981,cdb450d96507a290defeb455b0d616a4
+PRISM Primary Repurposing DepMap Public 24Q2,2024-05-28,Repurposing_Public_24Q2_Readme.txt,https://ndownloader.figshare.com/files/46631143,4b630e332a4148e44aec3c1b0f6e4808
+PRISM Primary Repurposing DepMap Public 24Q2,2024-05-28,README.txt,https://ndownloader.figshare.com/files/46630975,bdc45ca3187df4dcf991ab9e26008558
+PRISM Secondary Repurposing 20Q2,2020-05-11,secondary-screen-readme.txt,https://ndownloader.figshare.com/files/36794613,
+PRISM Secondary Repurposing 20Q2,2020-05-11,secondary-screen-logfold-change.csv,https://ndownloader.figshare.com/files/36794607,
+PRISM Secondary Repurposing 20Q2,2020-05-11,secondary-screen-dose-response-curve-parameters.csv,https://ndownloader.figshare.com/files/36794595,
+PRISM Secondary Repurposing 20Q2,2020-05-11,secondary-screen-mfi.csv,https://ndownloader.figshare.com/files/36794562,
+PRISM Secondary Repurposing 20Q2,2020-05-11,secondary-screen-replicate-collapsed-logfold-change.csv,https://ndownloader.figshare.com/files/36794616,
+PRISM Secondary Repurposing 20Q2,2020-05-11,secondary-screen-replicate-treatment-info.csv,https://ndownloader.figshare.com/files/36794622,
+PRISM Secondary Repurposing 20Q2,2020-05-11,secondary-screen-replicate-collapsed-treatment-info.csv,https://ndownloader.figshare.com/files/36794619,
+PRISM Secondary Repurposing 20Q2,2020-05-11,secondary-screen-pooling-info.csv,https://ndownloader.figshare.com/files/36794610,
+PRISM Secondary Repurposing 20Q2,2020-05-11,secondary-screen-cell-line-info.csv,https://ndownloader.figshare.com/files/36794589,
+PRISM Secondary Repurposing 20Q2,2020-05-11,primary-screen-readme.txt,https://ndownloader.figshare.com/files/36794577,
+PRISM Secondary Repurposing 20Q2,2020-05-11,primary-screen-logfold-change.csv,https://ndownloader.figshare.com/files/36794571,
+PRISM Secondary Repurposing 20Q2,2020-05-11,primary-screen-primary-mfi.csv,https://ndownloader.figshare.com/files/36794574,
+PRISM Secondary Repurposing 20Q2,2020-05-11,primary-screen-replicate-collapsed-logfold-change.csv,https://ndownloader.figshare.com/files/36794580,
+PRISM Secondary Repurposing 20Q2,2020-05-11,primary-screen-replicate-treatment-info.csv,https://ndownloader.figshare.com/files/36794586,
+PRISM Secondary Repurposing 20Q2,2020-05-11,primary-screen-replicate-collapsed-treatment-info.csv,https://ndownloader.figshare.com/files/36794583,
+PRISM Secondary Repurposing 20Q2,2020-05-11,primary-screen-cell-line-info.csv,https://ndownloader.figshare.com/files/36794565,
+PRISM Repurposing 19Q3 Primary Screen,2019-07-11,primary-screen-readme.txt,https://ndownloader.figshare.com/files/17741432,
+PRISM Repurposing 19Q3 Primary Screen,2019-07-11,primary_replicate_collapsed_logfold_change_v2.csv,https://ndownloader.figshare.com/files/17741420,
+PRISM Repurposing 19Q3 Primary Screen,2019-07-11,primary_MFI_normalized_v2.csv,https://ndownloader.figshare.com/files/17741423,
+PRISM Repurposing 19Q4,2019-12-18,secondary-readme.txt,https://ndownloader.figshare.com/files/20238123,
+PRISM Repurposing 19Q4,2019-12-18,secondary-screen-logfold-change.csv,https://ndownloader.figshare.com/files/20237730,
+PRISM Repurposing 19Q4,2019-12-18,secondary-screen-dose-response-curve-parameters.csv,https://ndownloader.figshare.com/files/20237739,
+PRISM Repurposing 19Q4,2019-12-18,secondary-screen-mfi.csv,https://ndownloader.figshare.com/files/20237742,
+PRISM Repurposing 19Q4,2019-12-18,secondary-screen-replicate-collapsed-logfold-change.csv,https://ndownloader.figshare.com/files/20237757,
+PRISM Repurposing 19Q4,2019-12-18,secondary-screen-replicate-treatment-info.csv,https://ndownloader.figshare.com/files/20237760,
+PRISM Repurposing 19Q4,2019-12-18,secondary-screen-replicate-collapsed-treatment-info.csv,https://ndownloader.figshare.com/files/20237763,
+PRISM Repurposing 19Q4,2019-12-18,secondary-screen-pooling-info.csv,https://ndownloader.figshare.com/files/20237766,
+PRISM Repurposing 19Q4,2019-12-18,secondary-screen-cell-line-info.csv,https://ndownloader.figshare.com/files/20237769,
+PRISM Repurposing 19Q4,2019-12-18,primary-screen-readme.txt,https://ndownloader.figshare.com/files/20237700,
+PRISM Repurposing 19Q4,2019-12-18,primary-screen-logfold-change.csv,https://ndownloader.figshare.com/files/20237703,
+PRISM Repurposing 19Q4,2019-12-18,primary-screen-primary-mfi.csv,https://ndownloader.figshare.com/files/20237706,
+PRISM Repurposing 19Q4,2019-12-18,primary-screen-replicate-collapsed-logfold-change.csv,https://ndownloader.figshare.com/files/20237709,
+PRISM Repurposing 19Q4,2019-12-18,primary-screen-replicate-treatment-info.csv,https://ndownloader.figshare.com/files/20237712,
+PRISM Repurposing 19Q4,2019-12-18,primary-screen-replicate-collapsed-treatment-info.csv,https://ndownloader.figshare.com/files/20237715,
+PRISM Repurposing 19Q4,2019-12-18,primary-screen-pooling-info.csv,https://ndownloader.figshare.com/files/20237721,
+PRISM Repurposing 19Q4,2019-12-18,primary-screen-cell-line-info.csv,https://ndownloader.figshare.com/files/20237718,
+"Sanger CRISPR (Project Score, CERES)",2019-08-06,gene_effect.csv,https://ndownloader.figshare.com/files/16623881,
+"Sanger CRISPR (Project Score, CERES)",2019-08-06,gene_dependency.csv,https://ndownloader.figshare.com/files/16623884,
+"Sanger CRISPR (Project Score, CERES)",2019-08-06,gene_effect_unscaled.csv,https://ndownloader.figshare.com/files/16623851,
+"Sanger CRISPR (Project Score, CERES)",2019-08-06,logfold_change.csv,https://ndownloader.figshare.com/files/16623878,
+"Sanger CRISPR (Project Score, CERES)",2019-08-06,essential_genes.txt,https://ndownloader.figshare.com/files/16623887,
+"Sanger CRISPR (Project Score, CERES)",2019-08-06,nonessential_genes.csv,https://ndownloader.figshare.com/files/16623890,
+"Sanger CRISPR (Project Score, CERES)",2019-08-06,pan_dependent_genes.txt,https://ndownloader.figshare.com/files/16623899,
+"Sanger CRISPR (Project Score, CERES)",2019-08-06,copy_number.csv,https://ndownloader.figshare.com/files/16623893,
+"Sanger CRISPR (Project Score, CERES)",2019-08-06,replicate_map.csv,https://ndownloader.figshare.com/files/16623896,
+"Sanger CRISPR (Project Score, CERES)",2019-08-06,guide_gene_map.csv,https://ndownloader.figshare.com/files/16623902,
+"Sanger CRISPR (Project Score, CERES)",2019-08-06,guide_efficacy.csv,https://ndownloader.figshare.com/files/16623905,
+"Sanger CRISPR (Project Score, CERES)",2019-08-06,README.txt,https://ndownloader.figshare.com/files/16623944,
+"Sanger CRISPR (Project Score, Chronos) v2",2021-08-27,README.txt,https://ndownloader.figshare.com/files/27676626,
+"Sanger CRISPR (Project Score, Chronos) v2",2021-08-27,gene_effect.csv,https://ndownloader.figshare.com/files/28340607,
+"Sanger CRISPR (Project Score, Chronos) v2",2021-08-27,gene_dependency.csv,https://ndownloader.figshare.com/files/28340610,
+"Sanger CRISPR (Project Score, Chronos) v2",2021-08-27,guide_efficacy.csv,https://ndownloader.figshare.com/files/27676623,
+"Sanger CRISPR (Project Score, Chronos) v2",2021-08-27,common_essentials.csv,https://ndownloader.figshare.com/files/27676611,
+"Sanger CRISPR (Project Score, Chronos) v2",2021-08-27,cell_line_efficacy.csv,https://ndownloader.figshare.com/files/28340601,
+"Sanger CRISPR (Project Score, Chronos) v2",2021-08-27,cell_line_growth_rate.csv,https://ndownloader.figshare.com/files/28340604,
+"Sanger CRISPR (Project Score, Chronos)",2021-05-01,README.txt,https://ndownloader.figshare.com/files/27676626,
+"Sanger CRISPR (Project Score, Chronos)",2021-05-01,gene_effect.csv,https://ndownloader.figshare.com/files/27676629,
+"Sanger CRISPR (Project Score, Chronos)",2021-05-01,gene_dependency.csv,https://ndownloader.figshare.com/files/27676620,
+"Sanger CRISPR (Project Score, Chronos)",2021-05-01,guide_efficacy.csv,https://ndownloader.figshare.com/files/27676623,
+"Sanger CRISPR (Project Score, Chronos)",2021-05-01,common_essentials.csv,https://ndownloader.figshare.com/files/27676611,
+"Sanger CRISPR (Project Score, Chronos)",2021-05-01,cell_line_efficacy.csv,https://ndownloader.figshare.com/files/27676617,
+"Sanger CRISPR (Project Score, Chronos)",2021-05-01,cell_line_growth_rate.csv,https://ndownloader.figshare.com/files/27676614,
+Proteomics,2020-01-27,protein_quant_current_normalized.csv,https://gygi.hms.harvard.edu/publications/ccle.html,
+MetMap,2020-10-22,Supplementary Table 04 MetMap 500 met potential.xlsx,https://ndownloader.figshare.com/files/24009293,
+MetMap,2021-07-22,flattened_supplementary_table_04_metmap500.csv,,
+MetMap,2020-10-22,metmap500_metastatic_potential_matrix.csv,,
+MetMap,2020-10-22,metmap500_penetrance_matrix.csv,,
+MetMap,2020-10-22,Supplementary Table 05 MetMap 125 met potential.xlsx,https://ndownloader.figshare.com/files/24009335,
+MetMap,2020-10-22,metmap125_metastatic_potential_matrix.csv,,
+MetMap,2020-10-22,Supplementary Table 03 MetMap cell line annotation.xlsx,https://ndownloader.figshare.com/files/24009257,
+MetMap,2020-10-22,Supplementary Table 02 basal breast cancer cohort met potential.xlsx,https://ndownloader.figshare.com/files/24009134,
+MetMap,2020-10-22,Supplementary Table 01 basal breast cancer cohort annotation.xlsx,https://ndownloader.figshare.com/files/24008801,
+TelSeq Telomere Content,2021-09-02,89148_1_supp_2061084_qmm19m.xlsx,,
+Microsatellite Instability,2019-04-10,Chan_et_al_2019_Supplementary_Table_1.xlsx,,
+CCLE arm-level CNAs,2021-01-27,Cohen-Sharir_Table_S1.xlsx,,
+CCLE arm-level CNAs,2020-06-14,arm_call_scores.csv,,
+CCLE arm-level CNAs,2020-06-14,aneuploidy_scores.csv,,
+CCLE 2019,2019-01-02,CCLE_Fusions_20181130.txt,,
+CCLE 2019,2019-01-02,CCLE_Fusions_unfiltered_20181130.txt,,
+CCLE 2019,2019-01-02,CCLE_translocations_SvABA_20181221.xlsx,,
+CCLE 2019,2019-01-02,CCLE_miRNA_20181103.gct,,
+CCLE 2019,2019-01-02,CCLE_miRNA_MIMAT.csv,,
+CCLE 2019,2019-01-02,CCLE_GlobalChromatinProfiling_20181130.csv,,
+CCLE 2019,2019-01-02,CCLE_RPPA_20181003.csv,,
+CCLE 2019,2019-01-02,CCLE_RPPA_Ab_info_20181226.csv,,
+CCLE 2019,2019-01-02,CCLE_RNAseq_genes_rpkm_20180929.gct.gz,,
+CCLE 2019,2019-01-02,CCLE_RNAseq_rsem_genes_tpm_20180929.txt.gz,,
+CCLE 2019,2019-01-02,CCLE_RNAseq_rsem_transcripts_tpm_20180929.txt.gz,,
+CCLE 2019,2019-01-02,CCLE_RNAseq_genes_counts_20180929.gct.gz,,
+CCLE 2019,2019-01-02,CCLE_RNAseq_ExonUsageRatio_20180929.gct.gz,,
+CCLE 2019,2019-01-02,CCLE_RNAseq_ExonUsageRatio_denominatorCnt_20180929.gct.gz,,
+CCLE 2019,2019-01-02,gencode.v19.genes.v7_model.patched_contigs.gtf.gz,,
+CCLE 2019,2019-01-02,CCLE_RRBS_TSS1kb_20181022.txt.gz,,
+CCLE 2019,2019-01-02,CCLE_RRBS_tss_CpG_clusters_20181022.txt.gz,,
+CCLE 2019,2019-01-02,CCLE_RRBS_cgi_CpG_clusters_20181119.txt.gz,,
+CCLE 2019,2019-01-02,CCLE_RRBS_enh_CpG_clusters_20181119.txt.gz,,
+CCLE 2019,2019-01-02,CCLE_ABSOLUTE_combined_20181227.xlsx,,
+CCLE 2019,2019-02-11,Cell_lines_annotations_20181226.txt,,
+CCLE 2019,2019-05-08,CCLE_metabolomics_20190502.csv,,
+Pharmacological Profiling,2015-02-24,CCLE_NP24.2009_profiling_2012.02.20.csv,,
+Pharmacological Profiling,2015-02-24,CCLE_GNF_data_090613.xls,,
+Pharmacological Profiling,2015-02-24,CCLE_NP24.2009_Drug_data_2015.02.24.csv,,
+Achilles 3.3.8,2016-06-13,Achilles_v3.3.8.Gs.gct,,
+Achilles 3.3.8,2016-06-13,Achilles_v3.3.8.gct,,
+Achilles 3.3.8,2016-06-13,Achilles_v3.3.8.reagent.table.txt,,
+Achilles 3.3.8,2016-06-13,Achilles_v3.3.8_README.txt,,
+Achilles 3.3.8,2016-06-13,Achilles_v3.3.8_SampleInfo.txt,,
+DEMETER2 Data v6,2020-04-09,README.txt,https://ndownloader.figshare.com/files/13515380,
+DEMETER2 Data v6,2020-04-09,sample_info.csv,https://ndownloader.figshare.com/files/11489717,
+DEMETER2 Data v6,2020-04-09,D2_Achilles_gene_dep_scores.csv,https://ndownloader.figshare.com/files/11489669,
+DEMETER2 Data v6,2020-04-09,D2_Achilles_gene_dep_score_SDs.csv,https://ndownloader.figshare.com/files/11489666,
+DEMETER2 Data v6,2020-04-09,D2_Achilles_CL_data.csv,https://ndownloader.figshare.com/files/11489663,
+DEMETER2 Data v6,2020-04-09,D2_Achilles_hp_data.csv,https://ndownloader.figshare.com/files/11489672,
+DEMETER2 Data v6,2020-04-09,D2_Achilles_seed_dep_scores.csv,https://ndownloader.figshare.com/files/13096127,
+DEMETER2 Data v6,2020-04-09,D2_Achilles_seed_dep_score_SDs.csv,https://ndownloader.figshare.com/files/13096124,
+DEMETER2 Data v6,2020-04-09,D2_DRIVE_gene_dep_scores.csv,https://ndownloader.figshare.com/files/11489693,
+DEMETER2 Data v6,2020-04-09,D2_DRIVE_gene_dep_score_SDs.csv,https://ndownloader.figshare.com/files/11489690,
+DEMETER2 Data v6,2020-04-09,D2_DRIVE_CL_data.csv,https://ndownloader.figshare.com/files/11489684,
+DEMETER2 Data v6,2020-04-09,D2_DRIVE_hp_data.csv,https://ndownloader.figshare.com/files/11489696,
+DEMETER2 Data v6,2020-04-09,D2_DRIVE_seed_dep_scores.csv,https://ndownloader.figshare.com/files/13096121,
+DEMETER2 Data v6,2020-04-09,D2_DRIVE_seed_dep_score_SDs.csv,https://ndownloader.figshare.com/files/13096118,
+DEMETER2 Data v6,2020-04-09,D2_combined_gene_dep_scores.csv,https://ndownloader.figshare.com/files/13515395,
+DEMETER2 Data v6,2020-04-09,D2_combined_gene_dep_score_SDs.csv,https://ndownloader.figshare.com/files/13515392,
+DEMETER2 Data v6,2020-04-09,D2_combined_hp_data.csv,https://ndownloader.figshare.com/files/13515398,
+DEMETER2 Data v6,2020-04-09,D2_combined_CL_data.csv,https://ndownloader.figshare.com/files/13515401,
+DEMETER2 Data v6,2020-04-09,D2_combined_seed_dep_scores.csv,https://ndownloader.figshare.com/files/13515389,
+DEMETER2 Data v6,2020-04-09,D2_combined_seed_dep_score_SDs.csv,https://ndownloader.figshare.com/files/13515383,
+DEMETER2 Data v6,2020-04-09,achilles-55k-batch1-repcollapsed-lfc.csv,https://ndownloader.figshare.com/files/11489654,
+DEMETER2 Data v6,2020-04-09,achilles-55k-batch2-repcollapsed-lfc.csv,https://ndownloader.figshare.com/files/11489657,
+DEMETER2 Data v6,2020-04-09,achilles-98k-repcollapsed-lfc.csv,https://ndownloader.figshare.com/files/11489660,
+DEMETER2 Data v6,2020-04-09,drive-bgpd-lfc-mat.csv,https://ndownloader.figshare.com/files/11489699,
+DEMETER2 Data v6,2020-04-09,drive-poola-lfc-mat.csv,https://ndownloader.figshare.com/files/11489702,
+DEMETER2 Data v6,2020-04-09,drive-poolb-lfc-mat.csv,https://ndownloader.figshare.com/files/11489705,
+DEMETER2 Data v6,2020-04-09,Marcotte_LFC_matrix.csv,https://ndownloader.figshare.com/files/13515404,
+DEMETER2 Data v6,2020-04-09,Hart-neg-controls.csv,https://ndownloader.figshare.com/files/11489708,
+DEMETER2 Data v6,2020-04-09,Hart-pos-controls.csv,https://ndownloader.figshare.com/files/11489711,
+DEMETER2 Data v6,2020-04-09,shRNA-mapping.csv,https://ndownloader.figshare.com/files/11489723,
+DEMETER2 Data v6,2020-04-09,WES_SNP_CN_data.csv,https://ndownloader.figshare.com/files/11489726,
+DEMETER2 Data v6,2020-04-09,CCLE_mutation_data.csv,https://ndownloader.figshare.com/files/13110674,
+DEMETER2 Data v6,2020-04-09,RNAseq_lRPKM_data.csv,https://ndownloader.figshare.com/files/13110677,
+DEMETER2 Data v6,2020-04-09,Ach_hp_quality_metrics.csv,https://ndownloader.figshare.com/files/22258536,
+DEMETER2 Data v6,2020-04-09,DRIVE_hp_quality_metrics.csv,https://ndownloader.figshare.com/files/22258539,
+Achilles 2.20.2,2017-07-25,Achilles_Analysis_README_v2.19.2.txt,,
+Achilles 2.20.2,2017-07-25,Achilles_Analysis_README_v2.4.6.txt,,
+Achilles 2.20.2,2017-07-25,Achilles_v2.19.1_rawreads.csv,,
+Achilles 2.20.2,2017-07-25,Achilles_v2.4.6.rnai.gct,,
+Achilles 2.20.2,2017-07-25,Achilles_v2.4.6_rawreads_cBOTv7_sbsv2.csv,,
+Achilles 2.20.2,2017-07-25,Achilles_v2.4.6_rawreads_cBOTv8_sbsv3.csv,,
+Achilles 2.20.2,2017-07-25,Achilles_v2.4.6_v2.19.1_v2.20.1_SampleInfo.txt,,
+Achilles 2.20.2,2017-07-25,ExpandedGeneZSolsCleaned.csv,,
+Achilles 2.20.2,2017-07-25,SeedSolsCleaned.csv,,
+Achilles 2.20.2,2017-07-25,TableS3_shRNAPerformance.csv,,
+Achilles 2.20.2,2017-07-25,achilles-v2-19-2-mapped-rnai_v1-data.gct,,
+Achilles 2.20.2,2017-07-25,shrna_mapping_20150312.tsv,,
+Achilles 2.4.3,2016-06-13,Achilles_Analysis_README_v2.4.3.txt,,
+Achilles 2.4.3,2016-06-13,Achilles_QC_v2.4.3.rnai.Gs.gct,,
+Achilles 2.4.3,2016-06-13,Achilles_QC_v2.4.3.rnai.gct,,
+Achilles 2.4.3,2016-06-13,Achilles_QC_v2.4.3.shRNA.table.txt,,
+Achilles 2.4.3,2016-06-13,Achilles_v2.4_SampleInfo_small.txt,,
+Achilles 2.0,2016-06-13,20110303_achilles2_PMAD_adjFC.rnai.gct,,
+Achilles 2.0,2016-06-13,55K_library_02152011.chip.chip,,
+Achilles 2.0,2016-06-13,Achilles_102lines_gene_solutions.gct,,
+Achilles 2.0,2016-06-13,Achilles_102lines_shRNA_table.txt,,
+Achilles 2.0,2016-06-13,CP0004_20110816.annot.txt,,
+Achilles 2.0,2016-06-13,Paper_sampleannotation.txt,,
+Sanger GDSC1 and GDSC2,2019-12-06,sanger-dose-response.csv,,
+Sanger GDSC1 and GDSC2,2019-12-06,sanger-viability.csv,,
+CTRP CTD^2,2015-12-15,CTRPv2.0_2015_ctd2_ExpandedDataset.zip,https://ctd2-data.nci.nih.gov/Public/Broad/CTRPv2.0_2015_ctd2_ExpandedDataset/CTRPv2.0_2015_ctd2_ExpandedDataset.zip,
+Achilles Avana Public 17Q4 v2,2017-10-30,ceres-gene-effects.csv,https://ndownloader.figshare.com/files/9562258,
+Achilles Avana Public 17Q4 v2,2017-10-30,README.txt,https://ndownloader.figshare.com/files/9564313,
+Achilles Avana Public 17Q4 v2,2017-10-30,cell-line-info.csv,https://ndownloader.figshare.com/files/9562255,
+Achilles Avana Public 17Q4 v2,2017-10-30,guide-activity-scores.csv,https://ndownloader.figshare.com/files/9562261,
+Achilles Avana Public 17Q4 v2,2017-10-30,replicate-map.csv,https://ndownloader.figshare.com/files/9562264,
+Achilles Avana Public 17Q4 v2,2017-10-30,sgRNA-mapping.tsv,https://ndownloader.figshare.com/files/9562267,
+Achilles Avana Public 17Q4 v2,2017-10-30,sgRNA_replicates_logFCnorm.csv,https://ndownloader.figshare.com/files/9562270,
+GeCKO 19Q1,2019-02-05,gene_effect.csv,https://ndownloader.figshare.com/files/14246687,
+GeCKO 19Q1,2019-02-05,essential_genes.txt,https://ndownloader.figshare.com/files/14246684,
+GeCKO 19Q1,2019-02-05,guide_activity.csv,https://ndownloader.figshare.com/files/14246690,
+GeCKO 19Q1,2019-02-05,guide_locus_map.csv,https://ndownloader.figshare.com/files/14246693,
+GeCKO 19Q1,2019-02-05,guide_QCed.csv,https://ndownloader.figshare.com/files/14246696,
+GeCKO 19Q1,2019-02-05,locus_cn.csv,https://ndownloader.figshare.com/files/14246711,
+GeCKO 19Q1,2019-02-05,locus_gene_map.csv,https://ndownloader.figshare.com/files/14246714,
+GeCKO 19Q1,2019-02-05,nonessential_genes.txt,https://ndownloader.figshare.com/files/14246717,
+GeCKO 19Q1,2019-02-05,replicate_map.csv,https://ndownloader.figshare.com/files/14246726,
+GeCKO 19Q1,2019-02-05,README.txt,https://ndownloader.figshare.com/files/14248769,
+GeCKO,2017-10-30,gecko_ceres_gene_effects.csv,https://ndownloader.figshare.com/files/9197929,
+Fusion,2019-02-01,filtered_fusions_19Q1.csv,,
+Fusion,2019-02-01,unfiltered_fusions_19Q1.csv,,
+Methylation (RRBS),2018-06-14,CCLE_RRBS_TSS_1kb_20180614.txt,,
+Methylation (RRBS),2018-06-14,CCLE_RRBS_TSS_CpG_clusters_20180614.txt,,
+Protein Array (RPPA),2018-01-24,CCLE_RPPA_20180123.csv,,
+Protein Array (RPPA),2018-01-24,CCLE_RPPA_Ab_info_20180123.csv,,
+miRNA expression,2018-06-14,CCLE_miRNA_20180525.gct,,
+DNA Copy Number,2014-05-27,CCLE_SNP.Arrays_2012-10-30_1.tar.gz,,
+DNA Copy Number,2014-05-27,CCLE_SNP.Arrays_2012-10-30_2.tar.gz,,
+DNA Copy Number,2014-05-27,CCLE_SNP.Arrays_2012-10-30_3.tar.gz,,
+DNA Copy Number,2014-05-27,CCLE_SNP.Arrays_2012-10-30_4.tar.gz,,
+DNA Copy Number,2014-05-27,CCLE_SNP.Arrays.sif_2013-12-03.txt,,
+DNA Copy Number,2014-05-27,CCLE_copynumber_2013-12-03.seg.txt,,
+DNA Copy Number,2014-05-27,CCLE_copynumber_byGene_2013-12-03.txt,,
+DNA Copy Number,2014-05-27,CCLE_copynumber_byGene_2013-12-03.txt.gz,,
+DNA Copy Number,2014-05-27,CCLE_SNP.Birdseed.Calls_2013-07-29.tar.gz,,
+Cell Line Annotations,2012-10-18,CCLE_sample_info_file_2012-10-18.txt,,
+Binary Calls for Copy Number and Mutation Data,2016-02-29,CCLE_MUT_CNA_AMP_DEL_binary_Revealer.gct,,
+Hybrid capture sequencing,2015-05-05,CCLE_hybrid_capture1650_HGNC_info_2012.02.20.txt,,
+Hybrid capture sequencing,2015-05-05,CCLE_hybrid_capture1650_hg19_NoCommonSNPs_NoNeutralVariants_CDS_2012.05.07.maf,,
+Hybrid capture sequencing,2015-05-05,CCLE_hybrid_capture1650_hg19_NoCommonSNPs_NoNeutralVariants_CDS_2012.05.07.maf.gz,,
+Hybrid capture sequencing,2015-05-05,CCLE_hybrid_capture1650_hg19_allVariants_2012.05.07.maf.gz,,
+Hybrid capture sequencing,2015-05-05,CCLE_hybrid_capture1650_hg19_interval_lists.tar.gz,,
+Hybrid capture sequencing,2015-05-05,CCLE_hybrid_capture1650_hg19_coverage_2012.06.19.tar.gz,,
+Hybrid capture sequencing,2015-05-05,1650_HC_plus_RD_muts.maf.annotated,,
+Hybrid capture sequencing,2015-05-05,1650_HC_plus_RD_indels.maf.annotated,,
+Hybrid capture sequencing,2015-05-05,1650_HC_plus_RD_muts.maf.annotated.gz,,
+Oncomap mutations,2012-04-10,CCLE_Oncomap3_2012-04-09.maf,,
+Oncomap mutations,2012-04-10,CCLE_Oncomap3_Assays_2012-04-09.csv,,
+mRNA expression,2013-09-18,CCLE_Expression_2012-09-29.res,,
+mRNA expression,2013-09-18,CCLE_Expression_Entrez_2012-09-29.gct,,
+mRNA expression,2013-09-18,CCLE_Expression.Arrays.sif_2012-10-18.txt,,
+mRNA expression,2013-09-18,CCLE_Expression_Entrez_2012-10-18.res,,
+mRNA expression,2013-09-18,CCLE_Expression_Entrez_IGV_2012-09-29.tdf,,
+mRNA expression,2013-09-18,CCLE_Expression.Arrays_2013-03-18.tar.gz,,
+mRNA expression,2013-09-18,CCLE_expression_CN_muts_GENEE_2010-04-16.gctx,,
+PRISM Repurposing Public 23Q2,2023-06-30,Repurposing_Public_23Q2_Cell_Line_Meta_Data.csv,https://ndownloader.figshare.com/files/41408658,f2735ba9867fd32ffca83ce29c98a2b3
+PRISM Repurposing Public 23Q2,2023-06-30,Repurposing_Public_23Q2_Treatment_Meta_Data.csv,https://ndownloader.figshare.com/files/41408649,6aa9503faf95cd07aa6961e6192aca94
+PRISM Repurposing Public 23Q2,2023-06-30,Repurposing_Public_23Q2_LMFI_matrix.csv,https://ndownloader.figshare.com/files/41408703,3765286692d9fb251aa6dc9da1f1ce22
+PRISM Repurposing Public 23Q2,2023-06-30,Repurposing_Public_23Q2_LMFI_NORMALIZED.csv,https://ndownloader.figshare.com/files/41408667,7d79e9013e9ff1fa98e77a8e476de428
+PRISM Repurposing Public 23Q2,2023-06-30,Repurposing_Public_23Q2_QC_table.csv,https://ndownloader.figshare.com/files/41408652,974be7cb4a4a3bf7a377b6145b32cc74
+PRISM Repurposing Public 23Q2,2023-06-30,Repurposing_Public_23Q2_LFC.csv,https://ndownloader.figshare.com/files/41408646,093b6796fc7dec9b44d41b56b8a0ce91
+PRISM Repurposing Public 23Q2,2023-06-30,Repurposing_Public_23Q2_LFC_COLLAPSED.csv,https://ndownloader.figshare.com/files/41408655,ef6fef45e048da970f0da23bacf6c088
+PRISM Repurposing Public 23Q2,2023-06-30,Repurposing_Public_23Q2_Extended_Primary_Data_Matrix.csv,https://ndownloader.figshare.com/files/41408700,fc3c45140a4141650d92ad7e23fb86bd
+PRISM Repurposing Public 23Q2,2023-06-30,Repurposing_Public_23Q2_Extended_Primary_Compound_List.csv,https://ndownloader.figshare.com/files/41408664,60dc22963aa20e1cf4758800bcaadfd3
+PRISM Repurposing Public 23Q2,2023-06-30,Repurposing_Public_23Q2_Readme.txt,https://ndownloader.figshare.com/files/41408697,b33a66de41765aa53546d51bcdb25dbc
+Sanger Drug Combinations 2022,2024-05-15,SangerCombo2022LibraryViabilityProcessed.csv,,0c9e1c7f8b5b9d9a36d3b2885c3a663f
+Sanger Drug Combinations 2022,2024-05-15,sanger_combination_combo_viability_breadbox_data.csv,,da7bcc8ee4e56d560b0bbf04da461eb7
+Sanger Drug Combinations 2022,2024-05-15,Original_screen_All_tissues_day1_data.csv,,36797dc8e1fa0644716ddeb45177d02b
+Sanger Drug Combinations 2022,2024-05-15,sanger_combination_library_viability_breadbox_metadata.csv,,efd3ac666b3d8e1cb05b4e6b4a1469d9
+Sanger Drug Combinations 2022,2024-05-15,SangerCombo2022AnchorViabilityProcessed.csv,,1065ecca68b77e5c9719261fc52a8348
+Sanger Drug Combinations 2022,2024-05-15,sanger_combination_combo_fit_breadbox_metadata.csv,,7152426666c2240f75913ff0abbc5a8e
+Sanger Drug Combinations 2022,2024-05-15,Original screen_All tissues_fitted data.csv,,786589e5eb556670cc7d24356487f8fd
+Sanger Drug Combinations 2022,2024-05-15,sanger_combination_anchor_viability_breadbox_metadata.csv,,e788965c60133542585a61258322fe4a
+Sanger Drug Combinations 2022,2024-05-15,Original_screen_All_tissues_raw_data.csv,,582b6e03c005bf3fd2092b170d650ee2
+Sanger Drug Combinations 2022,2024-05-15,sanger_combination_library_viability_breadbox_data.csv,,1d06e8cf050d969f3ad54d2e1a1aee83
+Sanger Drug Combinations 2022,2024-05-15,sanger_combination_combo_fit_breadbox_data.csv,,ce767992a8b70f4560757e9380a082ea
+Sanger Drug Combinations 2022,2024-05-15,sanger_combination_library_fit_breadbox_metadata.csv,,2395e96897b94f7d4260e99bd5b9d88a
+Sanger Drug Combinations 2022,2024-05-15,Glossary.csv,,28d699de7f3b53aa3af54f1649b004a3
+Sanger Drug Combinations 2022,2024-05-15,sanger_combination_library_fit_breadbox_data.csv,,66ead77b342f2e90fa15f2f80b30841b
+Sanger Drug Combinations 2022,2024-05-15,SangerCombo2022LibraryFit.csv,,6ad464caf2fb12996da070bbf93a7281
+Sanger Drug Combinations 2022,2024-05-15,SangerCombo2022ComboFit.csv,,9b9cc526dffd815b83c0416d9c7ecf77
+Sanger Drug Combinations 2022,2024-05-15,sanger_combination_combo_viability_breadbox_metadata.csv,,0a7c1bf4c4cec621bacf106780a9d7bb
+Sanger Drug Combinations 2022,2024-05-15,SangerCombo2022CombinationViabilityProcessed.csv,,c1a06293861eceb7dc2e4f0b4cdee6d5
+Sanger Drug Combinations 2022,2024-05-15,sanger_combination_anchor_viability_breadbox_data.csv,,7eff4046156239f0ca30ed775c45f3ce
+Harmonized Public Proteomics 26Q1,2026-03-01,harmonized_Sanger_MS_2022.csv,,63f5d87da950847fd82c7fdd0b2fff5e
+Harmonized Public Proteomics 26Q1,2026-03-01,harmonized_MS_CCLE_Gygi.csv,,6fda5fce9ff47bf43cd25f5ef6cc3ded
+Harmonized Public Proteomics 26Q1,2026-03-01,harmonized_RPPA_CCLE.csv,,9fc74b4ac40611105d2363c5dca3ef5d
+Harmonized Public Proteomics 26Q1,2026-03-01,uniprot_hugo_entrez_id_mapping.csv,,579c401f3872feb88ed1e34efab84578
+Harmonized Public Proteomics 26Q1,2026-03-01,harmonized_Olink_2023_best_dilution.csv,,fdcb841a84bdab63dbfddcdb6db3b8dd
+Harmonized Public Proteomics 24Q4,2024-11-13,harmonized_MS_CCLE_Gygi.csv,,6fda5fce9ff47bf43cd25f5ef6cc3ded
+Harmonized Public Proteomics 24Q4,2024-11-13,uniprot_hugo_entrez_id_mapping.csv,,91f3a5aa8aac312be64d7454d56972e7
+Harmonized Public Proteomics 24Q4,2024-11-13,harmonized_RPPA_CCLE.csv,,9fc74b4ac40611105d2363c5dca3ef5d
+Biogrid 25Q3,2025-09-01,AchillesCommonEssentialControls.csv,,3aff5af7acc908a459ce32c36959cb92
+Biogrid 25Q3,2025-09-01,AchillesHighVarianceGeneControls.csv,,f50e28c6a4efa0adc10ec14038f6a6ac
+Biogrid 25Q3,2025-09-01,AchillesNonessentialControls.csv,,75edb9c1aa3bff283fb8df95a87de8df
+Biogrid 25Q3,2025-09-01,AchillesScreenQCReport.csv,,1e3bbfb30ae260400000cc02b6cdd453
+Biogrid 25Q3,2025-09-01,AchillesSequenceQCReport.csv,,5dcefffe05ecb20849c3fbd0e6057101
+Biogrid 25Q3,2025-09-01,BrunelloGuideMap.csv,,054f875a2076a3b2090630162582ccdb
+Biogrid 25Q3,2025-09-01,BrunelloLogfoldChange.csv,,0c397cf322a6df25752d33b97d478d32
+Biogrid 25Q3,2025-09-01,BrunelloRawReadcounts.csv,,09384d674189efd2e53d9a4d90989d49
+Biogrid 25Q3,2025-09-01,OmicsGuideMutationsBinaryBrunello.csv,,47f7d6c178e6e677ce535f551c041ec8
+Biogrid 25Q3,2025-09-01,OmicsGuideMutationsBinaryTKOv3.csv,,3df1639a24543a4a5406b930621c5b7a
+Biogrid 25Q3,2025-09-01,ScreenGeneDependency.csv,,1d76fb48edcaa108b0c1db523f42e848
+Biogrid 25Q3,2025-09-01,ScreenGeneEffect.csv,,3c1b6b37746e4786efdf4c70e166cffa
+Biogrid 25Q3,2025-09-01,ScreenGeneEffectUncorrected.csv,,2e72e2fb4870e200875a13ada63811c3
+Biogrid 25Q3,2025-09-01,ScreenNaiveGeneScore.csv,,c5d11bc6cadc2fe62f53d7b9a0c420a7
+Biogrid 25Q3,2025-09-01,ScreenSequenceMap.csv,,cbb9a952ae9ed26ab7da894363578248
+Biogrid 25Q3,2025-09-01,TKOv3GuideMap.csv,,049ce98f2813875b95980727946124bb
+Biogrid 25Q3,2025-09-01,TKOv3LogfoldChange.csv,,220801fd5b85137878ca54e47f10c7ea
+Biogrid 25Q3,2025-09-01,TKOv3RawReadcounts.csv,,0e8fff5568b20479afa5b7aa16e0634a
+Biogrid 25Q3,2025-09-01,README.txt,,af3c91ab5f7d5b1f95f52072132450a5
+Harmonized CTD^2 25Q2,2025-03-11,CTRPLog2ViabilityCollapsedMatrix.csv,,2a7cf3555aa40faee8ca358397849129
+Harmonized CTD^2 25Q2,2025-03-11,CTRPLog2IC50Matrix.csv,,3f7eba44732e71175f6df16a497c9d86
+Harmonized CTD^2 25Q2,2025-03-11,CTRPLog2ViabilityConditions.csv,,d105f7617d9c40e072dc67cb906cd52b
+Harmonized CTD^2 25Q2,2025-03-11,CTRPLog2ViabilityMatrix.csv,,b1fa9f4f319ae8c7278052b888236fc9
+Harmonized CTD^2 25Q2,2025-03-11,CTRPResponseCurves.csv,,36115a26e2cabab33906793ba04c47f8
+Harmonized CTD^2 25Q2,2025-03-11,CTRPLog2ViabilityCollapsedConditions.csv,,321dda0135d3db5b6dd6525c3068b681
+Harmonized CTD^2 25Q2,2025-03-11,CTRPAUCMatrix.csv,,73a53278629bc6486ca9a90c73d85085
+Harmonized GDSC 25Q2,2025-03-11,GDSC1Log2ViabilityCollapsedMatrix.csv,,91be2aa6fd94a288816ecace1171ebc3
+Harmonized GDSC 25Q2,2025-03-11,GDSC2Log2ViabilityCollapsedConditions.csv,,725e3e5d37ffe5100aca98b9d47ec3ce
+Harmonized GDSC 25Q2,2025-03-11,GDSC2Log2ViabilityMatrix.csv,,b5d32ed49b33158771d0d08b50f6c6cf
+Harmonized GDSC 25Q2,2025-03-11,GDSC1Log2ViabilityConditions.csv,,2a6b8dbe04a52ec45de4c51120776eb0
+Harmonized GDSC 25Q2,2025-03-11,GDSC1Log2ViabilityCollapsedConditions.csv,,30cb5fb174d4ffe8420108fc3e1a83db
+Harmonized GDSC 25Q2,2025-03-11,GDSC1Log2IC50Matrix.csv,,3f19938c7bd517b6ab784f9dde3ecde3
+Harmonized GDSC 25Q2,2025-03-11,GDSC1ResponseCurves.csv,,d288b632bbd577d1f3865f8babf9ba41
+Harmonized GDSC 25Q2,2025-03-11,GDSC2Log2ViabilityConditions.csv,,23ae64b1d7b9b2eed8edc9f00dfbdb44
+Harmonized GDSC 25Q2,2025-03-11,GDSC2Log2IC50Matrix.csv,,6894fa298404d40a6f262c280964684b
+Harmonized GDSC 25Q2,2025-03-11,GDSC2AUCMatrix.csv,,dad54f0b49513722e1eb49fce9a91146
+Harmonized GDSC 25Q2,2025-03-11,GDSC2Log2ViabilityCollapsedMatrix.csv,,6d6c0f1f037265d01a8fd429a7f5594c
+Harmonized GDSC 25Q2,2025-03-11,GDSC1AUCMatrix.csv,,ff9f0edcbd106b754425717c8be2200f
+Harmonized GDSC 25Q2,2025-03-11,GDSC1Log2ViabilityMatrix.csv,,6a6500008ce8f2242698110dfdc4b387
+Harmonized GDSC 25Q2,2025-03-11,GDSC2ResponseCurves.csv,,b294ef10b2de993b68df0ed27d74280f
+Harmonized PRISM Repurposing Secondary Screen 25Q2,2025-03-11,REPURPOSINGLog2IC50Matrix.csv,,0b224762b365a5cc095420a82bbc7543
+Harmonized PRISM Repurposing Secondary Screen 25Q2,2025-03-11,REPURPOSINGAUCMatrix.csv,,81c8ccc47dff962aba7a722222014503
+Harmonized PRISM Repurposing Secondary Screen 25Q2,2025-03-11,REPURPOSINGLog2ViabilityConditions.csv,,e2167fa1fca846577cf56384e0f30028
+Harmonized PRISM Repurposing Secondary Screen 25Q2,2025-03-11,REPURPOSINGLog2ViabilityCollapsedMatrix.csv,,056e9c3f551233dfc58fc4f331e6f0dc
+Harmonized PRISM Repurposing Secondary Screen 25Q2,2025-03-11,REPURPOSINGResponseCurves.csv,,4f3817d7dfd3531609db5e6ee92007fd
+Harmonized PRISM Repurposing Secondary Screen 25Q2,2025-03-11,REPURPOSINGLog2ViabilityMatrix.csv,,b159c4ac0de20bf113d4d8f4f5965a13
+Harmonized PRISM Repurposing Secondary Screen 25Q2,2025-03-11,REPURPOSINGLog2ViabilityCollapsedConditions.csv,,8d9dd5a9da54cd73ba7b079ea1a78f2b
+ecDNA predictions AmpliconSuite,2025-12-16,ecDNA_predictions_AmpliconSuite.csv,,ee23f392c37106417f4d143ec677a578

@@ -1,0 +1,10 @@
+Package: CopyNumberDependencyAnalysis
+Title: Copy Number Driven Dependency Analysis Framework
+Version: 0.1.0
+Authors@R: person("Project", "Contributors", role=c("aut", "cre"), email="maintainer@example.invalid")
+Description: Reproducible gene pair analysis using supplied DepMap exports and separate TCGA current and reference layers.
+License: MIT
+Encoding: UTF-8
+Depends: R (== 4.5.0)
+Imports: data.table, dplyr, tidyr, ggplot2, ggpubr, ggrepel, patchwork, broom,
+    scales, stringr, purrr, readr, jsonlite, digest, optparse, future.apply, renv

@@ -1,0 +1,13 @@
+{
+  "url": "https://pancanatlas.xenahubs.net/download/TCGA_phenotype_denseDataOnlyDownload.tsv.json",
+  "retrieved_at": "2026-10-02T16:08:53+08:00",
+  "metadata": {
+    "cohort": "TCGA Pan-Cancer (PANCAN)",
+    "type": "clinicalMatrix",
+    ":clinicalFeature": "PANCAN_clinicalFeature",
+    "label": "sample type and primary disease",
+    "dataSubType": "phenotype",
+    "wrangling_procedure": "sample type and primary disease information combined from all individual TCGA cohorts",
+    "version": "2016-12-29"
+  }
+}

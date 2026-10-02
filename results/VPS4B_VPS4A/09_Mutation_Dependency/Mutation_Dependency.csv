@@ -1,0 +1,2 @@
+definition,N_mutant,N_WT,Median_mutant,Median_WT,Delta_median,P,FDR
+damaging,3,1205,-0.3580691838,-0.3225770358,-0.035492148,0.740341896142502,0.740341896142502

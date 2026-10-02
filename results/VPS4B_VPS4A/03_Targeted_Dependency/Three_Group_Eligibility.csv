@@ -1,0 +1,4 @@
+group,N,eligible
+CN Non-Low,782,TRUE
+Shallow CN Loss,76,TRUE
+Deep CN Loss,0,FALSE

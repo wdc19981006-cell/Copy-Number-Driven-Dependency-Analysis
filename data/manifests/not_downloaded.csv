@@ -1,0 +1,19 @@
+database,release,filename,status,reason
+DepMap,26Q1,CRISPRGeneDependency.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,CRISPRGeneEffect.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,CRISPRScreenMap.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,Model.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,ModelCondition.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,OmicsCNGene.csv,unavailable_optional,Not supplied in selected release; no older release substituted.
+DepMap,26Q1,OmicsCNGeneWGS.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,OmicsExpressionTPMLogp1HumanAllGenesStranded.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,OmicsFusionFilteredSupplementary.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,OmicsGlobalSignatures.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,OmicsInferredMolecularSubtypes.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,OmicsProfiles.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,OmicsSomaticMutations.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,OmicsSomaticMutationsMatrixDamaging.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,OmicsSomaticMutationsMatrixHotspot.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+DepMap,26Q1,ScreenSequenceMap.csv,skipped_by_user,User explicitly requested skipping DepMap downloads after official endpoint required browser verification.
+TCGA,PANCAN,mc3.v0.2.8.PUBLIC.maf.gz,failed,"Command '['C:\\Program Files\\Git\\mingw64\\bin\\curl.exe', '--fail', '--location', '--silent', '--show-error', '--connect-timeout', '30', '--head', '--max-time', '90', '--retry', '2', 'https://api.gdc.cancer.gov/data/1c8cfe5f-e52d-41ba-94da-f15ea1337efc']' returned non-zero exit status 22."

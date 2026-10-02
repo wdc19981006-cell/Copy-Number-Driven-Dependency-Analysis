@@ -1,0 +1,18 @@
+{
+  "url": "https://toil.xenahubs.net/download/tcga_RSEM_Hugo_norm_count.json",
+  "retrieved_at": "2026-10-02T16:08:46+08:00",
+  "metadata": {
+    "cohort": "TCGA Pan-Cancer (PANCAN)",
+    "wrangler": "Xena scripts processed on 2016-02-18",
+    "colNormalization": true,
+    "label": "TOIL RSEM norm_count",
+    "wrangling_procedure": "Data (file names: *.rsem.genes.norm_counts.hugo.tab) are log2(x+1) transformed, and combined",
+    "version": "2016-02-18",
+    "unit": "log2(norm_count+1)",
+    "dataProducer": "UCSC TOIL RNA-seq recompute",
+    "redistribution": true,
+    "type": "genomicMatrix",
+    ":probeMap": "/probeMap/hugo_gencode_good_hg38_v23comp_probemap",
+    "dataSubType": "gene expression RNAseq"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "created_at": "2026-10-02T18:32:16+08:00",
+  "file_metadata_discrepancies": [
+    {
+      "file_id": "2e9bd269-a8f7-46ec-86ad-d75828867d06",
+      "api_linked_aliquot": "7b21bfff-b5f1-4796-b0bc-d4c529ebcbfd",
+      "source_tumor_aliquot": "6ae5496e-cf5b-4e6d-8bb1-a2c0cb904077",
+      "source_tumor_barcode": "TCGA-G8-6326-01A-11D-2210-10",
+      "case_id": "f8cf647b-1447-4ac3-8c43-bef07765cabf",
+      "method": "Source Tumor_Sample_UUID resolved against full official case biospecimen hierarchy"
+    },
+    {
+      "file_id": "32f166e9-8a60-4c21-b2be-a320ab4aca4f",
+      "api_linked_aliquot": "1edee53e-5b0f-44c1-93e4-ad0778e1e147",
+      "source_tumor_aliquot": "bd403458-5154-488b-931a-a7e737a6bf8c",
+      "source_tumor_barcode": "TCGA-FF-8062-01A-11D-2210-10",
+      "case_id": "0e9fcccc-0630-408d-a121-2c6413824cb7",
+      "method": "Source Tumor_Sample_UUID resolved against full official case biospecimen hierarchy"
+    },
+    {
+      "file_id": "4432bf4d-33d2-4a43-8961-6c360faf7d5c",
+      "api_linked_aliquot": "366ac237-58d3-45ae-bf82-9f85fc562612",
+      "source_tumor_aliquot": "16ea266a-69ef-42a9-81c7-affe59adb1ce",
+      "source_tumor_barcode": "TCGA-G8-6914-01A-11D-2210-10",
+      "case_id": "3622cf29-600f-4410-84d4-a9afeb41c475",
+      "method": "Source Tumor_Sample_UUID resolved against full official case biospecimen hierarchy"
+    },
+    {
+      "file_id": "4b8af9ad-22d7-437a-85eb-0644b1376d2e",
+      "api_linked_aliquot": "b1ed3024-96f1-49e2-bde2-851174877525",
+      "source_tumor_aliquot": "68ab7686-eb0b-4bdd-8e60-132917be4063",
+      "source_tumor_barcode": "TCGA-FM-8000-01A-11D-2210-10",
+      "case_id": "e56e4d9c-052e-4ec6-a81b-dbd53e9c8ffe",
+      "method": "Source Tumor_Sample_UUID resolved against full official case biospecimen hierarchy"
+    },
+    {
+      "file_id": "5051c820-ad63-4db7-adef-30bd4cd5790c",
+      "api_linked_aliquot": "694ae665-129e-4f77-8739-c727be952b33",
+      "source_tumor_aliquot": "8e2c3217-6e8f-4f19-b00f-d551799c527e",
+      "source_tumor_barcode": "TCGA-GR-7353-01A-11D-2210-10",
+      "case_id": "c3d662ee-48d0-454a-bb0c-77d3338d3747",
+      "method": "Source Tumor_Sample_UUID resolved against full official case biospecimen hierarchy"
+    },
+    {
+      "file_id": "515a2c0b-6132-4c99-9a55-4c15635493b2",
+      "api_linked_aliquot": "b21ffba7-e2de-4285-baa3-fd0984c6c6ea",
+      "source_tumor_aliquot": "e77b3e68-2caa-4d71-9b83-8c8de72ef6e8",
+      "source_tumor_barcode": "TCGA-G8-6909-01A-11D-2210-10",
+      "case_id": "a468e725-ad4b-411d-ac5c-2eacc68ec580",
+      "method": "Source Tumor_Sample_UUID resolved against full official case biospecimen hierarchy"
+    },
+    {
+      "file_id": "6feccd3a-fab3-41eb-9e37-7532dc27621a",
+      "api_linked_aliquot": "acab7c95-cc41-43da-a5fb-abe8c14cbcb7",
+      "source_tumor_aliquot": "c50abe38-50f3-4d17-b9dd-ec3adebe0a96",
+      "source_tumor_barcode": "TCGA-G8-6907-01A-11D-2210-10",
+      "case_id": "31bbad4e-3789-42ec-9faa-1cb86970f723",
+      "method": "Source Tumor_Sample_UUID resolved against full official case biospecimen hierarchy"
+    },
+    {
+      "file_id": "b709906c-599d-4142-a945-9f19f90e924f",
+      "api_linked_aliquot": "b7d0d7b7-70a7-40a0-818b-06ef40f7f580",
+      "source_tumor_aliquot": "707a995c-8926-4885-9a96-14690480f680",
+      "source_tumor_barcode": "TCGA-G8-6324-01A-11D-2210-10",
+      "case_id": "6a21c948-cd85-4150-8c01-83017d7dc1ed",
+      "method": "Source Tumor_Sample_UUID resolved against full official case biospecimen hierarchy"
+    },
+    {
+      "file_id": "c46b4f54-14ac-41e5-9520-78512649515d",
+      "api_linked_aliquot": "60d6b362-2bad-47dd-99c9-ad7df3203fd6",
+      "source_tumor_aliquot": "dff37268-b20d-4489-a9af-6238d218ebcf",
+      "source_tumor_barcode": "TCGA-GR-7351-01A-11D-2210-10",
+      "case_id": "7a589441-11ef-4158-87e7-3951d86bc2aa",
+      "method": "Source Tumor_Sample_UUID resolved against full official case biospecimen hierarchy"
+    },
+    {
+      "file_id": "eb1f8b22-ea4f-4110-b919-7f02bb257d09",
+      "api_linked_aliquot": "2008d5f8-059f-4b41-bdbe-3ff33337ac76",
+      "source_tumor_aliquot": "bb2fa555-8832-42b9-8f88-487e8f5f830d",
+      "source_tumor_barcode": "TCGA-EF-5831-01A-01D-1811-10",
+      "case_id": "4d5437b3-b6a0-4d17-a7aa-4f2b790e4532",
+      "method": "Source Tumor_Sample_UUID resolved against full official case biospecimen hierarchy"
+    },
+    {
+      "file_id": "edcbe4d4-6c00-4de6-a88e-e7d8615db395",
+      "api_linked_aliquot": "3cfafc88-7fc2-4fe8-8f68-4787a2a933c6",
+      "source_tumor_aliquot": "05e026f4-b51f-45b2-97a0-1ac81c953a07",
+      "source_tumor_barcode": "TCGA-G8-6325-01A-11D-2210-10",
+      "case_id": "ea54dbad-1b23-41cc-9378-d4002a8fca51",
+      "method": "Source Tumor_Sample_UUID resolved against full official case biospecimen hierarchy"
+    },
+    {
+      "file_id": "f38fdd70-0ccb-43ad-b11a-45497bdfcf07",
+      "api_linked_aliquot": "36d604db-0d58-48bc-af48-e938df529253",
+      "source_tumor_aliquot": "3d6aae99-3cf5-4e45-b65e-409ed0ddf21b",
+      "source_tumor_barcode": "TCGA-G8-6906-01A-11D-2210-10",
+      "case_id": "3f5a897d-1eaa-4d4c-8324-27ac07c90927",
+      "method": "Source Tumor_Sample_UUID resolved against full official case biospecimen hierarchy"
+    }
+  ],
+  "note": "File API-linked entities are retained as input provenance. Canonical row tumor identity comes from source MAF UUID/barcode and the full official biospecimen hierarchy; never from a normal-only file association."
+}

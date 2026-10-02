@@ -1,0 +1,24 @@
+{
+  "input_sha256": "ca06000dd89c2ceded2e440db267c30fec6376ebbefb1636d0495911db970433",
+  "source": "docs/USER_SUPPLIED_ANALYSIS.R",
+  "sections": {
+    "data_access.R": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "plotting.R": [
+      7,
+      8
+    ],
+    "dependency_screen.R": [
+      9
+    ],
+    "lineage_analysis.R": [
+      10,
+      11
+    ]
+  },
+  "statistical_core": "Ten core function bodies retained and tested against the source. The data loader recognizes a blank ID column. Runtime adapters route output folders, restore reverse-analysis state, give plot annotations an opaque background, and serialize tiny P/FDR values scientifically. Formulae, tests, thresholds, BH families and original ranking are unchanged. Added modes are separate."
+}

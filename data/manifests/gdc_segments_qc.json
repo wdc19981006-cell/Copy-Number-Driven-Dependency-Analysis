@@ -1,0 +1,13 @@
+{
+  "created_at": "2026-10-02T17:56:55+08:00",
+  "release": "46.0",
+  "processor_version": "gdc-DR46-v1",
+  "source_set_sha256": "aa2a1e934a4f47919e966ff551324838cd272ce3d008278a4f8afc30da705429",
+  "SHA256": "c7ae3f29a1e7fe4dfd4bcf55301e523a006d5474eaf685a6e2c0cc3538d21026",
+  "bytes": 94409553,
+  "rows": 1070293,
+  "files": 11189,
+  "columns": 26,
+  "parsed_all_inputs": true,
+  "compression": "ZSTD"
+}

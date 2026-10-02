@@ -1,0 +1,161 @@
+{
+  "created_at": "2026-10-02T16:26:48+08:00",
+  "checks": [
+    {
+      "check": "raw_integrity",
+      "file": "Gistic2_CopyNumber_Gistic2_all_data_by_genes.tsv.gz",
+      "passed": true
+    },
+    {
+      "check": "raw_integrity",
+      "file": "Gistic2_CopyNumber_Gistic2_all_thresholded.by_genes.tsv.gz",
+      "passed": true
+    },
+    {
+      "check": "raw_integrity",
+      "file": "TCGA_phenotype_denseDataOnlyDownload.tsv.gz",
+      "passed": true
+    },
+    {
+      "check": "raw_integrity",
+      "file": "mc3.v0.2.8.PUBLIC.xena.tsv.gz",
+      "passed": true
+    },
+    {
+      "check": "raw_integrity",
+      "file": "tcga_RSEM_Hugo_norm_count.tsv.gz",
+      "passed": true
+    },
+    {
+      "check": "processed_integrity",
+      "file": "CN.parquet",
+      "passed": true
+    },
+    {
+      "check": "processed_integrity",
+      "file": "Expression.parquet",
+      "passed": true
+    },
+    {
+      "check": "processed_integrity",
+      "file": "GISTIC.parquet",
+      "passed": true
+    },
+    {
+      "check": "processed_integrity",
+      "file": "MC3.parquet",
+      "passed": true
+    },
+    {
+      "check": "processed_integrity",
+      "file": "Metadata.parquet",
+      "passed": true
+    },
+    {
+      "check": "single_gene_matches_raw",
+      "dataset": "CN",
+      "gene": "ACAP3",
+      "samples": 10845,
+      "query_seconds": 0.136,
+      "passed": true
+    },
+    {
+      "check": "single_gene_matches_raw",
+      "dataset": "CN",
+      "gene": "NUTM2D",
+      "samples": 10845,
+      "query_seconds": 0.007,
+      "passed": true
+    },
+    {
+      "check": "single_gene_matches_raw",
+      "dataset": "CN",
+      "gene": "WASIR1|ENSG00000185203.7",
+      "samples": 10845,
+      "query_seconds": 0.009,
+      "passed": true
+    },
+    {
+      "check": "single_gene_matches_raw",
+      "dataset": "GISTIC",
+      "gene": "ACAP3",
+      "samples": 10845,
+      "query_seconds": 0.165,
+      "passed": true
+    },
+    {
+      "check": "single_gene_matches_raw",
+      "dataset": "GISTIC",
+      "gene": "NUTM2D",
+      "samples": 10845,
+      "query_seconds": 0.006,
+      "passed": true
+    },
+    {
+      "check": "single_gene_matches_raw",
+      "dataset": "GISTIC",
+      "gene": "WASIR1|ENSG00000185203.7",
+      "samples": 10845,
+      "query_seconds": 0.007,
+      "passed": true
+    },
+    {
+      "check": "single_gene_matches_raw",
+      "dataset": "Expression",
+      "gene": "CTD-2588J6.1",
+      "samples": 10535,
+      "query_seconds": 0.337,
+      "passed": true
+    },
+    {
+      "check": "single_gene_matches_raw",
+      "dataset": "Expression",
+      "gene": "RP11-453O5.1",
+      "samples": 10535,
+      "query_seconds": 0.006,
+      "passed": true
+    },
+    {
+      "check": "single_gene_matches_raw",
+      "dataset": "Expression",
+      "gene": "RP11-526P5.2",
+      "samples": 10535,
+      "query_seconds": 0.006,
+      "passed": true
+    },
+    {
+      "check": "matrix_metadata_coverage",
+      "dataset": "CN",
+      "samples": 10845,
+      "missing_cancer_type": 0,
+      "unclassified_control_analytes": 0,
+      "unclassified_tumor_normal": 0,
+      "passed": true
+    },
+    {
+      "check": "matrix_metadata_coverage",
+      "dataset": "GISTIC",
+      "samples": 10845,
+      "missing_cancer_type": 0,
+      "unclassified_control_analytes": 0,
+      "unclassified_tumor_normal": 0,
+      "passed": true
+    },
+    {
+      "check": "matrix_metadata_coverage",
+      "dataset": "Expression",
+      "samples": 10535,
+      "missing_cancer_type": 1,
+      "unclassified_control_analytes": 1,
+      "unclassified_tumor_normal": 0,
+      "passed": true
+    },
+    {
+      "check": "skipped_depmap_fails_explicitly",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "depmap_model_overlap": "Not measured: user skipped DepMap downloads"
+}

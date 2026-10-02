@@ -1,0 +1,266 @@
+{
+  "exit": 3221225477,
+  "faults": [
+    {
+      "exception": "0xc0000005",
+      "address": "0x7ffc719ed8b0",
+      "module": "\\Device\\HarddiskVolume3\\Windows\\System32\\ucrtbase.dll",
+      "offset": "0xed8b0",
+      "first_chance": 1,
+      "memory_target": "0x0",
+      "stack_candidates": [
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\library\\cli\\libs\\x64\\cli.dll",
+          "offset": "0xb10f"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\library\\cli\\libs\\x64\\cli.dll",
+          "offset": "0xb175"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume3\\Windows\\System32\\ucrtbase.dll",
+          "offset": "0x1398b0"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume3\\Windows\\System32\\ucrtbase.dll",
+          "offset": "0x50d9"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\library\\cli\\libs\\x64\\cli.dll",
+          "offset": "0x5fd9"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1372d0"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x231a03"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3380"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3378"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3380"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1b14a7"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x631cb0"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1372d0"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1aba70"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3378"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1b16b5"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x2ddef6"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1aa230"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1aa530"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1aba70"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1b0b8b"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x229f56"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x232094"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3380"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3134"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0xfbc86"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\library\\cli\\libs\\x64\\cli.dll",
+          "offset": "0x5fd0"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x631d00"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3378"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1aeee1"
+        }
+      ]
+    },
+    {
+      "exception": "0xc0000005",
+      "address": "0x7ffc719ed8b0",
+      "module": "\\Device\\HarddiskVolume3\\Windows\\System32\\ucrtbase.dll",
+      "offset": "0xed8b0",
+      "first_chance": 0,
+      "memory_target": "0x0",
+      "stack_candidates": [
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\library\\cli\\libs\\x64\\cli.dll",
+          "offset": "0xb10f"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\library\\cli\\libs\\x64\\cli.dll",
+          "offset": "0xb175"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume3\\Windows\\System32\\ucrtbase.dll",
+          "offset": "0x1398b0"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume3\\Windows\\System32\\ucrtbase.dll",
+          "offset": "0x50d9"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\library\\cli\\libs\\x64\\cli.dll",
+          "offset": "0x5fd9"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1372d0"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x231a03"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3380"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3378"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3380"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1b14a7"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x631cb0"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1372d0"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1aba70"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3378"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1b16b5"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x2ddef6"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1aa230"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1aa530"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1aba70"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1b0b8b"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x229f56"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x232094"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3380"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3134"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0xfbc86"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\library\\cli\\libs\\x64\\cli.dll",
+          "offset": "0x5fd0"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x631d00"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x26b3378"
+        },
+        {
+          "module": "\\Device\\HarddiskVolume4\\R\\R-4.5.0\\bin\\x64\\R.dll",
+          "offset": "0x1aeee1"
+        }
+      ]
+    }
+  ],
+  "stderr": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\nWarning message:\r\npackage 'cli' was built under R version 4.5.3 \r\n"
+}

@@ -1,0 +1,11 @@
+{
+  "default_layer": "gdc_DR46",
+  "gdc_release": "46.0",
+  "current_status": "incomplete",
+  "reference_raw": "data/raw/tcga/pancanatlas_reference",
+  "reference_processed": "data/processed/tcga/pancanatlas_reference",
+  "current_raw": "data/raw/tcga/gdc_current_DR46",
+  "current_processed": "data/processed/tcga/gdc_DR46",
+  "last_preprocessed_at": "2026-10-02T18:32:24+08:00",
+  "snapshot_at": "2026-10-02T19:03:52+08:00"
+}

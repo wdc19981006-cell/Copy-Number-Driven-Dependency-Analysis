@@ -1,0 +1,11 @@
+geneA: VPS4B
+geneB: VPS4A
+depmap_release: 26Q1
+r_version: 4.5.0
+bootstrap: 1000
+min_group_n: 3
+cn_low_threshold: 0.585
+deep_cn_loss_threshold: 0.35
+threshold_scale: log2(relative CN + 1)
+threshold_definition: analysis-defined; not official GISTIC CNA states
+statistical_core: docs/USER_SUPPLIED_ANALYSIS.R

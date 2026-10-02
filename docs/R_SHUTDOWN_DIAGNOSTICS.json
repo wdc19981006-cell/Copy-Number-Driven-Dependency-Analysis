@@ -1,0 +1,47 @@
+[
+  {
+    "package": "rlang",
+    "exit_code": 3221225477,
+    "stderr_tail": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\nWarning message:\r\npackage 'rlang' was built under R version 4.5.3 \r\n"
+  },
+  {
+    "package": "vctrs",
+    "exit_code": 3221225477,
+    "stderr_tail": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\nWarning message:\r\npackage 'vctrs' was built under R version 4.5.3 \r\n"
+  },
+  {
+    "package": "S7",
+    "exit_code": 0,
+    "stderr_tail": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\nWarning message:\r\npackage 'S7' was built under R version 4.5.3 \r\n"
+  },
+  {
+    "package": "cli",
+    "exit_code": 3221225477,
+    "stderr_tail": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\nWarning message:\r\npackage 'cli' was built under R version 4.5.3 \r\n"
+  },
+  {
+    "package": "tibble",
+    "exit_code": 3221225477,
+    "stderr_tail": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\nWarning message:\r\npackage 'tibble' was built under R version 4.5.3 \r\n"
+  },
+  {
+    "package": "tidyselect",
+    "exit_code": 3221225477,
+    "stderr_tail": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\n"
+  },
+  {
+    "package": "glue",
+    "exit_code": 0,
+    "stderr_tail": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\n"
+  },
+  {
+    "package": "magrittr",
+    "exit_code": 0,
+    "stderr_tail": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\nWarning message:\r\npackage 'magrittr' was built under R version 4.5.3 \r\n"
+  },
+  {
+    "package": "pillar",
+    "exit_code": 3221225477,
+    "stderr_tail": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\nWarning message:\r\npackage 'pillar' was built under R version 4.5.3 \r\n"
+  }
+]

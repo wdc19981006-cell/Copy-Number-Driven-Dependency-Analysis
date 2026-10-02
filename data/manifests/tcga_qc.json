@@ -1,0 +1,114 @@
+{
+  "created_at": "2026-10-02T16:18:16+08:00",
+  "qc": {
+    "CN": {
+      "rows": 24776,
+      "columns": 3,
+      "row_groups": 24776,
+      "compression": [
+        "ZSTD"
+      ],
+      "samples": 10845,
+      "genes": 24776,
+      "duplicate_gene_labels": 0,
+      "missing_cells": 0,
+      "min": -1.293,
+      "max": 3.657,
+      "sample_id_format": "passed",
+      "parsed_all_rows": true
+    },
+    "GISTIC": {
+      "rows": 24776,
+      "columns": 3,
+      "row_groups": 24776,
+      "compression": [
+        "ZSTD"
+      ],
+      "samples": 10845,
+      "genes": 24776,
+      "duplicate_gene_labels": 0,
+      "missing_cells": 0,
+      "min": -2.0,
+      "max": 2.0,
+      "sample_id_format": "passed",
+      "parsed_all_rows": true
+    },
+    "Expression": {
+      "rows": 58581,
+      "columns": 3,
+      "row_groups": 58581,
+      "compression": [
+        "ZSTD"
+      ],
+      "samples": 10535,
+      "genes": 58581,
+      "duplicate_gene_labels": 0,
+      "missing_cells": 0,
+      "min": 0.0,
+      "max": 24.912,
+      "sample_id_format": "passed",
+      "parsed_all_rows": true
+    },
+    "metadata": {
+      "rows": 12805,
+      "cancer_types": [
+        "ACC",
+        "BLCA",
+        "BRCA",
+        "CESC",
+        "CHOL",
+        "COAD",
+        "DLBC",
+        "ESCA",
+        "GBM",
+        "HNSC",
+        "KICH",
+        "KIRC",
+        "KIRP",
+        "LAML",
+        "LGG",
+        "LIHC",
+        "LUAD",
+        "LUSC",
+        "MESO",
+        "OV",
+        "PAAD",
+        "PCPG",
+        "PRAD",
+        "READ",
+        "SARC",
+        "SKCM",
+        "STAD",
+        "TGCT",
+        "THCA",
+        "THYM",
+        "UCEC",
+        "UCS",
+        "UVM"
+      ],
+      "sample_overlap": {
+        "CN": {
+          "matrix_samples": 10845,
+          "phenotype_overlap": 10845,
+          "missing_cancer_type": 0
+        },
+        "GISTIC": {
+          "matrix_samples": 10845,
+          "phenotype_overlap": 10845,
+          "missing_cancer_type": 0
+        },
+        "Expression": {
+          "matrix_samples": 10535,
+          "phenotype_overlap": 10534,
+          "missing_cancer_type": 1
+        }
+      },
+      "tumor_normal": {
+        "Tumor": 11327,
+        "Normal": 1477,
+        "Other": 1
+      }
+    }
+  },
+  "failures": {}
+}

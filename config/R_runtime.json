@@ -1,0 +1,8 @@
+{
+  "version": "4.5.0",
+  "rscript": "D:/R/R-4.5.0/bin/Rscript.exe",
+  "diagnostic_runtime": "tools/R450/runtime/app/bin/Rscript.exe",
+  "source": "https://cran.r-project.org/bin/windows/base/old/4.5.0/R-4.5.0-win.exe",
+  "official_md5": "d266fec9c94b888a2c8c7eb101f00948",
+  "installer_sha256": "a0ee32e4eacdd003faada9d41dcb3264a441b81db00b0e6ba10f247ab21bb397"
+}

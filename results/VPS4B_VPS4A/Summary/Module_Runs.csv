@@ -1,0 +1,32 @@
+mode,status,seconds,completed_at,detail
+qc,completed,7.93795490264893,2026-10-02T18:17:00+0800,""
+depmap_cn_expression,completed,12.4514610767365,2026-10-02T18:17:16+0800,""
+genomewide_dependency,completed,240.094155073166,2026-10-02T18:21:19+0800,""
+targeted_dependency,completed,10.2844660282135,2026-10-02T18:21:32+0800,""
+lineage_dependency,completed,4.22302198410034,2026-10-02T18:21:39+0800,""
+adjusted_dependency,completed,3.36504983901978,2026-10-02T18:21:46+0800,""
+reverse_dependency,completed,14.6304519176483,2026-10-02T18:22:04+0800,""
+cn_covariation,completed,9.89423394203186,2026-10-02T18:22:17+0800,""
+mutation_dependency,completed,3.87722015380859,2026-10-02T18:22:24+0800,""
+tcga_cn_landscape,skipped,0.0113379955291748,2026-10-02T18:22:27+0800,TCGA module skipped because current GDC data are not ready.
+tcga_cna_prevalence,completed,1.12425208091736,2026-10-02T18:22:32+0800,""
+tcga_cn_expression,skipped,0.0173451900482178,2026-10-02T18:22:35+0800,TCGA module skipped because current GDC data are not ready.
+qc,completed,7.05809497833252,2026-10-02T18:22:45+0800,""
+depmap_cn_expression,completed,14.7221210002899,2026-10-02T18:23:00+0800,""
+genomewide_dependency,completed,243.406043052673,2026-10-02T18:27:03+0800,""
+targeted_dependency,completed,9.03477597236633,2026-10-02T18:27:13+0800,""
+lineage_dependency,completed,5.3945460319519,2026-10-02T18:27:18+0800,""
+adjusted_dependency,completed,4.68507814407349,2026-10-02T18:27:23+0800,""
+reverse_dependency,completed,14.9903500080109,2026-10-02T18:27:39+0800,""
+mutation_dependency,completed,3.97595500946045,2026-10-02T18:27:43+0800,""
+cn_covariation,completed,10.9373328685761,2026-10-02T18:27:54+0800,""
+tcga_cn_landscape,skipped,0.00185298919677734,2026-10-02T18:27:55+0800,TCGA module skipped because current GDC data are not ready.
+tcga_cna_prevalence,completed,0.985835790634155,2026-10-02T18:27:56+0800,""
+tcga_cn_expression,skipped,0.03267502784729,2026-10-02T18:27:56+0800,TCGA module skipped because current GDC data are not ready.
+qc,completed,6.66484689712524,2026-10-02T18:32:43+0800,""
+depmap_cn_expression,completed,11.2996280193329,2026-10-02T18:32:57+0800,""
+targeted_dependency,completed,9.37567496299744,2026-10-02T18:33:10+0800,""
+mutation_dependency,completed,3.03931999206543,2026-10-02T18:33:16+0800,""
+adjusted_dependency,completed,2.90198612213135,2026-10-02T18:35:58+0800,""
+targeted_dependency,completed,9.20477604866028,2026-10-02T18:55:02+0800,""
+tcga_cna_prevalence,completed,1.33450102806091,2026-10-02T19:00:39+0800,""

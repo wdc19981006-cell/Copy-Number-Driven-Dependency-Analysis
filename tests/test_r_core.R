@@ -1,0 +1,16 @@
+Sys.setlocale("LC_CTYPE","English_United States.utf8")
+source(".Rprofile")
+library(data.table);library(dplyr)
+supplied<-new.env(parent=globalenv())
+for(expr in parse("docs/USER_SUPPLIED_ANALYSIS.R")){
+ if(is.call(expr)&&identical(expr[[1]],as.name("<-"))&&is.call(expr[[3]])&&identical(expr[[3]][[1]],as.name("function")))eval(expr,supplied)
+}
+adapted<-new.env(parent=globalenv())
+for(file in c("data_access.R","plotting.R","dependency_screen.R","lineage_analysis.R"))source(file.path("scripts/R",file),local=adapted)
+core<-c("prepare_cn","clean_gene","find_gene_col","read_gene","load_target_pair","run_cn_expression","run_targeted","run_genomewide","run_lineage","run_adjusted")
+for(name in core)stopifnot(identical(body(get(name,adapted)),body(get(name,supplied))))
+dat<-adapted$prepare_cn(data.frame(CN_relative=c(0,.4,1)))
+stopifnot(identical(dat$CN_status,c("Deep CN Loss","Shallow CN Loss","CN Non-Low")))
+stopifnot(all(dat$CN_log==log2(dat$CN_relative+1)))
+stopifnot(adapted$identify_id_column(c("V1","ENO1"))=="V1")
+cat("PASS: 10 statistical core function bodies unchanged; CN thresholds and blank ID adaptation checked.\n")
