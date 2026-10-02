@@ -18,18 +18,25 @@ options(stringsAsFactors=FALSE,scipen=999)
 data.table::setDTthreads(4)
 option_list <- list(make_option("--mode",default="targeted_dependency"),make_option("--geneA",default="ENO1"),
  make_option("--geneB",default="ENO2"),make_option("--project",default="."),
- make_option("--bootstrap",type="integer",default=1000),make_option("--min_group_n",type="integer",default=3))
+ make_option("--bootstrap",type="integer",default=1000),make_option("--min_group_n",type="integer",default=3),make_option("--output_case",default=NULL))
 opt <- parse_args(OptionParser(option_list=option_list))
 MODE <- opt$mode;GENE_A <- toupper(opt$geneA);GENE_B <- toupper(opt$geneB)
+GENE_B_PROVIDED <- any(root_arg=="--geneB"|startsWith(root_arg,"--geneB="))
+if(MODE=="genomewide_adjusted_dependency"&&!GENE_B_PROVIDED)GENE_B<-"ALL"
 BOOT_R <- opt$bootstrap;MIN_N <- opt$min_group_n
 stopifnot(BOOT_R>0,MIN_N>=3,grepl("^[A-Z0-9_.-]+$",GENE_A),grepl("^[A-Z0-9_.-]+$",GENE_B))
 DEPMAP_DIR <- file.path(PROJECT_ROOT,"data/raw/depmap/26Q1")
 RESULT_ROOT <- file.path(PROJECT_ROOT,"results",paste0(GENE_A,"_",GENE_B))
+if(MODE=="genomewide_adjusted_dependency"&&!GENE_B_PROVIDED)RESULT_ROOT<-file.path(PROJECT_ROOT,"results",paste0(GENE_A,"_GenomeWide"))
+if(!is.null(opt$output_case)){
+ if(!grepl("^[A-Za-z0-9_.-]+$",opt$output_case)||opt$output_case %in% c(".",".."))stop("Invalid output case folder")
+ RESULT_ROOT<-file.path(PROJECT_ROOT,"results",opt$output_case)
+}
 canonical <- c(model="Model.csv",condition="ModelCondition.csv",profiles="OmicsProfiles.csv",cn="CopyNumber_WGS_26Q1.csv",
  expression="Expression_26Q1.csv",chronos="CRISPR_Chronos_26Q1.csv",dependency="CRISPR_GeneDependency_26Q1.csv",
  damaging="Mutation_Damaging_26Q1.csv",hotspot="Mutation_Hotspot_26Q1.csv",signatures="OmicsSignatures_26Q1.csv",subtype="MolecularSubtypes_26Q1.csv")
 FILES <- as.list(setNames(file.path(DEPMAP_DIR,canonical),names(canonical)))
-for(script in c("data_access.R","plotting.R","dependency_screen.R","lineage_analysis.R","adapters.R","additional_modes.R","tcga_analysis.R"))
+for(script in c("data_access.R","plotting.R","dependency_screen.R","lineage_analysis.R","adapters.R","additional_modes.R","tcga_analysis.R","extensions_statistics.R","extension_modules.R","extension_summary.R"))
  source(file.path(PROJECT_ROOT,"scripts/R",script),encoding="UTF-8")
 dir.create(RESULT_ROOT,recursive=TRUE,showWarnings=FALSE)
 for(folder in unname(OUTPUT_DIRS))dir.create(file.path(RESULT_ROOT,folder),recursive=TRUE,showWarnings=FALSE)
@@ -45,8 +52,10 @@ jsonlite::write_json(run_metadata,file.path(RESULT_ROOT,"Summary/Analysis_Metada
 fun <- list(qc=run_qc,depmap_cn_expression=run_cn_expression,genomewide_dependency=run_genomewide,
  targeted_dependency=run_targeted,lineage_dependency=run_lineage,adjusted_dependency=run_adjusted,
  reverse_dependency=run_reverse_safe,mutation_dependency=run_mutation,cn_covariation=run_cn_covariation,
- tcga_cn_landscape=run_tcga_landscape,tcga_cna_prevalence=run_tcga_prevalence,tcga_cn_expression=run_tcga_expression)
-modes <- if(MODE=="full")names(fun) else MODE
+ tcga_cn_landscape=run_tcga_landscape,tcga_cna_prevalence=run_tcga_prevalence,tcga_cn_expression=run_tcga_expression,
+ cn_threshold_sensitivity=run_threshold_sensitivity,expression_dependency=run_expression_dependency,
+ genomewide_expression_dependency=run_genomewide_expression,genomewide_adjusted_dependency=run_genomewide_adjusted)
+modes <- if(MODE=="full")setdiff(names(fun),c("genomewide_expression_dependency","genomewide_adjusted_dependency")) else MODE
 if(any(!modes %in% names(fun)))stop("Unsupported mode: ",MODE)
 msg(R.version.string," | ",GENE_A," -> ",GENE_B," | ",MODE)
 for(mode in modes){
@@ -62,5 +71,6 @@ for(mode in modes){
  if(state=="failed")stop(mode,": ",detail)
 }
 write_case_summary()
-writeLines(capture.output(sessionInfo()),file.path(RESULT_ROOT,"Summary/SessionInfo.txt"))
+extend_case_summary()
+writeLines(trimws(capture.output(sessionInfo()),which="right"),file.path(RESULT_ROOT,"Summary/SessionInfo.txt"))
 msg("Analysis completed.")

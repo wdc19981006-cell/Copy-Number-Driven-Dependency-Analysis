@@ -35,6 +35,10 @@ Rscript modules/VPS4B_VPS4A/run_case.R
 | tcga_cn_landscape | GDC current gene-level CN 按癌种分布 |
 | tcga_cna_prevalence | PanCanAtlas reference GISTIC 五级 CNA prevalence |
 | tcga_cn_expression | GDC current 同一样本 CN 与 log2(TPM+1) |
+| cn_threshold_sensitivity | CN_log 0.585/0.50/0.40/0.35 的分组敏感性；连续相关只算一次 |
+| expression_dependency | 独立表达连续相关与 bottom 10%/20% Wilcoxon |
+| genomewide_expression_dependency | 全 Chronos 的表达定义筛选；仅显式运行 |
+| genomewide_adjusted_dependency | 全 Chronos 的 CN_log/CN-Low + lineage 回归；仅显式运行 |
 | full | 顺序执行模块，明确记录缺失数据或不足样本导致的跳过 |
 
 ## 数据与方法
@@ -43,7 +47,11 @@ DepMap **26Q1** 有 13 类本地导出。Chronos 为 1,208 × 18,531 基因，CN
 
 保留 `CN_relative`，计算 `CN_log=log2(CN_relative+1)`。CN-Low `<0.585`；Deep `<0.35`；Shallow `[0.35,0.585)`。这些是 **analysis-defined thresholds**，不是 DepMap 官方 GISTIC 分类。
 
-按用户提供的统计核心，连续 dependency 相关与连续调整回归使用 **CN_log**；CN-expression 和 covariation 使用 **CN_relative**。Delta median = low − non-low，负值表示 CN-Low 更依赖目标。筛选分别对 Pearson/Wilcoxon 作 BH 校正，原始 Rank 按原代码保留；新增 **Eligible_Rank** 只在 Wilcoxon_FDR 非 NA 的基因中按既有排序编号。VPS4A 原始 Rank=276，Eligible_Rank=1，P/FDR/Delta 均未改变。方法和限制见 [ANALYSIS_METHODS](docs/ANALYSIS_METHODS.md)。
+按用户提供的统计核心，连续 dependency 相关与连续调整回归使用 **CN_log**；CN-expression 和 covariation 使用 **CN_relative**。Delta median = low − non-low，负值表示 CN-Low 更依赖目标。筛选分别对 Pearson/Wilcoxon 作 BH 校正。用户默认查看 **Eligible_Rank / Eligible_N**：只在 Wilcoxon_FDR 非 NA 的基因中按 FDR、Delta_median 升序排序。VPS4A Eligible_Rank=1/18,256；历史 Rank=276 保留用于 provenance，P/FDR/Delta 均未改变。方法和限制见 [ANALYSIS_METHODS](docs/ANALYSIS_METHODS.md)。
+
+`full` 默认加入 CN threshold sensitivity 和 expression dependency；两个新增 genome-wide 模块仅在显式指定 mode 时运行。它们读取现有 processed DepMap Parquet，独立于原始 CSV 统计核心。TCGA CN-expression 保留 overall Pearson/Spearman，另输出 N>=20 的每癌种相关、Fisher-z CI，以及原尺度/标准化 cancer-adjusted 回归。**Pan-cancer overall correlation may be influenced by between-cancer differences.** Summary 同时报告 cancer-adjusted CN beta。
+
+新增模块的 synthetic tests 与原始 core 函数测试由 [GitHub Actions CI](.github/workflows/ci.yml) 在 R 4.5.0 下执行；CI 仅恢复 renv 锁定的测试依赖，不下载 TCGA/DepMap 数据。[官方 R Actions](https://github.com/r-lib/actions) 提供 R 环境设置。
 
 ```text
 data/raw/depmap/26Q1/                    原始导出，内容不变

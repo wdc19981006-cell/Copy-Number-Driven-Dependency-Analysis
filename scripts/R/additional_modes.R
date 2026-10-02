@@ -81,8 +81,8 @@ write_case_summary <- function(){
  candidates<-read_if(file.path(out_dir("genomewide_dependency"),paste0(GENE_B,"_Candidate_Rank.csv")))
  if(!is.null(candidates)&&nrow(candidates)){
   for(n in names(candidates))add("Genomewide",n,candidates[[n]][1])
-  lines<-c(lines,"",paste(GENE_B,"rank =",candidates$Rank,"; delta median =",signif(candidates$Delta_median,5),"; Wilcoxon P =",signif(candidates$Wilcoxon_P,5),"; FDR =",signif(candidates$Wilcoxon_FDR,5)))
-  if("Eligible_Rank" %in% names(candidates))lines<-c(lines,paste("Eligible_Rank =",candidates$Eligible_Rank,"(non-NA Wilcoxon_FDR genes in the original sorted order; original Rank/P/FDR/effects unchanged)."))
+  lines<-c(lines,"",paste(GENE_B,"Eligible_Rank =",candidates$Eligible_Rank,"of",candidates$Eligible_N,"; delta median =",signif(candidates$Delta_median,5),"; Wilcoxon P =",signif(candidates$Wilcoxon_P,5),"; FDR =",signif(candidates$Wilcoxon_FDR,5)))
+  lines<-c(lines,paste("Historical Rank =",candidates$Rank,"retained for provenance; original Rank/P/FDR/effects unchanged."))
   complete<-read_if(file.path(out_dir("genomewide_dependency"),"GenomeWide_Dependency.csv"))
   if(!is.null(complete)){
    untested<-sum(is.na(complete$Wilcoxon_FDR));preceding<-sum(is.na(complete$Wilcoxon_FDR)&complete$Rank<candidates$Rank[1])

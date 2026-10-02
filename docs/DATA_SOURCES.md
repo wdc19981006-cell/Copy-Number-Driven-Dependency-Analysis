@@ -1,6 +1,6 @@
 # Current data sources
 
-As of 2026-10-02T20:24:55+08:00, all **13 user-supplied DepMap 26Q1 exports are active** and organized under `data/raw/depmap/26Q1/`. Before/after SHA256 checks verified unchanged content. No duplicate exports were present. Original names, dimensions, imported timestamps, raw paths and SHA256 are in [DepMap manifest](../data/manifests/depmap_26Q1_manifest.csv). Original download dates and publisher MD5 for these exports were not supplied; local SHA256 is a content fingerprint, not publisher verification.
+As of 2026-10-02T21:49:41+08:00, all **13 user-supplied DepMap 26Q1 exports are active** and organized under `data/raw/depmap/26Q1/`. Before/after SHA256 checks verified unchanged content. No duplicate exports were present. Original names, dimensions, imported timestamps, raw paths and SHA256 are in [DepMap manifest](../data/manifests/depmap_26Q1_manifest.csv). Original download dates and publisher MD5 for these exports were not supplied; local SHA256 is a content fingerprint, not publisher verification.
 
 | Active canonical file | Rows × columns including IDs | Unique models | Gene columns |
 |---|---:|---:|---:|

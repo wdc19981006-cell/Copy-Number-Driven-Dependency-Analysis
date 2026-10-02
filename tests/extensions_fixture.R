@@ -1,0 +1,6 @@
+if(.Platform$OS.type=="windows")invisible(Sys.setlocale("LC_CTYPE","English_United States.utf8"))
+source(".Rprofile")
+stopifnot(as.character(getRversion())=="4.5.0")
+source("scripts/R/extensions_statistics.R")
+assert_close<-function(x,y,tolerance=1e-12)stopifnot(isTRUE(all.equal(as.numeric(x),as.numeric(y),tolerance=tolerance)))
+assert_p<-function(x,y)stopifnot(is.finite(x),is.finite(y),x>0,y>0,abs(log(x)-log(y))<1e-10)

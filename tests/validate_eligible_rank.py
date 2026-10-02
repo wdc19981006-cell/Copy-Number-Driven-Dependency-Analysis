@@ -13,13 +13,14 @@ def main():
   path=folder+name
   before=parse(subprocess.check_output(['git','show',a.base+':'+path],cwd=ROOT).decode('utf-8'))
   after=parse((ROOT/path).read_text(encoding='utf-8'))
-  clean=[{k:v for k,v in r.items() if k!='Eligible_Rank'} for r in after]
+  clean=[{k:v for k,v in r.items() if k not in {'Eligible_Rank','Eligible_N'}} for r in after]
   assert before==clean,'Existing CSV fields changed: '+name
   checks.append({'file':path,'rows':len(after),'all_original_field_tokens_unchanged':True})
   if name=='GenomeWide_Dependency.csv':
    eligible=[r for r in after if r['Wilcoxon_FDR'].lower() not in {'','na','nan'}]
    assert [int(r['Eligible_Rank']) for r in eligible]==list(range(1,len(eligible)+1))
    assert all(r['Eligible_Rank']=='' for r in after if r['Wilcoxon_FDR'].lower() in {'','na','nan'})
+   assert all(int(r['Eligible_N'])==len(eligible) for r in after)
    candidate=next(r for r in after if r['Gene']=='VPS4A')
    assert candidate['Rank']=='276' and candidate['Eligible_Rank']=='1'
  write_json(ROOT/'data/manifests/eligible_rank_validation.json',{'checked_at':now(),'base_commit':a.base,'all_passed':True,'checks':checks,'candidate':{'Gene':'VPS4A','Rank':276,'Eligible_Rank':1}})

@@ -21,5 +21,5 @@
     ]
   },
   "statistical_core": "Ten core function bodies retained and tested against the source. The data loader recognizes a blank ID column. Runtime adapters route output folders, restore reverse-analysis state, give plot annotations an opaque background, and serialize tiny P/FDR values scientifically. Formulae, tests, thresholds, BH families and original ranking are unchanged. Added modes are separate.",
-  "eligible_rank_adapter": "Adds Eligible_Rank only among non-NA Wilcoxon_FDR rows in the existing sorted order. All original CSV field tokens, including original Rank, P, FDR and delta effects, are preserved and checked against initial commit 0e09076c276e9f988966676dfead3d2865f8302f by tests/validate_eligible_rank.py. VPS4A original Rank 276; Eligible_Rank 1."
+  "eligible_rank_adapter": "Eligible_Rank is the default user-facing rank among non-NA Wilcoxon_FDR rows, ordered by FDR ascending then Delta_median ascending; original Rank breaks exact ties and remains unchanged for provenance. Eligible_N records the eligible family size. All original CSV field tokens, including original Rank, P, FDR and delta effects, are preserved and checked against initial commit 0e09076c276e9f988966676dfead3d2865f8302f by tests/validate_eligible_rank.py. VPS4A Eligible_Rank 1 / Eligible_N 18256; historical Rank 276."
 }

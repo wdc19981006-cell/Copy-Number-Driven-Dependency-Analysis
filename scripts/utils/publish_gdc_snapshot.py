@@ -83,6 +83,12 @@ Parquet is samples/aliquots × original gene IDs, ZSTD. STAR has five matrices: 
    path=ROOT/'docs/TCGA_CURRENT_REPORT.md'
    with path.open('a',encoding='utf-8') as f:
     f.write(f"\nVPS4B/VPS4A current modules completed under R 4.5.0; independently checked at {case['checked_at']}. CN landscape: {case['current_CN_samples']:,} unique selected samples, {case['current_CN_finite_samples']:,} finite VPS4B CN values. CN-expression: {case['matched_N']:,} unique sample UUID pairs, Pearson r={case['Pearson_r']:.12g}, Spearman rho={case['Spearman_rho']:.12g}. Source workflow/file selection, RNA representatives and current/reference separation passed [case validation](../data/manifests/tcga_case_validation.json). PanCanAtlas GISTIC prevalence remains a separate reference module.\n")
+    f.write("\nPan-cancer overall correlation may be influenced by between-cancer differences. Report overall correlation alongside cancer-adjusted CN beta; these expression associations do not establish dependency or causality.\n")
+   adjusted=ROOT/'results/VPS4B_VPS4A/08_TCGA/TCGA_CN_Expression_Adjusted.csv'
+   extension_validation=target/'extension_results_validation.json'
+   if adjusted.exists() and extension_validation.exists() and json.loads(extension_validation.read_text(encoding='utf-8')).get('all_passed'):
+    with adjusted.open(encoding='utf-8',newline='') as f:cn=next(r for r in csv.DictReader(f) if r['term']=='CN')
+    with path.open('a',encoding='utf-8') as f:f.write(f"\nCancer-adjusted current DR46 Expression ~ CN + CancerType: CN beta **{cn['estimate']}**, P **{cn['p.value']}**, N **{cn['N']}**. Per-cancer correlations, Fisher-z CI and separate BH families are in the case's TCGA_CN_Expression_ByCancer.csv; independent extension checks are in [extension validation](../data/manifests/extension_results_validation.json).\n")
  write('docs/TCGA_DATA_SOURCES.md',f'''
 # TCGA source layers
 

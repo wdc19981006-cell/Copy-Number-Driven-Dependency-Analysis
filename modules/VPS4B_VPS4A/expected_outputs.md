@@ -12,6 +12,10 @@ Results are under results/VPS4B_VPS4A/. Each core module has its named subdirect
 - 07_CN_Covariation/: VPS4B_CN_Covariation.csv and Top_CN_Covariation.pdf.
 - 08_TCGA/: current CN landscape/expression if prepared; separately labeled reference GISTIC prevalence.
 - 09_Mutation_Dependency/: eligible damaging/hotspot comparisons, or explicit skip reasons.
+- 10_CN_Threshold_Sensitivity/: threshold table/PDF and once-only continuous statistics.
+- 11_Expression_Dependency/: continuous and quantile statistics, matched models and three-panel PDF.
+- 12_GenomeWide_Adjusted_Dependency/: full adjusted screen, optional candidate and volcano; explicit mode only.
+- 13_GenomeWide_Expression_Dependency/: separate full expression screen; explicit mode only.
 - Summary/: VPS4B_VPS4A_Summary.md, Key_Statistics.csv, Analysis_Metadata.json, Module_Runs.csv, Resource_Monitor.json and SessionInfo.txt.
 
 Missing data or inadequate group sizes produce documented skips; they never produce fabricated values. Resource_Monitor records observed native process exits and approximate RSS, sampled every 0.5 s. No file above 50 MB is uploaded.

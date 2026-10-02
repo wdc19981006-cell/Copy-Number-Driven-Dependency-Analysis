@@ -1,0 +1,322 @@
+module,statistic,value
+CN threshold 0.585,Threshold,0.585
+CN threshold 0.585,N_low,13
+CN threshold 0.585,N_nonlow,845
+CN threshold 0.585,Mean_low,-0.00273439428461538
+CN threshold 0.585,Mean_nonlow,-0.030750961767574
+CN threshold 0.585,Median_low,-0.0064016309
+CN threshold 0.585,Median_nonlow,-0.0303258517
+CN threshold 0.585,Delta_mean,0.0280165674829586
+CN threshold 0.585,Delta_median,0.0239242208
+CN threshold 0.585,Wilcoxon_P,0.255182944323942
+CN threshold 0.585,eligible,TRUE
+CN threshold 0.585,Wilcoxon_FDR,0.255182944323942
+CN threshold 0.585,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.5,Threshold,0.5
+CN threshold 0.5,N_low,2
+CN threshold 0.5,N_nonlow,856
+CN threshold 0.5,Mean_low,-0.0085544314
+CN threshold 0.5,Mean_nonlow,-0.0303773375660047
+CN threshold 0.5,Median_low,-0.0085544314
+CN threshold 0.5,Median_nonlow,-0.03019302325
+CN threshold 0.5,Delta_mean,0.0218229061660047
+CN threshold 0.5,Delta_median,0.02163859185
+CN threshold 0.5,Wilcoxon_P,""
+CN threshold 0.5,eligible,FALSE
+CN threshold 0.5,Wilcoxon_FDR,""
+CN threshold 0.5,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.4,Threshold,0.4
+CN threshold 0.4,N_low,0
+CN threshold 0.4,N_nonlow,858
+CN threshold 0.4,Mean_low,""
+CN threshold 0.4,Mean_nonlow,-0.0303264683208625
+CN threshold 0.4,Median_low,""
+CN threshold 0.4,Median_nonlow,-0.03019302325
+CN threshold 0.4,Delta_mean,""
+CN threshold 0.4,Delta_median,""
+CN threshold 0.4,Wilcoxon_P,""
+CN threshold 0.4,eligible,FALSE
+CN threshold 0.4,Wilcoxon_FDR,""
+CN threshold 0.4,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.35,Threshold,0.35
+CN threshold 0.35,N_low,0
+CN threshold 0.35,N_nonlow,858
+CN threshold 0.35,Mean_low,""
+CN threshold 0.35,Mean_nonlow,-0.0303264683208625
+CN threshold 0.35,Median_low,""
+CN threshold 0.35,Median_nonlow,-0.03019302325
+CN threshold 0.35,Delta_mean,""
+CN threshold 0.35,Delta_median,""
+CN threshold 0.35,Wilcoxon_P,""
+CN threshold 0.35,eligible,FALSE
+CN threshold 0.35,Wilcoxon_FDR,""
+CN threshold 0.35,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN sensitivity continuous (once),N,858
+CN sensitivity continuous (once),Pearson_r,0.00403437521082021
+CN sensitivity continuous (once),Pearson_P,0.906066346634692
+CN sensitivity continuous (once),Spearman_rho,-0.0194236494199953
+CN sensitivity continuous (once),Spearman_P,0.569916387571579
+CN threshold 0.585,Threshold,0.585
+CN threshold 0.585,N_low,13
+CN threshold 0.585,N_nonlow,845
+CN threshold 0.585,Mean_low,-0.00273439428461538
+CN threshold 0.585,Mean_nonlow,-0.030750961767574
+CN threshold 0.585,Median_low,-0.0064016309
+CN threshold 0.585,Median_nonlow,-0.0303258517
+CN threshold 0.585,Delta_mean,0.0280165674829586
+CN threshold 0.585,Delta_median,0.0239242208
+CN threshold 0.585,Wilcoxon_P,0.255182944323942
+CN threshold 0.585,eligible,TRUE
+CN threshold 0.585,Wilcoxon_FDR,0.255182944323942
+CN threshold 0.585,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.5,Threshold,0.5
+CN threshold 0.5,N_low,2
+CN threshold 0.5,N_nonlow,856
+CN threshold 0.5,Mean_low,-0.0085544314
+CN threshold 0.5,Mean_nonlow,-0.0303773375660047
+CN threshold 0.5,Median_low,-0.0085544314
+CN threshold 0.5,Median_nonlow,-0.03019302325
+CN threshold 0.5,Delta_mean,0.0218229061660047
+CN threshold 0.5,Delta_median,0.02163859185
+CN threshold 0.5,Wilcoxon_P,""
+CN threshold 0.5,eligible,FALSE
+CN threshold 0.5,Wilcoxon_FDR,""
+CN threshold 0.5,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.4,Threshold,0.4
+CN threshold 0.4,N_low,0
+CN threshold 0.4,N_nonlow,858
+CN threshold 0.4,Mean_low,""
+CN threshold 0.4,Mean_nonlow,-0.0303264683208625
+CN threshold 0.4,Median_low,""
+CN threshold 0.4,Median_nonlow,-0.03019302325
+CN threshold 0.4,Delta_mean,""
+CN threshold 0.4,Delta_median,""
+CN threshold 0.4,Wilcoxon_P,""
+CN threshold 0.4,eligible,FALSE
+CN threshold 0.4,Wilcoxon_FDR,""
+CN threshold 0.4,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.35,Threshold,0.35
+CN threshold 0.35,N_low,0
+CN threshold 0.35,N_nonlow,858
+CN threshold 0.35,Mean_low,""
+CN threshold 0.35,Mean_nonlow,-0.0303264683208625
+CN threshold 0.35,Median_low,""
+CN threshold 0.35,Median_nonlow,-0.03019302325
+CN threshold 0.35,Delta_mean,""
+CN threshold 0.35,Delta_median,""
+CN threshold 0.35,Wilcoxon_P,""
+CN threshold 0.35,eligible,FALSE
+CN threshold 0.35,Wilcoxon_FDR,""
+CN threshold 0.35,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN sensitivity continuous (once),N,858
+CN sensitivity continuous (once),Pearson_r,0.00403437521082021
+CN sensitivity continuous (once),Pearson_P,0.906066346634692
+CN sensitivity continuous (once),Spearman_rho,-0.0194236494199953
+CN sensitivity continuous (once),Spearman_P,0.569916387571579
+Expression continuous,N,1140
+Expression continuous,Pearson_r,-0.0285116980120274
+Expression continuous,Pearson_P,0.336147484343601
+Expression continuous,Spearman_rho,-0.0288874249465348
+Expression continuous,Spearman_P,0.329815742972311
+Expression quantile 0.1,threshold_quantile,0.1
+Expression quantile 0.1,expression_cutoff,9.31387052538
+Expression quantile 0.1,N_low,114
+Expression quantile 0.1,N_nonlow,1026
+Expression quantile 0.1,Mean_low,-0.0243109156631579
+Expression quantile 0.1,Mean_nonlow,-0.032722339351462
+Expression quantile 0.1,Median_low,-0.01974952325
+Expression quantile 0.1,Median_nonlow,-0.0318700292
+Expression quantile 0.1,Delta_mean,0.00841142368830409
+Expression quantile 0.1,Delta_median,0.01212050595
+Expression quantile 0.1,Wilcoxon_P,0.343427575025889
+Expression quantile 0.1,eligible,TRUE
+Expression quantile 0.1,Wilcoxon_FDR,0.686855150051779
+Expression quantile 0.2,threshold_quantile,0.2
+Expression quantile 0.2,expression_cutoff,9.71266021726
+Expression quantile 0.2,N_low,228
+Expression quantile 0.2,N_nonlow,912
+Expression quantile 0.2,Mean_low,-0.0298034846929825
+Expression quantile 0.2,Mean_nonlow,-0.0324006250550439
+Expression quantile 0.2,Median_low,-0.03046741795
+Expression quantile 0.2,Median_nonlow,-0.030816372
+Expression quantile 0.2,Delta_mean,0.00259714036206141
+Expression quantile 0.2,Delta_median,0.00034895405
+Expression quantile 0.2,Wilcoxon_P,0.952565685100337
+Expression quantile 0.2,eligible,TRUE
+Expression quantile 0.2,Wilcoxon_FDR,0.952565685100337
+CN threshold 0.585,Threshold,0.585
+CN threshold 0.585,N_low,13
+CN threshold 0.585,N_nonlow,845
+CN threshold 0.585,Mean_low,-0.00273439428461538
+CN threshold 0.585,Mean_nonlow,-0.030750961767574
+CN threshold 0.585,Median_low,-0.0064016309
+CN threshold 0.585,Median_nonlow,-0.0303258517
+CN threshold 0.585,Delta_mean,0.0280165674829586
+CN threshold 0.585,Delta_median,0.0239242208
+CN threshold 0.585,Wilcoxon_P,0.255182944323942
+CN threshold 0.585,eligible,TRUE
+CN threshold 0.585,Wilcoxon_FDR,0.255182944323942
+CN threshold 0.585,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.5,Threshold,0.5
+CN threshold 0.5,N_low,2
+CN threshold 0.5,N_nonlow,856
+CN threshold 0.5,Mean_low,-0.0085544314
+CN threshold 0.5,Mean_nonlow,-0.0303773375660047
+CN threshold 0.5,Median_low,-0.0085544314
+CN threshold 0.5,Median_nonlow,-0.03019302325
+CN threshold 0.5,Delta_mean,0.0218229061660047
+CN threshold 0.5,Delta_median,0.02163859185
+CN threshold 0.5,Wilcoxon_P,""
+CN threshold 0.5,eligible,FALSE
+CN threshold 0.5,Wilcoxon_FDR,""
+CN threshold 0.5,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.4,Threshold,0.4
+CN threshold 0.4,N_low,0
+CN threshold 0.4,N_nonlow,858
+CN threshold 0.4,Mean_low,""
+CN threshold 0.4,Mean_nonlow,-0.0303264683208625
+CN threshold 0.4,Median_low,""
+CN threshold 0.4,Median_nonlow,-0.03019302325
+CN threshold 0.4,Delta_mean,""
+CN threshold 0.4,Delta_median,""
+CN threshold 0.4,Wilcoxon_P,""
+CN threshold 0.4,eligible,FALSE
+CN threshold 0.4,Wilcoxon_FDR,""
+CN threshold 0.4,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.35,Threshold,0.35
+CN threshold 0.35,N_low,0
+CN threshold 0.35,N_nonlow,858
+CN threshold 0.35,Mean_low,""
+CN threshold 0.35,Mean_nonlow,-0.0303264683208625
+CN threshold 0.35,Median_low,""
+CN threshold 0.35,Median_nonlow,-0.03019302325
+CN threshold 0.35,Delta_mean,""
+CN threshold 0.35,Delta_median,""
+CN threshold 0.35,Wilcoxon_P,""
+CN threshold 0.35,eligible,FALSE
+CN threshold 0.35,Wilcoxon_FDR,""
+CN threshold 0.35,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN sensitivity continuous (once),N,858
+CN sensitivity continuous (once),Pearson_r,0.00403437521082021
+CN sensitivity continuous (once),Pearson_P,0.906066346634692
+CN sensitivity continuous (once),Spearman_rho,-0.0194236494199953
+CN sensitivity continuous (once),Spearman_P,0.569916387571579
+Expression continuous,N,1140
+Expression continuous,Pearson_r,-0.0285116980120274
+Expression continuous,Pearson_P,0.336147484343601
+Expression continuous,Spearman_rho,-0.0288874249465348
+Expression continuous,Spearman_P,0.329815742972311
+Expression quantile 0.1,threshold_quantile,0.1
+Expression quantile 0.1,expression_cutoff,9.31387052538
+Expression quantile 0.1,N_low,114
+Expression quantile 0.1,N_nonlow,1026
+Expression quantile 0.1,Mean_low,-0.0243109156631579
+Expression quantile 0.1,Mean_nonlow,-0.032722339351462
+Expression quantile 0.1,Median_low,-0.01974952325
+Expression quantile 0.1,Median_nonlow,-0.0318700292
+Expression quantile 0.1,Delta_mean,0.00841142368830409
+Expression quantile 0.1,Delta_median,0.01212050595
+Expression quantile 0.1,Wilcoxon_P,0.343427575025889
+Expression quantile 0.1,eligible,TRUE
+Expression quantile 0.1,Wilcoxon_FDR,0.686855150051779
+Expression quantile 0.2,threshold_quantile,0.2
+Expression quantile 0.2,expression_cutoff,9.71266021726
+Expression quantile 0.2,N_low,228
+Expression quantile 0.2,N_nonlow,912
+Expression quantile 0.2,Mean_low,-0.0298034846929825
+Expression quantile 0.2,Mean_nonlow,-0.0324006250550439
+Expression quantile 0.2,Median_low,-0.03046741795
+Expression quantile 0.2,Median_nonlow,-0.030816372
+Expression quantile 0.2,Delta_mean,0.00259714036206141
+Expression quantile 0.2,Delta_median,0.00034895405
+Expression quantile 0.2,Wilcoxon_P,0.952565685100337
+Expression quantile 0.2,eligible,TRUE
+Expression quantile 0.2,Wilcoxon_FDR,0.952565685100337
+CN threshold 0.585,Threshold,0.585
+CN threshold 0.585,N_low,13
+CN threshold 0.585,N_nonlow,845
+CN threshold 0.585,Mean_low,-0.00273439428461538
+CN threshold 0.585,Mean_nonlow,-0.030750961767574
+CN threshold 0.585,Median_low,-0.0064016309
+CN threshold 0.585,Median_nonlow,-0.0303258517
+CN threshold 0.585,Delta_mean,0.0280165674829586
+CN threshold 0.585,Delta_median,0.0239242208
+CN threshold 0.585,Wilcoxon_P,0.255182944323942
+CN threshold 0.585,eligible,TRUE
+CN threshold 0.585,Wilcoxon_FDR,0.255182944323942
+CN threshold 0.585,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.5,Threshold,0.5
+CN threshold 0.5,N_low,2
+CN threshold 0.5,N_nonlow,856
+CN threshold 0.5,Mean_low,-0.0085544314
+CN threshold 0.5,Mean_nonlow,-0.0303773375660047
+CN threshold 0.5,Median_low,-0.0085544314
+CN threshold 0.5,Median_nonlow,-0.03019302325
+CN threshold 0.5,Delta_mean,0.0218229061660047
+CN threshold 0.5,Delta_median,0.02163859185
+CN threshold 0.5,Wilcoxon_P,
+CN threshold 0.5,eligible,FALSE
+CN threshold 0.5,Wilcoxon_FDR,
+CN threshold 0.5,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.4,Threshold,0.4
+CN threshold 0.4,N_low,0
+CN threshold 0.4,N_nonlow,858
+CN threshold 0.4,Mean_low,
+CN threshold 0.4,Mean_nonlow,-0.0303264683208625
+CN threshold 0.4,Median_low,
+CN threshold 0.4,Median_nonlow,-0.03019302325
+CN threshold 0.4,Delta_mean,
+CN threshold 0.4,Delta_median,
+CN threshold 0.4,Wilcoxon_P,
+CN threshold 0.4,eligible,FALSE
+CN threshold 0.4,Wilcoxon_FDR,
+CN threshold 0.4,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.35,Threshold,0.35
+CN threshold 0.35,N_low,0
+CN threshold 0.35,N_nonlow,858
+CN threshold 0.35,Mean_low,
+CN threshold 0.35,Mean_nonlow,-0.0303264683208625
+CN threshold 0.35,Median_low,
+CN threshold 0.35,Median_nonlow,-0.03019302325
+CN threshold 0.35,Delta_mean,
+CN threshold 0.35,Delta_median,
+CN threshold 0.35,Wilcoxon_P,
+CN threshold 0.35,eligible,FALSE
+CN threshold 0.35,Wilcoxon_FDR,
+CN threshold 0.35,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN sensitivity continuous (once),N,858
+CN sensitivity continuous (once),Pearson_r,0.00403437521082021
+CN sensitivity continuous (once),Pearson_P,0.906066346634692
+CN sensitivity continuous (once),Spearman_rho,-0.0194236494199953
+CN sensitivity continuous (once),Spearman_P,0.569916387571579
+Expression continuous,N,1140
+Expression continuous,Pearson_r,-0.0285116980120274
+Expression continuous,Pearson_P,0.336147484343601
+Expression continuous,Spearman_rho,-0.0288874249465348
+Expression continuous,Spearman_P,0.329815742972311
+Expression quantile 0.1,threshold_quantile,0.1
+Expression quantile 0.1,expression_cutoff,9.31387052538
+Expression quantile 0.1,N_low,114
+Expression quantile 0.1,N_nonlow,1026
+Expression quantile 0.1,Mean_low,-0.0243109156631579
+Expression quantile 0.1,Mean_nonlow,-0.032722339351462
+Expression quantile 0.1,Median_low,-0.01974952325
+Expression quantile 0.1,Median_nonlow,-0.0318700292
+Expression quantile 0.1,Delta_mean,0.00841142368830409
+Expression quantile 0.1,Delta_median,0.01212050595
+Expression quantile 0.1,Wilcoxon_P,0.343427575025889
+Expression quantile 0.1,eligible,TRUE
+Expression quantile 0.1,Wilcoxon_FDR,0.686855150051779
+Expression quantile 0.2,threshold_quantile,0.2
+Expression quantile 0.2,expression_cutoff,9.71266021726
+Expression quantile 0.2,N_low,228
+Expression quantile 0.2,N_nonlow,912
+Expression quantile 0.2,Mean_low,-0.0298034846929825
+Expression quantile 0.2,Mean_nonlow,-0.0324006250550439
+Expression quantile 0.2,Median_low,-0.03046741795
+Expression quantile 0.2,Median_nonlow,-0.030816372
+Expression quantile 0.2,Delta_mean,0.00259714036206141
+Expression quantile 0.2,Delta_median,0.00034895405
+Expression quantile 0.2,Wilcoxon_P,0.952565685100337
+Expression quantile 0.2,eligible,TRUE
+Expression quantile 0.2,Wilcoxon_FDR,0.952565685100337

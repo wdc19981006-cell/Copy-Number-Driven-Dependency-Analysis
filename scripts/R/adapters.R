@@ -3,6 +3,7 @@ OUTPUT_DIRS <- c(cn_expression="01_CN_Expression",genomewide_dependency="02_Geno
  targeted_dependency="03_Targeted_Dependency",lineage_dependency="04_Lineage_Dependency",adjusted_dependency="05_Adjusted_Dependency",
  reverse_dependency="06_Reverse_Dependency",cn_covariation="07_CN_Covariation",mutation_dependency="09_Mutation_Dependency",qc="00_QC",tcga="08_TCGA")
 MODULE_SKIP <- NULL
+OUTPUT_DIRS<-c(OUTPUT_DIRS,cn_threshold_sensitivity="10_CN_Threshold_Sensitivity",expression_dependency="11_Expression_Dependency",genomewide_adjusted_dependency="12_GenomeWide_Adjusted_Dependency",genomewide_expression_dependency="13_GenomeWide_Expression_Dependency")
 # Preserve numerical results while serializing small P/FDR values scientifically.
 # Long fixed decimals from global scipen=999 can be misread as zero by CSV readers.
 fwrite <- function(x,file,...)data.table::fwrite(x,file,...,scipen=0)

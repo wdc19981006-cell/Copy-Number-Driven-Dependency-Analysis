@@ -3,8 +3,15 @@ QC,Deep CN Loss,1
 QC,Shallow CN Loss,87
 QC,CN Non-Low,1030
 Genomewide,Gene,VPS4A
-Genomewide,N,858
+Genomewide,Eligible_Rank,1
+Genomewide,Eligible_N,18256
+Genomewide,Rank,276
+Genomewide,Wilcoxon_FDR,2.10560411162129e-18
+Genomewide,Wilcoxon_P,1.15337648533155e-22
+Genomewide,Delta_median,-0.5607422623
 Genomewide,Pearson_r,0.483064938982221
+Genomewide,Pearson_FDR,4.19490168543306e-47
+Genomewide,N,858
 Genomewide,Pearson_P,2.27550945778848e-51
 Genomewide,N_low,76
 Genomewide,N_nonlow,782
@@ -13,12 +20,6 @@ Genomewide,Mean_nonlow,-0.3772573208211
 Genomewide,Median_low,-0.87545290935
 Genomewide,Median_nonlow,-0.31471064705
 Genomewide,Delta_mean,-0.697266387051269
-Genomewide,Delta_median,-0.5607422623
-Genomewide,Wilcoxon_P,1.15337648533155e-22
-Genomewide,Pearson_FDR,4.19490168543306e-47
-Genomewide,Wilcoxon_FDR,2.10560411162129e-18
-Genomewide,Rank,276
-Genomewide,Eligible_Rank,1
 Genomewide,undefined_Wilcoxon_FDR_rows,275
 Genomewide,undefined_rows_preceding_candidate,275
 CN_vs_expression,pearson,0.454274479411112
@@ -43,10 +44,10 @@ Adjusted Continuous_CN_Adjusted.csv CN_log,estimate,0.875849024824706
 Adjusted Continuous_CN_Adjusted.csv CN_log,std.error,0.0570125857293889
 Adjusted Continuous_CN_Adjusted.csv CN_log,statistic,15.3623803168994
 Adjusted Continuous_CN_Adjusted.csv CN_log,p.value,4.76709824593027e-47
-"Adjusted CNLow_Adjusted.csv I(CN_binary == ""CN-Low"")TRUE",estimate,-0.683392634066975
-"Adjusted CNLow_Adjusted.csv I(CN_binary == ""CN-Low"")TRUE",std.error,0.0411583941447371
-"Adjusted CNLow_Adjusted.csv I(CN_binary == ""CN-Low"")TRUE",statistic,-16.6039673866712
-"Adjusted CNLow_Adjusted.csv I(CN_binary == ""CN-Low"")TRUE",p.value,1.16956073295454e-53
+"Adjusted CNLow_Adjusted.csv I(CN_binary == """"CN-Low"""")TRUE",estimate,-0.683392634066975
+"Adjusted CNLow_Adjusted.csv I(CN_binary == """"CN-Low"""")TRUE",std.error,0.0411583941447371
+"Adjusted CNLow_Adjusted.csv I(CN_binary == """"CN-Low"""")TRUE",statistic,-16.6039673866712
+"Adjusted CNLow_Adjusted.csv I(CN_binary == """"CN-Low"""")TRUE",p.value,1.16956073295454e-53
 Lineage Head and Neck,N_low,9
 Lineage Head and Neck,N_nonlow,34
 Lineage Head and Neck,Median_low,-1.3223803142
@@ -171,3 +172,127 @@ TCGA current DR46 CN-expression,Spearman_rho,0.236553254404411
 TCGA current DR46 CN-expression,Spearman_P,5.26595970893279e-134
 TCGA current DR46 CN-expression,GDCRelease,DR46
 TCGA current DR46 CN-expression,DataLayer,gdc_DR46
+TCGA cancer-adjusted CN,term,CN
+TCGA cancer-adjusted CN,estimate,0.201073386062131
+TCGA cancer-adjusted CN,std.error,0.00708760796799157
+TCGA cancer-adjusted CN,statistic,28.3697104820415
+TCGA cancer-adjusted CN,p.value,0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000116268549540614
+TCGA cancer-adjusted CN,N,10542
+TCGA cancer-adjusted CN,GDCRelease,DR46
+TCGA cancer-adjusted CN,DataLayer,gdc_DR46
+TCGA cancer-adjusted standardized CN,term,CN
+TCGA cancer-adjusted standardized CN,estimate,0.231535006800212
+TCGA cancer-adjusted standardized CN,std.error,0.0081613454232033
+TCGA cancer-adjusted standardized CN,statistic,28.3697104820415
+TCGA cancer-adjusted standardized CN,p.value,0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000116268549540654
+TCGA cancer-adjusted standardized CN,N,10542
+TCGA cancer-adjusted standardized CN,GDCRelease,DR46
+TCGA cancer-adjusted standardized CN,DataLayer,gdc_DR46
+TCGA per-cancer,eligible_cancers,33
+TCGA per-cancer,Pearson_significant_cancers,23
+TCGA per-cancer,Spearman_significant_cancers,22
+CN threshold 0.585,Threshold,0.585
+CN threshold 0.585,N_low,76
+CN threshold 0.585,N_nonlow,782
+CN threshold 0.585,Mean_low,-1.07452370787237
+CN threshold 0.585,Mean_nonlow,-0.3772573208211
+CN threshold 0.585,Median_low,-0.87545290935
+CN threshold 0.585,Median_nonlow,-0.31471064705
+CN threshold 0.585,Delta_mean,-0.697266387051269
+CN threshold 0.585,Delta_median,-0.5607422623
+CN threshold 0.585,Wilcoxon_P,0.000000000000000000000115337648533155
+CN threshold 0.585,eligible,TRUE
+CN threshold 0.585,Wilcoxon_FDR,0.000000000000000000000346012945599466
+CN threshold 0.585,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.5,Threshold,0.5
+CN threshold 0.5,N_low,39
+CN threshold 0.5,N_nonlow,819
+CN threshold 0.5,Mean_low,-1.19517496115641
+CN threshold 0.5,Mean_nonlow,-0.403012458113919
+CN threshold 0.5,Median_low,-1.0101395795
+CN threshold 0.5,Median_nonlow,-0.3206853234
+CN threshold 0.5,Delta_mean,-0.792162503042491
+CN threshold 0.5,Delta_median,-0.6894542561
+CN threshold 0.5,Wilcoxon_P,0.00000000000102446788841104
+CN threshold 0.5,eligible,TRUE
+CN threshold 0.5,Wilcoxon_FDR,0.00000000000153670183261657
+CN threshold 0.5,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.4,Threshold,0.4
+CN threshold 0.4,N_low,3
+CN threshold 0.4,N_nonlow,855
+CN threshold 0.4,Mean_low,-2.00439360416667
+CN threshold 0.4,Mean_nonlow,-0.433527305108655
+CN threshold 0.4,Median_low,-2.0217401487
+CN threshold 0.4,Median_nonlow,-0.3264962546
+CN threshold 0.4,Delta_mean,-1.57086629905801
+CN threshold 0.4,Delta_median,-1.6952438941
+CN threshold 0.4,Wilcoxon_P,0.00335166997952249
+CN threshold 0.4,eligible,TRUE
+CN threshold 0.4,Wilcoxon_FDR,0.00335166997952249
+CN threshold 0.4,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN threshold 0.35,Threshold,0.35
+CN threshold 0.35,N_low,0
+CN threshold 0.35,N_nonlow,858
+CN threshold 0.35,Mean_low,
+CN threshold 0.35,Mean_nonlow,-0.439019844615851
+CN threshold 0.35,Median_low,
+CN threshold 0.35,Median_nonlow,-0.3269068477
+CN threshold 0.35,Delta_mean,
+CN threshold 0.35,Delta_median,
+CN threshold 0.35,Wilcoxon_P,
+CN threshold 0.35,eligible,FALSE
+CN threshold 0.35,Wilcoxon_FDR,
+CN threshold 0.35,Definition,analysis-defined threshold; not DepMap official GISTIC classification
+CN sensitivity continuous (once),N,858
+CN sensitivity continuous (once),Pearson_r,0.483064938982221
+CN sensitivity continuous (once),Pearson_P,0.00000000000000000000000000000000000000000000000000227550945778858
+CN sensitivity continuous (once),Spearman_rho,0.457052975374325
+CN sensitivity continuous (once),Spearman_P,0.00000000000000000000000000000000000000000000164949799966617
+Expression continuous,N,1140
+Expression continuous,Pearson_r,0.318281050250238
+Expression continuous,Pearson_P,0.000000000000000000000000000297616515698938
+Expression continuous,Spearman_rho,0.318020674620408
+Expression continuous,Spearman_P,0.000000000000000000000000000330794617012855
+Expression quantile 0.1,threshold_quantile,0.1
+Expression quantile 0.1,expression_cutoff,3.92670180802
+Expression quantile 0.1,N_low,114
+Expression quantile 0.1,N_nonlow,1026
+Expression quantile 0.1,Mean_low,-0.69787739334386
+Expression quantile 0.1,Mean_nonlow,-0.404556839718031
+Expression quantile 0.1,Median_low,-0.48180502805
+Expression quantile 0.1,Median_nonlow,-0.31664225915
+Expression quantile 0.1,Delta_mean,-0.293320553625829
+Expression quantile 0.1,Delta_median,-0.1651627689
+Expression quantile 0.1,Wilcoxon_P,0.000000000217803041639304
+Expression quantile 0.1,eligible,TRUE
+Expression quantile 0.1,Wilcoxon_FDR,0.000000000217803041639304
+Expression quantile 0.2,threshold_quantile,0.2
+Expression quantile 0.2,expression_cutoff,4.3108164787
+Expression quantile 0.2,N_low,228
+Expression quantile 0.2,N_nonlow,912
+Expression quantile 0.2,Mean_low,-0.667900740567105
+Expression quantile 0.2,Mean_nonlow,-0.375385933708991
+Expression quantile 0.2,Median_low,-0.4761710002
+Expression quantile 0.2,Median_nonlow,-0.30450607535
+Expression quantile 0.2,Delta_mean,-0.292514806858114
+Expression quantile 0.2,Delta_median,-0.17166492485
+Expression quantile 0.2,Wilcoxon_P,0.00000000000000000244902851353545
+Expression quantile 0.2,eligible,TRUE
+Expression quantile 0.2,Wilcoxon_FDR,0.0000000000000000048980570270709
+Genomewide lineage-adjusted candidate,Gene,VPS4A
+Genomewide lineage-adjusted candidate,N,858
+Genomewide lineage-adjusted candidate,Beta_CN,0.875849024824707
+Genomewide lineage-adjusted candidate,SE_CN,0.0570125857293889
+Genomewide lineage-adjusted candidate,T_CN,15.3623803168995
+Genomewide lineage-adjusted candidate,P_CN,0.0000000000000000000000000000000000000000000000476709824592952
+Genomewide lineage-adjusted candidate,Beta_CNLow,-0.683392634066967
+Genomewide lineage-adjusted candidate,SE_CNLow,0.0411583941447368
+Genomewide lineage-adjusted candidate,T_CNLow,-16.6039673866712
+Genomewide lineage-adjusted candidate,P_CNLow,0.0000000000000000000000000000000000000000000000000000116956073295585
+Genomewide lineage-adjusted candidate,continuous_status,completed
+Genomewide lineage-adjusted candidate,binary_status,completed
+Genomewide lineage-adjusted candidate,skip_reason,
+Genomewide lineage-adjusted candidate,FDR_CN,0.000000000000000000000000000000000000000000878814561637107
+Genomewide lineage-adjusted candidate,FDR_CNLow,0.00000000000000000000000000000000000000000000000021560852112041
+Genomewide lineage-adjusted candidate,Eligible_Rank_adjusted,1
+Genomewide lineage-adjusted candidate,Eligible_N_adjusted,18435

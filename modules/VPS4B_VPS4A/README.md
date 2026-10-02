@@ -27,8 +27,8 @@ Raw CN-Low N = 88 ; CN-NonLow N = 1030
 Matched CN-NonLow N = 782
 Matched CN-Low N = 76
 
-VPS4A rank = 276 ; delta median = -0.56074 ; Wilcoxon P = 1.1534e-22 ; FDR = 2.1056e-18
-Eligible_Rank = 1 (non-NA Wilcoxon_FDR genes in the original sorted order; original Rank/P/FDR/effects unchanged).
+VPS4A Eligible_Rank = 1 of 18256 ; delta median = -0.56074 ; Wilcoxon P = 1.1534e-22 ; FDR = 2.1056e-18
+Historical Rank = 276 retained for provenance; original Rank/P/FDR/effects unchanged.
 The supplied setorder() places NA FDR first: 275 untested rows precede this candidate. Original Rank is retained unchanged. The candidate has the minimum eligible-test FDR: TRUE
 
 CN_vs_expression Pearson 0.45427 P 2.3042e-57 ; Spearman 0.55246 P 2.6288e-89 ; N 1105
@@ -64,17 +64,38 @@ GDC current DR46 CN landscape: 11339 unique selected samples; finite gene CN 113
 GDC current DR46 CN-expression: matched N 10542 ; Pearson 0.223246 P 3.4073e-119 ; Spearman 0.236553 P 5.266e-134 . Exact sample UUID join, one representative RNA aliquot per sample, audit retained; RNA is log2(TPM+1).
 
 Module status (latest per mode):
-- genomewide_dependency: completed.
-- lineage_dependency: completed.
-- reverse_dependency: completed.
-- cn_covariation: completed.
 - qc: completed.
 - depmap_cn_expression: completed.
-- mutation_dependency: completed.
-- adjusted_dependency: completed.
+- genomewide_dependency: completed.
 - targeted_dependency: completed.
+- lineage_dependency: completed.
+- adjusted_dependency: completed.
+- reverse_dependency: completed.
+- mutation_dependency: completed.
+- cn_covariation: completed.
 - tcga_cn_landscape: completed.
-- tcga_cn_expression: completed.
 - tcga_cna_prevalence: completed.
+- tcga_cn_expression: completed.
+- expression_dependency: completed.
+- cn_threshold_sensitivity: completed.
+- genomewide_adjusted_dependency: completed.
 
 These are observational cell-line associations. Lineage adjustment reduces measured lineage confounding; it does not establish a causal synthetic-lethal mechanism or clinical benefit.
+
+Pan-cancer overall correlation may be influenced by between-cancer differences.
+GDC DR46 cancer-adjusted Expression ~ CN + CancerType: CN beta 2.01073e-01 ; P 1.16269e-170 ; N 10542 . Association only.
+Standardized cancer-adjusted CN beta 2.31535e-01 ; P 1.16269e-170
+TCGA per-cancer N >= 20: eligible 33 ; Pearson BH-FDR < 0.05 23 ; Spearman BH-FDR < 0.05 22 . See ByCancer CSV/forest for all cancers.
+
+CN threshold sensitivity (analysis-defined; not official DepMap GISTIC):
+- Threshold 0.585 : N_low/nonlow 76 / 782 ; delta median -5.60742e-01 ; P 1.15338e-22 ; FDR 3.46013e-22 ; eligible TRUE
+- Threshold 0.5 : N_low/nonlow 39 / 819 ; delta median -6.89454e-01 ; P 1.02447e-12 ; FDR 1.5367e-12 ; eligible TRUE
+- Threshold 0.4 : N_low/nonlow 3 / 855 ; delta median -1.69524e+00 ; P 3.35167e-03 ; FDR 3.35167e-03 ; eligible TRUE
+- Threshold 0.35 : N_low/nonlow 0 / 858 ; delta median NA ; P NA ; FDR NA ; eligible FALSE
+
+Expression-defined dependency (independent of CN-loss and mutation):
+Continuous expression -> Chronos: N 1140 ; Pearson 3.18281e-01 P 2.97617e-28 ; Spearman 3.18021e-01 P 3.30795e-28
+- Bottom 10 %: cutoff 3.9267e+00 ; N_low/nonlow 114 / 1026 ; delta median -1.65163e-01 ; P 2.17803e-10 ; FDR 2.17803e-10 ; eligible TRUE
+- Bottom 20 %: cutoff 4.31082e+00 ; N_low/nonlow 228 / 912 ; delta median -1.71665e-01 ; P 2.44903e-18 ; FDR 4.89806e-18 ; eligible TRUE
+
+VPS4A lineage-adjusted genome-wide: Eligible_Rank_adjusted 1 of 18435 ; Beta_CN 8.75849e-01 ; FDR_CN 8.78815e-43 ; Beta_CNLow -6.83393e-01 ; FDR_CNLow 2.15609e-49

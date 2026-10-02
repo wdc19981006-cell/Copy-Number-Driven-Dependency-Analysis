@@ -1,0 +1,6 @@
+invisible(Sys.setlocale("LC_CTYPE","English_United States.utf8"))
+source(".Rprofile")
+stopifnot(as.character(getRversion())=="4.5.0")
+renv::restore(prompt=FALSE)
+stopifnot(isTRUE(renv::status()$synchronized))
+cat("PASS: R 4.5.0; existing renv restored and synchronized.\n")

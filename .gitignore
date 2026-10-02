@@ -18,3 +18,4 @@ renv/staging/
 .Ruserdata
 results/*
 !results/VPS4B_VPS4A/
+!results/ENO1_ENO2_Method_Test/

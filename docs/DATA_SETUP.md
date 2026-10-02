@@ -57,3 +57,23 @@ processed 由脚本生成，不与 raw 混放。单基因查询读取 requested 
 ```
 
 前两项使用 GDC current DR46；最后一项继续使用明确标记的 PanCanAtlas GISTIC reference。无需重跑已完成的 DepMap 分析。
+
+
+## Extension modules and tests
+
+No new TCGA or DepMap download is needed for these modules. New DepMap modes read existing Parquet under data/processed/depmap/26Q1; the original validated core retains its original CSV reader. TCGA extensions reuse existing current matched samples and processed DR46 matrices.
+
+```bat
+Rscript --vanilla scripts/R/verify_environment.R
+Rscript --vanilla tests/run_synthetic_tests.R
+Rscript --vanilla tests/validate_case_results.R VPS4B VPS4A
+Rscript scripts/R/run_analysis.R --mode full --geneA VPS4B --geneB VPS4A
+Rscript scripts/R/run_analysis.R --mode genomewide_adjusted_dependency --geneA VPS4B --geneB VPS4A
+Rscript scripts/R/run_analysis.R --mode genomewide_expression_dependency --geneA VPS4B --geneB VPS4A
+Rscript scripts/R/run_analysis.R --mode cn_threshold_sensitivity --geneA ENO1 --geneB ENO2 --output_case ENO1_ENO2_Method_Test
+Rscript scripts/R/run_analysis.R --mode expression_dependency --geneA ENO1 --geneB ENO2 --output_case ENO1_ENO2_Method_Test
+```
+
+The two genome-wide extension commands are opt-in; full includes only the targeted sensitivity/expression extensions. ENO1/ENO2 is a method test without a required positive result. --output_case only accepts a single safe result-directory name. A genomewide_adjusted_dependency invocation without --geneB emits the complete screen/volcano without a candidate table.
+
+The Windows GitHub Actions job installs R 4.5.0 and restores only data.table/dplyr/ggplot2 and their dependencies from the existing renv.lock. All six CI tests use synthetic fixtures or parse the supplied R function definitions; none reads raw or processed biological data. The CI environment intentionally omits optional arrow/duckdb because those libraries are only needed for actual local data analyses.

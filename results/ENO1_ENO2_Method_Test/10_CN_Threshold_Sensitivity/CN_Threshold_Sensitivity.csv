@@ -1,0 +1,5 @@
+Threshold,N_low,N_nonlow,Mean_low,Mean_nonlow,Median_low,Median_nonlow,Delta_mean,Delta_median,Wilcoxon_P,eligible,Wilcoxon_FDR,Definition
+0.585,13,845,-0.00273439428461538,-0.030750961767574,-0.0064016309,-0.0303258517,0.0280165674829586,0.0239242208,0.255182944323942,TRUE,0.255182944323942,analysis-defined threshold; not DepMap official GISTIC classification
+0.5,2,856,-0.0085544314,-0.0303773375660047,-0.0085544314,-0.03019302325,0.0218229061660047,0.02163859185,,FALSE,,analysis-defined threshold; not DepMap official GISTIC classification
+0.4,0,858,,-0.0303264683208625,,-0.03019302325,,,,FALSE,,analysis-defined threshold; not DepMap official GISTIC classification
+0.35,0,858,,-0.0303264683208625,,-0.03019302325,,,,FALSE,,analysis-defined threshold; not DepMap official GISTIC classification

@@ -152,5 +152,40 @@
     "wall_seconds": 4.609,
     "approx_peak_RSS_MiB": 429.68,
     "log": "logs\\VPS4B_VPS4A_tcga_cna_prevalence.log"
+  },
+  {
+    "mode": "full",
+    "exit_code": 0,
+    "wall_seconds": 174.579,
+    "approx_peak_RSS_MiB": 1416.39,
+    "log": "logs\\VPS4B_VPS4A_full.log"
+  },
+  {
+    "mode": "genomewide_adjusted_dependency",
+    "exit_code": 0,
+    "wall_seconds": 67.187,
+    "approx_peak_RSS_MiB": 1456.13,
+    "log": "logs\\VPS4B_VPS4A_genomewide_adjusted_dependency.log"
+  },
+  {
+    "mode": "cn_threshold_sensitivity",
+    "exit_code": 0,
+    "wall_seconds": 5.109,
+    "approx_peak_RSS_MiB": 771.17,
+    "log": "logs\\VPS4B_VPS4A_cn_threshold_sensitivity.log"
+  },
+  {
+    "mode": "cn_threshold_sensitivity",
+    "exit_code": 0,
+    "wall_seconds": 5.11,
+    "approx_peak_RSS_MiB": 871.43,
+    "log": "logs\\VPS4B_VPS4A_cn_threshold_sensitivity.log"
+  },
+  {
+    "mode": "genomewide_adjusted_dependency",
+    "exit_code": 0,
+    "wall_seconds": 66.656,
+    "approx_peak_RSS_MiB": 1488.35,
+    "log": "logs\\VPS4B_VPS4A_genomewide_adjusted_dependency.log"
   }
 ]

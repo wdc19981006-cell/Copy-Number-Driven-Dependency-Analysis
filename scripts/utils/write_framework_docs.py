@@ -47,6 +47,10 @@ Rscript modules/VPS4B_VPS4A/run_case.R
 | tcga_cn_landscape | GDC current gene-level CN 按癌种分布 |
 | tcga_cna_prevalence | PanCanAtlas reference GISTIC 五级 CNA prevalence |
 | tcga_cn_expression | GDC current 同一样本 CN 与 log2(TPM+1) |
+| cn_threshold_sensitivity | CN_log 0.585/0.50/0.40/0.35 的分组敏感性；连续相关只算一次 |
+| expression_dependency | 独立表达连续相关与 bottom 10%/20% Wilcoxon |
+| genomewide_expression_dependency | 全 Chronos 的表达定义筛选；仅显式运行 |
+| genomewide_adjusted_dependency | 全 Chronos 的 CN_log/CN-Low + lineage 回归；仅显式运行 |
 | full | 顺序执行模块，明确记录缺失数据或不足样本导致的跳过 |
 
 ## 数据与方法
@@ -55,7 +59,11 @@ DepMap **26Q1** 有 13 类本地导出。Chronos 为 1,208 × 18,531 基因，CN
 
 保留 `CN_relative`，计算 `CN_log=log2(CN_relative+1)`。CN-Low `<0.585`；Deep `<0.35`；Shallow `[0.35,0.585)`。这些是 **analysis-defined thresholds**，不是 DepMap 官方 GISTIC 分类。
 
-按用户提供的统计核心，连续 dependency 相关与连续调整回归使用 **CN_log**；CN-expression 和 covariation 使用 **CN_relative**。Delta median = low − non-low，负值表示 CN-Low 更依赖目标。筛选分别对 Pearson/Wilcoxon 作 BH 校正，原始 Rank 按原代码保留；新增 **Eligible_Rank** 只在 Wilcoxon_FDR 非 NA 的基因中按既有排序编号。VPS4A 原始 Rank=276，Eligible_Rank=1，P/FDR/Delta 均未改变。方法和限制见 [ANALYSIS_METHODS](docs/ANALYSIS_METHODS.md)。
+按用户提供的统计核心，连续 dependency 相关与连续调整回归使用 **CN_log**；CN-expression 和 covariation 使用 **CN_relative**。Delta median = low − non-low，负值表示 CN-Low 更依赖目标。筛选分别对 Pearson/Wilcoxon 作 BH 校正。用户默认查看 **Eligible_Rank / Eligible_N**：只在 Wilcoxon_FDR 非 NA 的基因中按 FDR、Delta_median 升序排序。VPS4A Eligible_Rank=1/18,256；历史 Rank=276 保留用于 provenance，P/FDR/Delta 均未改变。方法和限制见 [ANALYSIS_METHODS](docs/ANALYSIS_METHODS.md)。
+
+`full` 默认加入 CN threshold sensitivity 和 expression dependency；两个新增 genome-wide 模块仅在显式指定 mode 时运行。它们读取现有 processed DepMap Parquet，独立于原始 CSV 统计核心。TCGA CN-expression 保留 overall Pearson/Spearman，另输出 N>=20 的每癌种相关、Fisher-z CI，以及原尺度/标准化 cancer-adjusted 回归。**Pan-cancer overall correlation may be influenced by between-cancer differences.** Summary 同时报告 cancer-adjusted CN beta。
+
+新增模块的 synthetic tests 与原始 core 函数测试由 [GitHub Actions CI](.github/workflows/ci.yml) 在 R 4.5.0 下执行；CI 仅恢复 renv 锁定的测试依赖，不下载 TCGA/DepMap 数据。[官方 R Actions](https://github.com/r-lib/actions) 提供 R 环境设置。
 
 ```text
 data/raw/depmap/26Q1/                    原始导出，内容不变
@@ -149,7 +157,7 @@ CN_relative is the supplied WGS value; CN_log=log2(CN_relative+1). Analysis-defi
 
 CN-expression uses relative CN and original expression. Targeted CN-dependency uses CN_log, matching the supplied code. Pearson and Spearman (exact=FALSE) are reported. Two-sided Wilcoxon uses exact=FALSE and R default continuity correction. Chronos is gene effect, with more negative scores indicating greater dependency. Three-group comparison requires all groups >=3; optional pairwise tests report raw P and separate BH-FDR.
 
-The genome-wide function tests every supplied Chronos gene column. Pearson requires >=10 finite models, uses the correlation t statistic (df=n−2), and retains the supplied undefined P at absolute r=1. Group effects require each group >=min_group_n. Delta mean/median are low minus non-low. Pearson and Wilcoxon have separate complete-screen BH families. Rank sorts Wilcoxon FDR then delta median, retaining the supplied NA ordering. Eligible_Rank numbers only non-NA Wilcoxon_FDR rows in that existing sorted order; excluded rows remain NA. The adapter adds this column without changing any original numeric CSV tokens, verified against the initial committed CSVs. Neither rank is a causal-priority score.
+The genome-wide function tests every supplied Chronos gene column. Pearson requires >=10 finite models, uses the correlation t statistic (df=n−2), and retains the supplied undefined P at absolute r=1. Group effects require each group >=min_group_n. Delta mean/median are low minus non-low. Pearson and Wilcoxon have separate complete-screen BH families. Rank sorts Wilcoxon FDR then delta median, retaining the supplied NA ordering for provenance. Eligible_Rank is the default user-facing rank: only non-NA Wilcoxon_FDR rows, sorted by FDR ascending then Delta_median ascending (original Rank breaks exact ties). Eligible_N records that complete eligible family size. Excluded rows have blank Eligible_Rank. The adapter adds these fields without changing any original numeric CSV tokens, verified against the initial committed CSVs. Neither rank is a causal-priority score.
 
 Lineage groups each require >=3. Bootstrap independently resamples both groups and takes percentile 95% CI for median-low minus median-nonlow, default 1000 draws and seed 1234. BH applies to eligible lineages. Forest magnitude represents effect size, not P value.
 
@@ -227,10 +235,15 @@ Results are under results/VPS4B_VPS4A/. Each core module has its named subdirect
 - 07_CN_Covariation/: VPS4B_CN_Covariation.csv and Top_CN_Covariation.pdf.
 - 08_TCGA/: current CN landscape/expression if prepared; separately labeled reference GISTIC prevalence.
 - 09_Mutation_Dependency/: eligible damaging/hotspot comparisons, or explicit skip reasons.
+- 10_CN_Threshold_Sensitivity/: threshold table/PDF and once-only continuous statistics.
+- 11_Expression_Dependency/: continuous and quantile statistics, matched models and three-panel PDF.
+- 12_GenomeWide_Adjusted_Dependency/: full adjusted screen, optional candidate and volcano; explicit mode only.
+- 13_GenomeWide_Expression_Dependency/: separate full expression screen; explicit mode only.
 - Summary/: VPS4B_VPS4A_Summary.md, Key_Statistics.csv, Analysis_Metadata.json, Module_Runs.csv, Resource_Monitor.json and SessionInfo.txt.
 
 Missing data or inadequate group sizes produce documented skips; they never produce fabricated values. Resource_Monitor records observed native process exits and approximate RSS, sampled every 0.5 s. No file above 50 MB is uploaded.
 ''')
+ append_extensions_docs()
 
  layers=json.loads((ROOT/'config/tcga_layers.json').read_text(encoding='utf-8'))
  validation=ROOT/'data/manifests/gdc_validation_report.json'
@@ -240,5 +253,46 @@ Missing data or inadequate group sizes produce documented skips; they never prod
    path=ROOT/'README.md'
    with path.open('a',encoding='utf-8') as f:
     f.write(f"\nGDC current **DR46 complete**：RNA 11,505/11,505、CN 11,339/11,339；{len(report['checks'])} 项身份/数值/校验检查通过。完整 RNA/CN Parquet 与 DuckDB views 已生成。VPS4B/VPS4A 最新 TCGA 模块结果见 [案例 Summary](results/VPS4B_VPS4A/Summary/VPS4B_VPS4A_Summary.md)。\n")
+
+def append_extensions_docs():
+ methods='''
+
+## Additional independent modules
+
+CN threshold sensitivity retains the main analysis-defined 0.585 cutoff, and separately evaluates 0.50, 0.40 and 0.35 on CN_log=log2(relative CN+1). Low is strictly below each threshold; equality is non-low. Only finite CN/Chronos pairs enter. Means/medians and low-minus-nonlow effects are recorded even when groups are too small; Wilcoxon requires both N>=3, otherwise P/FDR are NA and eligible=false. BH is across eligible thresholds. Continuous CN_log Pearson/Spearman is computed once and stored separately. These are analysis-defined thresholds, not official DepMap GISTIC classifications.
+
+Expression-defined dependency is independent of CN loss and mutation. Continuous correlation uses Gene A's supplied expression scale and Gene B Chronos. Targeted cutoffs are R type-7 quantiles of finite matched expression/Chronos pairs at 10% and 20%; low is expression <= cutoff, and missing expression is excluded rather than made non-low. Ties may increase the nominal percentile group size. Wilcoxon requires both groups N>=3, with BH across eligible quantiles. In an explicit genome-wide expression screen, cutoffs are fixed on the finite expression cohort aligned to all Chronos ModelIDs, then each gene's missing Chronos is excluded; continuous Pearson BH and the two grouped Wilcoxon BH families are separate. Candidate-specific missingness can therefore change its targeted vs genome-wide expression cutoff; no hidden cutoff tuning occurs.
+
+TCGA CN-expression retains exactly the previously validated sample UUID join and overall results, using current GDC DR46 gene-level CN and log2(TPM+1). Per-cancer analysis requires N>=20 and variable CN/expression; ineligible cancers remain in CSV with NA tests. Pearson and Spearman each have a separate BH family across eligible cancers. Pearson 95% CI is tanh(atanh(r) +/- qnorm(0.975)/sqrt(N-3)); exact +/-1 uses a degenerate boundary interval. Forest plots show eligible cancer types sorted by Pearson r. Missing CancerType is excluded from per-cancer and adjusted analyses, with regression N retained.
+
+Pan-cancer overall correlation may be influenced by between-cancer differences. Report overall correlation alongside the CN coefficient from Expression ~ CN + CancerType, with cancer treated as a factor. Standardized regression z(Expression) ~ z(CN) + CancerType uses global sample means/SDs on the same complete regression cohort; this is not within-cancer standardization. CSVs retain all estimable terms and N. These are expression associations, not CRISPR dependency or causal effects. GISTIC prevalence remains the separately labeled PanCanAtlas reference layer.
+
+Explicit genome-wide lineage adjustment fits each Chronos gene on CN_log + OncotreeLineage and separately on I(CN_log<0.585) + OncotreeLineage. Exact ModelID alignment is enforced; missing outcome/CN/lineage is removed per gene. N>=20 and at least two observed lineage levels are required. Constant outcomes or aliased CN terms remain skipped/NA rather than assigned a test. Continuous and binary CN P values have separate complete-screen BH families. Eligible_Rank_adjusted ranks non-NA FDR_CN by FDR_CN, Beta_CN, then Gene ascending; Eligible_N_adjusted records that continuous family size. This rank belongs to the adjusted model and is distinct from the original Wilcoxon Eligible_Rank. Volcano displays Beta_CN vs -log10(FDR_CN), with Gene B highlighted when supplied. Both new genome-wide modules are excluded from default full.
+
+Original outputs are retained in Git history and copied locally under .runtime/prior_case before the requested full rerun. tests/validate_preserved_results.py verifies original CSV tokens against the completed prior commit; tests/validate_eligible_rank.py additionally verifies the initial screen's original P/FDR/effects/Rank. Statistical core function bodies remain unchanged.
+'''
+ setup='''
+
+## Extension modules and tests
+
+No new TCGA or DepMap download is needed for these modules. New DepMap modes read existing Parquet under data/processed/depmap/26Q1; the original validated core retains its original CSV reader. TCGA extensions reuse existing current matched samples and processed DR46 matrices.
+
+```bat
+Rscript --vanilla scripts/R/verify_environment.R
+Rscript --vanilla tests/run_synthetic_tests.R
+Rscript --vanilla tests/validate_case_results.R VPS4B VPS4A
+Rscript scripts/R/run_analysis.R --mode full --geneA VPS4B --geneB VPS4A
+Rscript scripts/R/run_analysis.R --mode genomewide_adjusted_dependency --geneA VPS4B --geneB VPS4A
+Rscript scripts/R/run_analysis.R --mode genomewide_expression_dependency --geneA VPS4B --geneB VPS4A
+Rscript scripts/R/run_analysis.R --mode cn_threshold_sensitivity --geneA ENO1 --geneB ENO2 --output_case ENO1_ENO2_Method_Test
+Rscript scripts/R/run_analysis.R --mode expression_dependency --geneA ENO1 --geneB ENO2 --output_case ENO1_ENO2_Method_Test
+```
+
+The two genome-wide extension commands are opt-in; full includes only the targeted sensitivity/expression extensions. ENO1/ENO2 is a method test without a required positive result. --output_case only accepts a single safe result-directory name. A genomewide_adjusted_dependency invocation without --geneB emits the complete screen/volcano without a candidate table.
+
+The Windows GitHub Actions job installs R 4.5.0 and restores only data.table/dplyr/ggplot2 and their dependencies from the existing renv.lock. All six CI tests use synthetic fixtures or parse the supplied R function definitions; none reads raw or processed biological data. The CI environment intentionally omits optional arrow/duckdb because those libraries are only needed for actual local data analyses.
+'''
+ for name,value in [('docs/ANALYSIS_METHODS.md',methods),('docs/DATA_SETUP.md',setup)]:
+  with (ROOT/name).open('a',encoding='utf-8') as f:f.write(value)
 
 if __name__=='__main__':main()

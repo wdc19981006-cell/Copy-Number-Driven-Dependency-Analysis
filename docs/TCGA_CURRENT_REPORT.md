@@ -1,6 +1,6 @@
 # GDC current preparation snapshot
 
-Snapshot: **2026-10-02T20:24:55+08:00**. Current status: **complete**. All selected raw files, complete RNA/CN ETL, DuckDB views and identity/numerical validation have completed. The current layer is available; case output status is determined by its latest R run.
+Snapshot: **2026-10-02T21:49:41+08:00**. Current status: **complete**. All selected raw files, complete RNA/CN ETL, DuckDB views and identity/numerical validation have completed. The current layer is available; case output status is determined by its latest R run.
 
 1. Official release: **46.0**, API version 1, tag 8.5.0; query snapshot 2026-10-02T17:01:45+08:00.
 2. TCGA projects: **33**.
@@ -17,7 +17,7 @@ Snapshot: **2026-10-02T20:24:55+08:00**. Current status: **complete**. All selec
 8. Clinical: **11,428 cases**; 175,065 biospecimen rows; 44,673 sample/file map rows.
 9. Current processed directory at snapshot: **13,751,276,246 bytes**. Segments: 1,070,293 rows; masked MAF: 2,570,542 rows. Full RNA/CN matrices have been generated and validated.
 10. Outstanding raw files: **0**. Status counts: {"verified": 44673}. Complete UUID list is in [gdc_data_manifest.csv](../data/manifests/gdc_data_manifest.csv). Earlier DTT TLS errors, a truncated large bundle and a corrected live-tracking indentation error are retained in local logs; none is represented as a successful transfer. Verified raw was retained.
-11. Free D-drive space at snapshot: **130,273,796,096 bytes**. Initial conservative required estimate 170,324,542,336 bytes was within 80% of initial free 237,361,651,712 bytes; ongoing transfers also check remaining space.
+11. Free D-drive space at snapshot: **130,221,985,792 bytes**. Initial conservative required estimate 170,324,542,336 bytes was within 80% of initial free 237,361,651,712 bytes; ongoing transfers also check remaining space.
 
 Segments for 150 selected CN samples are not published in the queried source. 10,527 segment selections use a documented different-workflow fallback, mostly because matching ABSOLUTE segments are not published. Do not interpret these as exact pipeline-matched segments. No purity/ploidy is invented.
 
@@ -43,4 +43,8 @@ Validation: **passed**; 85 recorded checks. Actual raw MD5/SHA256 audit, all sel
 
 Parquet is samples/aliquots × original gene IDs, ZSTD. STAR has five matrices: counts, TPM, FPKM, FPKM-UQ and log2(TPM+1), with gene annotation and N_* library summaries stored separately. CN is one selected workflow per sample. DuckDB contains views over these Parquet files, without duplicating matrices. RNA/CN do not silently collapse samples to patients.
 
-VPS4B/VPS4A current modules completed under R 4.5.0; independently checked at 2026-10-02T20:24:26+08:00. CN landscape: 11,339 unique selected samples, 11,330 finite VPS4B CN values. CN-expression: 10,542 unique sample UUID pairs, Pearson r=0.223246300476, Spearman rho=0.236553254404. Source workflow/file selection, RNA representatives and current/reference separation passed [case validation](../data/manifests/tcga_case_validation.json). PanCanAtlas GISTIC prevalence remains a separate reference module.
+VPS4B/VPS4A current modules completed under R 4.5.0; independently checked at 2026-10-02T21:45:49+08:00. CN landscape: 11,339 unique selected samples, 11,330 finite VPS4B CN values. CN-expression: 10,542 unique sample UUID pairs, Pearson r=0.223246300476, Spearman rho=0.236553254404. Source workflow/file selection, RNA representatives and current/reference separation passed [case validation](../data/manifests/tcga_case_validation.json). PanCanAtlas GISTIC prevalence remains a separate reference module.
+
+Pan-cancer overall correlation may be influenced by between-cancer differences. Report overall correlation alongside cancer-adjusted CN beta; these expression associations do not establish dependency or causality.
+
+Cancer-adjusted current DR46 Expression ~ CN + CancerType: CN beta **0.201073386062131**, P **1.16268549540614e-170**, N **10542**. Per-cancer correlations, Fisher-z CI and separate BH families are in the case's TCGA_CN_Expression_ByCancer.csv; independent extension checks are in [extension validation](../data/manifests/extension_results_validation.json).
