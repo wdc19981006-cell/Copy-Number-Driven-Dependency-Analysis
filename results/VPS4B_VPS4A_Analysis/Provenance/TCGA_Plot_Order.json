@@ -1,0 +1,8 @@
+{
+  "visual_top_to_bottom": ["READ", "COAD", "OV", "TGCT", "ESCA", "PAAD", "HNSC", "LUAD", "STAD", "ACC", "BLCA", "LUSC", "UCS", "PRAD", "SARC", "CESC", "LGG", "SKCM", "UCEC", "BRCA", "KIRP", "MESO", "THCA", "PCPG", "LIHC", "THYM", "LAML", "UVM", "DLBC", "CHOL", "KIRC", "GBM", "KICH"],
+  "CNA_factor_levels": ["KICH", "GBM", "KIRC", "CHOL", "DLBC", "UVM", "LAML", "THYM", "LIHC", "PCPG", "THCA", "MESO", "KIRP", "BRCA", "UCEC", "SKCM", "LGG", "CESC", "SARC", "PRAD", "UCS", "LUSC", "BLCA", "ACC", "STAD", "LUAD", "HNSC", "PAAD", "ESCA", "TGCT", "OV", "COAD", "READ"],
+  "Landscape_factor_levels": ["KICH", "GBM", "KIRC", "CHOL", "DLBC", "UVM", "LAML", "THYM", "LIHC", "PCPG", "THCA", "MESO", "KIRP", "BRCA", "UCEC", "SKCM", "LGG", "CESC", "SARC", "PRAD", "UCS", "LUSC", "BLCA", "ACC", "STAD", "LUAD", "HNSC", "PAAD", "ESCA", "TGCT", "OV", "COAD", "READ"],
+  "CN_mRNA_statistics_order": ["READ", "COAD", "OV", "TGCT", "ESCA", "PAAD", "HNSC", "LUAD", "STAD", "ACC", "BLCA", "LUSC", "UCS", "PRAD", "SARC", "CESC", "LGG", "SKCM", "UCEC", "BRCA", "KIRP", "MESO", "THCA", "PCPG", "LIHC", "THYM", "LAML", "UVM", "DLBC", "CHOL", "KIRC", "GBM", "KICH"],
+  "landscape_points": 10845,
+  "factor_display_rule": "coord_flip: reverse factor levels = table Order top to bottom"
+}

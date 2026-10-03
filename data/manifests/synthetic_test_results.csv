@@ -5,3 +5,5 @@
 "test_tcga_by_cancer.R","PASS",0
 "test_genomewide_adjusted.R","PASS",0
 "test_tcga_sample_selection.R","PASS",0
+"test_final_workflows.R","PASS",0
+"test_output_case_finalize.R","PASS",0

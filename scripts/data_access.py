@@ -18,7 +18,9 @@ class DataUnavailableError(FileNotFoundError):
 
 def required(path):
     if not path.exists():
-        raise DataUnavailableError(f'Prepared dataset unavailable: {path}. See data/manifests/data_manifest.csv and run the matching preparation script.')
+        raise DataUnavailableError('Local processed dataset unavailable.\n'
+                                   'Run the separate data-update/preparation workflow first.\n'
+                                   f'Missing: {path}')
     return path
 
 

@@ -1,0 +1,6 @@
+DATA_MODE=local
+TCGA reference=PanCanAtlas/Xena (existing snapshot)
+TCGA current=NCI GDC DR46 (retained separately)
+DepMap=Public 26Q1
+R= 4.5.0
+Input SHA256 and code hashes: Input_Versions.json / Run_Metadata.json / Cache_*.json

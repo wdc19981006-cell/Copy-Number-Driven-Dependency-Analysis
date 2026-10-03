@@ -1,78 +1,55 @@
 # Copy Number–Driven Dependency Analysis
 
-模块化 **R 4.5.0** 分析框架，用于检验 Gene A 拷贝数与 Gene B CRISPR dependency 的关联。当前正式案例为 [VPS4B → VPS4A](modules/VPS4B_VPS4A/README.md)。支持 Windows 和 32 GB RAM；数据库不会上传仓库。
+**R 4.5.0** 科研分析框架，检验 Gene A 拷贝数与 Gene B CRISPR dependency 的关联。普通分析 **DATA_MODE=local**，只读现有 processed Parquet；数据库维护与分析分开，不为重新分析一个基因扫描 raw 或下载数据库。
 
-用户提供的 [R 代码原文](docs/USER_SUPPLIED_ANALYSIS.R) 是统计核心。适配文件名、空白 ID 列和输出目录；十个核心函数体与原文的一致性由 `tests/test_r_core.R` 验证。新增 QC、mutation、CN covariation 和 TCGA 模块单独实现。
+## 使用
 
-## Quick Start
-
-先按 [DATA_SETUP](docs/DATA_SETUP.md) 放入数据，并使用 R 4.5.0 恢复包环境：
-
-```r
-renv::restore()
-renv::status()
-```
+准备好本地 processed 数据与 R 包环境后，在项目根目录运行：
 
 ```bat
-Rscript scripts/R/run_analysis.R --mode targeted_dependency --geneA VPS4B --geneB VPS4A
-Rscript scripts/R/run_analysis.R --mode genomewide_dependency --geneA VPS4B --geneB VPS4A
-Rscript modules/VPS4B_VPS4A/run_case.R
+Rscript scripts/R/run_analysis.R --workflow geneA_screen --geneA VPS4B
+Rscript scripts/R/run_analysis.R --workflow geneA_geneB --geneA VPS4B --geneB VPS4A
 ```
 
-`--project` 指定项目根目录，`--bootstrap` 默认 1000，`--min_group_n` 默认 3。通过基因参数切换任意 Gene A / Gene B。主入口拒绝使用其他 R 版本。
+只有 Gene A：TCGA CNA、CN 分布、逐癌种自身 CN–mRNA，接着 DepMap 全基因 dependency 与 CN covariation。A+B：先 TCGA，再 targeted 三图与三个补充分析，最后全基因筛选和 CN covariation。
 
-| Mode | 分析 |
-|---|---|
-| qc | 文件、ModelID overlap、CN 分布和组样本数 |
-| depmap_cn_expression | CN→同基因表达；表达→Gene B Chronos |
-| genomewide_dependency | 所有提供的 Chronos 基因：Pearson、两组 Wilcoxon、BH-FDR、volcano、candidate rank |
-| targeted_dependency | Pearson、Spearman、Wilcoxon；带括号、星号和 P 值的组合 PDF |
-| lineage_dependency | OncotreeLineage 内中位数差、bootstrap CI 和 forest |
-| adjusted_dependency | CN_log 与 CN-Low 的 lineage-adjusted 回归 |
-| reverse_dependency | 交换基因后重新定义 CN 分组，比较两个方向 |
-| mutation_dependency | damaging / hotspot 分别比较；缺失列不推断为 WT |
-| cn_covariation | 所有提供的 CN 基因与 Gene A 的 Pearson 及 BH-FDR |
-| tcga_cn_landscape | GDC current gene-level CN 按癌种分布 |
-| tcga_cna_prevalence | PanCanAtlas reference GISTIC 五级 CNA prevalence |
-| tcga_cn_expression | GDC current 同一样本 CN 与 log2(TPM+1) |
-| cn_threshold_sensitivity | CN_log 0.585/0.50/0.40/0.35 的分组敏感性；连续相关只算一次 |
-| expression_dependency | 独立表达连续相关与 bottom 10%/20% Wilcoxon |
-| genomewide_expression_dependency | 全 Chronos 的表达定义筛选；仅显式运行 |
-| genomewide_adjusted_dependency | 全 Chronos 的 CN_log/CN-Low + lineage 回归；仅显式运行 |
-| full | 顺序执行模块，明确记录缺失数据或不足样本导致的跳过 |
+缺少本地 processed 数据立即报错，不联网补齐。有效缓存默认跳过计算；`--force` 强制重算。默认不运行 reverse、mutation、expression dependency、genomewide expression 或 genomewide adjusted。已有 `--mode` 仅用于显式开发/单模块调用，普通用户使用上述 workflow。案例入口 `Rscript modules/VPS4B_VPS4A/run_case.R` 默认使用 A+B workflow。
 
-## 数据与方法
-
-DepMap **26Q1** 有 13 类本地导出。Chronos 为 1,208 × 18,531 基因，CN 为 1,118 × 18,613 基因，共享 **858 个 ModelID**。尺寸、原始名称、SHA256 和 active 状态见 [manifest](data/manifests/depmap_26Q1_manifest.csv)。文件名含 `subsetted`，尚不能宣称与官方完整 release 覆盖一致；筛选使用所有提供的基因列。
-
-保留 `CN_relative`，计算 `CN_log=log2(CN_relative+1)`。CN-Low `<0.585`；Deep `<0.35`；Shallow `[0.35,0.585)`。这些是 **analysis-defined thresholds**，不是 DepMap 官方 GISTIC 分类。
-
-按用户提供的统计核心，连续 dependency 相关与连续调整回归使用 **CN_log**；CN-expression 和 covariation 使用 **CN_relative**。Delta median = low − non-low，负值表示 CN-Low 更依赖目标。筛选分别对 Pearson/Wilcoxon 作 BH 校正。用户默认查看 **Eligible_Rank / Eligible_N**：只在 Wilcoxon_FDR 非 NA 的基因中按 FDR、Delta_median 升序排序。VPS4A Eligible_Rank=1/18,256；历史 Rank=276 保留用于 provenance，P/FDR/Delta 均未改变。方法和限制见 [ANALYSIS_METHODS](docs/ANALYSIS_METHODS.md)。
-
-`full` 默认加入 CN threshold sensitivity 和 expression dependency；两个新增 genome-wide 模块仅在显式指定 mode 时运行。它们读取现有 processed DepMap Parquet，独立于原始 CSV 统计核心。TCGA CN-expression 保留 overall Pearson/Spearman，另输出 N>=20 的每癌种相关、Fisher-z CI，以及原尺度/标准化 cancer-adjusted 回归。**Pan-cancer overall correlation may be influenced by between-cancer differences.** Summary 同时报告 cancer-adjusted CN beta。
-
-新增模块的 synthetic tests 与原始 core 函数测试由 [GitHub Actions CI](.github/workflows/ci.yml) 在 R 4.5.0 下执行；CI 仅恢复 renv 锁定的测试依赖，不下载 TCGA/DepMap 数据。[官方 R Actions](https://github.com/r-lib/actions) 提供 R 环境设置。
+## 结果
 
 ```text
-data/raw/depmap/26Q1/                    原始导出，内容不变
-data/raw/tcga/gdc_current_DR46/          公开 GDC DR46 原始文件
-data/raw/tcga/pancanatlas_reference/     独立经典参考层
-data/archive/duplicates/                重复导出归档，不删除
-data/processed/                         ZSTD Parquet 与 DuckDB views
-data/manifests/                         校验、源信息、选择规则、QC
-scripts/R/                              分析入口与统计核心
-scripts/download/                       发现和官方下载
-scripts/preprocess/                     分块预处理
-scripts/data_access.py                  单基因查询接口
-modules/VPS4B_VPS4A/                     案例配置和入口
-results/VPS4B_VPS4A/                     PDF、CSV、Summary、资源记录
-docs/                                   设置、方法、来源和准备报告
+results/<GeneA>[_<GeneB>]_Analysis/
+  00_Analysis_Summary.txt
+  Main_Results/       A-only 37 PDF；A+B 40 PDF，均含33癌种 CN–mRNA
+  Supplementary/      仅A+B：Lineage、Adjusted、CN Threshold Sensitivity
+  Tables/             统计CSV、样本匹配与绘图输入
+  Provenance/         数据来源、版本/哈希、sessionInfo、运行与验证记录
 ```
 
-仓库中的 GDC manifest、`config/tcga_layers.json` 和 [当前层报告](docs/TCGA_CURRENT_REPORT.md) 是注明时间的快照。本地下载→预处理→验证作业通过 `scripts/utils/complete_gdc_pipeline.py` 继续，实时状态在忽略目录 `data/raw/tcga/gdc_current_DR46/manifests/live/`，R 优先读取该目录的就绪状态。只有验证通过才标记 complete；current 不可用时不静默切换 reference。案例结果保持实际运行时的状态，经典 GISTIC 分类明确来自 reference。当前来源与缺失清单见 [DATA_SOURCES](docs/DATA_SOURCES.md)。
+[VPS4B/VPS4A 中文结果指南](results/VPS4B_VPS4A_Analysis/00_Analysis_Summary.txt) · [最终工作流与统计定义](docs/FINAL_WORKFLOWS.md)
 
-Python 使用 C 盘现有 Python 3.12，依赖放入项目 `.runtime`。不要调用 Windows Store 的 python/python3 stub。按 [DATA_SETUP](docs/DATA_SETUP.md) 执行发现、下载和预处理；不要并发启动两个写同一 manifest 的下载器。项目移动后重建 DuckDB views。
+## 数据与统计
 
-仅提交代码、配置、文档、manifest 和 VPS4B/VPS4A 示例结果，单文件不得超过 50 MB。代码使用 MIT License；数据使用条款独立适用。
+已有数据：TCGA NCI GDC **DR46**、独立 PanCanAtlas/Xena reference、DepMap **26Q1**。TCGA 主图统一使用现有 reference continuous GISTIC2 CN + 五级 thresholded GISTIC + 匹配的 Toil RSEM `log2(norm_count+1)` 表达（不是 TPM），保留准确来源到 Provenance。DR46 current 保持独立，不与 reference 静默混合。
 
-GDC current **DR46 complete**：RNA 11,505/11,505、CN 11,339/11,339；85 项身份/数值/校验检查通过。完整 RNA/CN Parquet 与 DuckDB views 已生成。VPS4B/VPS4A 最新 TCGA 模块结果见 [案例 Summary](results/VPS4B_VPS4A/Summary/VPS4B_VPS4A_Summary.md)。
+所有 TCGA 主图按 Gene A finite continuous CN 的癌种 median 从小到大排列，视觉从上到下；CN landscape 展示每个有限样本点和实际 N，保留极端值。33癌种分别分析自身 CN–mRNA，固定 N<20 或常量变量时保留图并不编造相关统计。
+
+DepMap 使用全部提供的 Chronos 基因列，用户导出相对官方完整 release 的完整性未验证。保留原始十个函数体，测试对照 [用户提供的统计核心](docs/USER_SUPPLIED_ANALYSIS.R)。运行时 I/O 适配器只读 Parquet，最终 workflow 复用统计前缀并独立制图。
+
+`CN_log=log2(relative CN+1)`，CN-low `<0.585`，Deep `<0.35`，均为分析定义，不是官方 GISTIC 分类。`Delta_median=median(low)-median(nonlow)`：负值表示 CN-low 组依赖更强。全筛选 Wilcoxon/BH-FDR/效应与历史数值保持一致；主排名 `Eligible_Rank` 排除 undefined FDR，历史 Rank 仅用于复核。Targeted scatter 使用 relative CN，并明确保留表中的历史 CN_log Pearson/Spearman。**所有结果描述相关或依赖差异，不作因果解释。**
+
+## 验证与维护
+
+```bat
+Rscript --vanilla tests/run_synthetic_tests.R
+C:/Python312/python.exe tests/test_git_size_guard.py
+C:/Python312/python.exe scripts/utils/validate_final_sources.py --case VPS4B_VPS4A_Analysis
+```
+
+普通工作流内置验证排序、五级计数、点数、相关独立复算、BH、组别和文件索引；每个模块缓存包括输入/代码/参数和输出哈希。数据库下载/重新预处理只通过 [独立维护命令](docs/FINAL_WORKFLOWS.md#独立数据库维护) 或既有 scripts/download、scripts/preprocess 执行。初始环境准备见 [DATA_SETUP](docs/DATA_SETUP.md)，数据库来源见 [DATA_SOURCES](docs/DATA_SOURCES.md)。
+
+## GitHub
+
+每次任务先 pull，完成代码或分析后必须 commit/push main；仅上传代码、文档、测试和小型结果。结果目录对所有基因开放跟踪。使用 `scripts/utils/git_size_guard.py stage` 在 staging 前拒绝 >50 MB、raw/processed/runtime/cache/数据库或凭据；pre-commit 检查实际 index。安装 hook：`git config core.hooksPath .githooks`。代码 push 后等待 [R synthetic validation](.github/workflows/ci.yml) success，并确认工作区 clean 与本地/远程 SHA 一致。纯结果更新不触发 CI。
+
+代码为 MIT License；数据使用条款独立适用。已授权保留的历史 [CD44 补充分析](modules/CD44_PanCancer/README.md) 为显式专项脚本，不加入默认 workflow。

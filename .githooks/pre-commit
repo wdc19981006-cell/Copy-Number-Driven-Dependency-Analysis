@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -euo pipefail
+/c/Python312/python.exe "$(cygpath -m "$(git rev-parse --show-toplevel)")/scripts/utils/git_size_guard.py" audit

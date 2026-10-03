@@ -16,28 +16,43 @@ suppressPackageStartupMessages({
 })
 options(stringsAsFactors=FALSE,scipen=999)
 data.table::setDTthreads(4)
-option_list <- list(make_option("--mode",default="targeted_dependency"),make_option("--geneA",default="ENO1"),
- make_option("--geneB",default="ENO2"),make_option("--project",default="."),
+option_list <- list(make_option("--mode",default=NULL),make_option("--workflow",default=NULL),make_option("--geneA",default=NULL),
+ make_option("--geneB",default=NULL),make_option("--project",default="."),make_option("--data_mode",default="local"),
+ make_option("--force",action="store_true",default=FALSE),
  make_option("--bootstrap",type="integer",default=1000),make_option("--min_group_n",type="integer",default=3),make_option("--output_case",default=NULL))
 opt <- parse_args(OptionParser(option_list=option_list))
-MODE <- opt$mode;GENE_A <- toupper(opt$geneA);GENE_B <- toupper(opt$geneB)
-GENE_B_PROVIDED <- any(root_arg=="--geneB"|startsWith(root_arg,"--geneB="))
+WORKFLOW <- opt$workflow
+if(!is.null(WORKFLOW)&&!is.null(opt$mode))stop("Choose --workflow or --mode")
+if(!identical(opt$data_mode,"local"))stop("Ordinary analysis requires DATA_MODE=local. Use separate maintenance commands.")
+if(!is.null(WORKFLOW)&&!WORKFLOW %in% c("geneA_screen","geneA_geneB"))stop("Unsupported workflow")
+if(!is.null(WORKFLOW)&&is.null(opt$geneA))stop("--geneA is required for a workflow")
+GENE_B_PROVIDED <- !is.null(opt$geneB)
+if(identical(WORKFLOW,"geneA_geneB")&&!GENE_B_PROVIDED)stop("geneA_geneB requires --geneB")
+if(identical(WORKFLOW,"geneA_screen")&&GENE_B_PROVIDED)stop("Use geneA_geneB when providing --geneB")
+MODE <- if(is.null(opt$mode))"targeted_dependency" else opt$mode
+GENE_A <- toupper(if(is.null(opt$geneA))"ENO1" else opt$geneA)
+GENE_B <- toupper(if(GENE_B_PROVIDED)opt$geneB else if(is.null(WORKFLOW))"ENO2" else "")
 if(MODE=="genomewide_adjusted_dependency"&&!GENE_B_PROVIDED)GENE_B<-"ALL"
 BOOT_R <- opt$bootstrap;MIN_N <- opt$min_group_n
-stopifnot(BOOT_R>0,MIN_N>=3,grepl("^[A-Z0-9_.-]+$",GENE_A),grepl("^[A-Z0-9_.-]+$",GENE_B))
-DEPMAP_DIR <- file.path(PROJECT_ROOT,"data/raw/depmap/26Q1")
+stopifnot(BOOT_R>0,MIN_N>=3,grepl("^[A-Z0-9_.-]+$",GENE_A),!nzchar(GENE_B)||grepl("^[A-Z0-9_.-]+$",GENE_B))
 RESULT_ROOT <- file.path(PROJECT_ROOT,"results",paste0(GENE_A,"_",GENE_B))
+if(!is.null(WORKFLOW))RESULT_ROOT<-file.path(PROJECT_ROOT,"results",paste0(GENE_A,if(GENE_B_PROVIDED)paste0("_",GENE_B),"_Analysis"))
 if(MODE=="genomewide_adjusted_dependency"&&!GENE_B_PROVIDED)RESULT_ROOT<-file.path(PROJECT_ROOT,"results",paste0(GENE_A,"_GenomeWide"))
 if(!is.null(opt$output_case)){
  if(!grepl("^[A-Za-z0-9_.-]+$",opt$output_case)||opt$output_case %in% c(".",".."))stop("Invalid output case folder")
  RESULT_ROOT<-file.path(PROJECT_ROOT,"results",opt$output_case)
 }
-canonical <- c(model="Model.csv",condition="ModelCondition.csv",profiles="OmicsProfiles.csv",cn="CopyNumber_WGS_26Q1.csv",
- expression="Expression_26Q1.csv",chronos="CRISPR_Chronos_26Q1.csv",dependency="CRISPR_GeneDependency_26Q1.csv",
- damaging="Mutation_Damaging_26Q1.csv",hotspot="Mutation_Hotspot_26Q1.csv",signatures="OmicsSignatures_26Q1.csv",subtype="MolecularSubtypes_26Q1.csv")
-FILES <- as.list(setNames(file.path(DEPMAP_DIR,canonical),names(canonical)))
 for(script in c("data_access.R","plotting.R","dependency_screen.R","lineage_analysis.R","adapters.R","additional_modes.R","tcga_analysis.R","extensions_statistics.R","extension_modules.R","extension_summary.R"))
  source(file.path(PROJECT_ROOT,"scripts/R",script),encoding="UTF-8")
+source(file.path(PROJECT_ROOT,"scripts/R/local_data.R"),encoding="UTF-8")
+FILES <- depmap_files(PROJECT_ROOT)
+check_file <- local_required
+if(!is.null(WORKFLOW)) {
+ for(script in c("workflow_statistics.R","workflow_plots.R","final_workflow.R"))
+  source(file.path(PROJECT_ROOT,"scripts/R",script),encoding="UTF-8")
+ run_final_workflow()
+ quit(save="no",status=0)
+}
 dir.create(RESULT_ROOT,recursive=TRUE,showWarnings=FALSE)
 for(folder in unname(OUTPUT_DIRS))dir.create(file.path(RESULT_ROOT,folder),recursive=TRUE,showWarnings=FALSE)
 dir.create(file.path(RESULT_ROOT,"Summary"),showWarnings=FALSE)
@@ -59,6 +74,15 @@ modes <- if(MODE=="full")setdiff(names(fun),c("genomewide_expression_dependency"
 if(any(!modes %in% names(fun)))stop("Unsupported mode: ",MODE)
 msg(R.version.string," | ",GENE_A," -> ",GENE_B," | ",MODE)
 for(mode in modes){
+ required_inputs<-switch(mode,qc=c("cn","expression","chronos","model"),
+  depmap_cn_expression=c("cn","expression","chronos"),genomewide_dependency=c("cn","chronos"),
+  targeted_dependency=c("cn","chronos"),lineage_dependency=c("cn","chronos","model"),
+  adjusted_dependency=c("cn","chronos","model"),reverse_dependency=c("cn","chronos"),
+  mutation_dependency=c("damaging","hotspot","chronos"),cn_covariation="cn",
+  cn_threshold_sensitivity=c("cn","chronos"),expression_dependency=c("expression","chronos"),
+  genomewide_expression_dependency=c("expression","chronos"),
+  genomewide_adjusted_dependency=c("cn","chronos","model"),character())
+ for(key in required_inputs)local_required(FILES[[key]])
  start <- Sys.time();state <- "completed";detail <- ""
  tryCatch({fun[[mode]]();finalize_outputs(mode)},error=function(e){state<<-"failed";detail<<-conditionMessage(e)})
  if(!is.null(MODULE_SKIP)){state<-"skipped";detail<-MODULE_SKIP;MODULE_SKIP<-NULL}

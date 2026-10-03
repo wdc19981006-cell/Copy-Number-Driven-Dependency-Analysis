@@ -1,0 +1,264 @@
+==================================================
+Copy Number–Driven Dependency Analysis
+==================================================
+
+Gene A: VPS4B
+Gene B: VPS4A
+TCGA: TCGA Pan-Cancer
+DepMap: Public 26Q1
+Run date: 2026-10-03 16:21:43 CST
+DATA_MODE: local（仅读取本地 processed 数据）
+TCGA 主图统一使用 reference 层；当前 DR46 可用性与真实来源见 Provenance。
+DepMap 为用户提供的 26Q1 导出文件；相对官方完整 release 的完整性未验证。
+CN-low: log2(relative CN + 1) < 0.585；分析定义，不是五级 GISTIC。
+
+==================================================
+01_TCGA_VPS4B_CNA_Percentage.pdf
+==================================================
+文件/目录： Main_Results/01_TCGA_VPS4B_CNA_Percentage.pdf
+数据：
+TCGA
+用途/怎么看：
+展示 VPS4B 的五级 CNA 比例：Deep Deletion、Shallow Deletion、Diploid、Gain、Amplification；观察缺失比例。
+
+==================================================
+02_TCGA_VPS4B_CopyNumber_Landscape.pdf
+==================================================
+文件/目录： Main_Results/02_TCGA_VPS4B_CopyNumber_Landscape.pdf
+数据：
+TCGA
+用途/怎么看：
+每个灰点为一个 TCGA tumor sample；箱线图保留全部有限 CN；标签 n 为实际有效样本数；从上到下按 median CN 递增。
+
+==================================================
+03_TCGA_CN_mRNA
+==================================================
+文件/目录： Main_Results/03_TCGA_CN_mRNA
+数据：
+TCGA
+用途/怎么看：
+逐癌种检验 VPS4B CN 与自身 mRNA 的关系；每张图含 N、Pearson、Spearman、黑色回归线与五级 CNA 百分比。N < 20 不报告相关统计。
+
+==================================================
+04_DepMap_VPS4B_CN_vs_VPS4A_Dependency.pdf
+==================================================
+文件/目录： Main_Results/04_DepMap_VPS4B_CN_vs_VPS4A_Dependency.pdf
+数据：
+DepMap
+用途/怎么看：
+VPS4B relative CN 与 VPS4A dependency 的相关性；右上相关统计使用 relative CN。表中另保留历史 CN_log 统计。
+
+==================================================
+05_DepMap_VPS4A_Dependency_Waterfall.pdf
+==================================================
+文件/目录： Main_Results/05_DepMap_VPS4A_Dependency_Waterfall.pdf
+数据：
+DepMap
+用途/怎么看：
+匹配细胞按 Chronos 从高到低排序，即弱依赖到强依赖；黑色为 CN-Normal，红色为 CN-Low；参考线为 -1。
+
+==================================================
+06_DepMap_VPS4A_Dependency_CNlow_vs_Normal.pdf
+==================================================
+文件/目录： Main_Results/06_DepMap_VPS4A_Dependency_CNlow_vs_Normal.pdf
+数据：
+DepMap
+用途/怎么看：
+比较 CN-Normal 与 CN-Low 的 Chronos；展示全部点、各组 N、median、Delta median、Wilcoxon P 与显著性星号。
+
+==================================================
+07_DepMap_VPS4B_GenomeWide_Dependency_Volcano.pdf
+==================================================
+文件/目录： Main_Results/07_DepMap_VPS4B_GenomeWide_Dependency_Volcano.pdf
+数据：
+DepMap
+用途/怎么看：
+完整本地 Chronos genome 筛选；Chronos 越负依赖越强。Delta median < 0 表示 CN-low 组依赖更强；用户排名为 Eligible_Rank。图标记每侧 Top10；候选表保留每侧 Top20。
+
+==================================================
+08_DepMap_VPS4B_CN_Covariation.pdf
+==================================================
+文件/目录： Main_Results/08_DepMap_VPS4B_CN_Covariation.pdf
+数据：
+DepMap
+用途/怎么看：
+CN 共变图展示正相关 Top20 与负相关 Top20；正相关表示 CN 往往同向变化，负相关表示往往反向变化；这是相关性，不是因果关系。
+
+==================================================
+Supplementary
+==================================================
+01_Lineage：各 OncotreeLineage 内 CN-low vs nonlow 的 dependency；小组不够 N 时明确不检验。
+02_Adjusted：Chronos ~ CN_log + Lineage，并保留二元 CN-low 调整表。
+03_CN_Threshold_Sensitivity：固定预设 cutoff 的稳健性分析；不为预期结果调整阈值。
+
+==================================================
+Key Findings
+==================================================
+- VPS4B deletion 比例最高的癌种：READ 86.7%；TGCT 82.7%；PAAD 67.4%
+- CN-mRNA：33 癌种图；31 癌种 Pearson BH-FDR < 0.05。
+- VPS4A Eligible_Rank：1
+- CN-low N=76；CN-normal N=782。
+- median Chronos：low -0.87545；normal -0.31471；Delta -0.56074。
+- Wilcoxon P <2e-16；CN_log Pearson r 0.4831；Spearman rho 0.4571。
+- 同方向且 FDR < 0.05 的 lineage：Head and Neck、Soft Tissue、Breast、Lung、Pancreas、Esophagus/Stomach、Uterus、Lymphoid
+- 以上为观察性相关与依赖差异，不能解释为 CN 缺失导致 dependency 或其他基因 CN 改变。
+
+==================================================
+File Index
+==================================================
+01 Main_Results/01_TCGA_VPS4B_CNA_Percentage.pdf
+作用： 展示 VPS4B 的五级 CNA 比例：Deep Deletion、Shallow Deletion、Diploid、Gain、Amplification；观察缺失比例。
+02 Main_Results/02_TCGA_VPS4B_CopyNumber_Landscape.pdf
+作用： 每个灰点为一个 TCGA tumor sample；箱线图保留全部有限 CN；标签 n 为实际有效样本数；从上到下按 median CN 递增。
+03 Main_Results/03_TCGA_CN_mRNA/ACC_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+04 Main_Results/03_TCGA_CN_mRNA/BLCA_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+05 Main_Results/03_TCGA_CN_mRNA/BRCA_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+06 Main_Results/03_TCGA_CN_mRNA/CESC_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+07 Main_Results/03_TCGA_CN_mRNA/CHOL_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+08 Main_Results/03_TCGA_CN_mRNA/COAD_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+09 Main_Results/03_TCGA_CN_mRNA/DLBC_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+10 Main_Results/03_TCGA_CN_mRNA/ESCA_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+11 Main_Results/03_TCGA_CN_mRNA/GBM_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+12 Main_Results/03_TCGA_CN_mRNA/HNSC_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+13 Main_Results/03_TCGA_CN_mRNA/KICH_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+14 Main_Results/03_TCGA_CN_mRNA/KIRC_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+15 Main_Results/03_TCGA_CN_mRNA/KIRP_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+16 Main_Results/03_TCGA_CN_mRNA/LAML_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+17 Main_Results/03_TCGA_CN_mRNA/LGG_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+18 Main_Results/03_TCGA_CN_mRNA/LIHC_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+19 Main_Results/03_TCGA_CN_mRNA/LUAD_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+20 Main_Results/03_TCGA_CN_mRNA/LUSC_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+21 Main_Results/03_TCGA_CN_mRNA/MESO_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+22 Main_Results/03_TCGA_CN_mRNA/OV_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+23 Main_Results/03_TCGA_CN_mRNA/PAAD_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+24 Main_Results/03_TCGA_CN_mRNA/PCPG_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+25 Main_Results/03_TCGA_CN_mRNA/PRAD_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+26 Main_Results/03_TCGA_CN_mRNA/READ_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+27 Main_Results/03_TCGA_CN_mRNA/SARC_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+28 Main_Results/03_TCGA_CN_mRNA/SKCM_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+29 Main_Results/03_TCGA_CN_mRNA/STAD_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+30 Main_Results/03_TCGA_CN_mRNA/TGCT_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+31 Main_Results/03_TCGA_CN_mRNA/THCA_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+32 Main_Results/03_TCGA_CN_mRNA/THYM_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+33 Main_Results/03_TCGA_CN_mRNA/UCEC_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+34 Main_Results/03_TCGA_CN_mRNA/UCS_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+35 Main_Results/03_TCGA_CN_mRNA/UVM_VPS4B_CN_mRNA.pdf
+作用： VPS4B 在该癌种 CN 与自身 mRNA 的散点和统计
+36 Main_Results/04_DepMap_VPS4B_CN_vs_VPS4A_Dependency.pdf
+作用： VPS4B relative CN 与 VPS4A dependency 的相关性；右上相关统计使用 relative CN。表中另保留历史 CN_log 统计。
+37 Main_Results/05_DepMap_VPS4A_Dependency_Waterfall.pdf
+作用： 匹配细胞按 Chronos 从高到低排序，即弱依赖到强依赖；黑色为 CN-Normal，红色为 CN-Low；参考线为 -1。
+38 Main_Results/06_DepMap_VPS4A_Dependency_CNlow_vs_Normal.pdf
+作用： 比较 CN-Normal 与 CN-Low 的 Chronos；展示全部点、各组 N、median、Delta median、Wilcoxon P 与显著性星号。
+39 Main_Results/07_DepMap_VPS4B_GenomeWide_Dependency_Volcano.pdf
+作用： 完整本地 Chronos genome 筛选；Chronos 越负依赖越强。Delta median < 0 表示 CN-low 组依赖更强；用户排名为 Eligible_Rank。图标记每侧 Top10；候选表保留每侧 Top20。
+40 Main_Results/08_DepMap_VPS4B_CN_Covariation.pdf
+作用： CN 共变图展示正相关 Top20 与负相关 Top20；正相关表示 CN 往往同向变化，负相关表示往往反向变化；这是相关性，不是因果关系。
+41 Provenance/Cache_adjusted_dependency.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+42 Provenance/Cache_cn_covariation.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+43 Provenance/Cache_cn_threshold_sensitivity.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+44 Provenance/Cache_genomewide_dependency.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+45 Provenance/Cache_lineage_dependency.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+46 Provenance/Cache_targeted_dependency.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+47 Provenance/Cache_tcga.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+48 Provenance/Input_Versions.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+49 Provenance/Input_Versions.txt
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+50 Provenance/Module_Runs.csv
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+51 Provenance/Run_Metadata.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+52 Provenance/SessionInfo.txt
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+53 Provenance/Source_Metadata.txt
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+54 Provenance/TCGA_Plot_Order.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+55 Provenance/Validation.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+56 Supplementary/01_Lineage/Lineage_Dependency_Forest.pdf
+作用： lineage、调整模型或固定 CN cutoff 的补充结果
+57 Supplementary/02_Adjusted/Adjusted_CN_Coefficient.pdf
+作用： lineage、调整模型或固定 CN cutoff 的补充结果
+58 Supplementary/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.pdf
+作用： lineage、调整模型或固定 CN cutoff 的补充结果
+59 Tables/CNLow_Adjusted.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+60 Tables/CN_Threshold_Continuous_Statistics.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+61 Tables/CN_Threshold_Sensitivity.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+62 Tables/Continuous_CN_Adjusted.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+63 Tables/GenomeWide_Dependency.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+64 Tables/Lineage_Dependency.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+65 Tables/Lineage_Eligibility.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+66 Tables/TCGA_CNA_Percentage.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+67 Tables/TCGA_CN_mRNA_CNA_Counts.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+68 Tables/TCGA_Cancer_Order.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+69 Tables/TCGA_Reference_Samples.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+70 Tables/TCGA_VPS4B_CN_mRNA_AllCancer_Statistics.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+71 Tables/Top_CN_Covariation.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+72 Tables/Top_Dependency_Candidates.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+73 Tables/VPS4B_CN_Covariation.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+74 Tables/VPS4B_VPS4A_CellLines.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+75 Tables/VPS4B_VPS4A_Targeted_Statistics.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+76 Tables/VPS4B_VPS4A_Waterfall_Order.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+00_Analysis_Summary.txt
+作用：中文结果阅读指南、关键统计与文件索引。
+Provenance/File_Index.csv
+作用：本目录完整文件清单（包括本清单与 Summary）。

@@ -1,0 +1,74 @@
+{
+  "module": "cn_covariation",
+  "key": "5dd35b26a4d9eeb6e38592ebf864b4476f379f5392cd44719c8d03f4e486e11f",
+  "parameters": {
+    "geneA": "VPS4B",
+    "geneB": {},
+    "geneB_provided": {},
+    "workflow": "geneA_geneB",
+    "bootstrap": {},
+    "min_group_n": 3,
+    "low": 0.585,
+    "deep": 0.35,
+    "seed": 1234,
+    "thresholds": [
+      0.585,
+      0.5,
+      0.4,
+      0.35
+    ]
+  },
+  "parameter_hash": "23f1fad991061199e33f5ce9aa6dbc293a58d66ff77f367e32ea184f93a51922",
+  "code_hash": "b2e216566798590ff6d3e693c6800705e2c86e6e6840ae6f4bf17b23c4342801",
+  "code_functions": [
+    "covariation_statistics",
+    "covariation_top",
+    "covariation_plot",
+    "wf_run_covariation",
+    "prepare_cn",
+    "load_target_pair",
+    "read_gene",
+    "load_model",
+    "fread",
+    "find_gene_col",
+    "clean_gene",
+    "processed_depmap",
+    "processed_pair",
+    "wf_write",
+    "workflow_save",
+    "workflow_theme",
+    "save_pdf",
+    "wf_expected",
+    "workflow_paths",
+    "wf_validate_artifact",
+    "p_text",
+    "p_star"
+  ],
+  "data_versions": [
+    {
+      "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+      "bytes": 218424120,
+      "mtime": "2026-10-02T17:52:03.793706+0800",
+      "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+      "provenance": {
+        "release": "26Q1",
+        "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+        "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+        "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+        "created_at": "2026-10-02T17:52:04+08:00",
+        "source_type": "user_supplied_portal_export",
+        "full_release_completeness": "unverified",
+        "orientation": "models x gene symbols"
+      }
+    }
+  ],
+  "outputs": {
+    "Main_Results/08_DepMap_VPS4B_CN_Covariation.pdf": "cac66bd80336e5f76479deb2d2ae004ddbbc78e067c95201ecd7585a84c68b6a",
+    "Tables/VPS4B_CN_Covariation.csv": "e71097915df763ef31c1655c8b25e98af483d77ab761a8b399743de08c96133b",
+    "Tables/Top_CN_Covariation.csv": "16926677b8f5931384dd18361ab3ce03b2311935643b030b9c4ddf4dadc823c1"
+  },
+  "validated": true,
+  "redraw_only": true,
+  "previous_code_hash": "b5d29fbf3283c96070d14cb98ee9cc28a0809e236aaecfddaeb1bc828ae86e69",
+  "fingerprint_format": "deparsed source text; validated cache metadata migration only; statistics unchanged"
+}

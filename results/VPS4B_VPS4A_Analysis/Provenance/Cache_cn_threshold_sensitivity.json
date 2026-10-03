@@ -1,0 +1,89 @@
+{
+  "module": "cn_threshold_sensitivity",
+  "key": "c2f9c52a7af2e46076e32f6f3d11304e42b26a117889c8e1a2ec3def457522d9",
+  "parameters": {
+    "geneA": "VPS4B",
+    "geneB": "VPS4A",
+    "geneB_provided": {},
+    "workflow": "geneA_geneB",
+    "bootstrap": {},
+    "min_group_n": 3,
+    "low": 0.585,
+    "deep": 0.35,
+    "seed": 1234,
+    "thresholds": [
+      0.585,
+      0.5,
+      0.4,
+      0.35
+    ]
+  },
+  "parameter_hash": "a59ab4525a31cdc1ef7ccbf88303ba1d0dcf75569790ec62780fa1ab850cbbc3",
+  "code_hash": "52859b37545d15904cde02bcea1085df7bccb95578b73998bf345bdda06ddc0a",
+  "code_functions": [
+    "run_threshold_sensitivity",
+    "cn_threshold_statistics",
+    "group_effect",
+    "wf_run_supplement",
+    "prepare_cn",
+    "load_target_pair",
+    "read_gene",
+    "load_model",
+    "fread",
+    "find_gene_col",
+    "clean_gene",
+    "processed_depmap",
+    "processed_pair",
+    "wf_write",
+    "workflow_save",
+    "workflow_theme",
+    "save_pdf",
+    "wf_expected",
+    "workflow_paths",
+    "wf_validate_artifact",
+    "p_text",
+    "p_star"
+  ],
+  "data_versions": [
+    {
+      "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+      "bytes": 218424120,
+      "mtime": "2026-10-02T17:52:03.793706+0800",
+      "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+      "provenance": {
+        "release": "26Q1",
+        "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+        "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+        "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+        "created_at": "2026-10-02T17:52:04+08:00",
+        "source_type": "user_supplied_portal_export",
+        "full_release_completeness": "unverified",
+        "orientation": "models x gene symbols"
+      }
+    },
+    {
+      "path": "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet",
+      "bytes": 232669929,
+      "mtime": "2026-10-02T17:52:29.330560+0800",
+      "prepared_sha256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+      "provenance": {
+        "release": "26Q1",
+        "raw_sha256": "55fdef5bccdf78116aa4c790febc09a6815b143e7c11a7095cbb930adf8dc51d",
+        "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+        "raw_source": "data/raw/depmap/26Q1/CRISPR_Chronos_26Q1.csv",
+        "created_at": "2026-10-02T17:52:30+08:00",
+        "source_type": "user_supplied_portal_export",
+        "full_release_completeness": "unverified",
+        "orientation": "models x gene symbols"
+      }
+    }
+  ],
+  "outputs": {
+    "Supplementary/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.pdf": "98ebf42fb6b751952c50e03608c6449129b8f00be4da53e04bbe8cae2ad0b848",
+    "Tables/CN_Threshold_Sensitivity.csv": "70f155beba59d82e4c51c193ad6c603d859a61995509bdc8115abb254eaa41f6",
+    "Tables/CN_Threshold_Continuous_Statistics.csv": "d91ccb0a8c7cbbfb337538b99922790ebcf99c95aae210b1752fc80e56a9af25"
+  },
+  "validated": true,
+  "previous_code_hash": "0ca57d7725e305dd4754aa033858c527f9f02a848e126c9e57ec2b6eda4605be",
+  "fingerprint_format": "deparsed source text; validated cache metadata migration only; statistics unchanged"
+}

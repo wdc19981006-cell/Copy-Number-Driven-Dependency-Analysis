@@ -1,0 +1,9 @@
+{
+  "DATA_MODE": "local",
+  "TCGA_main_layer": "pancanatlas_reference",
+  "DepMap_release": "26Q1",
+  "workflow_modules": {
+    "geneA_screen": ["tcga", "genomewide_dependency", "cn_covariation"],
+    "geneA_geneB": ["tcga", "targeted_dependency", "lineage_dependency", "adjusted_dependency", "cn_threshold_sensitivity", "genomewide_dependency", "cn_covariation"]
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "module": "tcga",
+  "key": "bea69d2da5dad8b2adbf80547dade02ae6a7fd62695b7105016f0a498824da31",
+  "parameters": {
+    "geneA": "VPS4B",
+    "geneB": {},
+    "geneB_provided": {},
+    "workflow": "geneA_geneB",
+    "bootstrap": {},
+    "min_group_n": 3,
+    "low": 0.585,
+    "deep": 0.35,
+    "seed": 1234,
+    "thresholds": [
+      0.585,
+      0.5,
+      0.4,
+      0.35
+    ]
+  },
+  "parameter_hash": "23f1fad991061199e33f5ce9aa6dbc293a58d66ff77f367e32ea184f93a51922",
+  "code_hash": "fcfb86bb51f57199c0aebd6af46791e9358ee0773012ff2cc159d17bef6e0cce",
+  "code_functions": [
+    "cancer_order",
+    "ordered_cancer",
+    "reference_cancer_statistics",
+    "reference_prevalence",
+    "tcga_prevalence_plot",
+    "tcga_landscape_plot",
+    "tcga_expression_plot",
+    "wf_run_tcga",
+    "pair_correlations",
+    "prepare_cn",
+    "load_target_pair",
+    "read_gene",
+    "load_model",
+    "fread",
+    "find_gene_col",
+    "clean_gene",
+    "processed_depmap",
+    "processed_pair",
+    "wf_write",
+    "workflow_save",
+    "workflow_theme",
+    "save_pdf",
+    "wf_expected",
+    "workflow_paths",
+    "wf_validate_artifact",
+    "p_text",
+    "p_star"
+  ],
+  "data_versions": [
+    {
+      "path": "data/processed/tcga/pancanatlas_reference/CN.parquet",
+      "bytes": 488879753,
+      "mtime": "2026-10-02T16:13:29.403266+0800",
+      "prepared_sha256": "e9e0e0b90df2bc5c13dca4474455735aff4ef614f7a95c092f0b4ec306009e3a",
+      "provenance": {
+        "source": "data/raw/tcga/pancanatlas_reference/Gistic2_CopyNumber_Gistic2_all_data_by_genes.tsv.gz",
+        "source_sha256": "9f98810361c9d0e262c79da256ab5b663b0530f890348200b9ce0ed40dd9b1b6",
+        "output_sha256": "e9e0e0b90df2bc5c13dca4474455735aff4ef614f7a95c092f0b4ec306009e3a",
+        "created_at": "2026-10-02T16:13:31+08:00",
+        "processor_version": "tcga-gene-vectors-v1",
+        "qc": {
+          "rows": 24776,
+          "columns": 3,
+          "row_groups": 24776,
+          "compression": [
+            "ZSTD"
+          ],
+          "samples": 10845,
+          "genes": 24776,
+          "duplicate_gene_labels": 0,
+          "missing_cells": 0,
+          "min": -1.293,
+          "max": 3.657,
+          "sample_id_format": "passed",
+          "parsed_all_rows": true
+        },
+        "reference_relocated_at": "2026-10-02T16:47:09+08:00"
+      }
+    },
+    {
+      "path": "data/processed/tcga/pancanatlas_reference/GISTIC.parquet",
+      "bytes": 76785441,
+      "mtime": "2026-10-02T16:15:04.323812+0800",
+      "prepared_sha256": "129b60f47d0298bfff4ea72464eebb8225a4bc93f28dee7cfe8c994d743a397d",
+      "provenance": {
+        "source": "data/raw/tcga/pancanatlas_reference/Gistic2_CopyNumber_Gistic2_all_thresholded.by_genes.tsv.gz",
+        "source_sha256": "818e3a5ed5a9c0b8e7d7da73cacba48d79a75e0fa515694e381f4ae7e58ae6ce",
+        "output_sha256": "129b60f47d0298bfff4ea72464eebb8225a4bc93f28dee7cfe8c994d743a397d",
+        "created_at": "2026-10-02T16:15:04+08:00",
+        "processor_version": "tcga-gene-vectors-v1",
+        "qc": {
+          "rows": 24776,
+          "columns": 3,
+          "row_groups": 24776,
+          "compression": [
+            "ZSTD"
+          ],
+          "samples": 10845,
+          "genes": 24776,
+          "duplicate_gene_labels": 0,
+          "missing_cells": 0,
+          "min": -2,
+          "max": 2,
+          "sample_id_format": "passed",
+          "parsed_all_rows": true
+        },
+        "reference_relocated_at": "2026-10-02T16:47:09+08:00"
+      }
+    },
+    {
+      "path": "data/processed/tcga/pancanatlas_reference/Expression.parquet",
+      "bytes": 1545181917,
+      "mtime": "2026-10-02T16:18:12.761396+0800",
+      "prepared_sha256": "56036633721e29973022333c67ce57c6de34504a1ec1e16934050e7fcf3e5506",
+      "provenance": {
+        "source": "data/raw/tcga/pancanatlas_reference/tcga_RSEM_Hugo_norm_count.tsv.gz",
+        "source_sha256": "fdf320a8fb80ab9dc9b9ca230a3221b66be4023efde10fa6a71aea1569b4c023",
+        "output_sha256": "56036633721e29973022333c67ce57c6de34504a1ec1e16934050e7fcf3e5506",
+        "created_at": "2026-10-02T16:18:15+08:00",
+        "processor_version": "tcga-gene-vectors-v1",
+        "qc": {
+          "rows": 58581,
+          "columns": 3,
+          "row_groups": 58581,
+          "compression": [
+            "ZSTD"
+          ],
+          "samples": 10535,
+          "genes": 58581,
+          "duplicate_gene_labels": 0,
+          "missing_cells": 0,
+          "min": 0,
+          "max": 24.912,
+          "sample_id_format": "passed",
+          "parsed_all_rows": true
+        },
+        "reference_relocated_at": "2026-10-02T16:47:09+08:00"
+      }
+    },
+    {
+      "path": "data/processed/tcga/pancanatlas_reference/Metadata.parquet",
+      "bytes": 110166,
+      "mtime": "2026-10-02T16:18:16.161470+0800",
+      "prepared_sha256": "240e3a3dc7cefc014b39b7728886a63a0cbc58034be9686bf89298c738c4303b",
+      "provenance": {
+        "source": "data/raw/tcga/pancanatlas_reference/TCGA_phenotype_denseDataOnlyDownload.tsv.gz",
+        "source_sha256": "ac3923bb155ada3391b653a811f6c8c9c4734593b0c2b0a1555728928d83e5a2",
+        "output_sha256": "240e3a3dc7cefc014b39b7728886a63a0cbc58034be9686bf89298c738c4303b",
+        "created_at": "2026-10-02T16:18:16+08:00",
+        "processor_version": "tcga-gene-vectors-v1",
+        "reference_relocated_at": "2026-10-02T16:47:09+08:00"
+      }
+    },
+    {
+      "path": "data/processed/tcga/pancanatlas_reference/CN.genes.parquet",
+      "bytes": 381493,
+      "mtime": "2026-10-02T16:13:29.507102+0800",
+      "prepared_sha256": {},
+      "provenance": {}
+    },
+    {
+      "path": "data/processed/tcga/pancanatlas_reference/CN.samples.parquet",
+      "bytes": 98723,
+      "mtime": "2026-10-02T16:13:29.474720+0800",
+      "prepared_sha256": {},
+      "provenance": {}
+    },
+    {
+      "path": "data/processed/tcga/pancanatlas_reference/GISTIC.genes.parquet",
+      "bytes": 381493,
+      "mtime": "2026-10-02T16:15:04.394569+0800",
+      "prepared_sha256": {},
+      "provenance": {}
+    },
+    {
+      "path": "data/processed/tcga/pancanatlas_reference/GISTIC.samples.parquet",
+      "bytes": 98723,
+      "mtime": "2026-10-02T16:15:04.369424+0800",
+      "prepared_sha256": {},
+      "provenance": {}
+    },
+    {
+      "path": "data/processed/tcga/pancanatlas_reference/Expression.genes.parquet",
+      "bytes": 979689,
+      "mtime": "2026-10-02T16:18:12.876914+0800",
+      "prepared_sha256": {},
+      "provenance": {}
+    },
+    {
+      "path": "data/processed/tcga/pancanatlas_reference/Expression.samples.parquet",
+      "bytes": 97028,
+      "mtime": "2026-10-02T16:18:12.831909+0800",
+      "prepared_sha256": {},
+      "provenance": {}
+    }
+  ],
+  "outputs": {
+    "Main_Results/01_TCGA_VPS4B_CNA_Percentage.pdf": "c828e725440944b368e3a8ae28f5e468c3e08d988c31ddee80acd2d230d2f6af",
+    "Main_Results/02_TCGA_VPS4B_CopyNumber_Landscape.pdf": "2ba0847d0c3dda886d9d0a36e6d9126f3ea3f73d905d824c50770601bb5efef6",
+    "Main_Results/03_TCGA_CN_mRNA/ACC_VPS4B_CN_mRNA.pdf": "5cd861cc7fc978e0fe72674387a36bac14137bb795e48e76951e54ffb7330ffa",
+    "Main_Results/03_TCGA_CN_mRNA/BLCA_VPS4B_CN_mRNA.pdf": "770cda7fa93037af2267fd0d8322551fb15633250a9285c2135da2577e2767a2",
+    "Main_Results/03_TCGA_CN_mRNA/BRCA_VPS4B_CN_mRNA.pdf": "d6ca066ab19c3b45e47d4fc1688fbfbe43e6777d6365aa7416e42ec445aff4a6",
+    "Main_Results/03_TCGA_CN_mRNA/CESC_VPS4B_CN_mRNA.pdf": "419301cf119bd45ca4e0eab1e8f582ae29344d541f916858a8d17cc143b7e8fa",
+    "Main_Results/03_TCGA_CN_mRNA/CHOL_VPS4B_CN_mRNA.pdf": "a2d79b4f7d864c9d259434441714f0ce5de670c8050677646f2007ba0b110f8c",
+    "Main_Results/03_TCGA_CN_mRNA/COAD_VPS4B_CN_mRNA.pdf": "3a7e9cc75bd47d01be6ac3161438d7e5c5cb507ae9133ec39a5ddca7161085de",
+    "Main_Results/03_TCGA_CN_mRNA/DLBC_VPS4B_CN_mRNA.pdf": "e3bc4ad54009cdc9d48ffb4f87496557ab164f8b5c58580075dcd5b1f2045899",
+    "Main_Results/03_TCGA_CN_mRNA/ESCA_VPS4B_CN_mRNA.pdf": "f1758a74b3d2d39a9ea5fd79575ba873c745aff9aa4be6ed55e65ea782a08e98",
+    "Main_Results/03_TCGA_CN_mRNA/GBM_VPS4B_CN_mRNA.pdf": "ba647ce9ff174f6246e9fe3276e6d339abd6846898f49939f68d0e314bc7e4be",
+    "Main_Results/03_TCGA_CN_mRNA/HNSC_VPS4B_CN_mRNA.pdf": "3d72bf6c99632dbe189d3f3c050e6d41432ffa6883db76d30ed758ab25bdd5b4",
+    "Main_Results/03_TCGA_CN_mRNA/KICH_VPS4B_CN_mRNA.pdf": "e7408dd7a443d99e1f3955f51a6633eb16d5eb34cdc5d492663469865eb7eb05",
+    "Main_Results/03_TCGA_CN_mRNA/KIRC_VPS4B_CN_mRNA.pdf": "244d597b99327c8bbb4c20bc3eb515643cd10200d48c1cb3cd76d72735f9a81d",
+    "Main_Results/03_TCGA_CN_mRNA/KIRP_VPS4B_CN_mRNA.pdf": "08ecad93e0173aa56878b09341ee9387b170450147bd37c1510a2ec9365daecf",
+    "Main_Results/03_TCGA_CN_mRNA/LAML_VPS4B_CN_mRNA.pdf": "82e413ce1eeebcc7473b875d93a8d6985fb21a2bf640eb8bf831966598f7f70d",
+    "Main_Results/03_TCGA_CN_mRNA/LGG_VPS4B_CN_mRNA.pdf": "3ec7d951686f9cb7ad9be50be8cee1a889ad797f7857bf0adcc7d96fa8c031a6",
+    "Main_Results/03_TCGA_CN_mRNA/LIHC_VPS4B_CN_mRNA.pdf": "50997a1ffaf055d2a8416787fa7c04ca8d0e0624ed7d77371048c88ffe68e079",
+    "Main_Results/03_TCGA_CN_mRNA/LUAD_VPS4B_CN_mRNA.pdf": "b2d5ff355f85e9312ce9facbfecbc5467459d468bd27b47447ddd86683d6b891",
+    "Main_Results/03_TCGA_CN_mRNA/LUSC_VPS4B_CN_mRNA.pdf": "8b9b5cc349f0423e65506b702641b673b0f3d74672e6f2ab12b963c772df4b5e",
+    "Main_Results/03_TCGA_CN_mRNA/MESO_VPS4B_CN_mRNA.pdf": "22f94009632012d1f08d3d8340b34e649359581fa9970bb27029007f73e2d865",
+    "Main_Results/03_TCGA_CN_mRNA/OV_VPS4B_CN_mRNA.pdf": "f44825a1487d6e36e98f0ec3711c36a0f8cde83d07bfc72abebfa99cd42bfdc6",
+    "Main_Results/03_TCGA_CN_mRNA/PAAD_VPS4B_CN_mRNA.pdf": "b5247585f66a67335c98a255f7ce72438670dbea08650f6c1a02b91e350d29cb",
+    "Main_Results/03_TCGA_CN_mRNA/PCPG_VPS4B_CN_mRNA.pdf": "38acea741f68a0ce82ea6f523fe15f7254d151e609ae2a78a495af7efb54e91f",
+    "Main_Results/03_TCGA_CN_mRNA/PRAD_VPS4B_CN_mRNA.pdf": "17113f2477246633ac6ddf406d48af7a2a94acc403dfaffcd2e99d25d1c42865",
+    "Main_Results/03_TCGA_CN_mRNA/READ_VPS4B_CN_mRNA.pdf": "b1ae6cbf8350860b26b7b9a8571ef45b8ffef76011a554ae7631e3e7dcb36cae",
+    "Main_Results/03_TCGA_CN_mRNA/SARC_VPS4B_CN_mRNA.pdf": "245dc2f838f76d631f4f827bf703c9cd38a86286fc2ca3b2db2f8829153db39d",
+    "Main_Results/03_TCGA_CN_mRNA/SKCM_VPS4B_CN_mRNA.pdf": "d7279817278be4129a9cd94fc3ce7687204619c981405f349767ba56e748c5fd",
+    "Main_Results/03_TCGA_CN_mRNA/STAD_VPS4B_CN_mRNA.pdf": "fdac9bc1cbe34dabe067f2a580812d094f2f14d0bc128417670b35fae1779282",
+    "Main_Results/03_TCGA_CN_mRNA/TGCT_VPS4B_CN_mRNA.pdf": "fbd2449541fac44bdded50d947fee39339fc0a809a27a0bceadd5b8c35cbe606",
+    "Main_Results/03_TCGA_CN_mRNA/THCA_VPS4B_CN_mRNA.pdf": "8116b89e4ed00043ef3a706e423923b75f3b61d2a9a8b5f8f9a450b78fadef45",
+    "Main_Results/03_TCGA_CN_mRNA/THYM_VPS4B_CN_mRNA.pdf": "05862cb84455b24f80bcdb3808a3868d485c23d3ad8032615d74f14a889011b1",
+    "Main_Results/03_TCGA_CN_mRNA/UCEC_VPS4B_CN_mRNA.pdf": "93a273b805b04b71f65568eea92a95a467df219699bfff0155509cac10835df1",
+    "Main_Results/03_TCGA_CN_mRNA/UCS_VPS4B_CN_mRNA.pdf": "be522594e29253989a73f6891e3de75e67e14220e3b36805ebe7faa2618ec0b5",
+    "Main_Results/03_TCGA_CN_mRNA/UVM_VPS4B_CN_mRNA.pdf": "38e670227b0ee5e2a614ffddfd1c1d79829a974f64583c99f84590992b80be11",
+    "Tables/TCGA_Cancer_Order.csv": "601484b9f8d1d2d2e43dba1c1b2961c061bafa996de8978bf36132945f3c3eb1",
+    "Tables/TCGA_CNA_Percentage.csv": "a871621fa1a3cdf1ec61ea6dec7751e09516c0506892244683320e647226f2d2",
+    "Tables/TCGA_Reference_Samples.csv": "4f63ffa866e1eba9253c3a4853f4989fe4a3e3f1dd7bf9126fdbc8d4ba8715a9",
+    "Tables/TCGA_VPS4B_CN_mRNA_AllCancer_Statistics.csv": "81dfacbd9f9c29d1166920a28e842ac43540c536a213baf1b11ad8219f65e09d",
+    "Provenance/TCGA_Plot_Order.json": "bd0233e541d6bbef96b2ddea4ab9e8c7350f3bf3db06aab24541f0a868b3abe5",
+    "Tables/TCGA_CN_mRNA_CNA_Counts.csv": "57336343124bc91b8598bb668d2d31a4741e10dda3b44e7d65bd898e92ad36d3"
+  },
+  "validated": true,
+  "redraw_only": true,
+  "previous_code_hash": "3bf32b41cedf0b5d436d12b49179e3fc4da4c6934681cb614d12d817efa29a8a",
+  "fingerprint_format": "deparsed source text; validated cache metadata migration only; statistics unchanged"
+}

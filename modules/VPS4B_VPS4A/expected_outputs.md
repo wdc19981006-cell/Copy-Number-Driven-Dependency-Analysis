@@ -1,21 +1,13 @@
 # Output map
 
-Results are under results/VPS4B_VPS4A/. Each core module has its named subdirectory:
+The final case is `results/VPS4B_VPS4A_Analysis/`.
 
-- 00_QC/: CN_Distribution.pdf, CN_Group_Counts.csv, QC_Statistics.csv, model alignment.
-- 01_CN_Expression/: VPS4B_CN_vs_Expression.pdf, CN_Expression_Statistics.csv.
-- 02_GenomeWide_Dependency/: complete GenomeWide_Dependency.csv, volcano PDF, Top100, VPS4A_Candidate_Rank.csv.
-- 03_Targeted_Dependency/: VPS4B_VPS4A_Statistics.csv, Group_Summary.csv, CellLines.csv and combined PDF; three-group plot only if every group >=3.
-- 04_Lineage_Dependency/: VPS4B_VPS4A_Lineage_Dependency.csv and Lineage_Forest.pdf.
-- 05_Adjusted_Dependency/: Continuous_CN_Adjusted.csv, CNLow_Adjusted.csv.
-- 06_Reverse_Dependency/: Reverse_Dependency_Summary.csv and nested reverse-targeted outputs.
-- 07_CN_Covariation/: VPS4B_CN_Covariation.csv and Top_CN_Covariation.pdf.
-- 08_TCGA/: current CN landscape/expression if prepared; separately labeled reference GISTIC prevalence.
-- 09_Mutation_Dependency/: eligible damaging/hotspot comparisons, or explicit skip reasons.
-- 10_CN_Threshold_Sensitivity/: threshold table/PDF and once-only continuous statistics.
-- 11_Expression_Dependency/: continuous and quantile statistics, matched models and three-panel PDF.
-- 12_GenomeWide_Adjusted_Dependency/: full adjusted screen, optional candidate and volcano; explicit mode only.
-- 13_GenomeWide_Expression_Dependency/: separate full expression screen; explicit mode only.
-- Summary/: VPS4B_VPS4A_Summary.md, Key_Statistics.csv, Analysis_Metadata.json, Module_Runs.csv, Resource_Monitor.json and SessionInfo.txt.
+- `00_Analysis_Summary.txt`: Chinese guide, key statistics and complete file index.
+- `Main_Results/`: 01 five-state TCGA CNA; 02 TCGA boxplot + all points + N; 03 folder with all 33 cancer CN–mRNA PDFs; 04 targeted CN scatter; 05 dependency waterfall; 06 group boxplot; 07 genome-wide volcano; 08 positive/negative Top20 CN covariation. **40 main PDFs total.**
+- `Supplementary/01_Lineage/`, `02_Adjusted/`, `03_CN_Threshold_Sensitivity/`: three necessary supporting analyses.
+- `Tables/`: every statistics CSV, exact sample/model cohorts, sorted waterfall, shared TCGA cancer order, complete supplied screen and top tables.
+- `Provenance/`: true sources/releases, prepared input SHA256, code and parameter hashes, per-module cache metadata, R session, timings, source/numeric/PDF checks and exact file index.
 
-Missing data or inadequate group sizes produce documented skips; they never produce fabricated values. Resource_Monitor records observed native process exits and approximate RSS, sampled every 0.5 s. No file above 50 MB is uploaded.
+Default workflows produce no reverse, mutation, expression dependency or genome-wide adjusted outputs. Missing local processed data errors rather than downloading. Ineligible cancers still receive a PDF without fabricated statistics. Original VPS4B/VPS4A development results are archived locally only after validation of this layout.
+
+See [FINAL_WORKFLOWS](../../docs/FINAL_WORKFLOWS.md) for commands, definitions and upload requirements. Historical developer modes can still be called explicitly, but use their development output layout.

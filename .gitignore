@@ -16,6 +16,35 @@ renv/staging/
 .Rhistory
 .Rproj.user/
 .Ruserdata
-results/*
-!results/VPS4B_VPS4A/
-!results/ENO1_ENO2_Method_Test/
+# Final workflow results for every gene/case. Historical tracked results remain
+# tracked, but new developer-module outputs are not automatically included.
+results/**
+!results/*/
+!results/*/Main_Results/
+!results/*/Main_Results/**
+!results/*/Tables/
+!results/*/Tables/**
+!results/*/Supplementary/
+!results/*/Supplementary/**
+!results/*/Provenance/
+!results/*/Provenance/**
+!results/*/00_Analysis_Summary.txt
+# Never expose databases, intermediate matrices, caches or temporary artifacts.
+**/raw/
+**/processed/
+**/cache/
+**/Cache/
+*.parquet
+*.duckdb
+*.duckdb.wal
+*.feather
+*.arrow
+*.h5
+*.h5ad
+*.mtx
+*.mtx.gz
+*.tmp
+*.temp
+*.bak
+results/**/Full_Matrix*
+results/**/Intermediate*

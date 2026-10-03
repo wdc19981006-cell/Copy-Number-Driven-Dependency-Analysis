@@ -1,0 +1,104 @@
+{
+  "module": "adjusted_dependency",
+  "key": "ed17c101ccaefbff638061c3c2970d59d9e11e1f47f01ce6001b9c849d57a69e",
+  "parameters": {
+    "geneA": "VPS4B",
+    "geneB": "VPS4A",
+    "geneB_provided": {},
+    "workflow": "geneA_geneB",
+    "bootstrap": {},
+    "min_group_n": 3,
+    "low": 0.585,
+    "deep": 0.35,
+    "seed": 1234,
+    "thresholds": [
+      0.585,
+      0.5,
+      0.4,
+      0.35
+    ]
+  },
+  "parameter_hash": "a59ab4525a31cdc1ef7ccbf88303ba1d0dcf75569790ec62780fa1ab850cbbc3",
+  "code_hash": "aa8258f622203aee368f5ab819c4cf96346a570d9223ecde03d42a3bf129d540",
+  "code_functions": [
+    "run_adjusted",
+    "wf_run_supplement",
+    "coefficient_table",
+    "prepare_cn",
+    "load_target_pair",
+    "read_gene",
+    "load_model",
+    "fread",
+    "find_gene_col",
+    "clean_gene",
+    "processed_depmap",
+    "processed_pair",
+    "wf_write",
+    "workflow_save",
+    "workflow_theme",
+    "save_pdf",
+    "wf_expected",
+    "workflow_paths",
+    "wf_validate_artifact",
+    "p_text",
+    "p_star"
+  ],
+  "data_versions": [
+    {
+      "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+      "bytes": 218424120,
+      "mtime": "2026-10-02T17:52:03.793706+0800",
+      "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+      "provenance": {
+        "release": "26Q1",
+        "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+        "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+        "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+        "created_at": "2026-10-02T17:52:04+08:00",
+        "source_type": "user_supplied_portal_export",
+        "full_release_completeness": "unverified",
+        "orientation": "models x gene symbols"
+      }
+    },
+    {
+      "path": "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet",
+      "bytes": 232669929,
+      "mtime": "2026-10-02T17:52:29.330560+0800",
+      "prepared_sha256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+      "provenance": {
+        "release": "26Q1",
+        "raw_sha256": "55fdef5bccdf78116aa4c790febc09a6815b143e7c11a7095cbb930adf8dc51d",
+        "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+        "raw_source": "data/raw/depmap/26Q1/CRISPR_Chronos_26Q1.csv",
+        "created_at": "2026-10-02T17:52:30+08:00",
+        "source_type": "user_supplied_portal_export",
+        "full_release_completeness": "unverified",
+        "orientation": "models x gene symbols"
+      }
+    },
+    {
+      "path": "data/processed/depmap/26Q1/Model.parquet",
+      "bytes": 139521,
+      "mtime": "2026-10-02T17:53:45.120103+0800",
+      "prepared_sha256": "7e821496f6c95c8f0a6ffe627669fbec1b563548391ccabaadd3f2e2ee13c7d4",
+      "provenance": {
+        "release": "26Q1",
+        "raw_sha256": "ea4e0b2a3bc806f81df62689a5ae75f1a100135727a3d7b8a4c7ccc8815183f8",
+        "SHA256": "7e821496f6c95c8f0a6ffe627669fbec1b563548391ccabaadd3f2e2ee13c7d4",
+        "raw_source": "data/raw/depmap/26Q1/Model.csv",
+        "created_at": "2026-10-02T17:53:45+08:00",
+        "source_type": "user_supplied_portal_export",
+        "full_release_completeness": "unverified",
+        "orientation": "source metadata table"
+      }
+    }
+  ],
+  "outputs": {
+    "Supplementary/02_Adjusted/Adjusted_CN_Coefficient.pdf": "2170240ed480fc09b8857bd64bc4b55df0a3687207451dbb089699c81feec216",
+    "Tables/Continuous_CN_Adjusted.csv": "8e45f044b71955dfe37fe606d32e48e2b9bf7734470725157155d0665b61addf",
+    "Tables/CNLow_Adjusted.csv": "85462493b0b1892bc82c3cec03384d26a58f6ecb5fa420ddf14b115b7bddfbd1"
+  },
+  "validated": true,
+  "previous_code_hash": "f89902b2266652ab4456cda5aaab7e064bc3b366fc93165fb963cbffe6f7c8d5",
+  "fingerprint_format": "deparsed source text; validated cache metadata migration only; statistics unchanged"
+}

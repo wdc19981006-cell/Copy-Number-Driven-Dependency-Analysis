@@ -2,7 +2,21 @@ name: R synthetic validation
 on:
   push:
     branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/**'
+      - 'renv.lock'
+      - '.R-version'
+      - 'config/**'
   pull_request:
+    paths:
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/**'
+      - 'renv.lock'
+      - '.R-version'
+      - 'config/**'
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,6 +35,6 @@ jobs:
         run: |
           stopifnot(as.character(getRversion()) == '4.5.0')
           source('.Rprofile')
-          renv::restore(packages = c('data.table', 'dplyr', 'ggplot2'), prompt = FALSE)
+          renv::restore(packages = c('data.table', 'dplyr', 'ggplot2', 'jsonlite', 'digest', 'patchwork', 'ggrepel'), prompt = FALSE)
       - name: Synthetic and unchanged-core tests (no TCGA or DepMap data)
         run: Rscript --vanilla tests/run_synthetic_tests.R

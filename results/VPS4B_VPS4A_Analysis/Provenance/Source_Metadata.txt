@@ -1,0 +1,16 @@
+TCGA current source: NCI GDC
+Release: DR46 / 46.0
+Current processed data retained; not used in default main figures.
+TCGA main source: PanCanAtlas reference / UCSC Xena
+Continuous CN: GISTIC2 all_data_by_genes; source scale, not absolute CN.
+Five states: thresholded GISTIC2 (-2,-1,0,1,2).
+Expression: matched TCGA Toil RSEM, log2(norm_count+1); not TPM.
+Reference joins: exact SampleID; unique IDs in each layer; TumorNormal=Tumor; finite CN/mRNA/GISTIC for scatter correlations.
+Landscape/order: all finite reference CN tumor samples; no outlier exclusion.
+Source paths, original URLs, source hashes and processor versions: Input_Versions.json.
+DepMap: Public 26Q1, user-supplied portal exports; full-release completeness unverified.
+Dependency grouping and continuous core: CN_log=log2(relative CN+1), low<0.585.
+Targeted scatter statistics: relative CN; historical CN_log correlation retained in table.
+Screen delta: median(low)-median(nonlow); BH over the complete supplied screen, including untested NA rows as in supplied code.
+Eligible_Rank excludes undefined FDR; original Rank retained for provenance.
+All associations are observational; no causal inference.

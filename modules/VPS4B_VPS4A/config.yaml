@@ -1,5 +1,7 @@
 geneA: VPS4B
 geneB: VPS4A
+workflow: geneA_geneB
+DATA_MODE: local
 depmap_release: 26Q1
 r_version: 4.5.0
 bootstrap: 1000
