@@ -1,6 +1,6 @@
 {
   "DATA_MODE": "local",
-  "TCGA_main_layer": "pancanatlas_reference",
+  "TCGA_main_layer": "gdc_current_DR46",
   "DepMap_release": "26Q1",
   "workflow_modules": {
     "geneA_screen": ["tcga", "genomewide_dependency", "cn_covariation"],

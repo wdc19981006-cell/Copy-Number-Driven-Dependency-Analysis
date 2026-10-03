@@ -8,7 +8,9 @@ tcga_prevalence_plot <- function(prev,order) {
  d<-copy(prev);d[,CancerType:=ordered_cancer(CancerType,order)]
  ggplot(d,aes(CancerType,Percentage/100,fill=CNA))+geom_col(width=.8)+coord_flip()+
  scale_fill_manual(values=CNA_COLORS,drop=FALSE)+scale_x_discrete(drop=FALSE)+
- scale_y_continuous(labels=scales::percent,limits=c(0,1),expand=c(0,0))+workflow_theme()+
+ # Clamp round-trip CSV precision at 100% instead of dropping the final slice.
+ scale_y_continuous(labels=scales::percent,limits=c(0,1),expand=c(0,0),oob=scales::squish)+workflow_theme()+
+ theme(plot.margin=margin(5.5,18,5.5,5.5))+
  labs(title=paste(GENE_A,"CNA Percentage Across TCGA Pan-Cancer"),
       x=NULL,y="Percentage of TCGA tumor samples",fill="Copy Number Status",
       caption="Cancer types follow ascending median continuous CN; source details in Provenance.")
@@ -19,54 +21,69 @@ tcga_landscape_plot <- function(dat,order) {
  ggplot(d,aes(CancerType,CopyNumber))+geom_boxplot(outlier.shape=NA,fill="white",width=.55)+
  geom_point(position=position_jitter(width=.17,height=0,seed=1234),color="grey45",alpha=.35,size=.55)+
  scale_x_discrete(labels=labels,drop=FALSE)+coord_flip()+workflow_theme()+
- labs(title=paste(GENE_A,"Copy Number Across TCGA Pan-Cancer"),x=NULL,y="Continuous GISTIC2 copy number (source scale)",
-      caption="Each grey point is one TCGA tumor sample. All finite CN values are shown; ascending median CN, top to bottom.")
+ labs(title=paste(GENE_A,"Copy Number Across TCGA Pan-Cancer"),x=NULL,y=paste(GENE_A,"Gene-Level Copy Number"),
+      caption="TCGA tumor samples; current processed TCGA dataset.\nEach point represents one tumor sample.")
 }
 tcga_expression_plot <- function(dat,cancer,stat) {
- d<-copy(dat[CancerType==cancer & is.finite(CopyNumber)&is.finite(Expression)&is.finite(GISTIC)])
- d[,CNA:=factor(GISTIC,levels=-2:2,labels=CNA_STATES)]
+ d<-copy(dat[CancerType==cancer & is.finite(CopyNumber)&is.finite(Expression)&is.finite(CNAState)])
+ d[,CNA:=factor(CNAState,levels=-2:2,labels=CNA_STATES)]
  label<-if(stat$N<TCGA_MIN_N)paste0("N = ",stat$N,"\nInsufficient N for correlation") else
   if(!is.finite(stat$Pearson_r))paste0("N = ",stat$N,"\nConstant CN or mRNA") else
-  paste0("N = ",stat$N,"\nPearson r = ",signif(stat$Pearson_r,3),"; P ",formatC(stat$Pearson_P,format="g",digits=3),
-         "\nSpearman rho = ",signif(stat$Spearman_rho,3),"; P ",formatC(stat$Spearman_P,format="g",digits=3))
- p<-ggplot(d,aes(CopyNumber,Expression))+geom_point(aes(color=CNA),alpha=.55,size=1)+
+  paste0("N = ",stat$N,"\nPearson r = ",signif(stat$Pearson_r,3),"\nP = ",formatC(stat$Pearson_P,format="g",digits=3),
+         "\nSpearman rho = ",signif(stat$Spearman_rho,3),"\nP = ",formatC(stat$Spearman_P,format="g",digits=3))
+ p<-ggplot(d,aes(CopyNumber,Expression))+geom_point(aes(color=CNA),alpha=.55,size=1,show.legend=TRUE)+
  scale_color_manual(values=CNA_COLORS,drop=FALSE)+workflow_theme()+
+ guides(color=guide_legend(override.aes=list(alpha=1,size=2)))+
+ scale_y_continuous(expand=expansion(mult=c(.05,.65)))+
  labs(title=paste0(cancer,": ",GENE_A," Copy Number vs mRNA Expression"),
-      x=paste(GENE_A,"continuous copy number (GISTIC2)"),y=paste(GENE_A,"mRNA: log2(norm_count + 1)"),
+      x=paste(GENE_A,"Gene-Level Copy Number"),y=paste0(GENE_A," mRNA expression\nlog2(TPM + 1)"),
       color="Copy Number Status",caption="Matched TCGA tumor samples; correlations describe association.")
  if(nrow(d)>=2L&&length(unique(d$CopyNumber))>1L)p<-p+geom_smooth(method="lm",se=FALSE,color="black",linewidth=.65)
  # Draw the opaque statistics label after the regression layer, so no line
  # crosses the text. P values use scientific formatting independent of scipen.
  p<-p+annotate("label",x=Inf,y=Inf,label=label,hjust=1.02,vjust=1.08,size=3.1,linewidth=0,fill="white")
+ inset<-tcga_cna_pie(d)
+ p+patchwork::inset_element(inset,left=.015,bottom=.66,right=.31,top=.99,align_to="panel",on_top=TRUE)
+}
+tcga_cna_pie <- function(d) {
  counts<-as.data.table(table(factor(d$CNA,levels=CNA_STATES)));setnames(counts,c("CNA","N"))
  counts[,CNA:=factor(CNA,levels=CNA_STATES)]
  counts[,pct:=if(sum(N))100*N/sum(N) else 0]
- # A compact five-state percentage inset keeps the scatter, both correlations,
- # and all five legend labels readable even with uncommon/missing CNA states.
- counts[,Row:=5:1]
- inset<-ggplot(counts,aes(y=Row,fill=CNA))+
- geom_rect(aes(xmin=0,xmax=pct,ymin=Row-.32,ymax=Row+.32))+
- geom_text(aes(x=-60,label=CNA),hjust=0,size=2.2)+
- geom_text(aes(x=pct+2,label=sprintf("%.1f%%",pct)),hjust=0,size=2.2)+
- scale_fill_manual(values=CNA_COLORS,drop=FALSE)+scale_x_continuous(limits=c(-62,115),breaks=NULL)+
- scale_y_continuous(limits=c(.5,5.5),breaks=NULL)+
- theme_void(base_size=7)+theme(plot.background=element_rect(fill="white",color="grey80"),
- plot.margin=margin(4,5,4,4),legend.position="none")+labs(title="CNA status percentage")
- p+patchwork::inset_element(inset,left=.015,bottom=.67,right=.45,top=.98,align_to="panel",on_top=TRUE)
+ # Reserve an empty band above every observation for the pie and statistics.
+ # Tiny/nonexistent slices have no text; the main legend always retains 5 states.
+ inset<-ggplot(counts,aes(x="",y=N,fill=CNA))+geom_col(width=1,color="white",linewidth=.2)+
+ coord_polar(theta="y")+geom_text(aes(label=ifelse(pct>=8,sprintf("%.1f%%",pct),"")),
+ position=position_stack(vjust=.5),size=2.6)+scale_fill_manual(values=CNA_COLORS,drop=FALSE)+
+ theme_void(base_size=9)+theme(legend.position="none",plot.title=element_text(hjust=.5),
+ plot.margin=margin(0,0,0,0))+labs(title="CNA status")
+ if(!nrow(d))inset<-ggplot()+annotate("text",0,0,label="No matched samples",size=3)+theme_void()+labs(title="CNA status")
+ inset
 }
-targeted_plots <- function(pair,stat,paths) {
+targeted_scatter_plot <- function(pair,stat) {
  d<-copy(as.data.table(pair));d[,Group:=factor(CN_binary,levels=c("CN-NonLow","CN-Low"),
                         labels=paste(GENE_A,c("CN-Normal","CN-Low")))]
  colors<-setNames(c("black","red"),levels(d$Group))
  annotation<-paste0("Pearson r = ",signif(stat$Relative_CN_Pearson_r,3),
  "\nSpearman rho = ",signif(stat$Relative_CN_Spearman_rho,3),"\nN = ",stat$N)
  p<-ggplot(d,aes(CN_relative,Chronos))+geom_point(aes(color=Group),alpha=.55,size=1.2)+
- geom_vline(xintercept=2^.585-1,linetype="dashed")+scale_color_manual(values=colors)+workflow_theme()+
+ geom_hline(yintercept=0,linetype="dotted",color="grey55",linewidth=.5)+
+ geom_vline(xintercept=2^.585-1,linetype="dashed",color="grey30",linewidth=.6)+
+ geom_vline(xintercept=2^.35-1,linetype="dotted",color="black",linewidth=.6)+
+ scale_color_manual(values=colors)+workflow_theme()+
+ scale_y_continuous(expand=expansion(mult=c(.16,.08)))+
+ annotate("label",x=2^.35-1,y=-Inf,label="Deep CN Loss",hjust=0,vjust=-1.3,size=3,linewidth=0,fill="white")+
+ annotate("label",x=2^.585-1,y=-Inf,label="CN-Low threshold",hjust=0,vjust=-.05,size=3,linewidth=0,fill="white")+
  annotate("label",x=Inf,y=Inf,label=annotation,hjust=1.04,vjust=1.1,size=3.3,linewidth=0,fill="white")+
  labs(title=paste(GENE_B,"Dependency in Cells with Low",GENE_A,"Copy Number"),
  x=paste(GENE_A,"Relative Copy Number"),y=paste(GENE_B,"Chronos Gene Effect"),color=NULL,
- caption="More negative Chronos indicates stronger dependency. Dashed line: analysis-defined CN-low cutoff.")
- workflow_save(p,paths[1])
+ caption="More negative Chronos indicates stronger dependency. Deep CN Loss is a visual reference only.")
+ p
+}
+targeted_plots <- function(pair,stat,paths) {
+ d<-copy(as.data.table(pair));d[,Group:=factor(CN_binary,levels=c("CN-NonLow","CN-Low"),
+                        labels=paste(GENE_A,c("CN-Normal","CN-Low")))]
+ colors<-setNames(c("black","red"),levels(d$Group))
+ workflow_save(targeted_scatter_plot(pair,stat),paths[1])
  w<-waterfall_order(d)
  p<-ggplot(w,aes(Waterfall_Order,Chronos,color=Group))+geom_segment(aes(xend=Waterfall_Order,yend=0),linewidth=.35)+
  geom_hline(yintercept=-1,linetype="dashed")+scale_color_manual(values=colors)+workflow_theme()+

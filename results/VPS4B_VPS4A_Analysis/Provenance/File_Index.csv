@@ -40,6 +40,7 @@ Main_Results/05_DepMap_VPS4A_Dependency_Waterfall.pdf
 Main_Results/06_DepMap_VPS4A_Dependency_CNlow_vs_Normal.pdf
 Main_Results/07_DepMap_VPS4B_GenomeWide_Dependency_Volcano.pdf
 Main_Results/08_DepMap_VPS4B_CN_Covariation.pdf
+Provenance/Cache_Migration.json
 Provenance/Cache_adjusted_dependency.json
 Provenance/Cache_cn_covariation.json
 Provenance/Cache_cn_threshold_sensitivity.json
@@ -54,6 +55,7 @@ Provenance/Module_Runs.csv
 Provenance/Run_Metadata.json
 Provenance/SessionInfo.txt
 Provenance/Source_Metadata.txt
+Provenance/TCGA_Baseline_Method.json
 Provenance/TCGA_Plot_Order.json
 Provenance/Validation.json
 Supplementary/01_Lineage/Lineage_Dependency_Forest.pdf
@@ -69,7 +71,9 @@ Tables/Lineage_Eligibility.csv
 Tables/TCGA_CNA_Percentage.csv
 Tables/TCGA_CN_mRNA_CNA_Counts.csv
 Tables/TCGA_Cancer_Order.csv
-Tables/TCGA_Reference_Samples.csv
+Tables/TCGA_Current_Samples.csv
+Tables/TCGA_RNA_Representative_Selection.csv
+Tables/TCGA_Sample_Baselines.csv
 Tables/TCGA_VPS4B_CN_mRNA_AllCancer_Statistics.csv
 Tables/Top_CN_Covariation.csv
 Tables/Top_Dependency_Candidates.csv

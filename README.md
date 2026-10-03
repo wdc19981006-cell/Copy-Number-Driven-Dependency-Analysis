@@ -30,7 +30,9 @@ results/<GeneA>[_<GeneB>]_Analysis/
 
 ## 数据与统计
 
-已有数据：TCGA NCI GDC **DR46**、独立 PanCanAtlas/Xena reference、DepMap **26Q1**。TCGA 主图统一使用现有 reference continuous GISTIC2 CN + 五级 thresholded GISTIC + 匹配的 Toil RSEM `log2(norm_count+1)` 表达（不是 TPM），保留准确来源到 Provenance。DR46 current 保持独立，不与 reference 静默混合。
+TCGA 主图 01–03 默认使用本地 **current DR46 processed dataset**：`data/processed/tcga/gdc_DR46/`。01 为 current absolute gene-level CN 与 sample-specific baseline 的 analysis-defined 五分类；02 为 current gene-level CN；03 为 current CN 与 STAR `log2(TPM + 1)`。来源为 NCI GDC，Release 为 DR46 / 46.0，完整记录于 Provenance。PanCanAtlas/Xena 仅保留为 historical/reference，默认 workflow 不使用。
+
+当前 processed 数据没有可用的实测 ploidy；baseline 取每个样本常染色体整数 CN 的众数（并列取较小值），分块读取并缓存样本级摘要，独立抽样验证。五分类为 CN=0、0<CN<baseline、CN=baseline、baseline<CN<2×baseline、CN≥2×baseline，依次标为 Deep Deletion、Shallow Deletion、Diploid、Gain、Amplification；它们不是官方 GISTIC 五级值，baseline 也不是实测 ploidy。
 
 所有 TCGA 主图按 Gene A finite continuous CN 的癌种 median 从小到大排列，视觉从上到下；CN landscape 展示每个有限样本点和实际 N，保留极端值。33癌种分别分析自身 CN–mRNA，固定 N<20 或常量变量时保留图并不编造相关统计。
 
@@ -52,4 +54,4 @@ C:/Python312/python.exe scripts/utils/validate_final_sources.py --case VPS4B_VPS
 
 每次任务先 pull，完成代码或分析后必须 commit/push main；仅上传代码、文档、测试和小型结果。结果目录对所有基因开放跟踪。使用 `scripts/utils/git_size_guard.py stage` 在 staging 前拒绝 >50 MB、raw/processed/runtime/cache/数据库或凭据；pre-commit 检查实际 index。安装 hook：`git config core.hooksPath .githooks`。代码 push 后等待 [R synthetic validation](.github/workflows/ci.yml) success，并确认工作区 clean 与本地/远程 SHA 一致。纯结果更新不触发 CI。
 
-代码为 MIT License；数据使用条款独立适用。已授权保留的历史 [CD44 补充分析](modules/CD44_PanCancer/README.md) 为显式专项脚本，不加入默认 workflow。
+代码为 MIT License；数据使用条款独立适用。

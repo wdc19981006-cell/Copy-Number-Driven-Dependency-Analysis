@@ -27,15 +27,16 @@ wf_route_supplements <- function() {
  }
 }
 wf_input_paths <- function(module) {
- ref<-file.path(PROJECT_ROOT,"data/processed/tcga/pancanatlas_reference")
- switch(module,tcga=c(file.path(ref,paste0(c("CN","GISTIC","Expression","Metadata"),".parquet")),
-                      file.path(ref,paste0(rep(c("CN","GISTIC","Expression"),each=2),c(".genes.parquet",".samples.parquet")))),
+ ref<-file.path(PROJECT_ROOT,"data/processed/tcga/gdc_DR46")
+ switch(module,tcga=file.path(ref,c("TCGA_GeneLevel_CN.parquet","TCGA_GeneLevel_CN.genes.parquet",
+                                   "TCGA_STAR_TPM.parquet","TCGA_STAR_TPM.genes.parquet")),
  genomewide_dependency=c(FILES$cn,FILES$chronos),cn_covariation=FILES$cn,
  c(FILES$cn,FILES$chronos,if(module %in% c("lineage_dependency","adjusted_dependency"))FILES$model))
 }
 wf_input_versions <- function(paths) {
  lapply(paths,function(p) {
   local_required(p);s<-file.info(p);side<-paste0(p,".provenance.json")
+  if(!file.exists(side))side<-sub("\\.parquet$",".provenance.json",p)
   meta<-if(file.exists(side))jsonlite::fromJSON(side,simplifyVector=FALSE) else NULL
   list(path=substring(p,nchar(PROJECT_ROOT)+2),bytes=s$size,mtime=format(s$mtime,"%Y-%m-%dT%H:%M:%OS6%z"),
        prepared_sha256=if(!is.null(meta$SHA256))meta$SHA256 else meta$output_sha256,
@@ -44,31 +45,33 @@ wf_input_versions <- function(paths) {
 }
 wf_code_signature <- function(module) {
  functions<-switch(module,
- tcga=c("cancer_order","ordered_cancer","reference_cancer_statistics","reference_prevalence",
-        "tcga_prevalence_plot","tcga_landscape_plot","tcga_expression_plot","wf_run_tcga","pair_correlations"),
- targeted_dependency=c("targeted_statistics","targeted_plots","waterfall_order","wf_run_targeted","pair_correlations","group_effect"),
+ tcga=c("cancer_order","ordered_cancer","current_cancer_statistics","current_prevalence",
+        "tcga_prevalence_plot","tcga_landscape_plot","tcga_expression_plot","tcga_cna_pie","wf_run_tcga","pair_correlations"),
+ targeted_dependency=c("targeted_statistics","targeted_plots","targeted_scatter_plot","waterfall_order","wf_run_targeted","wf_targeted_statistics_key","pair_correlations","group_effect"),
  genomewide_dependency=c("run_genomewide","screen_core_statistics","eligible_rank","dependency_top","volcano_plot","wf_run_screen"),
  cn_covariation=c("covariation_statistics","covariation_top","covariation_plot","wf_run_covariation"),
  lineage_dependency=c("run_lineage","wf_run_supplement"),adjusted_dependency=c("run_adjusted","wf_run_supplement","coefficient_table"),
  cn_threshold_sensitivity=c("run_threshold_sensitivity","cn_threshold_statistics","group_effect","wf_run_supplement"))
  common<-c("prepare_cn","load_target_pair","read_gene","load_model","fread","find_gene_col","clean_gene",
            "processed_depmap","processed_pair","wf_write","workflow_save","workflow_theme","save_pdf",
-           "wf_expected","workflow_paths","wf_validate_artifact","p_text","p_star")
+           "workflow_paths","wf_validate_artifact","p_text","p_star")
  # Hash source text rather than serialized language objects: runtime/JIT or
  # package expression caches can change attributes of an otherwise identical
  # function body after plotting. Text stays stable across cold and warm calls.
  code<-lapply(unique(c(functions,common)),function(n)list(name=n,
   args=paste(deparse(formals(get(n)),width.cutoff=500L),collapse="\n"),
   body=paste(deparse(body(get(n)),width.cutoff=500L),collapse="\n")))
- py<-c("scripts/R/local_data.R","config/workflows.json")
- if(module=="tcga")py<-c(py,"scripts/utils/export_workflow_tcga.py","scripts/data_access.py","config/tcga_cancer_types.json")
+ py<-"scripts/R/local_data.R"
+ if(module=="tcga")py<-c(py,"config/workflows.json","scripts/utils/export_workflow_tcga.py","scripts/utils/tcga_current.py","scripts/data_access.py","config/tcga_cancer_types.json")
  list(hash=digest::digest(list(code=code,files=lapply(py,function(p)digest::digest(file=file.path(PROJECT_ROOT,p),algo="sha256")),
-               constants=list(states=CNA_STATES,colors=CNA_COLORS,tcga_min_n=TCGA_MIN_N)),algo="sha256"),functions=unique(c(functions,common)))
+               constants=list(states=CNA_STATES,colors=CNA_COLORS,tcga_min_n=TCGA_MIN_N),
+               expected=unname(wf_expected(module))),algo="sha256"),functions=unique(c(functions,common)))
 }
 wf_expected <- function(module) {
  switch(module,
  tcga=c(PATHS[c("cna","landscape")],paste0(PATHS["rna"],"/",TCGA_CANCERS,"_",GENE_A,"_CN_mRNA.pdf"),
-        "Tables/TCGA_Cancer_Order.csv","Tables/TCGA_CNA_Percentage.csv","Tables/TCGA_Reference_Samples.csv",
+        "Tables/TCGA_Cancer_Order.csv","Tables/TCGA_CNA_Percentage.csv","Tables/TCGA_Current_Samples.csv",
+        "Tables/TCGA_Sample_Baselines.csv","Tables/TCGA_RNA_Representative_Selection.csv","Provenance/TCGA_Baseline_Method.json",
         paste0("Tables/TCGA_",GENE_A,"_CN_mRNA_AllCancer_Statistics.csv"),"Provenance/TCGA_Plot_Order.json","Tables/TCGA_CN_mRNA_CNA_Counts.csv"),
  targeted_dependency=c(PATHS[c("scatter","waterfall","box")],paste0("Tables/",GENE_A,"_",GENE_B,
           c("_Targeted_Statistics.csv","_CellLines.csv","_Waterfall_Order.csv"))),
@@ -100,13 +103,13 @@ wf_cache_valid <- function(old,key,outputs) {
  identical(old$outputs,wf_hash_outputs(outputs))
 }
 wf_run_tcga <- function() {
- path<-wf_table("TCGA_Reference_Samples.csv")
+ path<-wf_table("TCGA_Current_Samples.csv")
  status<-system2("C:/Python312/python.exe",c(shQuote(file.path(PROJECT_ROOT,"scripts/utils/export_workflow_tcga.py")),
              "--gene",GENE_A,"--output",shQuote(path)))
  if(status!=0)stop("Local processed TCGA extraction failed")
- dat<-fread(path);stopifnot(!anyDuplicated(dat$SampleID),all(dat$TumorNormal=="Tumor"),all(dat$DataLayer=="PanCanAtlas_Xena_reference"))
+ dat<-fread(path);stopifnot(!anyDuplicated(dat$SampleID),all(dat$TumorNormal=="Tumor"),all(dat$DataLayer=="gdc_current_DR46"))
  order<-cancer_order(dat,TCGA_CANCERS);wf_write(order,"TCGA_Cancer_Order.csv")
- prev<-reference_prevalence(dat,order);wf_write(prev,"TCGA_CNA_Percentage.csv")
+ prev<-current_prevalence(dat,order);wf_write(prev,"TCGA_CNA_Percentage.csv")
  p1<-tcga_prevalence_plot(prev,order);p2<-tcga_landscape_plot(dat,order)
  # ggplot's discrete y after coord_flip is drawn bottom-to-top; reverse levels
  # therefore produce the requested ascending medians from top to bottom.
@@ -115,7 +118,7 @@ wf_run_tcga <- function() {
  build<-ggplot_build(p2);stopifnot(nrow(build$data[[2]])==sum(is.finite(dat$CopyNumber)))
  workflow_save(p1,file.path(RESULT_ROOT,PATHS["cna"]),width=11,height=11)
  workflow_save(p2,file.path(RESULT_ROOT,PATHS["landscape"]),width=10,height=11)
- stats<-reference_cancer_statistics(dat,order)
+ stats<-current_cancer_statistics(dat,order)
  wf_write(stats,paste0("TCGA_",GENE_A,"_CN_mRNA_AllCancer_Statistics.csv"))
  jsonlite::write_json(list(visual_top_to_bottom=order$CancerType,
   CNA_factor_levels=levels(p1$data$CancerType),Landscape_factor_levels=levels(p2$data$CancerType),
@@ -126,18 +129,36 @@ wf_run_tcga <- function() {
  for(cancer in order$CancerType) {
   s<-stats[CancerType==cancer]
   workflow_save(tcga_expression_plot(dat,cancer,s),file.path(RESULT_ROOT,PATHS["rna"],paste0(cancer,"_",GENE_A,"_CN_mRNA.pdf")),width=9,height=6.5)
-  d<-dat[CancerType==cancer & is.finite(CopyNumber)&is.finite(Expression)&is.finite(GISTIC)]
-  cna_counts[[cancer]]<-data.table(CancerType=cancer,CNA=CNA_STATES,N=as.integer(table(factor(d$GISTIC,levels=-2:2))))
+  d<-dat[CancerType==cancer & is.finite(CopyNumber)&is.finite(Expression)&is.finite(CNAState)]
+  cna_counts[[cancer]]<-data.table(CancerType=cancer,CNA=CNA_STATES,N=as.integer(table(factor(d$CNAState,levels=-2:2))))
  }
  wf_write(rbindlist(cna_counts),"TCGA_CN_mRNA_CNA_Counts.csv")
 }
+wf_targeted_statistics_key <- function() {
+ functions<-c("targeted_statistics","pair_correlations","group_effect","prepare_cn","load_target_pair",
+              "read_gene","fread","find_gene_col","clean_gene","targeted_plots","waterfall_order")
+ digest::digest(list(inputs=wf_input_versions(wf_input_paths("targeted_dependency")),params=wf_parameters("targeted_dependency"),
+  code=lapply(functions,function(n)list(formals(get(n)),paste(deparse(body(get(n)),width.cutoff=500L),collapse="\n")))),algo="sha256")
+}
 wf_run_targeted <- function() {
+ cache<-wf_provenance("Cache_targeted_dependency.json")
+ old<-if(file.exists(cache))jsonlite::fromJSON(cache,simplifyVector=FALSE) else NULL
+ preserved<-setdiff(unname(wf_expected("targeted_dependency")),unname(PATHS["scatter"]))
+ if(!opt$force&&!is.null(old$statistics_key)&&identical(old$statistics_key,wf_targeted_statistics_key())&&
+    all(vapply(file.path(RESULT_ROOT,preserved),wf_validate_artifact,logical(1)))&&
+    identical(old$outputs[preserved],wf_hash_outputs(preserved))) {
+  pair<-fread(wf_table(paste0(GENE_A,"_",GENE_B,"_CellLines.csv")))
+  s<-fread(wf_table(paste0(GENE_A,"_",GENE_B,"_Targeted_Statistics.csv")))
+  workflow_save(targeted_scatter_plot(pair,s),file.path(RESULT_ROOT,PATHS["scatter"]))
+  return("plot_regenerated")
+ }
  pair<-as.data.table(load_target_pair(GENE_A,GENE_B))
  stopifnot(!anyDuplicated(pair$ModelID))
  s<-targeted_statistics(pair);wf_write(s,paste0(GENE_A,"_",GENE_B,"_Targeted_Statistics.csv"))
  wf_write(pair,paste0(GENE_A,"_",GENE_B,"_CellLines.csv"))
  w<-targeted_plots(pair,s,file.path(RESULT_ROOT,PATHS[c("scatter","waterfall","box")]))
  wf_write(w,paste0(GENE_A,"_",GENE_B,"_Waterfall_Order.csv"))
+ invisible(NULL)
 }
 wf_run_screen <- function() {
  res<-screen_core_statistics();wf_write(res,"GenomeWide_Dependency.csv")
@@ -178,14 +199,16 @@ wf_summary <- function() {
  section<-function(title)c("",separator,title,separator)
  lines<-c(separator,"Copy Number–Driven Dependency Analysis",separator,"",paste("Gene A:",GENE_A),
           paste("Gene B:",if(GENE_B_PROVIDED)GENE_B else "未提供（发现性筛选）"),
-          "TCGA: TCGA Pan-Cancer","DepMap: Public 26Q1",paste("Run date:",format(Sys.time(),tz="Asia/Shanghai",usetz=TRUE)),
+          "TCGA: Current TCGA dataset","DepMap: Public 26Q1",paste("Run date:",format(Sys.time(),tz="Asia/Shanghai",usetz=TRUE)),
           "DATA_MODE: local（仅读取本地 processed 数据）",
-          "TCGA 主图统一使用 reference 层；当前 DR46 可用性与真实来源见 Provenance。",
+          "TCGA 主结果使用本地已验证的 current TCGA 数据；Source / release 信息见 Provenance。",
+          "五级 CNA 基于 current gene-level CN 与 sample-specific baseline/ploidy，是 analysis-defined 分类，不是官方 GISTIC 五级值。",
+          "baseline 使用每个样本常染色体 gene-level CN 的整数众数估算；不是直接测量的 ploidy。",
           "DepMap 为用户提供的 26Q1 导出文件；相对官方完整 release 的完整性未验证。",
           "CN-low: log2(relative CN + 1) < 0.585；分析定义，不是五级 GISTIC。")
  descriptions<-c(cna=paste0("展示 ",GENE_A," 的五级 CNA 比例：Deep Deletion、Shallow Deletion、Diploid、Gain、Amplification；观察缺失比例。"),
  landscape="每个灰点为一个 TCGA tumor sample；箱线图保留全部有限 CN；标签 n 为实际有效样本数；从上到下按 median CN 递增。",
- rna=paste0("逐癌种检验 ",GENE_A," CN 与自身 mRNA 的关系；每张图含 N、Pearson、Spearman、黑色回归线与五级 CNA 百分比。N < 20 不报告相关统计。"),
+ rna=paste0("逐癌种检验 ",GENE_A," CN 与自身 mRNA 的关系；Expression = log2(TPM + 1)。每张图含 N、Pearson、Spearman、黑色回归线与匹配 cohort 的五级 CNA pie chart。N < 20 不报告相关统计。"),
  scatter=paste0(GENE_A," relative CN 与 ",GENE_B," dependency 的相关性；右上相关统计使用 relative CN。表中另保留历史 CN_log 统计。"),
  waterfall="匹配细胞按 Chronos 从高到低排序，即弱依赖到强依赖；黑色为 CN-Normal，红色为 CN-Low；参考线为 -1。",
  box="比较 CN-Normal 与 CN-Low 的 Chronos；展示全部点、各组 N、median、Delta median、Wilcoxon P 与显著性星号。",
@@ -257,10 +280,12 @@ run_final_workflow <- function() {
   if(!opt$force&&wf_cache_valid(old,key,outputs)) {state<-"cached";msg(module," SKIP recomputation: verified cache")}
   else {
    msg(module," running once")
-   if(module %in% names(fun))fun[[module]]() else wf_run_supplement(module)
+   result<-if(module %in% names(fun))fun[[module]]() else wf_run_supplement(module)
+   if(identical(result,"plot_regenerated"))state<-result
    if(!all(vapply(file.path(RESULT_ROOT,outputs),wf_validate_artifact,logical(1))))stop("Output validation failed: ",module)
    jsonlite::write_json(list(module=module,key=key,parameters=params,parameter_hash=digest::digest(params,algo="sha256"),
-    code_hash=code$hash,code_functions=code$functions,data_versions=versions,outputs=wf_hash_outputs(outputs),validated=TRUE),
+    code_hash=code$hash,code_functions=code$functions,data_versions=versions,outputs=wf_hash_outputs(outputs),validated=TRUE,
+    statistics_key=if(module=="targeted_dependency")wf_targeted_statistics_key() else NULL),
     cache_path,pretty=TRUE,auto_unbox=TRUE)
   }
   runs[[module]]<-data.table(Module=module,Status=state,Seconds=as.numeric(difftime(Sys.time(),start,units="secs")))
@@ -269,18 +294,24 @@ run_final_workflow <- function() {
  data.table::fwrite(rbindlist(runs),wf_provenance("Module_Runs.csv"))
  metadata<-list(geneA=GENE_A,geneB=if(GENE_B_PROVIDED)GENE_B else NULL,workflow=WORKFLOW,DATA_MODE=DATA_MODE,
   R_version=as.character(getRversion()),run_date=format(Sys.time(),tz="Asia/Shanghai",usetz=TRUE),
-  TCGA_main_layer="PanCanAtlas_Xena_reference",TCGA_current_source="NCI GDC DR46; not used for main figures",
+  TCGA_main_layer="gdc_current_DR46",TCGA_current_source="NCI GDC DR46",TCGA_database="TCGA",TCGA_release="46.0",
   DepMap_release="26Q1",DepMap_full_release_completeness="unverified; all supplied Chronos gene columns tested",
   input_versions=inputs,parameters=list(low=.585,deep=.35,min_group_n=MIN_N,bootstrap=BOOT_R,seed=1234),
   code_files=setNames(lapply(list.files("scripts/R",pattern="\\.R$",full.names=TRUE),function(f)digest::digest(file=f,algo="sha256")),list.files("scripts/R",pattern="\\.R$",full.names=TRUE)))
  jsonlite::write_json(metadata,wf_provenance("Run_Metadata.json"),pretty=TRUE,auto_unbox=TRUE)
  writeLines(trimws(capture.output(sessionInfo()),which="right"),wf_provenance("SessionInfo.txt"))
  jsonlite::write_json(inputs,wf_provenance("Input_Versions.json"),pretty=TRUE,auto_unbox=TRUE)
- writeLines(c("TCGA current source: NCI GDC", "Release: DR46 / 46.0", "Current processed data retained; not used in default main figures.",
-  "TCGA main source: PanCanAtlas reference / UCSC Xena", "Continuous CN: GISTIC2 all_data_by_genes; source scale, not absolute CN.",
-  "Five states: thresholded GISTIC2 (-2,-1,0,1,2).", "Expression: matched TCGA Toil RSEM, log2(norm_count+1); not TPM.",
-  "Reference joins: exact SampleID; unique IDs in each layer; TumorNormal=Tumor; finite CN/mRNA/GISTIC for scatter correlations.",
-  "Landscape/order: all finite reference CN tumor samples; no outlier exclusion.",
+ writeLines(c("Database = TCGA", "Source = NCI GDC", "Release = DR46 / 46.0",
+  "TCGA user-facing database: TCGA", "Underlying source: NCI GDC", "Main data layer: gdc_current_DR46",
+  "RNA: STAR TPM; analysis: log2(TPM + 1).", "Gene-level CN: current TCGA absolute Gene-Level Copy Number.",
+  "Current TCGA CN Five-State Classification: analysis-defined from current GDC DR46 absolute CN and sample-specific baseline/ploidy.",
+  "No verified measured ploidy available. Baseline estimate: modal integer autosomal gene-level CN; ties choose smallest mode; never fixed CN=2.",
+  "Deep Deletion: CN=0; Shallow Deletion: 0<CN<baseline; Diploid: CN=baseline; Gain: baseline<CN<2*baseline; Amplification: CN>=2*baseline.",
+  "These categories are not PanCanAtlas GISTIC -2/-1/0/+1/+2. CNAState numeric codes are internal analysis labels only.",
+  "PanCanAtlas/Xena: available locally as historical/reference layer; not used in default 01-03 main results.",
+  "Exact SampleID joins, with CaseID/ProjectID consistency checks. RNA representative: matching CN aliquot first, then lexical FileID; audit in Tables.",
+  "Scatter/pie denominator: current cancer finite matched CN/STAR expression/five-state cohort. Pearson and Spearman BH: separate eligible cancer tests.",
+  "Landscape/order: all finite current CN tumor samples; no outlier exclusion.",
   "Source paths, original URLs, source hashes and processor versions: Input_Versions.json.",
   "DepMap: Public 26Q1, user-supplied portal exports; full-release completeness unverified.",
   "Dependency grouping and continuous core: CN_log=log2(relative CN+1), low<0.585.",
@@ -289,7 +320,7 @@ run_final_workflow <- function() {
   "Eligible_Rank excludes undefined FDR; original Rank retained for provenance.",
   "All associations are observational; no causal inference."),wf_provenance("Source_Metadata.txt"))
  # A small readable version file accompanies machine-readable source hashes.
- writeLines(c("DATA_MODE=local","TCGA reference=PanCanAtlas/Xena (existing snapshot)","TCGA current=NCI GDC DR46 (retained separately)","DepMap=Public 26Q1",paste("R=",getRversion()),"Input SHA256 and code hashes: Input_Versions.json / Run_Metadata.json / Cache_*.json"),wf_provenance("Input_Versions.txt"))
+ writeLines(c("DATA_MODE=local","TCGA main=NCI GDC DR46 / 46.0","TCGA RNA=STAR log2(TPM + 1)","TCGA reference=historical only; unused by default","DepMap=Public 26Q1",paste("R=",getRversion()),"Input SHA256 and code hashes: Input_Versions.json / Run_Metadata.json / Cache_*.json"),wf_provenance("Input_Versions.txt"))
  wf_summary()
  source(file.path(PROJECT_ROOT,"scripts/R/validate_final_workflow.R"),encoding="UTF-8")
  validate_final_workflow()

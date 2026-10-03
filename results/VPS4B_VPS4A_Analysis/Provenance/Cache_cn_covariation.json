@@ -1,6 +1,6 @@
 {
   "module": "cn_covariation",
-  "key": "5dd35b26a4d9eeb6e38592ebf864b4476f379f5392cd44719c8d03f4e486e11f",
+  "key": "7263f677713fa9295665a98d4a76412ea532e2b1582d514336c36d1e76745893",
   "parameters": {
     "geneA": "VPS4B",
     "geneB": {},
@@ -19,31 +19,8 @@
     ]
   },
   "parameter_hash": "23f1fad991061199e33f5ce9aa6dbc293a58d66ff77f367e32ea184f93a51922",
-  "code_hash": "b2e216566798590ff6d3e693c6800705e2c86e6e6840ae6f4bf17b23c4342801",
-  "code_functions": [
-    "covariation_statistics",
-    "covariation_top",
-    "covariation_plot",
-    "wf_run_covariation",
-    "prepare_cn",
-    "load_target_pair",
-    "read_gene",
-    "load_model",
-    "fread",
-    "find_gene_col",
-    "clean_gene",
-    "processed_depmap",
-    "processed_pair",
-    "wf_write",
-    "workflow_save",
-    "workflow_theme",
-    "save_pdf",
-    "wf_expected",
-    "workflow_paths",
-    "wf_validate_artifact",
-    "p_text",
-    "p_star"
-  ],
+  "code_hash": "85a77697028188d7edf119ddf0eecc7342962ac7a44169fff7877748a4387280",
+  "code_functions": ["covariation_statistics", "covariation_top", "covariation_plot", "wf_run_covariation", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_validate_artifact", "p_text", "p_star"],
   "data_versions": [
     {
       "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
@@ -70,5 +47,6 @@
   "validated": true,
   "redraw_only": true,
   "previous_code_hash": "b5d29fbf3283c96070d14cb98ee9cc28a0809e236aaecfddaeb1bc828ae86e69",
-  "fingerprint_format": "deparsed source text; validated cache metadata migration only; statistics unchanged"
+  "fingerprint_format": "deparsed source text; validated cache metadata migration only; statistics unchanged",
+  "fingerprint_migration": "Verified pre-change input, parameter, all output hashes and unchanged statistical function bodies; see Cache_Migration.json"
 }

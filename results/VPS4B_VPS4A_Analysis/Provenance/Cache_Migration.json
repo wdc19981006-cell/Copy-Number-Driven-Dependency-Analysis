@@ -1,0 +1,56 @@
+{
+  "targeted_dependency": {
+    "inputs_unchanged": true,
+    "parameters_unchanged": true,
+    "statistics_functions_unchanged": true,
+    "output_hashes_unchanged": true,
+    "previous_code_hash": "0336513baed9bfa914d2caac96750193e1e03d65f8bb0287dd95fb3c47827e15",
+    "new_code_hash": "962dc16cd596ccd281859aaa825f380ca127aa03123e83892a11344fb811766a",
+    "fingerprint_change": "Module-scoped expected outputs; TCGA configuration excluded from unrelated DepMap fingerprints"
+  },
+  "lineage_dependency": {
+    "inputs_unchanged": true,
+    "parameters_unchanged": true,
+    "statistics_functions_unchanged": true,
+    "output_hashes_unchanged": true,
+    "previous_code_hash": "06d72299338c88715debfcf2e1619cef675a489e57cd1538787b7de7a556ef32",
+    "new_code_hash": "5f6b4b2730bc0f2ba3e12109975efac64a9e5fba45891dbd3ce4a7666c2efdeb",
+    "fingerprint_change": "Module-scoped expected outputs; TCGA configuration excluded from unrelated DepMap fingerprints"
+  },
+  "adjusted_dependency": {
+    "inputs_unchanged": true,
+    "parameters_unchanged": true,
+    "statistics_functions_unchanged": true,
+    "output_hashes_unchanged": true,
+    "previous_code_hash": "aa8258f622203aee368f5ab819c4cf96346a570d9223ecde03d42a3bf129d540",
+    "new_code_hash": "e5b92ac7e960052376181c4f08102b1d371252459829dea3fa9e49f65c3d0ae3",
+    "fingerprint_change": "Module-scoped expected outputs; TCGA configuration excluded from unrelated DepMap fingerprints"
+  },
+  "cn_threshold_sensitivity": {
+    "inputs_unchanged": true,
+    "parameters_unchanged": true,
+    "statistics_functions_unchanged": true,
+    "output_hashes_unchanged": true,
+    "previous_code_hash": "52859b37545d15904cde02bcea1085df7bccb95578b73998bf345bdda06ddc0a",
+    "new_code_hash": "09776e04071ecea8144a690842a8fe5b4ae60d9159b5867dbc76b4640268dea2",
+    "fingerprint_change": "Module-scoped expected outputs; TCGA configuration excluded from unrelated DepMap fingerprints"
+  },
+  "genomewide_dependency": {
+    "inputs_unchanged": true,
+    "parameters_unchanged": true,
+    "statistics_functions_unchanged": true,
+    "output_hashes_unchanged": true,
+    "previous_code_hash": "88f2dd8fab3b8a5753f7c68e0d0cf1b06d90b0342b57180ac9248365f62c7d41",
+    "new_code_hash": "53cf6b0191c8356c940b2df6c10b6ef6814efec96ffcece705d9df8e2534e718",
+    "fingerprint_change": "Module-scoped expected outputs; TCGA configuration excluded from unrelated DepMap fingerprints"
+  },
+  "cn_covariation": {
+    "inputs_unchanged": true,
+    "parameters_unchanged": true,
+    "statistics_functions_unchanged": true,
+    "output_hashes_unchanged": true,
+    "previous_code_hash": "b2e216566798590ff6d3e693c6800705e2c86e6e6840ae6f4bf17b23c4342801",
+    "new_code_hash": "85a77697028188d7edf119ddf0eecc7342962ac7a44169fff7877748a4387280",
+    "fingerprint_change": "Module-scoped expected outputs; TCGA configuration excluded from unrelated DepMap fingerprints"
+  }
+}

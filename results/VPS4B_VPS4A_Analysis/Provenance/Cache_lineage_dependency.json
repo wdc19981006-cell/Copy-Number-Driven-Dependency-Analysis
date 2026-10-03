@@ -1,6 +1,6 @@
 {
   "module": "lineage_dependency",
-  "key": "57d1861f0a5540a50a0b7c4a12587aeb9fd7e05be97d8972dab736b4303a3318",
+  "key": "d1b1318efa4a30fc80c618a3dfb019f6844a7c505e41cb439b930a628c01c0b5",
   "parameters": {
     "geneA": "VPS4B",
     "geneB": "VPS4A",
@@ -19,29 +19,8 @@
     ]
   },
   "parameter_hash": "d35457226076d62bd8a3420b804b2fcb540935345dd2e9484f47f35034c9ddcb",
-  "code_hash": "06d72299338c88715debfcf2e1619cef675a489e57cd1538787b7de7a556ef32",
-  "code_functions": [
-    "run_lineage",
-    "wf_run_supplement",
-    "prepare_cn",
-    "load_target_pair",
-    "read_gene",
-    "load_model",
-    "fread",
-    "find_gene_col",
-    "clean_gene",
-    "processed_depmap",
-    "processed_pair",
-    "wf_write",
-    "workflow_save",
-    "workflow_theme",
-    "save_pdf",
-    "wf_expected",
-    "workflow_paths",
-    "wf_validate_artifact",
-    "p_text",
-    "p_star"
-  ],
+  "code_hash": "5f6b4b2730bc0f2ba3e12109975efac64a9e5fba45891dbd3ce4a7666c2efdeb",
+  "code_functions": ["run_lineage", "wf_run_supplement", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_validate_artifact", "p_text", "p_star"],
   "data_versions": [
     {
       "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
@@ -99,5 +78,6 @@
   },
   "validated": true,
   "previous_code_hash": "20b8e8e894289bf0b578681a1a57195d8c71fda66e826067a6abdbf1cb56e03b",
-  "fingerprint_format": "deparsed source text; validated cache metadata migration only; statistics unchanged"
+  "fingerprint_format": "deparsed source text; validated cache metadata migration only; statistics unchanged",
+  "fingerprint_migration": "Verified pre-change input, parameter, all output hashes and unchanged statistical function bodies; see Cache_Migration.json"
 }

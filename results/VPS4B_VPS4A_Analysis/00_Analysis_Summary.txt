@@ -4,11 +4,13 @@ Copy Number–Driven Dependency Analysis
 
 Gene A: VPS4B
 Gene B: VPS4A
-TCGA: TCGA Pan-Cancer
+TCGA: Current TCGA dataset
 DepMap: Public 26Q1
-Run date: 2026-10-03 16:21:43 CST
+Run date: 2026-10-03 22:13:17 CST
 DATA_MODE: local（仅读取本地 processed 数据）
-TCGA 主图统一使用 reference 层；当前 DR46 可用性与真实来源见 Provenance。
+TCGA 主结果使用本地已验证的 current TCGA 数据；Source / release 信息见 Provenance。
+五级 CNA 基于 current gene-level CN 与 sample-specific baseline/ploidy，是 analysis-defined 分类，不是官方 GISTIC 五级值。
+baseline 使用每个样本常染色体 gene-level CN 的整数众数估算；不是直接测量的 ploidy。
 DepMap 为用户提供的 26Q1 导出文件；相对官方完整 release 的完整性未验证。
 CN-low: log2(relative CN + 1) < 0.585；分析定义，不是五级 GISTIC。
 
@@ -37,7 +39,7 @@ TCGA
 数据：
 TCGA
 用途/怎么看：
-逐癌种检验 VPS4B CN 与自身 mRNA 的关系；每张图含 N、Pearson、Spearman、黑色回归线与五级 CNA 百分比。N < 20 不报告相关统计。
+逐癌种检验 VPS4B CN 与自身 mRNA 的关系；Expression = log2(TPM + 1)。每张图含 N、Pearson、Spearman、黑色回归线与匹配 cohort 的五级 CNA pie chart。N < 20 不报告相关统计。
 
 ==================================================
 04_DepMap_VPS4B_CN_vs_VPS4A_Dependency.pdf
@@ -94,8 +96,8 @@ Supplementary
 ==================================================
 Key Findings
 ==================================================
-- VPS4B deletion 比例最高的癌种：READ 86.7%；TGCT 82.7%；PAAD 67.4%
-- CN-mRNA：33 癌种图；31 癌种 Pearson BH-FDR < 0.05。
+- VPS4B deletion 比例最高的癌种：READ 83.9%；TGCT 74%；PAAD 58.6%
+- CN-mRNA：33 癌种图；23 癌种 Pearson BH-FDR < 0.05。
 - VPS4A Eligible_Rank：1
 - CN-low N=76；CN-normal N=782。
 - median Chronos：low -0.87545；normal -0.31471；Delta -0.56074。
@@ -186,77 +188,85 @@ File Index
 作用： 完整本地 Chronos genome 筛选；Chronos 越负依赖越强。Delta median < 0 表示 CN-low 组依赖更强；用户排名为 Eligible_Rank。图标记每侧 Top10；候选表保留每侧 Top20。
 40 Main_Results/08_DepMap_VPS4B_CN_Covariation.pdf
 作用： CN 共变图展示正相关 Top20 与负相关 Top20；正相关表示 CN 往往同向变化，负相关表示往往反向变化；这是相关性，不是因果关系。
-41 Provenance/Cache_adjusted_dependency.json
+41 Provenance/Cache_Migration.json
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-42 Provenance/Cache_cn_covariation.json
+42 Provenance/Cache_adjusted_dependency.json
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-43 Provenance/Cache_cn_threshold_sensitivity.json
+43 Provenance/Cache_cn_covariation.json
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-44 Provenance/Cache_genomewide_dependency.json
+44 Provenance/Cache_cn_threshold_sensitivity.json
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-45 Provenance/Cache_lineage_dependency.json
+45 Provenance/Cache_genomewide_dependency.json
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-46 Provenance/Cache_targeted_dependency.json
+46 Provenance/Cache_lineage_dependency.json
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-47 Provenance/Cache_tcga.json
+47 Provenance/Cache_targeted_dependency.json
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-48 Provenance/Input_Versions.json
+48 Provenance/Cache_tcga.json
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-49 Provenance/Input_Versions.txt
+49 Provenance/Input_Versions.json
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-50 Provenance/Module_Runs.csv
+50 Provenance/Input_Versions.txt
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-51 Provenance/Run_Metadata.json
+51 Provenance/Module_Runs.csv
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-52 Provenance/SessionInfo.txt
+52 Provenance/Run_Metadata.json
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-53 Provenance/Source_Metadata.txt
+53 Provenance/SessionInfo.txt
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-54 Provenance/TCGA_Plot_Order.json
+54 Provenance/Source_Metadata.txt
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-55 Provenance/Validation.json
+55 Provenance/TCGA_Baseline_Method.json
 作用： 数据真实来源、版本、哈希、运行记录或验证信息
-56 Supplementary/01_Lineage/Lineage_Dependency_Forest.pdf
+56 Provenance/TCGA_Plot_Order.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+57 Provenance/Validation.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+58 Supplementary/01_Lineage/Lineage_Dependency_Forest.pdf
 作用： lineage、调整模型或固定 CN cutoff 的补充结果
-57 Supplementary/02_Adjusted/Adjusted_CN_Coefficient.pdf
+59 Supplementary/02_Adjusted/Adjusted_CN_Coefficient.pdf
 作用： lineage、调整模型或固定 CN cutoff 的补充结果
-58 Supplementary/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.pdf
+60 Supplementary/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.pdf
 作用： lineage、调整模型或固定 CN cutoff 的补充结果
-59 Tables/CNLow_Adjusted.csv
+61 Tables/CNLow_Adjusted.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-60 Tables/CN_Threshold_Continuous_Statistics.csv
+62 Tables/CN_Threshold_Continuous_Statistics.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-61 Tables/CN_Threshold_Sensitivity.csv
+63 Tables/CN_Threshold_Sensitivity.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-62 Tables/Continuous_CN_Adjusted.csv
+64 Tables/Continuous_CN_Adjusted.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-63 Tables/GenomeWide_Dependency.csv
+65 Tables/GenomeWide_Dependency.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-64 Tables/Lineage_Dependency.csv
+66 Tables/Lineage_Dependency.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-65 Tables/Lineage_Eligibility.csv
+67 Tables/Lineage_Eligibility.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-66 Tables/TCGA_CNA_Percentage.csv
+68 Tables/TCGA_CNA_Percentage.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-67 Tables/TCGA_CN_mRNA_CNA_Counts.csv
+69 Tables/TCGA_CN_mRNA_CNA_Counts.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-68 Tables/TCGA_Cancer_Order.csv
+70 Tables/TCGA_Cancer_Order.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-69 Tables/TCGA_Reference_Samples.csv
+71 Tables/TCGA_Current_Samples.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-70 Tables/TCGA_VPS4B_CN_mRNA_AllCancer_Statistics.csv
+72 Tables/TCGA_RNA_Representative_Selection.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-71 Tables/Top_CN_Covariation.csv
+73 Tables/TCGA_Sample_Baselines.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-72 Tables/Top_Dependency_Candidates.csv
+74 Tables/TCGA_VPS4B_CN_mRNA_AllCancer_Statistics.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-73 Tables/VPS4B_CN_Covariation.csv
+75 Tables/Top_CN_Covariation.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-74 Tables/VPS4B_VPS4A_CellLines.csv
+76 Tables/Top_Dependency_Candidates.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-75 Tables/VPS4B_VPS4A_Targeted_Statistics.csv
+77 Tables/VPS4B_CN_Covariation.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
-76 Tables/VPS4B_VPS4A_Waterfall_Order.csv
+78 Tables/VPS4B_VPS4A_CellLines.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+79 Tables/VPS4B_VPS4A_Targeted_Statistics.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+80 Tables/VPS4B_VPS4A_Waterfall_Order.csv
 作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
 00_Analysis_Summary.txt
 作用：中文结果阅读指南、关键统计与文件索引。

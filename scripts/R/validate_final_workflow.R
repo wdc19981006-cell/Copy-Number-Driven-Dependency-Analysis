@@ -13,10 +13,17 @@ validate_final_workflow <- function() {
   # must never pass merely because an absolute tolerance accepts zero.
   all(abs(a[ok]-b[ok])<=1e-9*pmax(abs(a[ok]),abs(b[ok]),.Machine$double.xmin))
  }
- order<-data.table::fread(wf_table("TCGA_Cancer_Order.csv"));d<-data.table::fread(wf_table("TCGA_Reference_Samples.csv"))
+ order<-data.table::fread(wf_table("TCGA_Cancer_Order.csv"));d<-data.table::fread(wf_table("TCGA_Current_Samples.csv"))
  check("R_4_5_0",as.character(getRversion())=="4.5.0")
  check("33_cancer_types",nrow(order)==33L&&setequal(order$CancerType,TCGA_CANCERS))
- check("reference_unique_tumors",!anyDuplicated(d$SampleID)&&all(d$TumorNormal=="Tumor")&&all(d$DataLayer=="PanCanAtlas_Xena_reference"))
+ check("current_unique_tumors",!anyDuplicated(d$SampleID)&&all(d$TumorNormal=="Tumor")&&all(d$DataLayer=="gdc_current_DR46"))
+ check("current_sample_baseline",all(is.finite(d$BaselineCN)&d$BaselineCN>0&d$BaselineCN==floor(d$BaselineCN)))
+ expected_state<-with(d,ifelse(!is.finite(CopyNumber),NA_integer_,ifelse(CopyNumber==0,-2L,
+   ifelse(CopyNumber<BaselineCN,-1L,ifelse(CopyNumber==BaselineCN,0L,ifelse(CopyNumber<2*BaselineCN,1L,2L))))))
+ check("analysis_defined_categories_match_CN_baseline",identical(is.na(d$CNAState),is.na(expected_state))&&all(d$CNAState==expected_state,na.rm=TRUE))
+ check("STAR_log2_TPM",equal(d$Expression,log2(d$RNA_TPM+1)))
+ versions<-wf_input_paths("tcga")
+ check("all_TCGA_inputs_current_processed",all(grepl("data/processed/tcga/gdc_DR46/",versions,fixed=TRUE))&&!any(grepl("PanCanAtlas|Xena|Toil",versions,ignore.case=TRUE)))
  direct<-d[is.finite(CopyNumber),.(N=.N,Median_CN=median(CopyNumber)),by=CancerType]
  setorder(direct,Median_CN,CancerType)
  check("ascending_median_order_and_N",identical(order$CancerType,direct$CancerType)&&identical(order$N,direct$N)&&equal(order$Median_CN,direct$Median_CN))
@@ -25,16 +32,16 @@ validate_final_workflow <- function() {
        identical(plot_order$Landscape_factor_levels,rev(order$CancerType))&&identical(plot_order$visual_top_to_bottom,order$CancerType))
  check("landscape_all_sample_points",plot_order$landscape_points==sum(is.finite(d$CopyNumber)))
  prev<-data.table::fread(wf_table("TCGA_CNA_Percentage.csv"))
- counts<-d[is.finite(GISTIC),.(N=.N),by=.(CancerType,GISTIC)]
- observed<-copy(prev);observed[,GISTIC:=match(CNA,CNA_STATES)-3L]
- joined<-merge(observed,counts,by=c("CancerType","GISTIC"),all.x=TRUE,suffixes=c("_plot","_source"));joined[is.na(N_source),N_source:=0L]
+ counts<-d[is.finite(CNAState),.(N=.N),by=.(CancerType,CNAState)]
+ observed<-copy(prev);observed[,CNAState:=match(CNA,CNA_STATES)-3L]
+ joined<-merge(observed,counts,by=c("CancerType","CNAState"),all.x=TRUE,suffixes=c("_plot","_source"));joined[is.na(N_source),N_source:=0L]
  check("five_state_CNA_counts",nrow(prev)==33L*5L&&all(joined$N_plot==joined$N_source)&&setequal(prev$CNA,CNA_STATES))
  check("CNA_percentage_denominator",all(prev[,sum(N)==unique(denominator)&&abs(sum(Percentage)-100)<1e-8,by=CancerType]$V1))
  stats<-data.table::fread(wf_table(paste0("TCGA_",GENE_A,"_CN_mRNA_AllCancer_Statistics.csv")))
  check("CN_mRNA_summary_order",identical(stats$CancerType,order$CancerType))
  p_pe<-p_sp<-rep(NA_real_,nrow(stats))
  for(i in seq_len(nrow(stats))) {
-  z<-d[CancerType==stats$CancerType[i]&is.finite(CopyNumber)&is.finite(Expression)&is.finite(GISTIC)]
+  z<-d[CancerType==stats$CancerType[i]&is.finite(CopyNumber)&is.finite(Expression)&is.finite(CNAState)]
   check(paste0("RNA_matching_N_",stats$CancerType[i]),stats$N[i]==nrow(z))
   if(nrow(z)>=TCGA_MIN_N&&sd(z$CopyNumber)>0&&sd(z$Expression)>0) {
    pe<-cor.test(z$CopyNumber,z$Expression);sp<-cor.test(z$CopyNumber,z$Expression,method="spearman",exact=FALSE)
@@ -44,6 +51,8 @@ validate_final_workflow <- function() {
   }else check(paste0("RNA_insufficient_not_fabricated_",stats$CancerType[i]),all(is.na(unlist(stats[i,.(Pearson_r,Pearson_P,Spearman_rho,Spearman_P)]))))
  }
  check("RNA_independent_BH",equal(stats$Pearson_FDR,p.adjust(p_pe,"BH"))&&equal(stats$Spearman_FDR,p.adjust(p_sp,"BH")))
+ pie_counts<-data.table::fread(wf_table("TCGA_CN_mRNA_CNA_Counts.csv"))
+ check("pie_uses_matched_cancer_denominator",all(pie_counts[,.(N=sum(N)),by=CancerType][match(stats$CancerType,CancerType),N]==stats$N))
  screen<-data.table::fread(wf_table("GenomeWide_Dependency.csv"))
  check("genomewide_complete_BH",equal(screen$Wilcoxon_FDR,p.adjust(screen$Wilcoxon_P,"BH"))&&equal(screen$Pearson_FDR,p.adjust(screen$Pearson_P,"BH")))
  eligible<-screen[is.finite(Wilcoxon_FDR)&is.finite(Delta_median)][order(Wilcoxon_FDR,Delta_median,Rank)]
@@ -63,6 +72,10 @@ validate_final_workflow <- function() {
   s<-data.table::fread(wf_table(paste0(GENE_A,"_",GENE_B,"_Targeted_Statistics.csv")))
   check("targeted_unique_finite_cohort",!anyDuplicated(pair$ModelID)&&all(is.finite(pair$CN_relative)&is.finite(pair$Chronos)))
   check("targeted_CN_groups",all((pair$CN_binary=="CN-Low")== (log2(pair$CN_relative+1)<.585)))
+  pb<-ggplot_build(targeted_scatter_plot(pair,s))
+  check("targeted_three_reference_lines",identical(pb$data[[2]]$yintercept,0)&&
+   equal(pb$data[[3]]$xintercept,2^.585-1)&&equal(pb$data[[4]]$xintercept,2^.35-1))
+  check("targeted_two_visual_groups",length(unique(pb$data[[1]]$colour))==length(unique(pair$CN_binary)))
   pe<-cor.test(pair$CN_log,pair$Chronos);sp<-cor.test(pair$CN_log,pair$Chronos,method="spearman",exact=FALSE)
   per<-cor.test(pair$CN_relative,pair$Chronos);spr<-cor.test(pair$CN_relative,pair$Chronos,method="spearman",exact=FALSE)
   check("targeted_independent_correlations",equal(c(s$Pearson_r,s$Pearson_P,s$Spearman_rho,s$Spearman_P,

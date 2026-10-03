@@ -1,12 +1,19 @@
-TCGA current source: NCI GDC
-Release: DR46 / 46.0
-Current processed data retained; not used in default main figures.
-TCGA main source: PanCanAtlas reference / UCSC Xena
-Continuous CN: GISTIC2 all_data_by_genes; source scale, not absolute CN.
-Five states: thresholded GISTIC2 (-2,-1,0,1,2).
-Expression: matched TCGA Toil RSEM, log2(norm_count+1); not TPM.
-Reference joins: exact SampleID; unique IDs in each layer; TumorNormal=Tumor; finite CN/mRNA/GISTIC for scatter correlations.
-Landscape/order: all finite reference CN tumor samples; no outlier exclusion.
+Database = TCGA
+Source = NCI GDC
+Release = DR46 / 46.0
+TCGA user-facing database: TCGA
+Underlying source: NCI GDC
+Main data layer: gdc_current_DR46
+RNA: STAR TPM; analysis: log2(TPM + 1).
+Gene-level CN: current TCGA absolute Gene-Level Copy Number.
+Current TCGA CN Five-State Classification: analysis-defined from current GDC DR46 absolute CN and sample-specific baseline/ploidy.
+No verified measured ploidy available. Baseline estimate: modal integer autosomal gene-level CN; ties choose smallest mode; never fixed CN=2.
+Deep Deletion: CN=0; Shallow Deletion: 0<CN<baseline; Diploid: CN=baseline; Gain: baseline<CN<2*baseline; Amplification: CN>=2*baseline.
+These categories are not PanCanAtlas GISTIC -2/-1/0/+1/+2. CNAState numeric codes are internal analysis labels only.
+PanCanAtlas/Xena: available locally as historical/reference layer; not used in default 01-03 main results.
+Exact SampleID joins, with CaseID/ProjectID consistency checks. RNA representative: matching CN aliquot first, then lexical FileID; audit in Tables.
+Scatter/pie denominator: current cancer finite matched CN/STAR expression/five-state cohort. Pearson and Spearman BH: separate eligible cancer tests.
+Landscape/order: all finite current CN tumor samples; no outlier exclusion.
 Source paths, original URLs, source hashes and processor versions: Input_Versions.json.
 DepMap: Public 26Q1, user-supplied portal exports; full-release completeness unverified.
 Dependency grouping and continuous core: CN_log=log2(relative CN+1), low<0.585.

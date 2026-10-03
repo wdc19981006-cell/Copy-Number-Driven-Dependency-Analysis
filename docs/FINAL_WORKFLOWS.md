@@ -36,11 +36,13 @@ Gene A-only 共 **37** 张主 PDF；A+B 共 **40** 张主 PDF。默认不运行 
 
 ## TCGA 数据层与共同顺序
 
-TCGA 主图 01–03 **统一使用现有 reference 层**，不与 DR46 主图混排。五级 CNA 来自 PanCanAtlas/Xena thresholded GISTIC2，连续 CN 为其匹配的 GISTIC2 all-data，表达是现有 Toil TCGA RSEM `log2(norm_count+1)`，不是 TPM。保留真实来源与现有 prepared SHA256 到 Provenance。当前 NCI GDC DR46 processed 数据保持独立可查询；普通主图不增加第二套 CN-expression 输出。
+TCGA 主图 01–03 **统一使用本地 current DR46 processed dataset**，只读取 `data/processed/tcga/gdc_DR46/`。Database=TCGA，Source=NCI GDC，Release=DR46 / 46.0。01 是 analysis-defined current CN categories；02 是 absolute gene-level CN；03 是 current CN + STAR `log2(TPM + 1)`。PanCanAtlas/Xena 仅作为 historical/reference 保留，不在默认 workflow 中。实际输入、prepared SHA256 与数据层记录于 Provenance。
 
-01 使用所有有效 GISTIC tumor samples 作为各癌种分母，五类颜色固定。02 使用全部 finite reference CN tumor samples，箱线图叠加全部 jitter points，保留极端值，癌种标签显示实际 N。共同癌种顺序按 Gene A reference continuous CN 的 median 升序（并列按癌种名）；`TCGA_Cancer_Order.csv` 是**视觉从上到下**的顺序，coord_flip 的 factor levels 为该表倒序。Provenance 保存实际绘图 factor levels、点数和转换规则，自动验证与表一致。
+01 使用所有有效分类的 current tumor samples 作为各癌种分母，五类颜色固定。当前没有可靠实测 ploidy，使用常染色体 gene-level CN 整数众数估算 sample-specific baseline（并列取较小值；不舍入 CN；不统一固定为 2）。按 CN=0、0<CN<baseline、CN=baseline、baseline<CN<2×baseline、CN≥2×baseline 分成 Deep Deletion、Shallow Deletion、Diploid、Gain、Amplification。此为项目分析定义，不是 PanCanAtlas GISTIC 五级值。baseline 在 bounded gene-column blocks 中计算，样本级缓存绑定源版本及哈希；普通单基因提取只读必要列。`TCGA_Sample_Baselines.csv` 和 `TCGA_Baseline_Method.json` 保留分布、众数支持度、并列与极端值。
 
-03 精确按 SampleID 一对一匹配 continuous CN、thresholded CNA、expression，限定 tumor，使用三者都 finite 的样本。逐癌种报告 N、Pearson/Spearman 和各自跨癌种 BH FDR；固定 N<20 或常量变量时不编造统计量，仍生成该癌种图。百分比 inset 的分母是同图匹配 cohort。癌种样本数与 CNA 频率分母不同的原因保留在样本表中。
+02 使用全部 finite current CN tumor samples，箱线图叠加全部 jitter points，保留极端值，癌种标签显示实际 N。共同癌种顺序按 Gene A current CN 的 median 升序（并列按癌种名）；`TCGA_Cancer_Order.csv` 是**视觉从上到下**的顺序，coord_flip 的 factor levels 为该表倒序。Provenance 保存实际绘图 factor levels、点数和转换规则，自动验证与表一致。
+
+03 精确按 SampleID 一对一匹配 current CN、analysis-defined CNA、STAR TPM，限定 tumor，使用三者都 finite 的样本。RNA 同样本多 aliquot 时先匹配 CN aliquot，再按 FileID 字典序选代表；检查 CaseID/ProjectID 一致并保留完整选择审计。表达为 `log2(TPM + 1)`。逐癌种报告 N、Pearson/Spearman 和各自 eligible tests 内 BH FDR；固定 N<20 或常量变量时不编造统计量，仍生成全部33癌种图。左上角为真正 five-state pie chart，分母是同图匹配 cohort；小于8%的扇区省略文字，但图例始终保留5类。图上方预留空白，使 pie 和统计不遮挡散点。
 
 ## DepMap 统计定义
 
@@ -49,6 +51,8 @@ TCGA 主图 01–03 **统一使用现有 reference 层**，不与 DR46 主图混
 保留原始数值核心与 `CN_log=log2(relative CN+1)`、low `<0.585`。Genome-wide `Delta_median=median(low)-median(nonlow)`：负值表示 low 组更依赖，正值表示更弱。Wilcoxon P 和全筛选 BH FDR 不更改；历史 Rank 保留，主排名 Eligible_Rank 排除 undefined FDR。火山图标记每个方向 Top10，并额外高亮提供的 Gene B；候选表每方向 Top20。
 
 Targeted scatter 的横轴和角落统计是 **CN_relative**；为保留历史定义，统计表另保留 CN_log Pearson/Spearman，不把两种 Pearson 默认为相同。Waterfall 按 Chronos 从高到低（弱到强）排序，并列按 ModelID；CN-Normal 为黑色，low 红色。Boxplot 展示全部点、N、组 median、Delta median、Wilcoxon P 和星号。
+
+04 包含 y=0 灰色水平点线、CN-Low threshold=`2^0.585-1` 深灰垂直虚线、Deep CN Loss=`2^0.35-1` 黑色垂直点线。Deep 仅为视觉参考，分组仍只有 CN-Low/CN-Normal。只有散点图函数变化时直接复用已验证统计和05/06，只重新生成04。
 
 Covariation 报告 positive Top20 与 negative Top20，排除 Gene A 自身；同向与反向相关均不解释为因果关系。
 

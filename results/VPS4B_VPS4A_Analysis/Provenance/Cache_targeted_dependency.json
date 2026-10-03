@@ -1,6 +1,6 @@
 {
   "module": "targeted_dependency",
-  "key": "eae145947b211d207c3b21631b3bacabc37cfddee835eaef65c197e4a5e6de41",
+  "key": "c7b89fd94cb6323de3e375466516c4a9c18fb114a53ac3b94f05dcaedc5d4886",
   "parameters": {
     "geneA": "VPS4B",
     "geneB": "VPS4A",
@@ -19,33 +19,8 @@
     ]
   },
   "parameter_hash": "a59ab4525a31cdc1ef7ccbf88303ba1d0dcf75569790ec62780fa1ab850cbbc3",
-  "code_hash": "0336513baed9bfa914d2caac96750193e1e03d65f8bb0287dd95fb3c47827e15",
-  "code_functions": [
-    "targeted_statistics",
-    "targeted_plots",
-    "waterfall_order",
-    "wf_run_targeted",
-    "pair_correlations",
-    "group_effect",
-    "prepare_cn",
-    "load_target_pair",
-    "read_gene",
-    "load_model",
-    "fread",
-    "find_gene_col",
-    "clean_gene",
-    "processed_depmap",
-    "processed_pair",
-    "wf_write",
-    "workflow_save",
-    "workflow_theme",
-    "save_pdf",
-    "wf_expected",
-    "workflow_paths",
-    "wf_validate_artifact",
-    "p_text",
-    "p_star"
-  ],
+  "code_hash": "87364558437c1600e082b91e85b8c427e6044bbc0a3a5956e4e04528b6f300d7",
+  "code_functions": ["targeted_statistics", "targeted_plots", "targeted_scatter_plot", "waterfall_order", "wf_run_targeted", "wf_targeted_statistics_key", "pair_correlations", "group_effect", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_validate_artifact", "p_text", "p_star"],
   "data_versions": [
     {
       "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
@@ -81,7 +56,7 @@
     }
   ],
   "outputs": {
-    "Main_Results/04_DepMap_VPS4B_CN_vs_VPS4A_Dependency.pdf": "fbfd0e563ada985fd017fcf2f43c4082b7c456ba3f90e60167dd56fc5eec2ba9",
+    "Main_Results/04_DepMap_VPS4B_CN_vs_VPS4A_Dependency.pdf": "2cc864b90fa43d0686903ce24bda9c15f2ea152d6d7d09b8caeca3aa904562be",
     "Main_Results/05_DepMap_VPS4A_Dependency_Waterfall.pdf": "1fbaec585a3053469c26b6e9988c05df81f7e4383771c1a2f591a0eceff25f6d",
     "Main_Results/06_DepMap_VPS4A_Dependency_CNlow_vs_Normal.pdf": "76979c554b66cc50260d6dc282b8408ff47b18b97733de0b30f1123d57baa01b",
     "Tables/VPS4B_VPS4A_Targeted_Statistics.csv": "3b0786254a7bba3d81c637c91b7c57d90795b18d8e4fce5c70232f5c0144c139",
@@ -89,6 +64,5 @@
     "Tables/VPS4B_VPS4A_Waterfall_Order.csv": "c4c3f98d14701379fe1e4fb69776ffbb9bde5440b63cff8b03e88bb8d95812b3"
   },
   "validated": true,
-  "previous_code_hash": "ea39d0e1878e6ce66c8a4e2d57a2a5e91535fb8a0f6cb5871431e7412043bbe3",
-  "fingerprint_format": "deparsed source text; validated cache metadata migration only; statistics unchanged"
+  "statistics_key": "0e78a1666309625104e8a181bdbe2c5325435aa4be4b7f81fb487709dcc08966"
 }

@@ -1,6 +1,6 @@
 {
   "module": "genomewide_dependency",
-  "key": "a25ff2147176a491b008709fa17f1964c0d64cd26a9e7055ac27e41d89e7b6ba",
+  "key": "1157a0f6778165f4c915b617bcf0696f7d4f566722495e862a5625a9807e4a3b",
   "parameters": {
     "geneA": "VPS4B",
     "geneB": "VPS4A",
@@ -19,33 +19,8 @@
     ]
   },
   "parameter_hash": "b8e72f434e9f40cf4e0373b0b57bcfb07d85cb27d515e7a3480887ccd098cbe5",
-  "code_hash": "88f2dd8fab3b8a5753f7c68e0d0cf1b06d90b0342b57180ac9248365f62c7d41",
-  "code_functions": [
-    "run_genomewide",
-    "screen_core_statistics",
-    "eligible_rank",
-    "dependency_top",
-    "volcano_plot",
-    "wf_run_screen",
-    "prepare_cn",
-    "load_target_pair",
-    "read_gene",
-    "load_model",
-    "fread",
-    "find_gene_col",
-    "clean_gene",
-    "processed_depmap",
-    "processed_pair",
-    "wf_write",
-    "workflow_save",
-    "workflow_theme",
-    "save_pdf",
-    "wf_expected",
-    "workflow_paths",
-    "wf_validate_artifact",
-    "p_text",
-    "p_star"
-  ],
+  "code_hash": "53cf6b0191c8356c940b2df6c10b6ef6814efec96ffcece705d9df8e2534e718",
+  "code_functions": ["run_genomewide", "screen_core_statistics", "eligible_rank", "dependency_top", "volcano_plot", "wf_run_screen", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_validate_artifact", "p_text", "p_star"],
   "data_versions": [
     {
       "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
@@ -87,5 +62,6 @@
   },
   "validated": true,
   "previous_code_hash": "2abe2909bf7df59bed26ac90c8653d082a01eaa1c5b7c568d6cfff6c4f8f0c41",
-  "fingerprint_format": "deparsed source text; validated cache metadata migration only; statistics unchanged"
+  "fingerprint_format": "deparsed source text; validated cache metadata migration only; statistics unchanged",
+  "fingerprint_migration": "Verified pre-change input, parameter, all output hashes and unchanged statistical function bodies; see Cache_Migration.json"
 }

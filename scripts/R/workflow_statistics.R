@@ -15,9 +15,9 @@ cancer_order <- function(dat,cancers) {
  z[,Order:=.I];setcolorder(z,c("Order","CancerType","N","Median_CN"));z
 }
 ordered_cancer <- function(x,order)factor(x,levels=rev(order$CancerType))
-reference_cancer_statistics <- function(dat,order,min_n=TCGA_MIN_N) {
+current_cancer_statistics <- function(dat,order,min_n=TCGA_MIN_N) {
  res<-rbindlist(lapply(order$CancerType,function(cancer) {
-  d<-dat[CancerType==cancer & is.finite(CopyNumber)&is.finite(Expression)&is.finite(GISTIC)]
+  d<-dat[CancerType==cancer & is.finite(CopyNumber)&is.finite(Expression)&is.finite(CNAState)]
   r<-as.data.table(pair_correlations(d$CopyNumber,d$Expression,min_n))
   r[,`:=`(CancerType=cancer,Status=if(.N&&N<min_n)"Insufficient N for correlation" else
            if(!is.finite(Pearson_r))"Constant CN or mRNA; correlation unavailable" else "Eligible")]
@@ -26,10 +26,10 @@ reference_cancer_statistics <- function(dat,order,min_n=TCGA_MIN_N) {
  res[,`:=`(Pearson_FDR=p.adjust(Pearson_P,"BH"),Spearman_FDR=p.adjust(Spearman_P,"BH"))]
  setcolorder(res,c("CancerType",setdiff(names(res),"CancerType")));res
 }
-reference_prevalence <- function(dat,order) {
- d<-copy(dat[is.finite(GISTIC)])
- if(!all(d$GISTIC %in% -2:2))stop("Invalid five-state GISTIC code")
- d[,CNA:=CNA_STATES[as.integer(GISTIC)+3L]]
+current_prevalence <- function(dat,order) {
+ d<-copy(dat[is.finite(CNAState)])
+ if(!all(d$CNAState %in% -2:2))stop("Invalid five-state CNAState code")
+ d[,CNA:=CNA_STATES[as.integer(CNAState)+3L]]
  counts<-d[,.(N=.N),by=.(CancerType,CNA)]
  z<-merge(CJ(CancerType=order$CancerType,CNA=CNA_STATES),counts,all.x=TRUE,
           by=c("CancerType","CNA"))

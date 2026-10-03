@@ -16,15 +16,18 @@ stopifnot(identical(workflow_modules("geneA_screen"),c("tcga","genomewide_depend
  !any(c("reverse_dependency","mutation_dependency","expression_dependency","genomewide_expression_dependency","genomewide_adjusted_dependency") %in% workflow_modules("geneA_geneB")),
  sum(workflow_modules("geneA_geneB")=="genomewide_dependency")==1L)
 d<-data.table(SampleID=paste0("s",1:15),CancerType=rep(c("Z","A","C"),each=5),
- CopyNumber=c(-9,-2,-1,0,99,rep(0,5),1:5),Expression=seq_len(15),GISTIC=rep(-2:2,3))
+ CopyNumber=c(-9,-2,-1,0,99,rep(0,5),1:5),Expression=seq_len(15),CNAState=rep(-2:2,3))
 order<-cancer_order(d,c("Z","A","C"));stopifnot(identical(order$CancerType,c("Z","A","C")),all(order$N==5L))
-prev<-reference_prevalence(d,order);stopifnot(nrow(prev)==15L,all(prev$N==1L),all(prev$Percentage==20))
+prev<-current_prevalence(d,order);stopifnot(nrow(prev)==15L,all(prev$N==1L),all(prev$Percentage==20))
 p1<-tcga_prevalence_plot(prev,order);p2<-tcga_landscape_plot(d,order)
+rounded<-copy(prev);rounded[,Percentage:=Percentage+1e-12]
+rounded_build<-ggplot_build(tcga_prevalence_plot(rounded,order))$data[[1]]
+stopifnot(all(is.finite(rounded_build$ymin)),all(is.finite(rounded_build$ymax)),max(rounded_build$ymax)<=1)
 stopifnot(identical(levels(p1$data$CancerType),rev(order$CancerType)),identical(levels(p1$data$CancerType),levels(p2$data$CancerType)))
 b<-ggplot_build(p2);stopifnot(nrow(b$data[[2]])==nrow(d),isTRUE(all.equal(sort(b$data[[2]]$y),sort(d$CopyNumber))))
 # Finite paired cohorts only; insufficient cancers still retain a statistics row.
 d$Expression[1]<-NA
-stats<-reference_cancer_statistics(d,order,min_n=5L)
+stats<-current_cancer_statistics(d,order,min_n=5L)
 stopifnot(stats$N[1]==4L,is.na(stats$Pearson_r[1]),stats$Status[1]=="Insufficient N for correlation")
 for(i in 2:3) {
  z<-d[CancerType==order$CancerType[i]]
@@ -33,6 +36,12 @@ for(i in 2:3) {
 pair<-as.data.table(prepare_cn(data.frame(ModelID=paste0("m",1:12),CN_relative=c(rep(.2,6),seq(1,2,length.out=6)))))
 pair[,Chronos:=c(-2,-1.8,-1.7,-1.6,-1.5,-1.4,-.1,-.2,-.3,-.4,-.5,-.6)]
 s<-targeted_statistics(pair)
+scatter<-targeted_scatter_plot(pair,s);layers<-ggplot_build(scatter)$data
+stopifnot(identical(layers[[2]]$yintercept,0),identical(layers[[3]]$xintercept,2^.585-1),
+ identical(layers[[4]]$xintercept,2^.35-1),setequal(layers[[1]]$colour,c("black","red")))
+pie<-tcga_cna_pie(data.table(CNA=factor(c(CNA_STATES[1],rep(CNA_STATES[3],9)),levels=CNA_STATES)))
+stopifnot(inherits(pie$coordinates,"CoordPolar"),nrow(pie$data)==5L,sum(pie$data$N)==10L,
+ identical(pie$scales$scales[[1]]$drop,FALSE),all(pie$data$pct==c(10,0,90,0,0)))
 stopifnot(s$N_low==6L,s$N_nonlow==6L,s$Delta_median<0,
  isTRUE(all.equal(s$Wilcoxon_P,wilcox.test(pair$Chronos[1:6],pair$Chronos[7:12],exact=FALSE)$p.value)))
 w<-waterfall_order(pair);stopifnot(all(diff(w$Chronos)<=0),w$ModelID[1]=="m7",w$ModelID[12]=="m1")

@@ -1,8 +1,8 @@
 Module,Status,Seconds
-tcga,cached,0.137495040893555
-targeted_dependency,cached,0.034351110458374
-lineage_dependency,computed,5.90379786491394
-adjusted_dependency,computed,2.1122841835022
-cn_threshold_sensitivity,computed,1.60305595397949
-genomewide_dependency,computed,198.929800033569
-cn_covariation,computed,9.32757902145386
+tcga,computed,21.3603508472443
+targeted_dependency,plot_regenerated,0.368176937103272
+lineage_dependency,cached,0.0242440700531006
+adjusted_dependency,cached,0.0237700939178467
+cn_threshold_sensitivity,cached,0.023853063583374
+genomewide_dependency,cached,0.0542240142822266
+cn_covariation,cached,0.023608922958374

@@ -1,6 +1,6 @@
 {
   "module": "cn_threshold_sensitivity",
-  "key": "c2f9c52a7af2e46076e32f6f3d11304e42b26a117889c8e1a2ec3def457522d9",
+  "key": "ba7dff2df205f5eb36d4b244f3c4d32ad9580faf5f2a0207387e9c4e9c348c65",
   "parameters": {
     "geneA": "VPS4B",
     "geneB": "VPS4A",
@@ -19,31 +19,8 @@
     ]
   },
   "parameter_hash": "a59ab4525a31cdc1ef7ccbf88303ba1d0dcf75569790ec62780fa1ab850cbbc3",
-  "code_hash": "52859b37545d15904cde02bcea1085df7bccb95578b73998bf345bdda06ddc0a",
-  "code_functions": [
-    "run_threshold_sensitivity",
-    "cn_threshold_statistics",
-    "group_effect",
-    "wf_run_supplement",
-    "prepare_cn",
-    "load_target_pair",
-    "read_gene",
-    "load_model",
-    "fread",
-    "find_gene_col",
-    "clean_gene",
-    "processed_depmap",
-    "processed_pair",
-    "wf_write",
-    "workflow_save",
-    "workflow_theme",
-    "save_pdf",
-    "wf_expected",
-    "workflow_paths",
-    "wf_validate_artifact",
-    "p_text",
-    "p_star"
-  ],
+  "code_hash": "09776e04071ecea8144a690842a8fe5b4ae60d9159b5867dbc76b4640268dea2",
+  "code_functions": ["run_threshold_sensitivity", "cn_threshold_statistics", "group_effect", "wf_run_supplement", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_validate_artifact", "p_text", "p_star"],
   "data_versions": [
     {
       "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
@@ -85,5 +62,6 @@
   },
   "validated": true,
   "previous_code_hash": "0ca57d7725e305dd4754aa033858c527f9f02a848e126c9e57ec2b6eda4605be",
-  "fingerprint_format": "deparsed source text; validated cache metadata migration only; statistics unchanged"
+  "fingerprint_format": "deparsed source text; validated cache metadata migration only; statistics unchanged",
+  "fingerprint_migration": "Verified pre-change input, parameter, all output hashes and unchanged statistical function bodies; see Cache_Migration.json"
 }
