@@ -1,5 +1,19 @@
 # Repository workflow rules
 
+## Mandatory ordinary-analysis execution contract
+
+- A request to analyze Gene A or Gene A + Gene B means running the existing framework, never developing a replacement. The only ordinary user entry points are `Rscript scripts/R/run_analysis.R --workflow geneA_screen --geneA <GENEA>` and `Rscript scripts/R/run_analysis.R --workflow geneA_geneB --geneA <GENEA> --geneB <GENEB>` using the configured R 4.5.0 runtime.
+- During ordinary analysis, `scripts/`, `tests/`, `config/`, and `workflow/` are read-only. Do not create gene-specific R/Python files, download scripts, or any new Python files. Existing local processed-data access and validation helpers may run unchanged; never copy them into result packages.
+- Use only local current TCGA DR46 processed data and local DepMap 26Q1 processed data. Do not contact cBioPortal, GDC APIs, DepMap, or search for substitute data; do not download, read raw, change releases, or substitute PanCancer Atlas. Git pull/push are the explicitly required repository synchronization exception, not analysis data access.
+- Preserve the existing sample inclusion, sample matching, baseline/CNA classification, statistics, thresholds, ranks, filenames, and plot definitions. Do not independently deduplicate patients or add/remove modules, plots, sensitivity analyses, or alternative versions. Run the selected workflow once, preserving its validated module-cache behavior.
+- If required processed data is absent, report exactly `Local processed dataset unavailable.` followed by `Run the separate data-update/preparation workflow first.` and stop. If the first workflow fails, stop without retrying, patching code, or designing a substitute; report `Analysis workflow failed`, the command, exact error, failed module, and suspected cause. Framework changes require a separate explicit user instruction such as “修改框架代码” or “修复框架”.
+- Gene A-only output is `results/<GENEA>_Analysis/`: Chinese `00_Analysis_Summary.txt`, `Main_Results/` with the fixed 01 CNA percentage, 02 CN landscape, 03 per-cancer CN-mRNA, 04 DepMap genome-wide dependency volcano, and 05 DepMap CN covariation; plus `Tables/` and necessary `Provenance/`. A+B uses its existing documented contract. Never substitute Markdown/HTML/DOCX for the TXT summary.
+- Require an exact match between 03 PDF filenames and the current TCGA cancer mapping (currently 33), keeping COAD and READ separate. Every prescribed cancer must have a PDF even with nonsignificant results or N < 20; preserve the fixed insufficient-N annotation. Missing or extra main outputs mean FAILED: do not package or report completion.
+- User packages contain only the fixed summary, result PDFs/CSVs/TXTs, and necessary provenance (plus prescribed A+B supplementary outputs). Exclude scripts, .py/.R files, raw/processed data, download manifests, requirements, API responses, source code, and development logs.
+- Verify fixed files, exact cancer coverage, local data provenance, Chinese TXT summary and exact index, no unplanned main plots, no new Python/gene-specific R files, and no analysis network access. Commit/push only the requested result case and explicitly authorized existing execution-rule/configuration changes; preserve unrelated pre-existing user changes and report any resulting non-clean status honestly.
+
+## Repository operations
+
 - Windows / Git Bash. Use `/c/Python312/python.exe`; never the Windows Store `python`/`python3`. Pass Python script paths as Windows-native absolute paths. R must be 4.5.0; runtime location is in `config/R_runtime.json`.
 - Start tasks with `git pull --ff-only origin main`, preserving existing local work.
 - Ordinary analyses use `DATA_MODE=local`, existing processed Parquet/DuckDB only. Do not download, update, read raw or silently substitute data layers. Missing processed data must fail with the two-line message in `docs/FINAL_WORKFLOWS.md`.

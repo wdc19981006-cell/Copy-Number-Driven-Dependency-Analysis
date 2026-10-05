@@ -1,0 +1,44 @@
+{
+  "module": "cn_covariation",
+  "key": "8eeed46b6322719a0e2859648ae5f9cd1ed408fa500d56bbaa02948b97414117",
+  "parameters": {
+    "geneA": "NUDT18",
+    "geneB": {},
+    "geneB_provided": {},
+    "workflow": "geneA_screen",
+    "bootstrap": {},
+    "min_group_n": 3,
+    "low": 0.585,
+    "deep": 0.35,
+    "seed": 1234,
+    "thresholds": [0.585, 0.5, 0.4, 0.35]
+  },
+  "parameter_hash": "4014cd3af378a350e947e3606f3278220d4ea9107a6607d51350aac6bb1e7dff",
+  "code_hash": "399a1a7e1289cfb2b07d9f960a8af2fca133eeca047a4df84c6033937a0acf15",
+  "code_functions": ["covariation_statistics", "covariation_top", "covariation_plot", "wf_run_covariation", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_validate_artifact", "p_text", "p_star"],
+  "data_versions": [
+    {
+      "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+      "bytes": 218424120,
+      "mtime": "2026-10-02T17:52:03.793706+0800",
+      "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+      "provenance": {
+        "release": "26Q1",
+        "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+        "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+        "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+        "created_at": "2026-10-02T17:52:04+08:00",
+        "source_type": "user_supplied_portal_export",
+        "full_release_completeness": "unverified",
+        "orientation": "models x gene symbols"
+      }
+    }
+  ],
+  "outputs": {
+    "Main_Results/05_DepMap_NUDT18_CN_Covariation.pdf": "1bc818b664669635c2636ada070f6e2928332e8660f4436445d37032a23b0182",
+    "Tables/NUDT18_CN_Covariation.csv": "34b522cfb261726b4f8ec9b2db38724a906707eb2558e8992a9888c0884316e6",
+    "Tables/Top_CN_Covariation.csv": "5b873330b39fbb1f38a0bcd3aaaf07f5d710ea1c1140ef822346a1e7fadc7e3f"
+  },
+  "validated": true,
+  "statistics_key": {}
+}

@@ -1,0 +1,60 @@
+{
+  "module": "genomewide_dependency",
+  "key": "3d79ab7a8a2f5696eb2fa7423efaf7a17a47d98f862d8b62f3b41c1665dd64b7",
+  "parameters": {
+    "geneA": "NUDT18",
+    "geneB": "",
+    "geneB_provided": false,
+    "workflow": "geneA_screen",
+    "bootstrap": {},
+    "min_group_n": 3,
+    "low": 0.585,
+    "deep": 0.35,
+    "seed": 1234,
+    "thresholds": [0.585, 0.5, 0.4, 0.35]
+  },
+  "parameter_hash": "a3fe1d2795e691b53ff205a0a7b33d476e6b8a4a7547c8db6037aaeabbc00991",
+  "code_hash": "38359334e6e6f312af4ea3641340bf64108619f35cce70c69988852a0c775f48",
+  "code_functions": ["run_genomewide", "screen_core_statistics", "eligible_rank", "dependency_top", "volcano_plot", "wf_run_screen", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_validate_artifact", "p_text", "p_star"],
+  "data_versions": [
+    {
+      "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+      "bytes": 218424120,
+      "mtime": "2026-10-02T17:52:03.793706+0800",
+      "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+      "provenance": {
+        "release": "26Q1",
+        "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+        "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+        "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+        "created_at": "2026-10-02T17:52:04+08:00",
+        "source_type": "user_supplied_portal_export",
+        "full_release_completeness": "unverified",
+        "orientation": "models x gene symbols"
+      }
+    },
+    {
+      "path": "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet",
+      "bytes": 232669929,
+      "mtime": "2026-10-02T17:52:29.330560+0800",
+      "prepared_sha256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+      "provenance": {
+        "release": "26Q1",
+        "raw_sha256": "55fdef5bccdf78116aa4c790febc09a6815b143e7c11a7095cbb930adf8dc51d",
+        "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+        "raw_source": "data/raw/depmap/26Q1/CRISPR_Chronos_26Q1.csv",
+        "created_at": "2026-10-02T17:52:30+08:00",
+        "source_type": "user_supplied_portal_export",
+        "full_release_completeness": "unverified",
+        "orientation": "models x gene symbols"
+      }
+    }
+  ],
+  "outputs": {
+    "Main_Results/04_DepMap_NUDT18_GenomeWide_Dependency_Volcano.pdf": "658df7b1d89ca3e9ca49e0911794d01f7c06836e3a13ac3579743e79366654ee",
+    "Tables/GenomeWide_Dependency.csv": "b623c7ea1d78e568acfebefb894d079cd6bec13dc2b29b73dc90088cb3a0f8c7",
+    "Tables/Top_Dependency_Candidates.csv": "09c612652e2f3c59093bbce294289792d8db0212cee0d86bd4e863b05f4b08e9"
+  },
+  "validated": true,
+  "statistics_key": {}
+}

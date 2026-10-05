@@ -1,0 +1,195 @@
+==================================================
+Copy Number–Driven Dependency Analysis
+==================================================
+
+Gene A: NUDT18
+Gene B: 未提供（发现性筛选）
+TCGA: Current TCGA dataset
+DepMap: Public 26Q1
+Run date: 2026-10-05 14:59:29 CST
+DATA_MODE: local（仅读取本地 processed 数据）
+TCGA 主结果使用本地已验证的 current TCGA 数据；Source / release 信息见 Provenance。
+五级 CNA 基于 current gene-level CN 与 sample-specific baseline/ploidy，是 analysis-defined 分类，不是官方 GISTIC 五级值。
+baseline 使用每个样本常染色体 gene-level CN 的整数众数估算；不是直接测量的 ploidy。
+DepMap 为用户提供的 26Q1 导出文件；相对官方完整 release 的完整性未验证。
+CN-low: log2(relative CN + 1) < 0.585；分析定义，不是五级 GISTIC。
+
+==================================================
+01_TCGA_NUDT18_CNA_Percentage.pdf
+==================================================
+文件/目录： Main_Results/01_TCGA_NUDT18_CNA_Percentage.pdf
+数据：
+TCGA
+用途/怎么看：
+展示 NUDT18 的五级 CNA 比例：Deep Deletion、Shallow Deletion、Diploid、Gain、Amplification；观察缺失比例。
+
+==================================================
+02_TCGA_NUDT18_CopyNumber_Landscape.pdf
+==================================================
+文件/目录： Main_Results/02_TCGA_NUDT18_CopyNumber_Landscape.pdf
+数据：
+TCGA
+用途/怎么看：
+每个灰点为一个 TCGA tumor sample；箱线图保留全部有限 CN；标签 n 为实际有效样本数；从上到下按 median CN 递增。
+
+==================================================
+03_TCGA_CN_mRNA
+==================================================
+文件/目录： Main_Results/03_TCGA_CN_mRNA
+数据：
+TCGA
+用途/怎么看：
+逐癌种检验 NUDT18 CN 与自身 mRNA 的关系；Expression = log2(TPM + 1)。每张图含 N、Pearson、Spearman、黑色回归线与匹配 cohort 的五级 CNA pie chart。N < 20 不报告相关统计。
+
+==================================================
+04_DepMap_NUDT18_GenomeWide_Dependency_Volcano.pdf
+==================================================
+文件/目录： Main_Results/04_DepMap_NUDT18_GenomeWide_Dependency_Volcano.pdf
+数据：
+DepMap
+用途/怎么看：
+完整本地 Chronos genome 筛选；Chronos 越负依赖越强。Delta median < 0 表示 CN-low 组依赖更强；用户排名为 Eligible_Rank。图标记每侧 Top10；候选表保留每侧 Top20。
+
+==================================================
+05_DepMap_NUDT18_CN_Covariation.pdf
+==================================================
+文件/目录： Main_Results/05_DepMap_NUDT18_CN_Covariation.pdf
+数据：
+DepMap
+用途/怎么看：
+CN 共变图展示正相关 Top20 与负相关 Top20；正相关表示 CN 往往同向变化，负相关表示往往反向变化；这是相关性，不是因果关系。
+
+==================================================
+Key Findings
+==================================================
+- NUDT18 deletion 比例最高的癌种：LIHC 68.2%；OV 61.7%；LUSC 57.1%
+- CN-mRNA：33 癌种图；24 癌种 Pearson BH-FDR < 0.05。
+- 以上为观察性相关与依赖差异，不能解释为 CN 缺失导致 dependency 或其他基因 CN 改变。
+
+==================================================
+File Index
+==================================================
+01 Main_Results/01_TCGA_NUDT18_CNA_Percentage.pdf
+作用： 展示 NUDT18 的五级 CNA 比例：Deep Deletion、Shallow Deletion、Diploid、Gain、Amplification；观察缺失比例。
+02 Main_Results/02_TCGA_NUDT18_CopyNumber_Landscape.pdf
+作用： 每个灰点为一个 TCGA tumor sample；箱线图保留全部有限 CN；标签 n 为实际有效样本数；从上到下按 median CN 递增。
+03 Main_Results/03_TCGA_CN_mRNA/ACC_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+04 Main_Results/03_TCGA_CN_mRNA/BLCA_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+05 Main_Results/03_TCGA_CN_mRNA/BRCA_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+06 Main_Results/03_TCGA_CN_mRNA/CESC_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+07 Main_Results/03_TCGA_CN_mRNA/CHOL_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+08 Main_Results/03_TCGA_CN_mRNA/COAD_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+09 Main_Results/03_TCGA_CN_mRNA/DLBC_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+10 Main_Results/03_TCGA_CN_mRNA/ESCA_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+11 Main_Results/03_TCGA_CN_mRNA/GBM_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+12 Main_Results/03_TCGA_CN_mRNA/HNSC_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+13 Main_Results/03_TCGA_CN_mRNA/KICH_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+14 Main_Results/03_TCGA_CN_mRNA/KIRC_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+15 Main_Results/03_TCGA_CN_mRNA/KIRP_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+16 Main_Results/03_TCGA_CN_mRNA/LAML_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+17 Main_Results/03_TCGA_CN_mRNA/LGG_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+18 Main_Results/03_TCGA_CN_mRNA/LIHC_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+19 Main_Results/03_TCGA_CN_mRNA/LUAD_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+20 Main_Results/03_TCGA_CN_mRNA/LUSC_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+21 Main_Results/03_TCGA_CN_mRNA/MESO_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+22 Main_Results/03_TCGA_CN_mRNA/OV_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+23 Main_Results/03_TCGA_CN_mRNA/PAAD_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+24 Main_Results/03_TCGA_CN_mRNA/PCPG_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+25 Main_Results/03_TCGA_CN_mRNA/PRAD_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+26 Main_Results/03_TCGA_CN_mRNA/READ_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+27 Main_Results/03_TCGA_CN_mRNA/SARC_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+28 Main_Results/03_TCGA_CN_mRNA/SKCM_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+29 Main_Results/03_TCGA_CN_mRNA/STAD_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+30 Main_Results/03_TCGA_CN_mRNA/TGCT_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+31 Main_Results/03_TCGA_CN_mRNA/THCA_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+32 Main_Results/03_TCGA_CN_mRNA/THYM_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+33 Main_Results/03_TCGA_CN_mRNA/UCEC_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+34 Main_Results/03_TCGA_CN_mRNA/UCS_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+35 Main_Results/03_TCGA_CN_mRNA/UVM_NUDT18_CN_mRNA.pdf
+作用： NUDT18 在该癌种 CN 与自身 mRNA 的散点和统计
+36 Main_Results/04_DepMap_NUDT18_GenomeWide_Dependency_Volcano.pdf
+作用： 完整本地 Chronos genome 筛选；Chronos 越负依赖越强。Delta median < 0 表示 CN-low 组依赖更强；用户排名为 Eligible_Rank。图标记每侧 Top10；候选表保留每侧 Top20。
+37 Main_Results/05_DepMap_NUDT18_CN_Covariation.pdf
+作用： CN 共变图展示正相关 Top20 与负相关 Top20；正相关表示 CN 往往同向变化，负相关表示往往反向变化；这是相关性，不是因果关系。
+38 Provenance/Cache_cn_covariation.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+39 Provenance/Cache_genomewide_dependency.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+40 Provenance/Cache_tcga.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+41 Provenance/Input_Versions.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+42 Provenance/Input_Versions.txt
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+43 Provenance/Module_Runs.csv
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+44 Provenance/Run_Metadata.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+45 Provenance/SessionInfo.txt
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+46 Provenance/Source_Metadata.txt
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+47 Provenance/TCGA_Baseline_Method.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+48 Provenance/TCGA_Plot_Order.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+49 Provenance/Validation.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+50 Tables/GenomeWide_Dependency.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+51 Tables/NUDT18_CN_Covariation.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+52 Tables/TCGA_CNA_Percentage.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+53 Tables/TCGA_CN_mRNA_CNA_Counts.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+54 Tables/TCGA_Cancer_Order.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+55 Tables/TCGA_Current_Samples.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+56 Tables/TCGA_NUDT18_CN_mRNA_AllCancer_Statistics.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+57 Tables/TCGA_RNA_Representative_Selection.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+58 Tables/TCGA_Sample_Baselines.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+59 Tables/Top_CN_Covariation.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+60 Tables/Top_Dependency_Candidates.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+00_Analysis_Summary.txt
+作用：中文结果阅读指南、关键统计与文件索引。
+Provenance/File_Index.csv
+作用：本目录完整文件清单（包括本清单与 Summary）。
