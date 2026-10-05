@@ -2,6 +2,24 @@
 CNA_STATES <- c("Deep Deletion","Shallow Deletion","Diploid","Gain","Amplification")
 CNA_COLORS <- setNames(c("#2166ac","#67a9cf","#cccccc","#ef8a62","#b2182b"),CNA_STATES)
 TCGA_MIN_N <- 20L
+tcga_relative_cn <- function(dat) {
+ d<-copy(as.data.table(dat))
+ if(!all(c("CopyNumber","BaselineCN","CNAState") %in% names(d)))
+  stop("TCGA relative CN requires the existing CopyNumber, BaselineCN and CNAState fields")
+ if(any(!is.finite(d$BaselineCN)|d$BaselineCN<=0))stop("Invalid existing TCGA sample baseline")
+ d[,TCGA_Relative_CN_Change:=CopyNumber/BaselineCN-1]
+ d[!is.finite(CopyNumber),TCGA_Relative_CN_Change:=NA_real_]
+ d[,Relative_CN_Change:=TCGA_Relative_CN_Change]
+ z<-d[is.finite(CopyNumber)]
+ valid<-with(z,(CNAState==-2 & CopyNumber==0 & Relative_CN_Change==-1) |
+  (CNAState==-1 & CopyNumber>0 & CopyNumber<BaselineCN & Relative_CN_Change> -1 & Relative_CN_Change<0) |
+  (CNAState==0 & CopyNumber==BaselineCN & Relative_CN_Change==0) |
+  (CNAState==1 & CopyNumber>BaselineCN & CopyNumber<2*BaselineCN & Relative_CN_Change>0 & Relative_CN_Change<1) |
+  (CNAState==2 & CopyNumber>=2*BaselineCN & Relative_CN_Change>=1))
+ if(anyNA(valid)||!all(valid)||any(is.finite(d$CNAState)&!is.finite(d$CopyNumber)))
+  stop("TCGA CNAState and relative copy-number change are inconsistent")
+ d
+}
 workflow_modules <- function(workflow) {
  switch(workflow,geneA_screen=c("tcga","genomewide_dependency","cn_covariation"),
  geneA_geneB=c("tcga","targeted_dependency","lineage_dependency","adjusted_dependency",
@@ -9,16 +27,19 @@ workflow_modules <- function(workflow) {
  stop("Unsupported workflow: ",workflow))
 }
 cancer_order <- function(dat,cancers) {
- z<-as.data.table(dat)[is.finite(CopyNumber),.(N=.N,Median_CN=median(CopyNumber)),by=CancerType]
+ z<-as.data.table(dat)[is.finite(CopyNumber),.(N=.N,Median_CN=median(CopyNumber),
+  Median_Absolute_CN=median(CopyNumber),Median_Relative_CN_Change=median(TCGA_Relative_CN_Change)),by=CancerType]
  z<-merge(data.table(CancerType=cancers),z,by="CancerType",all.x=TRUE)
- z[is.na(N),N:=0L];setorder(z,Median_CN,CancerType,na.last=TRUE)
+ z[is.na(N),N:=0L];setorder(z,Median_Relative_CN_Change,CancerType,na.last=TRUE)
  z[,Order:=.I];setcolorder(z,c("Order","CancerType","N","Median_CN"));z
 }
 ordered_cancer <- function(x,order)factor(x,levels=rev(order$CancerType))
 current_cancer_statistics <- function(dat,order,min_n=TCGA_MIN_N) {
  res<-rbindlist(lapply(order$CancerType,function(cancer) {
   d<-dat[CancerType==cancer & is.finite(CopyNumber)&is.finite(Expression)&is.finite(CNAState)]
-  r<-as.data.table(pair_correlations(d$CopyNumber,d$Expression,min_n))
+  r<-as.data.table(pair_correlations(d$TCGA_Relative_CN_Change,d$Expression,min_n))
+  r[,`:=`(CN_metric="Relative_CN_Change",Median_Absolute_CN=median(d$CopyNumber),
+           Median_Relative_CN_Change=median(d$TCGA_Relative_CN_Change))]
   r[,`:=`(CancerType=cancer,Status=if(.N&&N<min_n)"Insufficient N for correlation" else
            if(!is.finite(Pearson_r))"Constant CN or mRNA; correlation unavailable" else "Eligible")]
   r
@@ -70,6 +91,22 @@ screen_core_statistics <- function() {
  f<-run_genomewide
  body(f)<-as.call(c(list(as.name("{")),expressions[3L:end],list(quote(result))))
  eligible_rank(f())
+}
+screen_group_counts <- function() {
+ # Read only the target CN column and Chronos IDs before deciding whether the
+ # group comparison is possible. Do not change the supplied screen's statistics.
+ cn<-as.data.table(prepare_cn(read_gene(FILES$cn,GENE_A,"CN_relative")))
+ id<-identify_id_column(names(fread(FILES$chronos,nrows=0)))
+ ids<-as.character(fread(FILES$chronos,select=id)[[id]])
+ matched<-cn[match(ids,ModelID)][is.finite(CN_log)]
+ list(N_low=sum(matched$CN_binary=="CN-Low"),N_nonlow=sum(matched$CN_binary=="CN-NonLow"))
+}
+empty_screen_statistics <- function() {
+ data.table(Gene=character(),N=integer(),Pearson_r=numeric(),Pearson_P=numeric(),
+  N_low=integer(),N_nonlow=integer(),Mean_low=numeric(),Mean_nonlow=numeric(),
+  Median_low=numeric(),Median_nonlow=numeric(),Delta_mean=numeric(),Delta_median=numeric(),
+  Wilcoxon_P=numeric(),Pearson_FDR=numeric(),Wilcoxon_FDR=numeric(),Rank=integer(),
+  Eligible_Rank=integer(),Eligible_N=integer())
 }
 covariation_statistics <- function(dt,gene) {
  id<-identify_id_column(names(dt));cols<-setdiff(names(dt),id)

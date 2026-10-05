@@ -1,0 +1,46 @@
+{
+  "module": "cn_covariation",
+  "key": "481bb5f2ef6a9625554388759a89d5be9de6fa7e4bfacf4ec287a0ab9de9dadf",
+  "parameters": {
+    "geneA": "PTGS2",
+    "geneB": {},
+    "geneB_provided": {},
+    "workflow": "geneA_screen",
+    "bootstrap": {},
+    "min_group_n": 3,
+    "low": 0.585,
+    "deep": 0.35,
+    "seed": 1234,
+    "thresholds": [0.585, 0.5, 0.4, 0.35]
+  },
+  "parameter_hash": "d0f7f75c22a21245367df03960282878e263241734b88c16ed70f1eb0d6f42b7",
+  "code_hash": "2b2dc33dff48f733a6010da6b551a7e4fb19459ad17b86eaa6daec6fef8f93ee",
+  "code_functions": ["covariation_statistics", "covariation_top", "covariation_plot", "wf_run_covariation", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_validate_artifact", "p_text", "p_star"],
+  "data_versions": [
+    {
+      "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+      "bytes": 218424120,
+      "mtime": "2026-10-02T17:52:03.793706+0800",
+      "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+      "provenance": {
+        "release": "26Q1",
+        "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+        "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+        "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+        "created_at": "2026-10-02T17:52:04+08:00",
+        "source_type": "user_supplied_portal_export",
+        "full_release_completeness": "unverified",
+        "orientation": "models x gene symbols"
+      }
+    }
+  ],
+  "outputs": {
+    "Main_Results/05_DepMap_PTGS2_CN_Covariation.pdf": "f8660635c14d5cefde11bf7d562f747827c9950b2a4a57d2114ba157e3ca2aba",
+    "Tables/PTGS2_CN_Covariation.csv": "29757b406c809e5a44ef38d1413966384318c87952afc4ad412af04062b28b7b",
+    "Tables/Top_CN_Covariation.csv": "10862060d3eaf12762c759935279061a712ea6f8e31cbad1edd91f2365c20556"
+  },
+  "validated": true,
+  "analysis_status": "computed",
+  "detail": "",
+  "statistics_key": {}
+}

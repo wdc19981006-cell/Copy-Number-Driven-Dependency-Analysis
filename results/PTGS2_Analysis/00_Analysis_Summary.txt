@@ -1,0 +1,198 @@
+==================================================
+Copy Number–Driven Dependency Analysis
+==================================================
+
+Gene A: PTGS2
+Gene B: 未提供（发现性筛选）
+TCGA: Current TCGA dataset
+DepMap: Public 26Q1
+Run date: 2026-10-05 18:40:22 CST
+DATA_MODE: local（仅读取本地 processed 数据）
+TCGA 主结果使用本地已验证的 current TCGA 数据；Source / release 信息见 Provenance。
+五级 CNA 基于 current gene-level CN 与 sample-specific baseline/ploidy，是 analysis-defined 分类，不是官方 GISTIC 五级值。
+baseline 使用每个样本常染色体 gene-level CN 的整数众数估算；不是直接测量的 ploidy。
+DepMap 为用户提供的 26Q1 导出文件；相对官方完整 release 的完整性未验证。
+CN-low: log2(relative CN + 1) < 0.585；分析定义，不是五级 GISTIC。
+
+==================================================
+01_TCGA_PTGS2_CNA_Percentage.pdf
+==================================================
+文件/目录： Main_Results/01_TCGA_PTGS2_CNA_Percentage.pdf
+数据：
+TCGA
+用途/怎么看：
+展示 PTGS2 的五级 CNA 比例：Deep Deletion、Shallow Deletion、Diploid、Gain、Amplification；观察缺失比例。
+
+==================================================
+02_TCGA_PTGS2_CopyNumber_Landscape.pdf
+==================================================
+文件/目录： Main_Results/02_TCGA_PTGS2_CopyNumber_Landscape.pdf
+数据：
+TCGA
+用途/怎么看：
+本图展示 Gene A 相对于每个肿瘤样本自身 CN baseline 的变化。Relative CN Change = Gene CN / Sample Baseline CN - 1；0：相对未改变；<0：相对拷贝数减少；>0：相对拷贝数增加。每个灰点为一个 TCGA tumor sample；箱线图保留全部有限 CN 样本；标签 n 为实际有效样本数；01/02 从上到下按 median(Relative CN Change) 递增。这是 analysis-derived relative copy-number change，不是 GISTIC、log2 GISTIC 或 DepMap CN_relative。
+
+==================================================
+03_TCGA_CN_mRNA
+==================================================
+文件/目录： Main_Results/03_TCGA_CN_mRNA
+数据：
+TCGA
+用途/怎么看：
+逐癌种检验 PTGS2 CN 与自身 mRNA 的关系；横轴及 Pearson/Spearman 统一使用 Relative CN Change = CN / BaselineCN - 1；Expression = log2(TPM + 1)。每张图含 N、Pearson、Spearman、黑色回归线与匹配 cohort 的五级 CNA pie chart。N < 20 不报告相关统计。
+
+==================================================
+04_DepMap_PTGS2_GenomeWide_Dependency_Volcano.pdf
+==================================================
+文件/目录： Main_Results/04_DepMap_PTGS2_GenomeWide_Dependency_Volcano.pdf
+数据：
+DepMap
+用途/怎么看：
+SKIPPED：CN 分组样本不足，未进行组间 dependency 筛选；CN-Low n=1，CN-Normal n=857，每组至少 3。阈值仍为 0.585；此 PDF 为跳过说明，候选表为空。
+
+==================================================
+05_DepMap_PTGS2_CN_Covariation.pdf
+==================================================
+文件/目录： Main_Results/05_DepMap_PTGS2_CN_Covariation.pdf
+数据：
+DepMap
+用途/怎么看：
+CN 共变图展示正相关 Top20 与负相关 Top20。Pearson r 表示在 DepMap 细胞系中 Gene A 与另一个基因 CN 的线性相关程度；r > 0 表示往往同向变化，r < 0 表示往往反向变化；|r| 越接近 1 相关越强，r 接近 0 线性相关越弱。相关不代表因果。
+
+==================================================
+Key Findings
+==================================================
+- PTGS2 deletion 比例最高的癌种：KICH 72.5%；ACC 13.2%；SARC 12.6%
+- CN-mRNA：33 癌种图；1 癌种 Pearson BH-FDR < 0.05。
+- Genome-wide dependency SKIPPED：CN-Low n=1；CN-Normal n=857；样本量不足，不能据此解释为没有依赖关联。
+- 以上为观察性相关与依赖差异，不能解释为 CN 缺失导致 dependency 或其他基因 CN 改变。
+
+==================================================
+File Index
+==================================================
+01 Main_Results/01_TCGA_PTGS2_CNA_Percentage.pdf
+作用： 展示 PTGS2 的五级 CNA 比例：Deep Deletion、Shallow Deletion、Diploid、Gain、Amplification；观察缺失比例。
+02 Main_Results/02_TCGA_PTGS2_CopyNumber_Landscape.pdf
+作用： 本图展示 Gene A 相对于每个肿瘤样本自身 CN baseline 的变化。Relative CN Change = Gene CN / Sample Baseline CN - 1；0：相对未改变；<0：相对拷贝数减少；>0：相对拷贝数增加。每个灰点为一个 TCGA tumor sample；箱线图保留全部有限 CN 样本；标签 n 为实际有效样本数；01/02 从上到下按 median(Relative CN Change) 递增。这是 analysis-derived relative copy-number change，不是 GISTIC、log2 GISTIC 或 DepMap CN_relative。
+03 Main_Results/03_TCGA_CN_mRNA/ACC_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+04 Main_Results/03_TCGA_CN_mRNA/BLCA_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+05 Main_Results/03_TCGA_CN_mRNA/BRCA_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+06 Main_Results/03_TCGA_CN_mRNA/CESC_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+07 Main_Results/03_TCGA_CN_mRNA/CHOL_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+08 Main_Results/03_TCGA_CN_mRNA/COAD_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+09 Main_Results/03_TCGA_CN_mRNA/DLBC_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+10 Main_Results/03_TCGA_CN_mRNA/ESCA_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+11 Main_Results/03_TCGA_CN_mRNA/GBM_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+12 Main_Results/03_TCGA_CN_mRNA/HNSC_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+13 Main_Results/03_TCGA_CN_mRNA/KICH_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+14 Main_Results/03_TCGA_CN_mRNA/KIRC_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+15 Main_Results/03_TCGA_CN_mRNA/KIRP_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+16 Main_Results/03_TCGA_CN_mRNA/LAML_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+17 Main_Results/03_TCGA_CN_mRNA/LGG_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+18 Main_Results/03_TCGA_CN_mRNA/LIHC_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+19 Main_Results/03_TCGA_CN_mRNA/LUAD_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+20 Main_Results/03_TCGA_CN_mRNA/LUSC_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+21 Main_Results/03_TCGA_CN_mRNA/MESO_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+22 Main_Results/03_TCGA_CN_mRNA/OV_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+23 Main_Results/03_TCGA_CN_mRNA/PAAD_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+24 Main_Results/03_TCGA_CN_mRNA/PCPG_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+25 Main_Results/03_TCGA_CN_mRNA/PRAD_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+26 Main_Results/03_TCGA_CN_mRNA/READ_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+27 Main_Results/03_TCGA_CN_mRNA/SARC_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+28 Main_Results/03_TCGA_CN_mRNA/SKCM_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+29 Main_Results/03_TCGA_CN_mRNA/STAD_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+30 Main_Results/03_TCGA_CN_mRNA/TGCT_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+31 Main_Results/03_TCGA_CN_mRNA/THCA_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+32 Main_Results/03_TCGA_CN_mRNA/THYM_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+33 Main_Results/03_TCGA_CN_mRNA/UCEC_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+34 Main_Results/03_TCGA_CN_mRNA/UCS_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+35 Main_Results/03_TCGA_CN_mRNA/UVM_PTGS2_CN_mRNA.pdf
+作用： PTGS2 在该癌种 CN 与自身 mRNA 的散点和统计
+36 Main_Results/04_DepMap_PTGS2_GenomeWide_Dependency_Volcano.pdf
+作用： SKIPPED：CN 分组样本不足，未进行组间 dependency 筛选；CN-Low n=1，CN-Normal n=857，每组至少 3。阈值仍为 0.585；此 PDF 为跳过说明，候选表为空。
+37 Main_Results/05_DepMap_PTGS2_CN_Covariation.pdf
+作用： CN 共变图展示正相关 Top20 与负相关 Top20。Pearson r 表示在 DepMap 细胞系中 Gene A 与另一个基因 CN 的线性相关程度；r > 0 表示往往同向变化，r < 0 表示往往反向变化；|r| 越接近 1 相关越强，r 接近 0 线性相关越弱。相关不代表因果。
+38 Provenance/Cache_cn_covariation.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+39 Provenance/Cache_genomewide_dependency.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+40 Provenance/Cache_tcga.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+41 Provenance/GenomeWide_Dependency_Status.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+42 Provenance/Input_Versions.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+43 Provenance/Input_Versions.txt
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+44 Provenance/Module_Runs.csv
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+45 Provenance/Run_Metadata.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+46 Provenance/SessionInfo.txt
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+47 Provenance/Source_Metadata.txt
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+48 Provenance/TCGA_Baseline_Method.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+49 Provenance/TCGA_Plot_Order.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+50 Provenance/Validation.json
+作用： 数据真实来源、版本、哈希、运行记录或验证信息
+51 Tables/GenomeWide_Dependency.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+52 Tables/PTGS2_CN_Covariation.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+53 Tables/TCGA_CNA_Percentage.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+54 Tables/TCGA_CN_mRNA_CNA_Counts.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+55 Tables/TCGA_Cancer_Order.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+56 Tables/TCGA_Current_Samples.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+57 Tables/TCGA_PTGS2_CN_mRNA_AllCancer_Statistics.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+58 Tables/TCGA_RNA_Representative_Selection.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+59 Tables/TCGA_Sample_Baselines.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+60 Tables/Top_CN_Covariation.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+61 Tables/Top_Dependency_Candidates.csv
+作用： 统计数值、样本匹配或绘图输入；用于复核与重新制图
+00_Analysis_Summary.txt
+作用：中文结果阅读指南、关键统计与文件索引。
+Provenance/File_Index.csv
+作用：本目录完整文件清单（包括本清单与 Summary）。

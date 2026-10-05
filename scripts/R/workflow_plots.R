@@ -13,16 +13,22 @@ tcga_prevalence_plot <- function(prev,order) {
  theme(plot.margin=margin(5.5,18,5.5,5.5))+
  labs(title=paste(GENE_A,"CNA Percentage Across TCGA Pan-Cancer"),
       x=NULL,y="Percentage of TCGA tumor samples",fill="Copy Number Status",
-      caption="Cancer types follow ascending median continuous CN; source details in Provenance.")
+      caption="Cancer types follow ascending median relative CN change (CN / sample baseline - 1); source details in Provenance.")
 }
 tcga_landscape_plot <- function(dat,order) {
  d<-copy(dat[is.finite(CopyNumber)]);d[,CancerType:=ordered_cancer(CancerType,order)]
  labels<-setNames(paste0(order$CancerType," (n=",order$N,")"),order$CancerType)
- ggplot(d,aes(CancerType,CopyNumber))+geom_boxplot(outlier.shape=NA,fill="white",width=.55)+
+ extent<-max(c(1,abs(d$TCGA_Relative_CN_Change)),na.rm=TRUE)
+ ggplot(d,aes(CancerType,TCGA_Relative_CN_Change))+geom_boxplot(outlier.shape=NA,fill="white",width=.55)+
  geom_point(position=position_jitter(width=.17,height=0,seed=1234),color="grey45",alpha=.35,size=.55)+
+ # coord_flip turns this into the vertical x=0 reference in the final figure.
+ geom_hline(yintercept=0,linetype="dashed",color="grey25")+
+ scale_y_continuous(limits=c(-extent,extent))+
  scale_x_discrete(labels=labels,drop=FALSE)+coord_flip()+workflow_theme()+
- labs(title=paste(GENE_A,"Copy Number Across TCGA Pan-Cancer"),x=NULL,y=paste(GENE_A,"Gene-Level Copy Number"),
-      caption="TCGA tumor samples; current processed TCGA dataset.\nEach point represents one tumor sample.")
+ labs(title=paste(GENE_A,"Relative Copy Number Change Across TCGA Pan-Cancer"),x=NULL,
+      y=paste0(GENE_A," Relative Copy Number Change\n(CN / sample baseline - 1)"),
+      caption=paste0("0 = sample-specific copy-number baseline;\nnegative values indicate relative copy-number loss; positive values indicate relative copy-number gain.\n",
+                     "Analysis-derived change; each point represents one TCGA tumor sample."))
 }
 tcga_expression_plot <- function(dat,cancer,stat) {
  d<-copy(dat[CancerType==cancer & is.finite(CopyNumber)&is.finite(Expression)&is.finite(CNAState)])
@@ -31,14 +37,15 @@ tcga_expression_plot <- function(dat,cancer,stat) {
   if(!is.finite(stat$Pearson_r))paste0("N = ",stat$N,"\nConstant CN or mRNA") else
   paste0("N = ",stat$N,"\nPearson r = ",signif(stat$Pearson_r,3),"\nP = ",formatC(stat$Pearson_P,format="g",digits=3),
          "\nSpearman rho = ",signif(stat$Spearman_rho,3),"\nP = ",formatC(stat$Spearman_P,format="g",digits=3))
- p<-ggplot(d,aes(CopyNumber,Expression))+geom_point(aes(color=CNA),alpha=.55,size=1,show.legend=TRUE)+
+ p<-ggplot(d,aes(TCGA_Relative_CN_Change,Expression))+geom_point(aes(color=CNA),alpha=.55,size=1,show.legend=TRUE)+
+ geom_vline(xintercept=0,linetype="dashed",color="grey25")+
  scale_color_manual(values=CNA_COLORS,drop=FALSE)+workflow_theme()+
  guides(color=guide_legend(override.aes=list(alpha=1,size=2)))+
  scale_y_continuous(expand=expansion(mult=c(.05,.65)))+
  labs(title=paste0(cancer,": ",GENE_A," Copy Number vs mRNA Expression"),
-      x=paste(GENE_A,"Gene-Level Copy Number"),y=paste0(GENE_A," mRNA expression\nlog2(TPM + 1)"),
-      color="Copy Number Status",caption="Matched TCGA tumor samples; correlations describe association.")
- if(nrow(d)>=2L&&length(unique(d$CopyNumber))>1L)p<-p+geom_smooth(method="lm",se=FALSE,color="black",linewidth=.65)
+      x=paste0(GENE_A," Relative Copy Number Change\n(CN / sample baseline - 1)"),y=paste0(GENE_A," mRNA expression\nlog2(TPM + 1)"),
+      color="Copy Number Status",caption="0 = sample-specific baseline; negative = relative loss; positive = relative gain.\nMatched TCGA tumor samples; correlations describe association.")
+ if(nrow(d)>=2L&&length(unique(d$TCGA_Relative_CN_Change))>1L)p<-p+geom_smooth(method="lm",se=FALSE,color="black",linewidth=.65)
  # Draw the opaque statistics label after the regression layer, so no line
  # crosses the text. P values use scientific formatting independent of scipen.
  p<-p+annotate("label",x=Inf,y=Inf,label=label,hjust=1.02,vjust=1.08,size=3.1,linewidth=0,fill="white")
@@ -125,8 +132,15 @@ covariation_plot <- function(top) {
  d[,Direction:=factor(Direction,levels=c("Positive CN correlation","Negative CN correlation"))]
  ggplot(d,aes(Pearson_r,Gene,color=Direction))+geom_segment(aes(x=0,xend=Pearson_r,yend=Gene),linewidth=.6)+
  geom_point(size=2)+geom_vline(xintercept=0,linetype="dashed")+
- facet_wrap(~Direction,scales="free",nrow=1)+scale_color_manual(values=c("Positive CN correlation"="#3A6EA5","Negative CN correlation"="#C7473B"))+
+ facet_wrap(~Direction,scales="free",nrow=1,labeller=as_labeller(c(
+  "Positive CN correlation"=paste0("Positive CN correlation\n",GENE_A," low: gene usually low"),
+  "Negative CN correlation"=paste0("Negative CN correlation\n",GENE_A," low: gene usually high"))))+
+ scale_color_manual(values=c("Positive CN correlation"="#3A6EA5","Negative CN correlation"="#C7473B"))+
  workflow_theme()+theme(legend.position="none")+labs(title=paste0("Genes Positively and Negatively Covarying with\n",GENE_A," Copy Number"),
  x="Pearson r (relative copy number)",y=NULL,
- caption=paste0("Top 20 in each direction. Positive: lower ",GENE_A," CN accompanies lower gene CN; negative: accompanies higher CN.\nCovariation describes association, not causation."))
+ caption=paste0("Pearson r = linear correlation coefficient between ",GENE_A," copy number and each gene's copy number\n",
+  "across DepMap cell lines. Top 20 in each direction.\n",
+  "r > 0: same-direction copy-number change; r < 0: opposite-direction change;\n",
+  "|r| closer to 1 indicates stronger correlation; r near 0 indicates weaker linear correlation.\n",
+  "Correlation indicates covariation, not causation."))
 }

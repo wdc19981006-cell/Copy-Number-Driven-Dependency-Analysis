@@ -1,0 +1,4 @@
+Module,Status,Execution,Detail,Seconds
+tcga,computed,computed,"",24.0484170913696
+genomewide_dependency,SKIPPED,computed,Insufficient CN group N: CN-Low n=1; CN-Normal n=857; each group requires n >= 3. CN_log threshold remains 0.585.,3.187255859375
+cn_covariation,computed,computed,"",10.5851430892944

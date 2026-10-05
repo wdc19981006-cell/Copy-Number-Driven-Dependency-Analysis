@@ -45,10 +45,11 @@ wf_input_versions <- function(paths) {
 }
 wf_code_signature <- function(module) {
  functions<-switch(module,
- tcga=c("cancer_order","ordered_cancer","current_cancer_statistics","current_prevalence",
+ tcga=c("tcga_relative_cn","cancer_order","ordered_cancer","current_cancer_statistics","current_prevalence",
         "tcga_prevalence_plot","tcga_landscape_plot","tcga_expression_plot","tcga_cna_pie","wf_run_tcga","pair_correlations"),
  targeted_dependency=c("targeted_statistics","targeted_plots","targeted_scatter_plot","waterfall_order","wf_run_targeted","wf_targeted_statistics_key","pair_correlations","group_effect"),
- genomewide_dependency=c("run_genomewide","screen_core_statistics","eligible_rank","dependency_top","volcano_plot","wf_run_screen"),
+ genomewide_dependency=c("run_genomewide","screen_core_statistics","screen_group_counts","empty_screen_statistics",
+                        "eligible_rank","dependency_top","volcano_plot","wf_run_screen"),
  cn_covariation=c("covariation_statistics","covariation_top","covariation_plot","wf_run_covariation"),
  lineage_dependency=c("run_lineage","wf_run_supplement"),adjusted_dependency=c("run_adjusted","wf_run_supplement","coefficient_table"),
  cn_threshold_sensitivity=c("run_threshold_sensitivity","cn_threshold_statistics","group_effect","wf_run_supplement"))
@@ -75,7 +76,8 @@ wf_expected <- function(module) {
         paste0("Tables/TCGA_",GENE_A,"_CN_mRNA_AllCancer_Statistics.csv"),"Provenance/TCGA_Plot_Order.json","Tables/TCGA_CN_mRNA_CNA_Counts.csv"),
  targeted_dependency=c(PATHS[c("scatter","waterfall","box")],paste0("Tables/",GENE_A,"_",GENE_B,
           c("_Targeted_Statistics.csv","_CellLines.csv","_Waterfall_Order.csv"))),
- genomewide_dependency=c(PATHS["volcano"],"Tables/GenomeWide_Dependency.csv","Tables/Top_Dependency_Candidates.csv"),
+ genomewide_dependency=c(PATHS["volcano"],"Tables/GenomeWide_Dependency.csv","Tables/Top_Dependency_Candidates.csv",
+                        "Provenance/GenomeWide_Dependency_Status.json"),
  cn_covariation=c(PATHS["covariation"],paste0("Tables/",GENE_A,"_CN_Covariation.csv"),"Tables/Top_CN_Covariation.csv"),
  lineage_dependency=c("Supplementary/01_Lineage/Lineage_Dependency_Forest.pdf","Tables/Lineage_Dependency.csv","Tables/Lineage_Eligibility.csv"),
  adjusted_dependency=c("Supplementary/02_Adjusted/Adjusted_CN_Coefficient.pdf","Tables/Continuous_CN_Adjusted.csv","Tables/CNLow_Adjusted.csv"),
@@ -108,6 +110,7 @@ wf_run_tcga <- function() {
              "--gene",GENE_A,"--output",shQuote(path)))
  if(status!=0)stop("Local processed TCGA extraction failed")
  dat<-fread(path);stopifnot(!anyDuplicated(dat$SampleID),all(dat$TumorNormal=="Tumor"),all(dat$DataLayer=="gdc_current_DR46"))
+ dat<-tcga_relative_cn(dat);wf_write(dat,"TCGA_Current_Samples.csv")
  order<-cancer_order(dat,TCGA_CANCERS);wf_write(order,"TCGA_Cancer_Order.csv")
  prev<-current_prevalence(dat,order);wf_write(prev,"TCGA_CNA_Percentage.csv")
  p1<-tcga_prevalence_plot(prev,order);p2<-tcga_landscape_plot(dat,order)
@@ -123,6 +126,8 @@ wf_run_tcga <- function() {
  jsonlite::write_json(list(visual_top_to_bottom=order$CancerType,
   CNA_factor_levels=levels(p1$data$CancerType),Landscape_factor_levels=levels(p2$data$CancerType),
   CN_mRNA_statistics_order=stats$CancerType,landscape_points=nrow(build$data[[2]]),
+  CN_metric="Relative_CN_Change",formula="CopyNumber / BaselineCN - 1",
+  landscape_zero_reference=build$data[[3]]$yintercept,
   factor_display_rule="coord_flip: reverse factor levels = table Order top to bottom"),
   wf_provenance("TCGA_Plot_Order.json"),pretty=TRUE,auto_unbox=TRUE)
  cna_counts<-list()
@@ -161,9 +166,27 @@ wf_run_targeted <- function() {
  invisible(NULL)
 }
 wf_run_screen <- function() {
+ counts<-screen_group_counts()
+ skipped<-counts$N_low<MIN_N||counts$N_nonlow<MIN_N
+ detail<-if(skipped)paste0("Insufficient CN group N: CN-Low n=",counts$N_low,
+  "; CN-Normal n=",counts$N_nonlow,"; each group requires n >= ",MIN_N,". CN_log threshold remains 0.585.") else ""
+ status<-list(Status=if(skipped)"SKIPPED" else "COMPLETED",Reason=detail,
+  N_low=counts$N_low,N_nonlow=counts$N_nonlow,min_group_n=MIN_N,CN_log_threshold=.585)
+ jsonlite::write_json(status,wf_provenance("GenomeWide_Dependency_Status.json"),pretty=TRUE,auto_unbox=TRUE)
+ if(skipped) {
+  res<-empty_screen_statistics();wf_write(res,"GenomeWide_Dependency.csv")
+  wf_write(dependency_top(res),"Top_Dependency_Candidates.csv")
+  p<-ggplot()+annotate("text",0,0,label=paste0("SKIPPED: insufficient CN group N\nCN-Low n = ",counts$N_low,
+    "; CN-Normal n = ",counts$N_nonlow,"\nEach group requires n >= ",MIN_N),size=5)+theme_void()+
+    labs(title=paste(GENE_A,"CN-Low Genome-wide Dependency Screen"),
+         caption="CN_log = log2(DepMap relative CN + 1); CN-Low < 0.585. No group comparison or candidates reported.")
+  workflow_save(p,file.path(RESULT_ROOT,PATHS["volcano"]),width=11,height=7.5)
+  return(list(status="SKIPPED",detail=detail))
+ }
  res<-screen_core_statistics();wf_write(res,"GenomeWide_Dependency.csv")
  wf_write(dependency_top(res),"Top_Dependency_Candidates.csv")
  workflow_save(volcano_plot(res),file.path(RESULT_ROOT,PATHS["volcano"]),width=11,height=7.5)
+ invisible(NULL)
 }
 wf_run_covariation <- function() {
  res<-covariation_statistics(fread(FILES$cn),GENE_A);wf_write(res,paste0(GENE_A,"_CN_Covariation.csv"))
@@ -207,13 +230,16 @@ wf_summary <- function() {
           "DepMap 为用户提供的 26Q1 导出文件；相对官方完整 release 的完整性未验证。",
           "CN-low: log2(relative CN + 1) < 0.585；分析定义，不是五级 GISTIC。")
  descriptions<-c(cna=paste0("展示 ",GENE_A," 的五级 CNA 比例：Deep Deletion、Shallow Deletion、Diploid、Gain、Amplification；观察缺失比例。"),
- landscape="每个灰点为一个 TCGA tumor sample；箱线图保留全部有限 CN；标签 n 为实际有效样本数；从上到下按 median CN 递增。",
- rna=paste0("逐癌种检验 ",GENE_A," CN 与自身 mRNA 的关系；Expression = log2(TPM + 1)。每张图含 N、Pearson、Spearman、黑色回归线与匹配 cohort 的五级 CNA pie chart。N < 20 不报告相关统计。"),
+ landscape="本图展示 Gene A 相对于每个肿瘤样本自身 CN baseline 的变化。Relative CN Change = Gene CN / Sample Baseline CN - 1；0：相对未改变；<0：相对拷贝数减少；>0：相对拷贝数增加。每个灰点为一个 TCGA tumor sample；箱线图保留全部有限 CN 样本；标签 n 为实际有效样本数；01/02 从上到下按 median(Relative CN Change) 递增。这是 analysis-derived relative copy-number change，不是 GISTIC、log2 GISTIC 或 DepMap CN_relative。",
+ rna=paste0("逐癌种检验 ",GENE_A," CN 与自身 mRNA 的关系；横轴及 Pearson/Spearman 统一使用 Relative CN Change = CN / BaselineCN - 1；Expression = log2(TPM + 1)。每张图含 N、Pearson、Spearman、黑色回归线与匹配 cohort 的五级 CNA pie chart。N < 20 不报告相关统计。"),
  scatter=paste0(GENE_A," relative CN 与 ",GENE_B," dependency 的相关性；右上相关统计使用 relative CN。表中另保留历史 CN_log 统计。"),
  waterfall="匹配细胞按 Chronos 从高到低排序，即弱依赖到强依赖；黑色为 CN-Normal，红色为 CN-Low；参考线为 -1。",
  box="比较 CN-Normal 与 CN-Low 的 Chronos；展示全部点、各组 N、median、Delta median、Wilcoxon P 与显著性星号。",
  volcano="完整本地 Chronos genome 筛选；Chronos 越负依赖越强。Delta median < 0 表示 CN-low 组依赖更强；用户排名为 Eligible_Rank。图标记每侧 Top10；候选表保留每侧 Top20。",
- covariation="CN 共变图展示正相关 Top20 与负相关 Top20；正相关表示 CN 往往同向变化，负相关表示往往反向变化；这是相关性，不是因果关系。")
+ covariation="CN 共变图展示正相关 Top20 与负相关 Top20。Pearson r 表示在 DepMap 细胞系中 Gene A 与另一个基因 CN 的线性相关程度；r > 0 表示往往同向变化，r < 0 表示往往反向变化；|r| 越接近 1 相关越强，r 接近 0 线性相关越弱。相关不代表因果。")
+ screen_status<-jsonlite::fromJSON(wf_provenance("GenomeWide_Dependency_Status.json"))
+ if(screen_status$Status=="SKIPPED")descriptions["volcano"]<-paste0("SKIPPED：CN 分组样本不足，未进行组间 dependency 筛选；CN-Low n=",
+  screen_status$N_low,"，CN-Normal n=",screen_status$N_nonlow,"，每组至少 ",MIN_N,"。阈值仍为 0.585；此 PDF 为跳过说明，候选表为空。")
  for(key in names(PATHS))lines<-c(lines,section(paste(basename(PATHS[key]))),paste("文件/目录：",PATHS[key]),"数据：",if(key %in% c("cna","landscape","rna"))"TCGA" else "DepMap","用途/怎么看：",descriptions[key])
  if(GENE_B_PROVIDED)lines<-c(lines,section("Supplementary"),
   "01_Lineage：各 OncotreeLineage 内 CN-low vs nonlow 的 dependency；小组不够 N 时明确不检验。",
@@ -223,6 +249,8 @@ wf_summary <- function() {
  stats<-fread(wf_table(paste0("TCGA_",GENE_A,"_CN_mRNA_AllCancer_Statistics.csv")))
  findings<-c(paste0("- ",GENE_A," deletion 比例最高的癌种：",paste(paste0(head(loss$CancerType,3)," ",round(head(loss$Loss_percentage,3),1),"%"),collapse="；")),
  paste0("- CN-mRNA：",nrow(stats)," 癌种图；",sum(stats$Pearson_FDR<.05,na.rm=TRUE)," 癌种 Pearson BH-FDR < 0.05。"))
+ if(screen_status$Status=="SKIPPED")findings<-c(findings,paste0("- Genome-wide dependency SKIPPED：CN-Low n=",
+  screen_status$N_low,"；CN-Normal n=",screen_status$N_nonlow,"；样本量不足，不能据此解释为没有依赖关联。"))
  if(GENE_B_PROVIDED) {
   target<-fread(wf_table(paste0(GENE_A,"_",GENE_B,"_Targeted_Statistics.csv")))
   screen<-fread(wf_table("GenomeWide_Dependency.csv"))[Gene==GENE_B]
@@ -276,19 +304,25 @@ run_final_workflow <- function() {
   key<-digest::digest(list(inputs=versions,params=params,code=code$hash),algo="sha256")
   cache_path<-wf_provenance(paste0("Cache_",module,".json"))
   old<-if(file.exists(cache_path))tryCatch(jsonlite::fromJSON(cache_path,simplifyVector=FALSE),error=function(e)NULL) else NULL
-  state<-"computed"
-  if(!opt$force&&wf_cache_valid(old,key,outputs)) {state<-"cached";msg(module," SKIP recomputation: verified cache")}
+  state<-"computed";execution<-"computed";detail<-""
+  if(!opt$force&&wf_cache_valid(old,key,outputs)) {
+   state<-if(identical(old$analysis_status,"SKIPPED"))"SKIPPED" else "cached"
+   execution<-"cached";detail<-if(is.null(old$detail))"" else old$detail
+   msg(module," SKIP recomputation: verified cache")
+  }
   else {
    msg(module," running once")
    result<-if(module %in% names(fun))fun[[module]]() else wf_run_supplement(module)
    if(identical(result,"plot_regenerated"))state<-result
+   if(is.list(result)&&identical(result$status,"SKIPPED")) {state<-"SKIPPED";detail<-result$detail;msg(module," SKIPPED: ",detail)}
    if(!all(vapply(file.path(RESULT_ROOT,outputs),wf_validate_artifact,logical(1))))stop("Output validation failed: ",module)
    jsonlite::write_json(list(module=module,key=key,parameters=params,parameter_hash=digest::digest(params,algo="sha256"),
     code_hash=code$hash,code_functions=code$functions,data_versions=versions,outputs=wf_hash_outputs(outputs),validated=TRUE,
+    analysis_status=state,detail=detail,
     statistics_key=if(module=="targeted_dependency")wf_targeted_statistics_key() else NULL),
     cache_path,pretty=TRUE,auto_unbox=TRUE)
   }
-  runs[[module]]<-data.table(Module=module,Status=state,Seconds=as.numeric(difftime(Sys.time(),start,units="secs")))
+  runs[[module]]<-data.table(Module=module,Status=state,Execution=execution,Detail=detail,Seconds=as.numeric(difftime(Sys.time(),start,units="secs")))
   gc()
  }
  data.table::fwrite(rbindlist(runs),wf_provenance("Module_Runs.csv"))
@@ -304,6 +338,8 @@ run_final_workflow <- function() {
  writeLines(c("Database = TCGA", "Source = NCI GDC", "Release = DR46 / 46.0",
   "TCGA user-facing database: TCGA", "Underlying source: NCI GDC", "Main data layer: gdc_current_DR46",
   "RNA: STAR TPM; analysis: log2(TPM + 1).", "Gene-level CN: current TCGA absolute Gene-Level Copy Number.",
+  "TCGA_Relative_CN_Change = CopyNumber / existing BaselineCN - 1; analysis-derived, not GISTIC, log2 GISTIC or DepMap CN_relative.",
+  "TCGA 01/02 order: ascending median relative CN change; 02 and 03 x-axis and Pearson/Spearman use this same variable.",
   "Current TCGA CN Five-State Classification: analysis-defined from current GDC DR46 absolute CN and sample-specific baseline/ploidy.",
   "No verified measured ploidy available. Baseline estimate: modal integer autosomal gene-level CN; ties choose smallest mode; never fixed CN=2.",
   "Deep Deletion: CN=0; Shallow Deletion: 0<CN<baseline; Diploid: CN=baseline; Gain: baseline<CN<2*baseline; Amplification: CN>=2*baseline.",

@@ -18,19 +18,31 @@ validate_final_workflow <- function() {
  check("33_cancer_types",nrow(order)==33L&&setequal(order$CancerType,TCGA_CANCERS))
  check("current_unique_tumors",!anyDuplicated(d$SampleID)&&all(d$TumorNormal=="Tumor")&&all(d$DataLayer=="gdc_current_DR46"))
  check("current_sample_baseline",all(is.finite(d$BaselineCN)&d$BaselineCN>0&d$BaselineCN==floor(d$BaselineCN)))
+ check("relative_CN_fields",all(c("CopyNumber","BaselineCN","Relative_CN_Change","TCGA_Relative_CN_Change","CNAState","RNA_TPM","Expression") %in% names(d)))
+ relative<-d$CopyNumber/d$BaselineCN-1;relative[!is.finite(d$CopyNumber)]<-NA_real_
+ check("relative_CN_formula",equal(d$Relative_CN_Change,relative)&&equal(d$TCGA_Relative_CN_Change,relative))
+ check("relative_CN_CNA_consistency",identical(tcga_relative_cn(d)$CNAState,d$CNAState))
  expected_state<-with(d,ifelse(!is.finite(CopyNumber),NA_integer_,ifelse(CopyNumber==0,-2L,
    ifelse(CopyNumber<BaselineCN,-1L,ifelse(CopyNumber==BaselineCN,0L,ifelse(CopyNumber<2*BaselineCN,1L,2L))))))
  check("analysis_defined_categories_match_CN_baseline",identical(is.na(d$CNAState),is.na(expected_state))&&all(d$CNAState==expected_state,na.rm=TRUE))
  check("STAR_log2_TPM",equal(d$Expression,log2(d$RNA_TPM+1)))
  versions<-wf_input_paths("tcga")
  check("all_TCGA_inputs_current_processed",all(grepl("data/processed/tcga/gdc_DR46/",versions,fixed=TRUE))&&!any(grepl("PanCanAtlas|Xena|Toil",versions,ignore.case=TRUE)))
- direct<-d[is.finite(CopyNumber),.(N=.N,Median_CN=median(CopyNumber)),by=CancerType]
- setorder(direct,Median_CN,CancerType)
- check("ascending_median_order_and_N",identical(order$CancerType,direct$CancerType)&&identical(order$N,direct$N)&&equal(order$Median_CN,direct$Median_CN))
+ direct<-d[is.finite(CopyNumber),.(N=.N,Median_CN=as.numeric(median(CopyNumber)),Median_Relative_CN_Change=median(CopyNumber/BaselineCN-1)),by=CancerType]
+ direct<-merge(data.table(CancerType=TCGA_CANCERS),direct,by="CancerType",all.x=TRUE)
+ direct[is.na(N),N:=0L];setorder(direct,Median_Relative_CN_Change,CancerType,na.last=TRUE)
+ check("ascending_relative_median_order_and_N",identical(order$CancerType,direct$CancerType)&&identical(order$N,direct$N)&&
+  equal(order$Median_CN,direct$Median_CN)&&equal(order$Median_Absolute_CN,direct$Median_CN)&&
+  equal(order$Median_Relative_CN_Change,direct$Median_Relative_CN_Change))
  plot_order<-jsonlite::fromJSON(wf_provenance("TCGA_Plot_Order.json"))
  check("plot_factors_match_order_table",identical(plot_order$CNA_factor_levels,rev(order$CancerType))&&
        identical(plot_order$Landscape_factor_levels,rev(order$CancerType))&&identical(plot_order$visual_top_to_bottom,order$CancerType))
  check("landscape_all_sample_points",plot_order$landscape_points==sum(is.finite(d$CopyNumber)))
+ landscape<-tcga_landscape_plot(d,order);built<-ggplot_build(landscape)
+ check("landscape_relative_points_and_zero",equal(sort(built$data[[2]]$y),sort(relative[is.finite(relative)]))&&
+  identical(built$data[[3]]$yintercept,0)&&inherits(landscape$coordinates,"CoordFlip"))
+ limits<-landscape$scales$get_scales("y")$limits
+ check("landscape_centered_zero",length(limits)==2L&&limits[1]== -limits[2])
  prev<-data.table::fread(wf_table("TCGA_CNA_Percentage.csv"))
  counts<-d[is.finite(CNAState),.(N=.N),by=.(CancerType,CNAState)]
  observed<-copy(prev);observed[,CNAState:=match(CNA,CNA_STATES)-3L]
@@ -39,12 +51,16 @@ validate_final_workflow <- function() {
  check("CNA_percentage_denominator",all(prev[,sum(N)==unique(denominator)&&abs(sum(Percentage)-100)<1e-8,by=CancerType]$V1))
  stats<-data.table::fread(wf_table(paste0("TCGA_",GENE_A,"_CN_mRNA_AllCancer_Statistics.csv")))
  check("CN_mRNA_summary_order",identical(stats$CancerType,order$CancerType))
+ check("CN_mRNA_metric",all(stats$CN_metric=="Relative_CN_Change"))
  p_pe<-p_sp<-rep(NA_real_,nrow(stats))
  for(i in seq_len(nrow(stats))) {
   z<-d[CancerType==stats$CancerType[i]&is.finite(CopyNumber)&is.finite(Expression)&is.finite(CNAState)]
   check(paste0("RNA_matching_N_",stats$CancerType[i]),stats$N[i]==nrow(z))
-  if(nrow(z)>=TCGA_MIN_N&&sd(z$CopyNumber)>0&&sd(z$Expression)>0) {
-   pe<-cor.test(z$CopyNumber,z$Expression);sp<-cor.test(z$CopyNumber,z$Expression,method="spearman",exact=FALSE)
+  x<-z$CopyNumber/z$BaselineCN-1
+  check(paste0("RNA_traceable_medians_",stats$CancerType[i]),
+   equal(stats$Median_Absolute_CN[i],median(z$CopyNumber))&&equal(stats$Median_Relative_CN_Change[i],median(x)))
+  if(nrow(z)>=TCGA_MIN_N&&sd(x)>0&&sd(z$Expression)>0) {
+   pe<-cor.test(x,z$Expression);sp<-cor.test(x,z$Expression,method="spearman",exact=FALSE)
    check(paste0("RNA_independent_correlations_",stats$CancerType[i]),
     equal(c(stats$Pearson_r[i],stats$Pearson_P[i],stats$Spearman_rho[i],stats$Spearman_P[i]),c(pe$estimate,pe$p.value,sp$estimate,sp$p.value)))
    p_pe[i]<-pe$p.value;p_sp[i]<-sp$p.value
@@ -54,9 +70,20 @@ validate_final_workflow <- function() {
  pie_counts<-data.table::fread(wf_table("TCGA_CN_mRNA_CNA_Counts.csv"))
  check("pie_uses_matched_cancer_denominator",all(pie_counts[,.(N=sum(N)),by=CancerType][match(stats$CancerType,CancerType),N]==stats$N))
  screen<-data.table::fread(wf_table("GenomeWide_Dependency.csv"))
+ screen_status<-jsonlite::fromJSON(wf_provenance("GenomeWide_Dependency_Status.json"))
+ groups<-screen_group_counts()
+ should_skip<-groups$N_low<MIN_N||groups$N_nonlow<MIN_N
+ check("screen_group_N_and_threshold",screen_status$N_low==groups$N_low&&screen_status$N_nonlow==groups$N_nonlow&&
+  screen_status$CN_log_threshold==.585&&screen_status$min_group_n==MIN_N)
+ check("screen_insufficient_groups_SKIP",identical(screen_status$Status,if(should_skip)"SKIPPED" else "COMPLETED"))
+ if(should_skip) {
+  check("skipped_screen_no_invented_results",nrow(screen)==0L&&nrow(data.table::fread(wf_table("Top_Dependency_Candidates.csv")))==0L)
+  runs<-data.table::fread(wf_provenance("Module_Runs.csv"))
+  check("skipped_screen_recorded",identical(runs[Module=="genomewide_dependency",Status],"SKIPPED"))
+ }
  check("genomewide_complete_BH",equal(screen$Wilcoxon_FDR,p.adjust(screen$Wilcoxon_P,"BH"))&&equal(screen$Pearson_FDR,p.adjust(screen$Pearson_P,"BH")))
  eligible<-screen[is.finite(Wilcoxon_FDR)&is.finite(Delta_median)][order(Wilcoxon_FDR,Delta_median,Rank)]
- check("eligible_rank",identical(eligible$Eligible_Rank,seq_len(nrow(eligible))))
+ check("eligible_rank",identical(as.integer(eligible$Eligible_Rank),seq_len(nrow(eligible))))
  # Compare every common numeric field with preserved pre-migration screen if available.
  baseline<-c(file.path(PROJECT_ROOT,"results/VPS4B_VPS4A/02_GenomeWide_Dependency 1/GenomeWide_Dependency.csv"),
              file.path(PROJECT_ROOT,".runtime/prior_case/02_GenomeWide_Dependency/GenomeWide_Dependency.csv"))
@@ -92,9 +119,16 @@ validate_final_workflow <- function() {
  }
  top<-data.table::fread(wf_table("Top_CN_Covariation.csv"))
  check("covariation_direction",all(top[Direction=="Positive CN correlation",Pearson_r]>0)&&all(top[Direction=="Negative CN correlation",Pearson_r]<0)&&!GENE_A %in% top$Gene)
+ caption<-covariation_plot(top)$labels$caption
+ check("covariation_Pearson_explanation",all(vapply(c("Pearson r","r > 0","r < 0","|r|","correlation","causation"),
+  function(term)grepl(term,caption,fixed=TRUE),logical(1))))
  files<-sort(list.files(RESULT_ROOT,recursive=TRUE))
  expected<-unname(unlist(lapply(workflow_modules(WORKFLOW),wf_expected)))
  check("all_expected_files",all(vapply(file.path(RESULT_ROOT,expected),wf_validate_artifact,logical(1))))
+ expected_main<-sort(sub("^Main_Results/","",expected[startsWith(expected,"Main_Results/")]))
+ check("exact_main_outputs",identical(sort(list.files(file.path(RESULT_ROOT,"Main_Results"),recursive=TRUE)),expected_main))
+ check("exact_33_CN_mRNA_PDF_names",identical(sort(list.files(file.path(RESULT_ROOT,PATHS["rna"]))),
+  sort(paste0(TCGA_CANCERS,"_",GENE_A,"_CN_mRNA.pdf"))))
  check("main_PDF_count",length(list.files(file.path(RESULT_ROOT,"Main_Results"),pattern="\\.pdf$",recursive=TRUE))==if(GENE_B_PROVIDED)40L else 37L)
  check("no_default_hidden_modules",!any(grepl("reverse|mutation|expression_dependency|genomewide_adjusted",files,ignore.case=TRUE)))
  check("summary_TXT",file.exists(file.path(RESULT_ROOT,"00_Analysis_Summary.txt"))&&!any(basename(files)=="Summary.md"))
