@@ -1,6 +1,6 @@
 {
   "module": "genomewide_dependency",
-  "key": "4f471587f9df2254307f1412440e699864ba3f9a86b5f61024ae6ee9c6153c51",
+  "key": "a0504ec3b7493b12bd6625b7042b17ad495b92aabe7ae21e5a9f1d06b969a619",
   "parameters": {
     "geneA": "MYC",
     "geneB": "",
@@ -11,11 +11,16 @@
     "low": 0.585,
     "deep": 0.35,
     "seed": 1234,
-    "thresholds": [0.585, 0.5, 0.4, 0.35]
+    "thresholds": [
+      0.585,
+      0.5,
+      0.4,
+      0.35
+    ]
   },
   "parameter_hash": "c4059185c847dd537a2116888c148559233b815ff68f7b1000e628508d700092",
-  "code_hash": "4d6ce1b2201eabf24a29379d1e5ed774386cb42569824500fb443358a085092f",
-  "code_functions": ["run_genomewide", "screen_core_statistics", "screen_group_counts", "empty_screen_statistics", "eligible_rank", "dependency_top", "volcano_plot", "wf_run_screen", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_validate_artifact", "p_text", "p_star"],
+  "code_hash": "e4bc8915f044880da1d871fa04097dda862d16f14194d4682fdf6ff765770ddc",
+  "code_functions": ["run_genomewide", "screen_core_statistics", "screen_group_counts", "empty_screen_statistics", "eligible_rank", "dependency_top", "volcano_plot", "wf_run_screen", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_table", "wf_table_relative", "wf_group_statistics", "wf_write_screen_status", "wf_screen_status_path", "wf_validate_artifact", "p_text", "p_star"],
   "data_versions": [
     {
       "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
@@ -51,13 +56,19 @@
     }
   ],
   "outputs": {
-    "Main_Results/04_DepMap_MYC_GenomeWide_Dependency_Volcano.pdf": "dd865211980b1da2e06b7bf88612f3e772b52d2a24be5e5c9200a79df93c9597",
-    "Tables/GenomeWide_Dependency.csv": "8384f9b1e7eb9be126f801f5459bcddd4fde894ea76efc2464abcca2a9111122",
-    "Tables/Top_Dependency_Candidates.csv": "bc90d75ab192910060704384b2089e598843a882e8344e41d97b43388f2f288a",
-    "Provenance/GenomeWide_Dependency_Status.json": "474f42fe0d2f8ad258714b93e8e9a6b75c371d0e1370ccaa50e44d21e886e614"
+    "Main_Results/04_DepMap_GenomeWide_Dependency/04_DepMap_MYC_GenomeWide_Dependency_Volcano.pdf": "dd865211980b1da2e06b7bf88612f3e772b52d2a24be5e5c9200a79df93c9597",
+    "Main_Results/04_DepMap_GenomeWide_Dependency/GenomeWide_Dependency.csv": "8384f9b1e7eb9be126f801f5459bcddd4fde894ea76efc2464abcca2a9111122",
+    "Main_Results/04_DepMap_GenomeWide_Dependency/Top_Dependency_Candidates.csv": "bc90d75ab192910060704384b2089e598843a882e8344e41d97b43388f2f288a",
+    "Provenance/GenomeWide_Dependency_Status.json": "474f42fe0d2f8ad258714b93e8e9a6b75c371d0e1370ccaa50e44d21e886e614",
+    "Main_Results/04_DepMap_GenomeWide_Dependency/04_Analysis_Status.txt": "5f1661f4d72136ef1ae09aac476f787d5def16c67bb1780054f2cf44123b235a"
   },
   "validated": true,
   "analysis_status": "SKIPPED",
   "detail": "Insufficient CN group N: CN-Low n=1; CN-Normal n=857; each group requires n >= 3. CN_log threshold remains 0.585.",
-  "statistics_key": {}
+  "statistics_key": {},
+  "layout_migration": {
+    "previous_key": "4f471587f9df2254307f1412440e699864ba3f9a86b5f61024ae6ee9c6153c51",
+    "previous_code_hash": "4d6ce1b2201eabf24a29379d1e5ed774386cb42569824500fb443358a085092f",
+    "proof": "Previous code/input key and output hashes verified; signed statistical and plot bodies unchanged; old artifact basenames and bytes preserved."
+  }
 }

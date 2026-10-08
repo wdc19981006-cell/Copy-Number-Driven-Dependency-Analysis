@@ -18,21 +18,27 @@ Rscript scripts/R/run_analysis.R --workflow geneA_geneB --geneA VPS4B --geneB VP
 results/<GeneA>[_<GeneB>]_Analysis/
   00_Analysis_Summary.txt
   Main_Results/
-    01_TCGA_<GeneA>_CNA_Percentage.pdf
-    02_TCGA_<GeneA>_CopyNumber_Landscape.pdf
-    03_TCGA_CN_mRNA/              33 癌种，各一个 PDF
-    04..06_DepMap_...pdf          仅 A+B：scatter / waterfall / boxplot
-    04或07_DepMap_<GeneA>_GenomeWide_Dependency_Volcano.pdf
-    05或08_DepMap_<GeneA>_CN_Covariation.pdf
+    01_TCGA_CNA_Percentage/          PDF + TCGA_CNA_Percentage.csv
+    02_TCGA_CopyNumber_Landscape/    PDF + TCGA_Cancer_Order.csv
+    03_TCGA_CN_mRNA/                33 癌种 PDF + 汇总统计 + CNA counts
+    04_DepMap_CN_vs_Dependency/     仅 A+B：PDF + targeted 统计 + matched cell lines
+    05_DepMap_Dependency_Waterfall/ 仅 A+B：PDF + waterfall order
+    06_DepMap_Dependency_CNlow_vs_Normal/ 仅 A+B：PDF + 已有 targeted 统计的分组字段
+    04或07_DepMap_GenomeWide_Dependency/  PDF + 全筛选/候选 CSV + 编号_Analysis_Status.txt
+    05或08_DepMap_CN_Covariation/    PDF + 全共变/Top CSV
   Supplementary/                 仅 A+B
     01_Lineage/
     02_Adjusted/
     03_CN_Threshold_Sensitivity/
-  Tables/                        所有统计 CSV、匹配样本与绘图输入
   Provenance/                    来源、版本、代码和输入哈希、验证和运行记录
+    Data_Audit/                  TCGA_Current_Samples.csv、TCGA_RNA_Representative_Selection.csv、TCGA_Sample_Baselines.csv
 ```
 
 Gene A-only 共 **37** 张主 PDF；A+B 共 **40** 张主 PDF。默认不运行 reverse、mutation、expression dependency、genomewide expression 或 genomewide adjusted。研究反向依赖时交换 A/B 后运行同一个 A+B workflow。
+
+每个主编号文件夹包含该图及其 CSV，Supplementary 的 CSV 也直接保存在所属模块内；不再生成集中 `Tables/`，不复制同一结果表。06 的分组表仅提取现有 targeted 结果字段，不新增检验。所有 PDF 的原文件名保持不变。
+
+目录迁移使用 `scripts/R/migrate_result_layout.R` 的 `migrate_result_layout(previous_workflow, previous_file_sources)`，在已初始化的通用工作流环境调用；旧工作流源文件保存在结果包外。旧 TCGA 导出助手的文件快照通过具名列表 `list("scripts/utils/export_workflow_tcga.py"="旧源文件快照路径")` 传入，逐字核对只改变 baseline JSON 的输出目的地。迁移先验证旧缓存代码/输入签名与输出哈希，确认统计和绘图函数不变，记录 SHA256 后移动，再独立核对字节并更新缓存路径与签名。若旧签名不能验证，报告受影响模块并停止，不运行分析。`File_Index.csv` 按授权更新，其旧哈希保存在迁移审计 JSON；原始 PDF、结果/样本 CSV 和 Module_Runs.csv 的字节保持一致。原统计验证记录保留，另附结构迁移验证；不声称重新执行统计验证。
 
 ## TCGA 数据层与共同顺序
 

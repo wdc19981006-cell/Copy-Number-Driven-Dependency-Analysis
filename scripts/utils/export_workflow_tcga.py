@@ -57,7 +57,7 @@ def main():
     frame.to_csv(target, index=False)
     baseline.to_csv(target.parent / 'TCGA_Sample_Baselines.csv', index=False)
     audit.to_csv(target.parent / 'TCGA_RNA_Representative_Selection.csv', index=False)
-    (target.parent.parent / 'Provenance/TCGA_Baseline_Method.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+    (ROOT / 'results' / target.relative_to((ROOT / 'results').resolve()).parts[0] / 'Provenance/TCGA_Baseline_Method.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     print(json.dumps({'samples': len(frame), 'finite_CN': int(np.isfinite(frame.CopyNumber).sum()),
                       'matched_RNA': int(np.isfinite(frame.Expression).sum()),
                       'cancers': int(frame.CancerType.nunique()), 'layer': 'gdc_current_DR46'}))

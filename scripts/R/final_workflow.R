@@ -1,18 +1,55 @@
 # Orchestration, module caches and the final user-facing result contract.
 workflow_paths <- function(workflow,geneA,geneB=NULL) {
  pair<-identical(workflow,"geneA_geneB")
- c(cna=paste0("Main_Results/01_TCGA_",geneA,"_CNA_Percentage.pdf"),
- landscape=paste0("Main_Results/02_TCGA_",geneA,"_CopyNumber_Landscape.pdf"),
+ c(cna=paste0("Main_Results/01_TCGA_CNA_Percentage/01_TCGA_",geneA,"_CNA_Percentage.pdf"),
+ landscape=paste0("Main_Results/02_TCGA_CopyNumber_Landscape/02_TCGA_",geneA,"_CopyNumber_Landscape.pdf"),
  rna="Main_Results/03_TCGA_CN_mRNA",
- if(pair)c(scatter=paste0("Main_Results/04_DepMap_",geneA,"_CN_vs_",geneB,"_Dependency.pdf"),
- waterfall=paste0("Main_Results/05_DepMap_",geneB,"_Dependency_Waterfall.pdf"),
- box=paste0("Main_Results/06_DepMap_",geneB,"_Dependency_CNlow_vs_Normal.pdf")),
- volcano=paste0("Main_Results/",if(pair)"07" else "04","_DepMap_",geneA,"_GenomeWide_Dependency_Volcano.pdf"),
- covariation=paste0("Main_Results/",if(pair)"08" else "05","_DepMap_",geneA,"_CN_Covariation.pdf"))
+ if(pair)c(scatter=paste0("Main_Results/04_DepMap_CN_vs_Dependency/04_DepMap_",geneA,"_CN_vs_",geneB,"_Dependency.pdf"),
+ waterfall=paste0("Main_Results/05_DepMap_Dependency_Waterfall/05_DepMap_",geneB,"_Dependency_Waterfall.pdf"),
+ box=paste0("Main_Results/06_DepMap_Dependency_CNlow_vs_Normal/06_DepMap_",geneB,"_Dependency_CNlow_vs_Normal.pdf")),
+ volcano=paste0("Main_Results/",if(pair)"07" else "04","_DepMap_GenomeWide_Dependency/",if(pair)"07" else "04","_DepMap_",geneA,"_GenomeWide_Dependency_Volcano.pdf"),
+ covariation=paste0("Main_Results/",if(pair)"08" else "05","_DepMap_CN_Covariation/",if(pair)"08" else "05","_DepMap_",geneA,"_CN_Covariation.pdf"))
 }
-wf_table <- function(name)file.path(RESULT_ROOT,"Tables",name)
+wf_table_relative <- function(name) {
+ key<-switch(name,TCGA_CNA_Percentage.csv="cna",TCGA_Cancer_Order.csv="landscape",
+  TCGA_CN_mRNA_CNA_Counts.csv="rna",GenomeWide_Dependency.csv="volcano",Top_Dependency_Candidates.csv="volcano",
+  Top_CN_Covariation.csv="covariation",NULL)
+ if(name %in% c("TCGA_Current_Samples.csv","TCGA_RNA_Representative_Selection.csv","TCGA_Sample_Baselines.csv"))
+  return(file.path("Provenance/Data_Audit",name))
+ if(name==paste0("TCGA_",GENE_A,"_CN_mRNA_AllCancer_Statistics.csv"))key<-"rna"
+ if(name==paste0(GENE_A,"_CN_Covariation.csv"))key<-"covariation"
+ pair<-paste0(GENE_A,"_",GENE_B)
+ if(name %in% paste0(pair,c("_Targeted_Statistics.csv","_CellLines.csv")))key<-"scatter"
+ if(name==paste0(pair,"_Waterfall_Order.csv"))key<-"waterfall"
+ if(name==paste0(pair,"_CNlow_vs_Normal_Statistics.csv"))key<-"box"
+ supplements<-c(Lineage_Dependency.csv="01_Lineage",Lineage_Eligibility.csv="01_Lineage",
+  Continuous_CN_Adjusted.csv="02_Adjusted",CNLow_Adjusted.csv="02_Adjusted",
+  CN_Threshold_Sensitivity.csv="03_CN_Threshold_Sensitivity",CN_Threshold_Continuous_Statistics.csv="03_CN_Threshold_Sensitivity")
+ if(name %in% names(supplements))return(file.path("Supplementary",supplements[[name]],name))
+ if(is.null(key)||!key %in% names(PATHS))stop("No output module assigned to table: ",name)
+ file.path(if(key=="rna")PATHS[[key]] else dirname(PATHS[[key]]),name)
+}
+wf_table <- function(name)file.path(RESULT_ROOT,wf_table_relative(name))
 wf_provenance <- function(name)file.path(RESULT_ROOT,"Provenance",name)
 wf_write <- function(x,name) data.table::fwrite(x,wf_table(name),scipen=0)
+wf_create_directories <- function() {
+ folders<-c("Provenance/Data_Audit",PATHS["rna"],dirname(PATHS[names(PATHS)!="rna"]))
+ if(GENE_B_PROVIDED)folders<-c(folders,"Supplementary/01_Lineage","Supplementary/02_Adjusted","Supplementary/03_CN_Threshold_Sensitivity")
+ for(p in unique(folders))dir.create(file.path(RESULT_ROOT,p),recursive=TRUE,showWarnings=FALSE)
+}
+wf_group_statistics <- function(s) {
+ # Project the already computed targeted row; never run another statistical test.
+ fields<-c("geneA","geneB","N_low","N_nonlow","Median_low","Median_nonlow","Delta_median","Wilcoxon_P")
+ s[,intersect(fields,names(s)),with=FALSE]
+}
+wf_screen_status_path <- function()file.path(dirname(PATHS[["volcano"]]),paste0(if(GENE_B_PROVIDED)"07" else "04","_Analysis_Status.txt"))
+wf_write_screen_status <- function(status) {
+ lines<-c(paste0("分析状态：",status$Status),paste0("CN-Low n=",status$N_low,"；CN-Normal n=",status$N_nonlow),
+  paste0("当前最低每组样本数要求 n>=",status$min_group_n))
+ lines<-c(lines,if(status$Status=="SKIPPED")c("低CN组或正常CN组样本量不足。","没有可靠的组间dependency筛选结果。","PDF为状态说明；结果CSV为空，不提供候选基因。") else
+  "筛选已完成；效应、P、FDR与Eligible_Rank见本模块CSV。")
+ writeLines(enc2utf8(lines),file.path(RESULT_ROOT,wf_screen_status_path()),useBytes=TRUE)
+}
 wf_route_supplements <- function() {
  # adapters.R had already substituted legacy folder literals in these supplied
  # functions. Route those literals to final supplementary folders at runtime.
@@ -55,7 +92,7 @@ wf_code_signature <- function(module) {
  cn_threshold_sensitivity=c("run_threshold_sensitivity","cn_threshold_statistics","group_effect","wf_run_supplement"))
  common<-c("prepare_cn","load_target_pair","read_gene","load_model","fread","find_gene_col","clean_gene",
            "processed_depmap","processed_pair","wf_write","workflow_save","workflow_theme","save_pdf",
-           "workflow_paths","wf_validate_artifact","p_text","p_star")
+           "workflow_paths","wf_table","wf_table_relative","wf_group_statistics","wf_write_screen_status","wf_screen_status_path","wf_validate_artifact","p_text","p_star")
  # Hash source text rather than serialized language objects: runtime/JIT or
  # package expression caches can change attributes of an otherwise identical
  # function body after plotting. Text stays stable across cold and warm calls.
@@ -69,20 +106,21 @@ wf_code_signature <- function(module) {
                expected=unname(wf_expected(module))),algo="sha256"),functions=unique(c(functions,common)))
 }
 wf_expected <- function(module) {
+ tables<-function(n)vapply(n,wf_table_relative,character(1),USE.NAMES=FALSE)
  switch(module,
  tcga=c(PATHS[c("cna","landscape")],paste0(PATHS["rna"],"/",TCGA_CANCERS,"_",GENE_A,"_CN_mRNA.pdf"),
-        "Tables/TCGA_Cancer_Order.csv","Tables/TCGA_CNA_Percentage.csv","Tables/TCGA_Current_Samples.csv",
-        "Tables/TCGA_Sample_Baselines.csv","Tables/TCGA_RNA_Representative_Selection.csv","Provenance/TCGA_Baseline_Method.json",
-        paste0("Tables/TCGA_",GENE_A,"_CN_mRNA_AllCancer_Statistics.csv"),"Provenance/TCGA_Plot_Order.json","Tables/TCGA_CN_mRNA_CNA_Counts.csv"),
- targeted_dependency=c(PATHS[c("scatter","waterfall","box")],paste0("Tables/",GENE_A,"_",GENE_B,
-          c("_Targeted_Statistics.csv","_CellLines.csv","_Waterfall_Order.csv"))),
- genomewide_dependency=c(PATHS["volcano"],"Tables/GenomeWide_Dependency.csv","Tables/Top_Dependency_Candidates.csv",
-                        "Provenance/GenomeWide_Dependency_Status.json"),
- cn_covariation=c(PATHS["covariation"],paste0("Tables/",GENE_A,"_CN_Covariation.csv"),"Tables/Top_CN_Covariation.csv"),
- lineage_dependency=c("Supplementary/01_Lineage/Lineage_Dependency_Forest.pdf","Tables/Lineage_Dependency.csv","Tables/Lineage_Eligibility.csv"),
- adjusted_dependency=c("Supplementary/02_Adjusted/Adjusted_CN_Coefficient.pdf","Tables/Continuous_CN_Adjusted.csv","Tables/CNLow_Adjusted.csv"),
+        tables(c("TCGA_Cancer_Order.csv","TCGA_CNA_Percentage.csv","TCGA_Current_Samples.csv",
+        "TCGA_Sample_Baselines.csv","TCGA_RNA_Representative_Selection.csv")),"Provenance/TCGA_Baseline_Method.json",
+        tables(paste0("TCGA_",GENE_A,"_CN_mRNA_AllCancer_Statistics.csv")),"Provenance/TCGA_Plot_Order.json",tables("TCGA_CN_mRNA_CNA_Counts.csv")),
+ targeted_dependency=c(PATHS[c("scatter","waterfall","box")],tables(paste0(GENE_A,"_",GENE_B,
+          c("_Targeted_Statistics.csv","_CellLines.csv","_Waterfall_Order.csv","_CNlow_vs_Normal_Statistics.csv")))),
+ genomewide_dependency=c(PATHS["volcano"],tables(c("GenomeWide_Dependency.csv","Top_Dependency_Candidates.csv")),
+                        "Provenance/GenomeWide_Dependency_Status.json",wf_screen_status_path()),
+ cn_covariation=c(PATHS["covariation"],tables(c(paste0(GENE_A,"_CN_Covariation.csv"),"Top_CN_Covariation.csv"))),
+ lineage_dependency=c("Supplementary/01_Lineage/Lineage_Dependency_Forest.pdf",tables(c("Lineage_Dependency.csv","Lineage_Eligibility.csv"))),
+ adjusted_dependency=c("Supplementary/02_Adjusted/Adjusted_CN_Coefficient.pdf",tables(c("Continuous_CN_Adjusted.csv","CNLow_Adjusted.csv"))),
  cn_threshold_sensitivity=c("Supplementary/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.pdf",
-                            "Tables/CN_Threshold_Sensitivity.csv","Tables/CN_Threshold_Continuous_Statistics.csv"))
+                            tables(c("CN_Threshold_Sensitivity.csv","CN_Threshold_Continuous_Statistics.csv"))))
 }
 wf_validate_artifact <- function(path) {
  if(!file.exists(path)||is.na(file.info(path)$size)||file.info(path)$size==0)return(FALSE)
@@ -154,12 +192,14 @@ wf_run_targeted <- function() {
     identical(old$outputs[preserved],wf_hash_outputs(preserved))) {
   pair<-fread(wf_table(paste0(GENE_A,"_",GENE_B,"_CellLines.csv")))
   s<-fread(wf_table(paste0(GENE_A,"_",GENE_B,"_Targeted_Statistics.csv")))
+  wf_write(wf_group_statistics(s),paste0(GENE_A,"_",GENE_B,"_CNlow_vs_Normal_Statistics.csv"))
   workflow_save(targeted_scatter_plot(pair,s),file.path(RESULT_ROOT,PATHS["scatter"]))
   return("plot_regenerated")
  }
  pair<-as.data.table(load_target_pair(GENE_A,GENE_B))
  stopifnot(!anyDuplicated(pair$ModelID))
  s<-targeted_statistics(pair);wf_write(s,paste0(GENE_A,"_",GENE_B,"_Targeted_Statistics.csv"))
+ wf_write(wf_group_statistics(s),paste0(GENE_A,"_",GENE_B,"_CNlow_vs_Normal_Statistics.csv"))
  wf_write(pair,paste0(GENE_A,"_",GENE_B,"_CellLines.csv"))
  w<-targeted_plots(pair,s,file.path(RESULT_ROOT,PATHS[c("scatter","waterfall","box")]))
  wf_write(w,paste0(GENE_A,"_",GENE_B,"_Waterfall_Order.csv"))
@@ -173,6 +213,7 @@ wf_run_screen <- function() {
  status<-list(Status=if(skipped)"SKIPPED" else "COMPLETED",Reason=detail,
   N_low=counts$N_low,N_nonlow=counts$N_nonlow,min_group_n=MIN_N,CN_log_threshold=.585)
  jsonlite::write_json(status,wf_provenance("GenomeWide_Dependency_Status.json"),pretty=TRUE,auto_unbox=TRUE)
+ wf_write_screen_status(status)
  if(skipped) {
   res<-empty_screen_statistics();wf_write(res,"GenomeWide_Dependency.csv")
   wf_write(dependency_top(res),"Top_Dependency_Candidates.csv")
@@ -222,7 +263,7 @@ wf_summary <- function() {
  section<-function(title)c("",separator,title,separator)
  lines<-c(separator,"Copy Number–Driven Dependency Analysis",separator,"",paste("Gene A:",GENE_A),
           paste("Gene B:",if(GENE_B_PROVIDED)GENE_B else "未提供（发现性筛选）"),
-          "TCGA: Current TCGA dataset","DepMap: Public 26Q1",paste("Run date:",format(Sys.time(),tz="Asia/Shanghai",usetz=TRUE)),
+          "TCGA: Current TCGA dataset","DepMap: Public 26Q1",paste("Run date:",if(file.exists(wf_provenance("Run_Metadata.json")))jsonlite::fromJSON(wf_provenance("Run_Metadata.json"))$run_date else format(Sys.time(),tz="Asia/Shanghai",usetz=TRUE)),
           "DATA_MODE: local（仅读取本地 processed 数据）",
           "TCGA 主结果使用本地已验证的 current TCGA 数据；Source / release 信息见 Provenance。",
           "五级 CNA 基于 current gene-level CN 与 sample-specific baseline/ploidy，是 analysis-defined 分类，不是官方 GISTIC 五级值。",
@@ -240,7 +281,14 @@ wf_summary <- function() {
  screen_status<-jsonlite::fromJSON(wf_provenance("GenomeWide_Dependency_Status.json"))
  if(screen_status$Status=="SKIPPED")descriptions["volcano"]<-paste0("SKIPPED：CN 分组样本不足，未进行组间 dependency 筛选；CN-Low n=",
   screen_status$N_low,"，CN-Normal n=",screen_status$N_nonlow,"，每组至少 ",MIN_N,"。阈值仍为 0.585；此 PDF 为跳过说明，候选表为空。")
- for(key in names(PATHS))lines<-c(lines,section(paste(basename(PATHS[key]))),paste("文件/目录：",PATHS[key]),"数据：",if(key %in% c("cna","landscape","rna"))"TCGA" else "DepMap","用途/怎么看：",descriptions[key])
+ for(key in names(PATHS)) {
+  folder<-if(key=="rna")PATHS[[key]] else dirname(PATHS[[key]])
+  csv<-sort(list.files(file.path(RESULT_ROOT,folder),pattern="\\.csv$"))
+  lines<-c(lines,section(basename(folder)),"分析目的：",descriptions[key],
+   paste("数据库：",if(key %in% c("cna","landscape","rna"))"TCGA（本地 current DR46）" else "DepMap（本地 26Q1）"),
+   paste0("PDF位置： ",PATHS[key],if(key=="rna")" （33癌种，各一个PDF）" else ""),
+   "统计CSV位置：",file.path(folder,csv),"如何解释：",descriptions[key])
+ }
  if(GENE_B_PROVIDED)lines<-c(lines,section("Supplementary"),
   "01_Lineage：各 OncotreeLineage 内 CN-low vs nonlow 的 dependency；小组不够 N 时明确不检验。",
   "02_Adjusted：Chronos ~ CN_log + Lineage，并保留二元 CN-low 调整表。",
@@ -266,18 +314,11 @@ wf_summary <- function() {
  lines<-c(lines,section("Key Findings"),head(findings,15),section("File Index"))
  files<-sort(list.files(RESULT_ROOT,recursive=TRUE))
  files<-setdiff(files,c("00_Analysis_Summary.txt","Provenance/File_Index.csv"))
- description<-function(f) {
-  key<-names(PATHS)[match(f,PATHS)]
-  if(!is.na(key))return(unname(descriptions[key]))
-  if(startsWith(f,paste0(PATHS["rna"],"/")))return(paste(GENE_A,"在该癌种 CN 与自身 mRNA 的散点和统计"))
-  if(startsWith(f,"Tables/"))return("统计数值、样本匹配或绘图输入；用于复核与重新制图")
-  if(startsWith(f,"Supplementary/"))return("lineage、调整模型或固定 CN cutoff 的补充结果")
-  "数据真实来源、版本、哈希、运行记录或验证信息"
- }
- for(i in seq_along(files))lines<-c(lines,paste0(sprintf("%02d",i)," ",files[i]),paste("作用：",description(files[i])))
+ # Keep the exact path index, without presenting technical files as analyses.
+ lines<-c(lines,files[!startsWith(files,"Provenance/")],"00_Analysis_Summary.txt",
+  "技术审计、版本和验证信息保存在Provenance",files[startsWith(files,"Provenance/")])
  # Index includes itself and the summary; exact on-disk correspondence is validated.
- lines<-c(lines,"00_Analysis_Summary.txt","作用：中文结果阅读指南、关键统计与文件索引。",
-          "Provenance/File_Index.csv","作用：本目录完整文件清单（包括本清单与 Summary）。")
+ lines<-c(lines,"Provenance/File_Index.csv")
  writeLines(enc2utf8(lines),file.path(RESULT_ROOT,"00_Analysis_Summary.txt"),useBytes=TRUE)
  files<-sort(unique(c(files,"00_Analysis_Summary.txt","Provenance/File_Index.csv")))
  data.table::fwrite(data.table(Path=files),wf_provenance("File_Index.csv"))
@@ -285,7 +326,8 @@ wf_summary <- function() {
 run_final_workflow <- function() {
  PATHS<<-workflow_paths(WORKFLOW,GENE_A,GENE_B)
  TCGA_CANCERS<<-sort(unique(unname(unlist(jsonlite::fromJSON(file.path(PROJECT_ROOT,"config/tcga_cancer_types.json"))$mapping))))
- for(p in c("Main_Results","Tables","Provenance"))dir.create(file.path(RESULT_ROOT,p),recursive=TRUE,showWarnings=FALSE)
+ wf_create_directories()
+ if(dir.exists(file.path(RESULT_ROOT,"Tables")))stop("Legacy Tables layout: migrate existing results before running this workflow")
  OUTPUT_DIRS[c("lineage_dependency","adjusted_dependency","cn_threshold_sensitivity")]<<-
   c("Supplementary/01_Lineage","Supplementary/02_Adjusted","Supplementary/03_CN_Threshold_Sensitivity")
  wf_route_supplements()
@@ -345,7 +387,7 @@ run_final_workflow <- function() {
   "Deep Deletion: CN=0; Shallow Deletion: 0<CN<baseline; Diploid: CN=baseline; Gain: baseline<CN<2*baseline; Amplification: CN>=2*baseline.",
   "These categories are not PanCanAtlas GISTIC -2/-1/0/+1/+2. CNAState numeric codes are internal analysis labels only.",
   "PanCanAtlas/Xena: available locally as historical/reference layer; not used in default 01-03 main results.",
-  "Exact SampleID joins, with CaseID/ProjectID consistency checks. RNA representative: matching CN aliquot first, then lexical FileID; audit in Tables.",
+  "Exact SampleID joins, with CaseID/ProjectID consistency checks. RNA representative: matching CN aliquot first, then lexical FileID; audit in Provenance/Data_Audit.",
   "Scatter/pie denominator: current cancer finite matched CN/STAR expression/five-state cohort. Pearson and Spearman BH: separate eligible cancer tests.",
   "Landscape/order: all finite current CN tumor samples; no outlier exclusion.",
   "Source paths, original URLs, source hashes and processor versions: Input_Versions.json.",

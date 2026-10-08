@@ -1,0 +1,6 @@
+分析状态：SKIPPED
+CN-Low n=1；CN-Normal n=857
+当前最低每组样本数要求 n>=3
+低CN组或正常CN组样本量不足。
+没有可靠的组间dependency筛选结果。
+PDF为状态说明；结果CSV为空，不提供候选基因。

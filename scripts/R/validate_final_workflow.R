@@ -1,3 +1,29 @@
+# Structural-only validation for result migrations: no data matrix or statistics.
+validate_result_layout <- function() {
+ files<-sort(list.files(RESULT_ROOT,recursive=TRUE))
+ expected<-unname(unlist(lapply(workflow_modules(WORKFLOW),wf_expected)))
+ stopifnot(!dir.exists(file.path(RESULT_ROOT,"Tables")),
+  all(vapply(file.path(RESULT_ROOT,expected),wf_validate_artifact,logical(1))))
+ main<-sort(expected[startsWith(expected,"Main_Results/")])
+ stopifnot(identical(paste0("Main_Results/",sort(list.files(file.path(RESULT_ROOT,"Main_Results"),recursive=TRUE))),main),
+  length(list.dirs(file.path(RESULT_ROOT,"Main_Results"),recursive=FALSE))==if(GENE_B_PROVIDED)8L else 5L,
+  identical(sort(list.files(file.path(RESULT_ROOT,PATHS["rna"]),pattern="\\.pdf$")),sort(paste0(TCGA_CANCERS,"_",GENE_A,"_CN_mRNA.pdf"))),
+  length(list.files(file.path(RESULT_ROOT,"Main_Results"),pattern="\\.pdf$",recursive=TRUE))==if(GENE_B_PROVIDED)40L else 37L)
+ index<-data.table::fread(wf_provenance("File_Index.csv"))
+ summary<-readLines(file.path(RESULT_ROOT,"00_Analysis_Summary.txt"),encoding="UTF-8",warn=FALSE)
+ stopifnot(!anyDuplicated(index$Path),identical(sort(index$Path),files),
+  all(vapply(files,function(f)any(summary==f)||any(grepl(f,summary,fixed=TRUE)),logical(1))),
+  any(grepl("技术审计、版本和验证信息保存在Provenance",summary,fixed=TRUE)),
+  !any(grepl("Tables/",summary,fixed=TRUE)))
+ status<-jsonlite::fromJSON(wf_provenance("GenomeWide_Dependency_Status.json"))
+ txt<-readLines(file.path(RESULT_ROOT,wf_screen_status_path()),encoding="UTF-8",warn=FALSE)
+ stopifnot(any(grepl(status$Status,txt,fixed=TRUE)))
+ if(status$Status=="SKIPPED")stopifnot(nrow(data.table::fread(wf_table("GenomeWide_Dependency.csv")))==0L,
+  nrow(data.table::fread(wf_table("Top_Dependency_Candidates.csv")))==0L)
+ if(GENE_B_PROVIDED)stopifnot(identical(data.table::fread(wf_table(paste0(GENE_A,"_",GENE_B,"_CNlow_vs_Normal_Statistics.csv"))),
+  wf_group_statistics(data.table::fread(wf_table(paste0(GENE_A,"_",GENE_B,"_Targeted_Statistics.csv"))))))
+ invisible(TRUE)
+}
 # Independent recomputation from the exported matched cohort; no workflow reruns.
 validate_final_workflow <- function() {
  checks<-list()
@@ -127,9 +153,17 @@ validate_final_workflow <- function() {
  check("all_expected_files",all(vapply(file.path(RESULT_ROOT,expected),wf_validate_artifact,logical(1))))
  expected_main<-sort(sub("^Main_Results/","",expected[startsWith(expected,"Main_Results/")]))
  check("exact_main_outputs",identical(sort(list.files(file.path(RESULT_ROOT,"Main_Results"),recursive=TRUE)),expected_main))
- check("exact_33_CN_mRNA_PDF_names",identical(sort(list.files(file.path(RESULT_ROOT,PATHS["rna"]))),
+ check("exact_33_CN_mRNA_PDF_names",identical(sort(list.files(file.path(RESULT_ROOT,PATHS["rna"]),pattern="\\.pdf$")),
   sort(paste0(TCGA_CANCERS,"_",GENE_A,"_CN_mRNA.pdf"))))
  check("main_PDF_count",length(list.files(file.path(RESULT_ROOT,"Main_Results"),pattern="\\.pdf$",recursive=TRUE))==if(GENE_B_PROVIDED)40L else 37L)
+ check("no_central_Tables",!dir.exists(file.path(RESULT_ROOT,"Tables")))
+ check("main_module_folder_count",length(list.dirs(file.path(RESULT_ROOT,"Main_Results"),recursive=FALSE))==if(GENE_B_PROVIDED)8L else 5L)
+ check("shared_sample_audit",all(file.exists(file.path(RESULT_ROOT,"Provenance/Data_Audit",
+  c("TCGA_Current_Samples.csv","TCGA_RNA_Representative_Selection.csv","TCGA_Sample_Baselines.csv")))))
+ if(GENE_B_PROVIDED) {
+  group<-data.table::fread(wf_table(paste0(GENE_A,"_",GENE_B,"_CNlow_vs_Normal_Statistics.csv")))
+  check("box_statistics_from_targeted",identical(group,wf_group_statistics(s)))
+ }
  check("no_default_hidden_modules",!any(grepl("reverse|mutation|expression_dependency|genomewide_adjusted",files,ignore.case=TRUE)))
  check("summary_TXT",file.exists(file.path(RESULT_ROOT,"00_Analysis_Summary.txt"))&&!any(basename(files)=="Summary.md"))
  index<-data.table::fread(wf_provenance("File_Index.csv"))

@@ -164,5 +164,15 @@
     "all_main_PDFs_valid_single_page": true
   },
   "source_validation_status": "PASS",
-  "main_pdf_count": 37
+  "main_pdf_count": 37,
+  "result_layout_migration": {
+    "status": "PASS",
+    "statistics_recomputed": false,
+    "PDFs_redrawn": false,
+    "artifact_hashes_preserved": true,
+    "exact_file_index": true,
+    "exact_33_cancer_PDFs": true,
+    "caches_verified": ["tcga", "genomewide_dependency", "cn_covariation"],
+    "report": "Provenance/Result_Layout_Migration.json"
+  }
 }

@@ -1,0 +1,403 @@
+{
+  "status": "PASS",
+  "previous_workflow_sha256": "0857865eb99309671e2e9bd991013c14e74587672b95055e960c1c6192b2e2fa",
+  "old_file_index_sha256": "9a8422d52704899a8defdee88f362750676d9b03a1c23c0bcc695ae8d04eb864",
+  "analysis_recomputed": false,
+  "PDF_redrawn": false,
+  "index_exception": "File_Index.csv is intentionally rewritten to reflect relocated files; result/sample CSVs and Module_Runs.csv are byte-preserved.",
+  "files": [
+    {
+      "before": "00_Analysis_Summary.txt",
+      "after": "00_Analysis_Summary.txt",
+      "sha256_before": "0f1c073bccbaaee37c389b4e3fc51f68ef8cfef6c423e6e94e81656190cf241e",
+      "sha256_after_move": "0f1c073bccbaaee37c389b4e3fc51f68ef8cfef6c423e6e94e81656190cf241e"
+    },
+    {
+      "before": "Main_Results/01_TCGA_MYC_CNA_Percentage.pdf",
+      "after": "Main_Results/01_TCGA_CNA_Percentage/01_TCGA_MYC_CNA_Percentage.pdf",
+      "sha256_before": "e111a3f37bacedb51b9a4b643435658895203426ee9d320e2ef51c4618b31e51",
+      "sha256_after_move": "e111a3f37bacedb51b9a4b643435658895203426ee9d320e2ef51c4618b31e51"
+    },
+    {
+      "before": "Main_Results/02_TCGA_MYC_CopyNumber_Landscape.pdf",
+      "after": "Main_Results/02_TCGA_CopyNumber_Landscape/02_TCGA_MYC_CopyNumber_Landscape.pdf",
+      "sha256_before": "64aeecd68c0892b224d67aa3e3a2965fec87578116ccfd7a160204a3803b0be6",
+      "sha256_after_move": "64aeecd68c0892b224d67aa3e3a2965fec87578116ccfd7a160204a3803b0be6"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/ACC_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/ACC_MYC_CN_mRNA.pdf",
+      "sha256_before": "f78cde01f7936a2863029f55fea307e03cfb8be9935520d36d4a5833ef2a024d",
+      "sha256_after_move": "f78cde01f7936a2863029f55fea307e03cfb8be9935520d36d4a5833ef2a024d"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/BLCA_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/BLCA_MYC_CN_mRNA.pdf",
+      "sha256_before": "c0611fe83ae323c0b0cc262ce716a93572190f231ff007733edba128ee677c2c",
+      "sha256_after_move": "c0611fe83ae323c0b0cc262ce716a93572190f231ff007733edba128ee677c2c"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/BRCA_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/BRCA_MYC_CN_mRNA.pdf",
+      "sha256_before": "056b24e5495cb2aa244a29e2e9346e251092a5360da5222ad81bad6824cbb366",
+      "sha256_after_move": "056b24e5495cb2aa244a29e2e9346e251092a5360da5222ad81bad6824cbb366"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/CESC_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/CESC_MYC_CN_mRNA.pdf",
+      "sha256_before": "45597882e674ee1f2cbf037c76f0c39b106040389c0e112f9d77e25ba086d141",
+      "sha256_after_move": "45597882e674ee1f2cbf037c76f0c39b106040389c0e112f9d77e25ba086d141"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/CHOL_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/CHOL_MYC_CN_mRNA.pdf",
+      "sha256_before": "be02a0bee8e58497641ba44cf02b4a80f223551f3b6d46c7050ed00f7ff9321a",
+      "sha256_after_move": "be02a0bee8e58497641ba44cf02b4a80f223551f3b6d46c7050ed00f7ff9321a"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/COAD_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/COAD_MYC_CN_mRNA.pdf",
+      "sha256_before": "dd7481da59a565c58b485091251280fcf83b02c0276fdb60e559b101ff574948",
+      "sha256_after_move": "dd7481da59a565c58b485091251280fcf83b02c0276fdb60e559b101ff574948"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/DLBC_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/DLBC_MYC_CN_mRNA.pdf",
+      "sha256_before": "8424e2ece812cff0c4c8ea72ee06234cd65553fd1390c1f23b5b11e236adcc9d",
+      "sha256_after_move": "8424e2ece812cff0c4c8ea72ee06234cd65553fd1390c1f23b5b11e236adcc9d"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/ESCA_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/ESCA_MYC_CN_mRNA.pdf",
+      "sha256_before": "4c59f0ceabe0fe8d29632108261a5dddd09f858ae05cc5dd94a1d6ae2a67777f",
+      "sha256_after_move": "4c59f0ceabe0fe8d29632108261a5dddd09f858ae05cc5dd94a1d6ae2a67777f"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/GBM_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/GBM_MYC_CN_mRNA.pdf",
+      "sha256_before": "ef41cbe87d39792deb8e4c4f9d9953ddc67dc57437aceabf085eb51a3cd4e42d",
+      "sha256_after_move": "ef41cbe87d39792deb8e4c4f9d9953ddc67dc57437aceabf085eb51a3cd4e42d"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/HNSC_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/HNSC_MYC_CN_mRNA.pdf",
+      "sha256_before": "4d4176fdf5c30da401202584a65bfcc88fd703f59a84821b3ab5729fd15c159f",
+      "sha256_after_move": "4d4176fdf5c30da401202584a65bfcc88fd703f59a84821b3ab5729fd15c159f"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/KICH_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/KICH_MYC_CN_mRNA.pdf",
+      "sha256_before": "8a7fd3cd23b3a41cd5569b7b7fc29ef6ecdf3fa92b9bf71ddfe320380cad1053",
+      "sha256_after_move": "8a7fd3cd23b3a41cd5569b7b7fc29ef6ecdf3fa92b9bf71ddfe320380cad1053"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/KIRC_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/KIRC_MYC_CN_mRNA.pdf",
+      "sha256_before": "8ca2215ef68ee7776f3e676f3ea7da724982d80845a1ea929f3aba8edad5a3d0",
+      "sha256_after_move": "8ca2215ef68ee7776f3e676f3ea7da724982d80845a1ea929f3aba8edad5a3d0"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/KIRP_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/KIRP_MYC_CN_mRNA.pdf",
+      "sha256_before": "55bdd22e7122bb6775684a2acb1e24d3412214ee8e78ac50d2b578d27a1706b2",
+      "sha256_after_move": "55bdd22e7122bb6775684a2acb1e24d3412214ee8e78ac50d2b578d27a1706b2"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/LAML_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/LAML_MYC_CN_mRNA.pdf",
+      "sha256_before": "c608ce4643b24c56fea4b2260a84302ed312067d9426feef4a4d4e255f8cc618",
+      "sha256_after_move": "c608ce4643b24c56fea4b2260a84302ed312067d9426feef4a4d4e255f8cc618"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/LGG_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/LGG_MYC_CN_mRNA.pdf",
+      "sha256_before": "b8d9c8435d17d1efc0ad52c1e46cd0a9bcf47a26bd72315d01d484a4ed23231a",
+      "sha256_after_move": "b8d9c8435d17d1efc0ad52c1e46cd0a9bcf47a26bd72315d01d484a4ed23231a"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/LIHC_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/LIHC_MYC_CN_mRNA.pdf",
+      "sha256_before": "84a0bf6bd9dd57b30087d7c24d0436f6426a052ad957129757f45eaf0db475e5",
+      "sha256_after_move": "84a0bf6bd9dd57b30087d7c24d0436f6426a052ad957129757f45eaf0db475e5"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/LUAD_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/LUAD_MYC_CN_mRNA.pdf",
+      "sha256_before": "35f37f6281ca823ed4a755d01d2a0611de7e60a4e1eb943f6c6de63519232267",
+      "sha256_after_move": "35f37f6281ca823ed4a755d01d2a0611de7e60a4e1eb943f6c6de63519232267"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/LUSC_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/LUSC_MYC_CN_mRNA.pdf",
+      "sha256_before": "d9b474aba9ff970d8b0afadad8f8e97c95b69b05693aad8c82aea328bf86912b",
+      "sha256_after_move": "d9b474aba9ff970d8b0afadad8f8e97c95b69b05693aad8c82aea328bf86912b"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/MESO_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/MESO_MYC_CN_mRNA.pdf",
+      "sha256_before": "36e875b8032a39f2b063e20cbd266d359ca3feeec08ce8600ff29884926854a9",
+      "sha256_after_move": "36e875b8032a39f2b063e20cbd266d359ca3feeec08ce8600ff29884926854a9"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/OV_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/OV_MYC_CN_mRNA.pdf",
+      "sha256_before": "f9ef32243877295a745ac1b9a313a965df189832b6d05c5480d4490a4aa91def",
+      "sha256_after_move": "f9ef32243877295a745ac1b9a313a965df189832b6d05c5480d4490a4aa91def"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/PAAD_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/PAAD_MYC_CN_mRNA.pdf",
+      "sha256_before": "97b5786d375cab39db441eea3ae13325872c8df91442a9abf705180aa753096c",
+      "sha256_after_move": "97b5786d375cab39db441eea3ae13325872c8df91442a9abf705180aa753096c"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/PCPG_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/PCPG_MYC_CN_mRNA.pdf",
+      "sha256_before": "5043edf5d10a6b17f9a901e2cf6cf502fea3a76f5004fa6b13095c2db0e6b100",
+      "sha256_after_move": "5043edf5d10a6b17f9a901e2cf6cf502fea3a76f5004fa6b13095c2db0e6b100"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/PRAD_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/PRAD_MYC_CN_mRNA.pdf",
+      "sha256_before": "a4ff4abcbf172b6aaa742d23456b0fa4c758efec5fb9217dfa615c8e41057261",
+      "sha256_after_move": "a4ff4abcbf172b6aaa742d23456b0fa4c758efec5fb9217dfa615c8e41057261"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/READ_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/READ_MYC_CN_mRNA.pdf",
+      "sha256_before": "45ab896c136071e3e444767eccb330aed8c01adf8f1bed2714dfa3036759ac3d",
+      "sha256_after_move": "45ab896c136071e3e444767eccb330aed8c01adf8f1bed2714dfa3036759ac3d"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/SARC_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/SARC_MYC_CN_mRNA.pdf",
+      "sha256_before": "727fbdbeef6cae17f3eedbccf9b7d56cbdbbacb9653e1d4166d0cd31e3d5b080",
+      "sha256_after_move": "727fbdbeef6cae17f3eedbccf9b7d56cbdbbacb9653e1d4166d0cd31e3d5b080"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/SKCM_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/SKCM_MYC_CN_mRNA.pdf",
+      "sha256_before": "ad5e0df03235a814def9a1804b54e9971c9dc13a93bfbcb8d7a6d752aa37d8dd",
+      "sha256_after_move": "ad5e0df03235a814def9a1804b54e9971c9dc13a93bfbcb8d7a6d752aa37d8dd"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/STAD_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/STAD_MYC_CN_mRNA.pdf",
+      "sha256_before": "3c9f5f5f7589cdd10257e9310676e4098a65aa6577cc007475c5d323f2690172",
+      "sha256_after_move": "3c9f5f5f7589cdd10257e9310676e4098a65aa6577cc007475c5d323f2690172"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/TGCT_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/TGCT_MYC_CN_mRNA.pdf",
+      "sha256_before": "f7e48dfb570f5ea90d81a06a8c7366f46c91b932bf29ee99842286e9be65d6d3",
+      "sha256_after_move": "f7e48dfb570f5ea90d81a06a8c7366f46c91b932bf29ee99842286e9be65d6d3"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/THCA_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/THCA_MYC_CN_mRNA.pdf",
+      "sha256_before": "27d0dee8445b30890c62f9be56096e57902f0604c623401edb7f8a09d37fd5e4",
+      "sha256_after_move": "27d0dee8445b30890c62f9be56096e57902f0604c623401edb7f8a09d37fd5e4"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/THYM_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/THYM_MYC_CN_mRNA.pdf",
+      "sha256_before": "21dd19d8657c43b5134f476a91aa45c6706fffc6e2df7e814f447501eb48626d",
+      "sha256_after_move": "21dd19d8657c43b5134f476a91aa45c6706fffc6e2df7e814f447501eb48626d"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/UCEC_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/UCEC_MYC_CN_mRNA.pdf",
+      "sha256_before": "595b98f27547bf29e60961ec035cb80882bda62f03956b83a444d7b55a163f0b",
+      "sha256_after_move": "595b98f27547bf29e60961ec035cb80882bda62f03956b83a444d7b55a163f0b"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/UCS_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/UCS_MYC_CN_mRNA.pdf",
+      "sha256_before": "2ea6dd1dd1239c466eb97f3ec431d0dbf78ce1c5d866374235d81d7b7c18d7be",
+      "sha256_after_move": "2ea6dd1dd1239c466eb97f3ec431d0dbf78ce1c5d866374235d81d7b7c18d7be"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/UVM_MYC_CN_mRNA.pdf",
+      "after": "Main_Results/03_TCGA_CN_mRNA/UVM_MYC_CN_mRNA.pdf",
+      "sha256_before": "0410e1ee5a3338a9bfb643b9ee541b2387b03265340e842f9645002c7811fe87",
+      "sha256_after_move": "0410e1ee5a3338a9bfb643b9ee541b2387b03265340e842f9645002c7811fe87"
+    },
+    {
+      "before": "Main_Results/04_DepMap_MYC_GenomeWide_Dependency_Volcano.pdf",
+      "after": "Main_Results/04_DepMap_GenomeWide_Dependency/04_DepMap_MYC_GenomeWide_Dependency_Volcano.pdf",
+      "sha256_before": "dd865211980b1da2e06b7bf88612f3e772b52d2a24be5e5c9200a79df93c9597",
+      "sha256_after_move": "dd865211980b1da2e06b7bf88612f3e772b52d2a24be5e5c9200a79df93c9597"
+    },
+    {
+      "before": "Main_Results/05_DepMap_MYC_CN_Covariation.pdf",
+      "after": "Main_Results/05_DepMap_CN_Covariation/05_DepMap_MYC_CN_Covariation.pdf",
+      "sha256_before": "3e52038390f924c2f43413fa5002a49c5bbd00379528c9a16e15422a94949cb6",
+      "sha256_after_move": "3e52038390f924c2f43413fa5002a49c5bbd00379528c9a16e15422a94949cb6"
+    },
+    {
+      "before": "Provenance/Cache_cn_covariation.json",
+      "after": "Provenance/Cache_cn_covariation.json",
+      "sha256_before": "3107dde06e6b68b819d67be4f288dc8a39b2d725c2eaed1d014f3e920001ee90",
+      "sha256_after_move": "3107dde06e6b68b819d67be4f288dc8a39b2d725c2eaed1d014f3e920001ee90"
+    },
+    {
+      "before": "Provenance/Cache_genomewide_dependency.json",
+      "after": "Provenance/Cache_genomewide_dependency.json",
+      "sha256_before": "139e880e1191eeb81766702a613c45fb5e8ed20a9d5247ea2b4956ee4beee4f3",
+      "sha256_after_move": "139e880e1191eeb81766702a613c45fb5e8ed20a9d5247ea2b4956ee4beee4f3"
+    },
+    {
+      "before": "Provenance/Cache_tcga.json",
+      "after": "Provenance/Cache_tcga.json",
+      "sha256_before": "3c415878df3de3e473fc0d00bf16a6e7b23a9040d93f0fdc82505db029775e88",
+      "sha256_after_move": "3c415878df3de3e473fc0d00bf16a6e7b23a9040d93f0fdc82505db029775e88"
+    },
+    {
+      "before": "Provenance/File_Index.csv",
+      "after": "Provenance/File_Index.csv",
+      "sha256_before": "9a8422d52704899a8defdee88f362750676d9b03a1c23c0bcc695ae8d04eb864"
+    },
+    {
+      "before": "Provenance/GenomeWide_Dependency_Status.json",
+      "after": "Provenance/GenomeWide_Dependency_Status.json",
+      "sha256_before": "474f42fe0d2f8ad258714b93e8e9a6b75c371d0e1370ccaa50e44d21e886e614",
+      "sha256_after_move": "474f42fe0d2f8ad258714b93e8e9a6b75c371d0e1370ccaa50e44d21e886e614"
+    },
+    {
+      "before": "Provenance/Input_Versions.json",
+      "after": "Provenance/Input_Versions.json",
+      "sha256_before": "6a3867c8e8079397db8c2853bd3b432f13f93497107f6aa5c19c4cbba4c8b55c",
+      "sha256_after_move": "6a3867c8e8079397db8c2853bd3b432f13f93497107f6aa5c19c4cbba4c8b55c"
+    },
+    {
+      "before": "Provenance/Input_Versions.txt",
+      "after": "Provenance/Input_Versions.txt",
+      "sha256_before": "aebdbdcb73837a7c5221aefe7f545da235cedf972a17241f725ae703ba4c88da",
+      "sha256_after_move": "aebdbdcb73837a7c5221aefe7f545da235cedf972a17241f725ae703ba4c88da"
+    },
+    {
+      "before": "Provenance/Module_Runs.csv",
+      "after": "Provenance/Module_Runs.csv",
+      "sha256_before": "867b99da56edd774976bcb311536bbb5ecd716e12d5a731f1ec98dd410b4dd42",
+      "sha256_after_move": "867b99da56edd774976bcb311536bbb5ecd716e12d5a731f1ec98dd410b4dd42"
+    },
+    {
+      "before": "Provenance/Run_Metadata.json",
+      "after": "Provenance/Run_Metadata.json",
+      "sha256_before": "ea3396b47b265993c9b2f7b0b900dfb00ba1a52e000486e9e6cc5c22b0b21c31",
+      "sha256_after_move": "ea3396b47b265993c9b2f7b0b900dfb00ba1a52e000486e9e6cc5c22b0b21c31"
+    },
+    {
+      "before": "Provenance/SessionInfo.txt",
+      "after": "Provenance/SessionInfo.txt",
+      "sha256_before": "5f13f040e806454ee74a991c028728e941859078cd0b7aed3f7603091ac9aac8",
+      "sha256_after_move": "5f13f040e806454ee74a991c028728e941859078cd0b7aed3f7603091ac9aac8"
+    },
+    {
+      "before": "Provenance/Source_Metadata.txt",
+      "after": "Provenance/Source_Metadata.txt",
+      "sha256_before": "fe6398ff70a3bee7d7b71c1c59c78a1b12e4de255f9f0f78100c77565765208e",
+      "sha256_after_move": "fe6398ff70a3bee7d7b71c1c59c78a1b12e4de255f9f0f78100c77565765208e"
+    },
+    {
+      "before": "Provenance/TCGA_Baseline_Method.json",
+      "after": "Provenance/TCGA_Baseline_Method.json",
+      "sha256_before": "009168993f92cbca381841fdd2b992d07ded7c44f72b1732ab760fe4e0940862",
+      "sha256_after_move": "009168993f92cbca381841fdd2b992d07ded7c44f72b1732ab760fe4e0940862"
+    },
+    {
+      "before": "Provenance/TCGA_Plot_Order.json",
+      "after": "Provenance/TCGA_Plot_Order.json",
+      "sha256_before": "690e9b194c4a95d62fcc57503224b1bd83a8dce1684258933a0be064ee9b1818",
+      "sha256_after_move": "690e9b194c4a95d62fcc57503224b1bd83a8dce1684258933a0be064ee9b1818"
+    },
+    {
+      "before": "Provenance/Validation.json",
+      "after": "Provenance/Validation.json",
+      "sha256_before": "647a5d026f07ee9a37a87596e6fa83aa4d22e51de20ba0a1fd3ab77527537919",
+      "sha256_after_move": "647a5d026f07ee9a37a87596e6fa83aa4d22e51de20ba0a1fd3ab77527537919"
+    },
+    {
+      "before": "Tables/GenomeWide_Dependency.csv",
+      "after": "Main_Results/04_DepMap_GenomeWide_Dependency/GenomeWide_Dependency.csv",
+      "sha256_before": "8384f9b1e7eb9be126f801f5459bcddd4fde894ea76efc2464abcca2a9111122",
+      "sha256_after_move": "8384f9b1e7eb9be126f801f5459bcddd4fde894ea76efc2464abcca2a9111122"
+    },
+    {
+      "before": "Tables/MYC_CN_Covariation.csv",
+      "after": "Main_Results/05_DepMap_CN_Covariation/MYC_CN_Covariation.csv",
+      "sha256_before": "ead94f96a549415d4aad0a2a4364663a86e8c7de4dc61623d70145c292d9b212",
+      "sha256_after_move": "ead94f96a549415d4aad0a2a4364663a86e8c7de4dc61623d70145c292d9b212"
+    },
+    {
+      "before": "Tables/TCGA_CNA_Percentage.csv",
+      "after": "Main_Results/01_TCGA_CNA_Percentage/TCGA_CNA_Percentage.csv",
+      "sha256_before": "4084f447af6a6feb073d1ce1fc1ec76580ea915b13815e47186b5ca191ffbee7",
+      "sha256_after_move": "4084f447af6a6feb073d1ce1fc1ec76580ea915b13815e47186b5ca191ffbee7"
+    },
+    {
+      "before": "Tables/TCGA_CN_mRNA_CNA_Counts.csv",
+      "after": "Main_Results/03_TCGA_CN_mRNA/TCGA_CN_mRNA_CNA_Counts.csv",
+      "sha256_before": "225bed8f5022aac9aed58e60715c521561b410936603a56d4a3535a4a2ffb240",
+      "sha256_after_move": "225bed8f5022aac9aed58e60715c521561b410936603a56d4a3535a4a2ffb240"
+    },
+    {
+      "before": "Tables/TCGA_Cancer_Order.csv",
+      "after": "Main_Results/02_TCGA_CopyNumber_Landscape/TCGA_Cancer_Order.csv",
+      "sha256_before": "892d7c5fc726e8002e99646c878ad1cbd766ae0e9586248163639d0323a3acb9",
+      "sha256_after_move": "892d7c5fc726e8002e99646c878ad1cbd766ae0e9586248163639d0323a3acb9"
+    },
+    {
+      "before": "Tables/TCGA_Current_Samples.csv",
+      "after": "Provenance/Data_Audit/TCGA_Current_Samples.csv",
+      "sha256_before": "952e9ce6545340525f7790bde2f2d7e36e243305e561057a1b250ba9d42b90aa",
+      "sha256_after_move": "952e9ce6545340525f7790bde2f2d7e36e243305e561057a1b250ba9d42b90aa"
+    },
+    {
+      "before": "Tables/TCGA_MYC_CN_mRNA_AllCancer_Statistics.csv",
+      "after": "Main_Results/03_TCGA_CN_mRNA/TCGA_MYC_CN_mRNA_AllCancer_Statistics.csv",
+      "sha256_before": "909ce4df5caa1cc93c1a3ccdbb136fe5184bbd4f9ae208ab7f2a64183cc3d1d9",
+      "sha256_after_move": "909ce4df5caa1cc93c1a3ccdbb136fe5184bbd4f9ae208ab7f2a64183cc3d1d9"
+    },
+    {
+      "before": "Tables/TCGA_RNA_Representative_Selection.csv",
+      "after": "Provenance/Data_Audit/TCGA_RNA_Representative_Selection.csv",
+      "sha256_before": "9cbee93e1c8fb2e7c48314e1a7d8fe979bcb7996e563b5dca1c71a21c51f8e85",
+      "sha256_after_move": "9cbee93e1c8fb2e7c48314e1a7d8fe979bcb7996e563b5dca1c71a21c51f8e85"
+    },
+    {
+      "before": "Tables/TCGA_Sample_Baselines.csv",
+      "after": "Provenance/Data_Audit/TCGA_Sample_Baselines.csv",
+      "sha256_before": "b296d4a93a1da5879967f5503ad243719a973e5580fd6ac1b60a7479fbc5f38e",
+      "sha256_after_move": "b296d4a93a1da5879967f5503ad243719a973e5580fd6ac1b60a7479fbc5f38e"
+    },
+    {
+      "before": "Tables/Top_CN_Covariation.csv",
+      "after": "Main_Results/05_DepMap_CN_Covariation/Top_CN_Covariation.csv",
+      "sha256_before": "0278c82ebf62173c13e25b8e522d756b042fb14eb62ec020527c75e19ae7b06c",
+      "sha256_after_move": "0278c82ebf62173c13e25b8e522d756b042fb14eb62ec020527c75e19ae7b06c"
+    },
+    {
+      "before": "Tables/Top_Dependency_Candidates.csv",
+      "after": "Main_Results/04_DepMap_GenomeWide_Dependency/Top_Dependency_Candidates.csv",
+      "sha256_before": "bc90d75ab192910060704384b2089e598843a882e8344e41d97b43388f2f288a",
+      "sha256_after_move": "bc90d75ab192910060704384b2089e598843a882e8344e41d97b43388f2f288a"
+    }
+  ],
+  "modules": [
+    "tcga",
+    "genomewide_dependency",
+    "cn_covariation"
+  ],
+  "all_original_result_PDF_CSV_byte_preserved": true,
+  "preserved_PDFs": 37,
+  "preserved_CSVs": 12,
+  "output_path_helper": {
+    "previous_code_hash": "6263a5c8b74b3652e7621c05e6976387d9f41f496587fdaa8415aa071131df68",
+    "previous_key": "aae3e31b709f94785d79d5166715610da540e8ec74f02e2ba0c6349fcc5135d8",
+    "file": "scripts/utils/export_workflow_tcga.py",
+    "before_sha256": "3a3bdc2fd99f147791ac3d25bf2ff822c3f3b88af5b292c4e044b43e37feca46",
+    "after_sha256": "1c7afa3512246780fafb8adcb0e6f46db3707ef9aaae2b6dcdaecc0b9ced995d",
+    "proof": "Exact source comparison: only the baseline JSON destination changed; no sample/statistical expression changed."
+  }
+}

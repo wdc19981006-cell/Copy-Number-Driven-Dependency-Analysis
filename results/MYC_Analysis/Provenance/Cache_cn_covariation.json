@@ -1,6 +1,6 @@
 {
   "module": "cn_covariation",
-  "key": "638609ca7292baba4a572df682df99a7ef8eaefe7d907af1d82e50674cf4bc47",
+  "key": "94e27cede662099b2eb915da6e7e8f87b26d4c8b21a00b62de98bb5518357641",
   "parameters": {
     "geneA": "MYC",
     "geneB": {},
@@ -11,11 +11,16 @@
     "low": 0.585,
     "deep": 0.35,
     "seed": 1234,
-    "thresholds": [0.585, 0.5, 0.4, 0.35]
+    "thresholds": [
+      0.585,
+      0.5,
+      0.4,
+      0.35
+    ]
   },
   "parameter_hash": "66bb0eb65c661a96d9e432cd41fc5672653b10ca34269eb9b20897afccd0e1e5",
-  "code_hash": "61bce7bc1d3bf0fba2c97e8177814f893657c881bc19add92fb0898f876e1915",
-  "code_functions": ["covariation_statistics", "covariation_top", "covariation_plot", "wf_run_covariation", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_validate_artifact", "p_text", "p_star"],
+  "code_hash": "363f8e51cbb0a54d6e37b4ce6fc9fce9bc9a69729f365ea443429d8d03d69cf2",
+  "code_functions": ["covariation_statistics", "covariation_top", "covariation_plot", "wf_run_covariation", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_table", "wf_table_relative", "wf_group_statistics", "wf_write_screen_status", "wf_screen_status_path", "wf_validate_artifact", "p_text", "p_star"],
   "data_versions": [
     {
       "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
@@ -35,12 +40,17 @@
     }
   ],
   "outputs": {
-    "Main_Results/05_DepMap_MYC_CN_Covariation.pdf": "3e52038390f924c2f43413fa5002a49c5bbd00379528c9a16e15422a94949cb6",
-    "Tables/MYC_CN_Covariation.csv": "ead94f96a549415d4aad0a2a4364663a86e8c7de4dc61623d70145c292d9b212",
-    "Tables/Top_CN_Covariation.csv": "0278c82ebf62173c13e25b8e522d756b042fb14eb62ec020527c75e19ae7b06c"
+    "Main_Results/05_DepMap_CN_Covariation/05_DepMap_MYC_CN_Covariation.pdf": "3e52038390f924c2f43413fa5002a49c5bbd00379528c9a16e15422a94949cb6",
+    "Main_Results/05_DepMap_CN_Covariation/MYC_CN_Covariation.csv": "ead94f96a549415d4aad0a2a4364663a86e8c7de4dc61623d70145c292d9b212",
+    "Main_Results/05_DepMap_CN_Covariation/Top_CN_Covariation.csv": "0278c82ebf62173c13e25b8e522d756b042fb14eb62ec020527c75e19ae7b06c"
   },
   "validated": true,
   "analysis_status": "computed",
   "detail": "",
-  "statistics_key": {}
+  "statistics_key": {},
+  "layout_migration": {
+    "previous_key": "638609ca7292baba4a572df682df99a7ef8eaefe7d907af1d82e50674cf4bc47",
+    "previous_code_hash": "61bce7bc1d3bf0fba2c97e8177814f893657c881bc19add92fb0898f876e1915",
+    "proof": "Previous code/input key and output hashes verified; signed statistical and plot bodies unchanged; old artifact basenames and bytes preserved."
+  }
 }

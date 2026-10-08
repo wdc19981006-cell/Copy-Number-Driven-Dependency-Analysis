@@ -69,7 +69,7 @@ stopifnot(rlang::as_label(rp$mapping$x)=="TCGA_Relative_CN_Change",
 TCGA_CANCERS<-sort(unique(unlist(jsonlite::fromJSON("config/tcga_cancer_types.json")$mapping)))
 all_order<-cancer_order(rna,TCGA_CANCERS);all_stats<-current_cancer_statistics(rna,all_order)
 PATHS<-workflow_paths("geneA_screen",GENE_A)
-rna_files<-wf_expected("tcga")[grepl("03_TCGA_CN_mRNA/",wf_expected("tcga"),fixed=TRUE)]
+rna_files<-wf_expected("tcga")[grepl("03_TCGA_CN_mRNA/.*\\.pdf$",wf_expected("tcga"))]
 stopifnot(length(rna_files)==33L,all(c("COAD","READ") %in% TCGA_CANCERS),nrow(all_stats)==33L,
  all(all_stats$Status=="Insufficient N for correlation"))
 pair<-as.data.table(prepare_cn(data.frame(ModelID=paste0("m",1:12),CN_relative=c(rep(.2,6),seq(1,2,length.out=6)))))
@@ -105,7 +105,8 @@ stopifnot(all(vapply(c("Pearson r","r > 0","r < 0","|r|","correlation","causatio
 # Exercise the complete SKIP wrapper at n=0,1,2 and either insufficient group.
 # A guard proves the full Chronos matrix/statistical core is never run here.
 RESULT_ROOT<-tempfile("wf_skip_",tmpdir=".runtime")
-for(folder in c("Main_Results","Tables","Provenance"))dir.create(file.path(RESULT_ROOT,folder),recursive=TRUE,showWarnings=FALSE)
+GENE_B_PROVIDED<-FALSE
+wf_create_directories()
 core_screen<-screen_core_statistics;screen_core_statistics<-function()stop("Screen must not run for insufficient groups")
 fread<-function(input,nrows=NULL,select=NULL,...) {
  if(identical(nrows,0))return(matrix[0])
@@ -139,4 +140,5 @@ e<-tryCatch(local_required("missing.parquet"),error=conditionMessage)
 stopifnot(grepl("Local processed dataset unavailable.",e,fixed=TRUE),grepl("Run the separate data-update/preparation workflow first.",e,fixed=TRUE))
 e<-tryCatch(fread("data/raw/forbidden.csv"),error=conditionMessage)
 stopifnot(grepl("forbids raw data reads",e,fixed=TRUE))
+source("tests/test_result_layout.R",encoding="UTF-8")
 cat("PASS: workflows, shared visual order, all points, CNA counts, paired statistics, eligible ranks, directions, cache corruption and local-only failures.\n")

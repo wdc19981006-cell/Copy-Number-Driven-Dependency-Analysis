@@ -20,10 +20,11 @@ Rscript scripts/R/run_analysis.R --workflow geneA_geneB --geneA VPS4B --geneB VP
 ```text
 results/<GeneA>[_<GeneB>]_Analysis/
   00_Analysis_Summary.txt
-  Main_Results/       A-only 37 PDF；A+B 40 PDF，均含33癌种 CN–mRNA
-  Supplementary/      仅A+B：Lineage、Adjusted、CN Threshold Sensitivity
-  Tables/             统计CSV、样本匹配与绘图输入
+  Main_Results/       A-only 01–05；A+B 01–08：每个编号独立文件夹，PDF及对应CSV放在一起
+                      A-only 37 PDF；A+B 40 PDF，均含33癌种 CN–mRNA
+  Supplementary/      仅A+B：Lineage、Adjusted、CN Threshold Sensitivity；CSV在对应模块内
   Provenance/         数据来源、版本/哈希、sessionInfo、运行与验证记录
+    Data_Audit/       公共TCGA样本、RNA代表选择和baseline明细；无集中Tables目录
 ```
 
 [VPS4B/VPS4A 中文结果指南](results/VPS4B_VPS4A_Analysis/00_Analysis_Summary.txt) · [最终工作流与统计定义](docs/FINAL_WORKFLOWS.md)

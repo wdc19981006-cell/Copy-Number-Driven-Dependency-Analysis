@@ -13,7 +13,7 @@ No verified measured ploidy available. Baseline estimate: modal integer autosoma
 Deep Deletion: CN=0; Shallow Deletion: 0<CN<baseline; Diploid: CN=baseline; Gain: baseline<CN<2*baseline; Amplification: CN>=2*baseline.
 These categories are not PanCanAtlas GISTIC -2/-1/0/+1/+2. CNAState numeric codes are internal analysis labels only.
 PanCanAtlas/Xena: available locally as historical/reference layer; not used in default 01-03 main results.
-Exact SampleID joins, with CaseID/ProjectID consistency checks. RNA representative: matching CN aliquot first, then lexical FileID; audit in Tables.
+Exact SampleID joins, with CaseID/ProjectID consistency checks. RNA representative: matching CN aliquot first, then lexical FileID; audit in Provenance/Data_Audit.
 Scatter/pie denominator: current cancer finite matched CN/STAR expression/five-state cohort. Pearson and Spearman BH: separate eligible cancer tests.
 Landscape/order: all finite current CN tumor samples; no outlier exclusion.
 Source paths, original URLs, source hashes and processor versions: Input_Versions.json.
