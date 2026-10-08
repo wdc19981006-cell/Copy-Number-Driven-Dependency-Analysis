@@ -1,0 +1,163 @@
+{
+  "geneA": "MYC",
+  "geneB": {},
+  "workflow": "geneA_screen",
+  "DATA_MODE": "local",
+  "R_version": "4.5.0",
+  "run_date": "2026-10-08 11:40:41 CST",
+  "TCGA_main_layer": "gdc_current_DR46",
+  "TCGA_current_source": "NCI GDC DR46",
+  "TCGA_database": "TCGA",
+  "TCGA_release": "46.0",
+  "DepMap_release": "26Q1",
+  "DepMap_full_release_completeness": "unverified; all supplied Chronos gene columns tested",
+  "input_versions": {
+    "tcga": [
+      {
+        "path": "data/processed/tcga/gdc_DR46/TCGA_GeneLevel_CN.parquet",
+        "bytes": 232306410,
+        "mtime": "2026-10-02T20:08:57.458312+0800",
+        "prepared_sha256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63",
+        "provenance": {
+          "created_at": "2026-10-02T20:08:57+08:00",
+          "release": "46.0",
+          "processor_version": "gdc-DR46-v1",
+          "source_set_sha256": "4a0865d2ad6dd1645bd1923cbd14fdb41e2dabeb514d7c44046dc1def2760cae",
+          "SHA256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63",
+          "bytes": 232306410,
+          "rows": 11339,
+          "genes": 60623,
+          "missing_cells": 50027665,
+          "compression": "ZSTD",
+          "orientation": "samples/aliquots x genes",
+          "parsed_all_inputs": true,
+          "row_group_size": 4096
+        }
+      },
+      {
+        "path": "data/processed/tcga/gdc_DR46/TCGA_GeneLevel_CN.genes.parquet",
+        "bytes": 1317700,
+        "mtime": "2026-10-02T20:08:57.722589+0800",
+        "prepared_sha256": {},
+        "provenance": {}
+      },
+      {
+        "path": "data/processed/tcga/gdc_DR46/TCGA_STAR_TPM.parquet",
+        "bytes": 2682181013,
+        "mtime": "2026-10-02T19:55:50.541849+0800",
+        "prepared_sha256": "e1923bb4d64bb67d921166a0360bdff998a4b4f498850251c9ee5fa3234e3ebc",
+        "provenance": {
+          "created_at": "2026-10-02T19:55:50+08:00",
+          "release": "46.0",
+          "processor_version": "gdc-DR46-v1",
+          "source_set_sha256": "eafdf12a1958db896f3e34493b29ec4cf2e74b15bafe543ab48e8164bf1b07c3",
+          "SHA256": "e1923bb4d64bb67d921166a0360bdff998a4b4f498850251c9ee5fa3234e3ebc",
+          "bytes": 2682181013,
+          "rows": 11505,
+          "genes": 60660,
+          "missing_cells": 0,
+          "compression": "ZSTD",
+          "orientation": "samples/aliquots x genes",
+          "parsed_all_inputs": true
+        }
+      },
+      {
+        "path": "data/processed/tcga/gdc_DR46/TCGA_STAR_TPM.genes.parquet",
+        "bytes": 698877,
+        "mtime": "2026-10-02T19:55:50.974884+0800",
+        "prepared_sha256": {},
+        "provenance": {}
+      }
+    ],
+    "genomewide_dependency": [
+      {
+        "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+        "bytes": 218424120,
+        "mtime": "2026-10-02T17:52:03.793706+0800",
+        "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+        "provenance": {
+          "release": "26Q1",
+          "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+          "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+          "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+          "created_at": "2026-10-02T17:52:04+08:00",
+          "source_type": "user_supplied_portal_export",
+          "full_release_completeness": "unverified",
+          "orientation": "models x gene symbols"
+        }
+      },
+      {
+        "path": "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet",
+        "bytes": 232669929,
+        "mtime": "2026-10-02T17:52:29.330560+0800",
+        "prepared_sha256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+        "provenance": {
+          "release": "26Q1",
+          "raw_sha256": "55fdef5bccdf78116aa4c790febc09a6815b143e7c11a7095cbb930adf8dc51d",
+          "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+          "raw_source": "data/raw/depmap/26Q1/CRISPR_Chronos_26Q1.csv",
+          "created_at": "2026-10-02T17:52:30+08:00",
+          "source_type": "user_supplied_portal_export",
+          "full_release_completeness": "unverified",
+          "orientation": "models x gene symbols"
+        }
+      }
+    ],
+    "cn_covariation": [
+      {
+        "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+        "bytes": 218424120,
+        "mtime": "2026-10-02T17:52:03.793706+0800",
+        "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+        "provenance": {
+          "release": "26Q1",
+          "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+          "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+          "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+          "created_at": "2026-10-02T17:52:04+08:00",
+          "source_type": "user_supplied_portal_export",
+          "full_release_completeness": "unverified",
+          "orientation": "models x gene symbols"
+        }
+      }
+    ]
+  },
+  "parameters": {
+    "low": 0.585,
+    "deep": 0.35,
+    "min_group_n": 3,
+    "bootstrap": 1000,
+    "seed": 1234
+  },
+  "code_files": {
+    "scripts/R/adapters.R": "0d1f952148f647e9a8cc4f1add619dc01ee5fa90194393f2ee41118d438330f9",
+    "scripts/R/additional_modes.R": "6ae8baaa2c7c47b24f37f3737bd68d274a5cefc5cec7d7fd96118a8e4161749a",
+    "scripts/R/data_access.R": "d5e968a476308aa2397d53ee42c7f4c37f0e35be406973b45b42ed273cb13fed",
+    "scripts/R/dependency_screen.R": "b70db346e05b13ec8559c8cb43ac289964db358e60089a401ba1f79a3fb7182b",
+    "scripts/R/diagnose_environment.R": "10c51d1171d5b5d6d13441a934152440734a94e0df9029a62fdc6ac22e51d645",
+    "scripts/R/extension_modules.R": "6aff719f01e4c3c60d06be1d0581329bf1730887c738f7086b103e578d26e2d4",
+    "scripts/R/extension_summary.R": "0fec62d8c9b4d5db175a496cfbc791a725001c8efcc5fd8195a48d359da9b5ad",
+    "scripts/R/extensions_statistics.R": "783f055923e735f9b5f896a05fa8805ad11960a212c887889095f8480919c5a2",
+    "scripts/R/final_workflow.R": "0857865eb99309671e2e9bd991013c14e74587672b95055e960c1c6192b2e2fa",
+    "scripts/R/finalize_environment.R": "9d15e79872ca219c4582a9606127a4949cff24d2fe83f6319f23b101eb95ee63",
+    "scripts/R/install_compatible_dependencies.R": "44b6de60944471e83c5b0e5540020a4463c66905901187592e90339e9cf8bf37",
+    "scripts/R/install_native_direct.R": "c2fcde080fa6e6dd32a63b45fc9d3316f96b85731989bec95db46afd1564d02e",
+    "scripts/R/install_optional_parquet_packages.R": "0a258428e87f01c59ef089afe08f3772863adffb0add1ae39b7bb4991ab91d86",
+    "scripts/R/lineage_analysis.R": "7b213d5652de007f1861735e983939d228d9da2a2b9ed4dede0c88f10a13d122",
+    "scripts/R/local_data.R": "931215d79561b8b929f5e65d030a1ba99840b36993b8d4b981316b963f503da6",
+    "scripts/R/lock_environment.R": "82e80b2a8987875ee970a29ca5194c98df05bcb92acc63c3432ffada29ccac98",
+    "scripts/R/plotting.R": "5389588b4e9067dc7240a1ae5b4ab9026791058b0433f5ae28fe836a4e01b047",
+    "scripts/R/probe_package.R": "9fc2758575fbd6bbca4873c5d7e382a6335347a1276497cdcb351b814a523dee",
+    "scripts/R/rebuild_native_dependencies.R": "88b2bd4432b592a0ff45c7d57563e6f26078d4c86a63baef49e07d1c354355bf",
+    "scripts/R/redraw_final_plots.R": "92c408a2c26b1237b5a9d8c294e446f5aa0ad031b483aacd76ca20d3f7c5f719",
+    "scripts/R/restore_original_packages.R": "de6edf0626e0455b7efa150a912ca80961fcc65ad9acbfb84350bada01ab4196",
+    "scripts/R/run_analysis.R": "c86fb65642f918747451a2819ea388855b9149e015e7bb14412cac07d1937ec8",
+    "scripts/R/serialize_case_statistics.R": "83ff531de9384419c6693ce863f2bc4597a52b69dd76cdf51a31b24c738b09fd",
+    "scripts/R/setup_environment.R": "025a2b5b538f2ca7ceed434af356b5b31d97ad7478bd5fc96b40fb0add422e26",
+    "scripts/R/tcga_analysis.R": "a476125221dca0b822a17be9747d80928f25fdd762c0e42115ebecc5994bdb50",
+    "scripts/R/validate_final_workflow.R": "b6020c5cec8f12941b5bbb977942357ff033ad0d137651d09c830bbd60a6ac30",
+    "scripts/R/verify_environment.R": "2ab5c5b09804703808e4fe81eed3083284c7f304fd1daef6f9af678a1d95a1b3",
+    "scripts/R/workflow_plots.R": "abe42f218b2479fe6834173337459f601e213af7cd3e3b42782ec034e7a66246",
+    "scripts/R/workflow_statistics.R": "9017e7e33cfec160a16b09667de36c1927bb092a402a9c5473e7bde1f8b30a0c"
+  }
+}

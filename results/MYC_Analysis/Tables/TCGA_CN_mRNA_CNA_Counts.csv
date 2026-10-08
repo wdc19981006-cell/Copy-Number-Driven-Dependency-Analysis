@@ -1,0 +1,166 @@
+CancerType,CNA,N
+ACC,Deep Deletion,0
+ACC,Shallow Deletion,4
+ACC,Diploid,41
+ACC,Gain,10
+ACC,Amplification,23
+CESC,Deep Deletion,0
+CESC,Shallow Deletion,12
+CESC,Diploid,172
+CESC,Gain,94
+CESC,Amplification,23
+CHOL,Deep Deletion,0
+CHOL,Shallow Deletion,2
+CHOL,Diploid,24
+CHOL,Gain,7
+CHOL,Amplification,2
+DLBC,Deep Deletion,0
+DLBC,Shallow Deletion,1
+DLBC,Diploid,34
+DLBC,Gain,10
+DLBC,Amplification,3
+GBM,Deep Deletion,0
+GBM,Shallow Deletion,13
+GBM,Diploid,258
+GBM,Gain,15
+GBM,Amplification,6
+KICH,Deep Deletion,0
+KICH,Shallow Deletion,10
+KICH,Diploid,49
+KICH,Gain,2
+KICH,Amplification,5
+KIRC,Deep Deletion,0
+KIRC,Shallow Deletion,44
+KIRC,Diploid,433
+KIRC,Gain,46
+KIRC,Amplification,10
+KIRP,Deep Deletion,0
+KIRP,Shallow Deletion,6
+KIRP,Diploid,257
+KIRP,Gain,20
+KIRP,Amplification,7
+LAML,Deep Deletion,1
+LAML,Shallow Deletion,0
+LAML,Diploid,117
+LAML,Gain,13
+LAML,Amplification,3
+LGG,Deep Deletion,0
+LGG,Shallow Deletion,10
+LGG,Diploid,434
+LGG,Gain,82
+LGG,Amplification,7
+MESO,Deep Deletion,0
+MESO,Shallow Deletion,3
+MESO,Diploid,66
+MESO,Gain,15
+MESO,Amplification,3
+PAAD,Deep Deletion,0
+PAAD,Shallow Deletion,5
+PAAD,Diploid,114
+PAAD,Gain,42
+PAAD,Amplification,18
+PCPG,Deep Deletion,0
+PCPG,Shallow Deletion,17
+PCPG,Diploid,153
+PCPG,Gain,13
+PCPG,Amplification,0
+PRAD,Deep Deletion,0
+PRAD,Shallow Deletion,2
+PRAD,Diploid,370
+PRAD,Gain,88
+PRAD,Amplification,38
+SARC,Deep Deletion,0
+SARC,Shallow Deletion,31
+SARC,Diploid,155
+SARC,Gain,48
+SARC,Amplification,24
+SKCM,Deep Deletion,0
+SKCM,Shallow Deletion,22
+SKCM,Diploid,243
+SKCM,Gain,144
+SKCM,Amplification,62
+THCA,Deep Deletion,0
+THCA,Shallow Deletion,6
+THCA,Diploid,500
+THCA,Gain,3
+THCA,Amplification,0
+THYM,Deep Deletion,0
+THYM,Shallow Deletion,1
+THYM,Diploid,108
+THYM,Gain,7
+THYM,Amplification,4
+UCEC,Deep Deletion,0
+UCEC,Shallow Deletion,9
+UCEC,Diploid,354
+UCEC,Gain,124
+UCEC,Amplification,60
+BLCA,Deep Deletion,0
+BLCA,Shallow Deletion,18
+BLCA,Diploid,176
+BLCA,Gain,151
+BLCA,Amplification,62
+COAD,Deep Deletion,0
+COAD,Shallow Deletion,6
+COAD,Diploid,217
+COAD,Gain,176
+COAD,Amplification,72
+LUAD,Deep Deletion,0
+LUAD,Shallow Deletion,20
+LUAD,Diploid,217
+LUAD,Gain,168
+LUAD,Amplification,124
+READ,Deep Deletion,0
+READ,Shallow Deletion,3
+READ,Diploid,63
+READ,Gain,69
+READ,Amplification,32
+TGCT,Deep Deletion,0
+TGCT,Shallow Deletion,8
+TGCT,Diploid,50
+TGCT,Gain,92
+TGCT,Amplification,6
+UCS,Deep Deletion,0
+UCS,Shallow Deletion,4
+UCS,Diploid,18
+UCS,Gain,20
+UCS,Amplification,14
+BRCA,Deep Deletion,0
+BRCA,Shallow Deletion,25
+BRCA,Diploid,431
+BRCA,Gain,332
+BRCA,Amplification,315
+ESCA,Deep Deletion,0
+ESCA,Shallow Deletion,1
+ESCA,Diploid,61
+ESCA,Gain,63
+ESCA,Amplification,58
+HNSC,Deep Deletion,0
+HNSC,Shallow Deletion,4
+HNSC,Diploid,172
+HNSC,Gain,224
+HNSC,Amplification,119
+LIHC,Deep Deletion,0
+LIHC,Shallow Deletion,15
+LIHC,Diploid,139
+LIHC,Gain,125
+LIHC,Amplification,92
+LUSC,Deep Deletion,0
+LUSC,Shallow Deletion,12
+LUSC,Diploid,178
+LUSC,Gain,189
+LUSC,Amplification,122
+STAD,Deep Deletion,0
+STAD,Shallow Deletion,3
+STAD,Diploid,144
+STAD,Gain,167
+STAD,Amplification,98
+UVM,Deep Deletion,0
+UVM,Shallow Deletion,0
+UVM,Diploid,20
+UVM,Gain,31
+UVM,Amplification,29
+OV,Deep Deletion,0
+OV,Shallow Deletion,8
+OV,Diploid,92
+OV,Gain,141
+OV,Amplification,187

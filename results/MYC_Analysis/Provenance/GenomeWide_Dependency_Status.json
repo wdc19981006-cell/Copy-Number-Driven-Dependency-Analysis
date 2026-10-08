@@ -1,0 +1,8 @@
+{
+  "Status": "SKIPPED",
+  "Reason": "Insufficient CN group N: CN-Low n=1; CN-Normal n=857; each group requires n >= 3. CN_log threshold remains 0.585.",
+  "N_low": 1,
+  "N_nonlow": 857,
+  "min_group_n": 3,
+  "CN_log_threshold": 0.585
+}
