@@ -1,0 +1,43 @@
+{
+  "method": "autosomal_gene_CN_integer_mode_v1; ties choose smallest mode",
+  "source_identity": {
+    "source": {
+      "path": "TCGA_GeneLevel_CN.parquet",
+      "bytes": 232306410,
+      "mtime_ns": 1790942937458313100,
+      "provenance": {
+        "created_at": "2026-10-02T20:08:57+08:00",
+        "release": "46.0",
+        "processor_version": "gdc-DR46-v1",
+        "source_set_sha256": "4a0865d2ad6dd1645bd1923cbd14fdb41e2dabeb514d7c44046dc1def2760cae",
+        "SHA256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63",
+        "bytes": 232306410,
+        "rows": 11339,
+        "genes": 60623,
+        "missing_cells": 50027665,
+        "compression": "ZSTD",
+        "orientation": "samples/aliquots x genes",
+        "parsed_all_inputs": true,
+        "row_group_size": 4096
+      }
+    },
+    "method": "autosomal_gene_CN_integer_mode_v1; ties choose smallest mode",
+    "annotation_sha256": "079751b0a3370f1482ebc5ba05b314fe58b009beb4d2ca23d98a95016a1c74f4"
+  },
+  "samples": 11339,
+  "autosomal_genes": 57633,
+  "distribution": {
+    "1": 125,
+    "2": 7999,
+    "3": 1647,
+    "4": 1419,
+    "5": 80,
+    "6": 34,
+    "7": 33,
+    "8": 2
+  },
+  "tied_samples": 0,
+  "extreme_samples": [],
+  "interpretation": "Estimated sample-specific baseline; not measured ploidy or official GISTIC",
+  "published_ploidy": "No available ploidy in wide CN/clinical/biospecimen schema; processed segment ploidy is null by its preparer"
+}

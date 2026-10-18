@@ -1,0 +1,8 @@
+{
+  "Status": "COMPLETED",
+  "Reason": "",
+  "N_low": 234,
+  "N_nonlow": 624,
+  "min_group_n": 3,
+  "CN_log_threshold": 0.585
+}

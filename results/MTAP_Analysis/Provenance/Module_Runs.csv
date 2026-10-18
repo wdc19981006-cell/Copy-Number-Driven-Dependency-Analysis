@@ -1,0 +1,4 @@
+Module,Status,Execution,Detail,Seconds
+tcga,computed,computed,"",19.5593519210815
+genomewide_dependency,computed,computed,"",130.900223970413
+cn_covariation,computed,computed,"",5.8168580532074
