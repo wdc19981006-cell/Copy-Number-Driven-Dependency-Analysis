@@ -1,0 +1,8 @@
+Module,Status,Execution,Detail,Seconds
+tcga,computed,computed,"",24.8827350139618
+targeted_dependency,computed,computed,"",3.07450199127197
+lineage_dependency,computed,computed,"",5.44001603126526
+adjusted_dependency,computed,computed,"",2.02399897575378
+cn_threshold_sensitivity,computed,computed,"",1.56144595146179
+genomewide_dependency,computed,computed,"",192.876595973969
+cn_covariation,computed,computed,"",8.93799209594727

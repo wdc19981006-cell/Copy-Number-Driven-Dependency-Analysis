@@ -1,0 +1,30 @@
+OncotreeLineage,N_low,N_nonlow,Eligible
+Ovary/Fallopian Tube,8,30,TRUE
+Myeloid,17,22,TRUE
+Bowel,3,38,TRUE
+Bladder/Urinary Tract,8,12,TRUE
+Lung,28,72,TRUE
+Skin,17,33,TRUE
+Breast,10,30,TRUE
+Pancreas,18,13,TRUE
+Lymphoid,15,59,TRUE
+CNS/Brain,37,30,TRUE
+Soft Tissue,9,33,TRUE
+Bone,16,34,TRUE
+Esophagus/Stomach,11,35,TRUE
+Peripheral Nervous System,3,33,TRUE
+Pleura,8,7,TRUE
+Prostate,0,6,FALSE
+Kidney,5,20,TRUE
+Fibroblast,0,1,FALSE
+Biliary Tract,3,5,TRUE
+Head and Neck,9,34,TRUE
+Thyroid,2,7,FALSE
+Ampulla of Vater,0,3,FALSE
+Uterus,1,24,FALSE
+Liver,6,17,TRUE
+Cervix,0,6,FALSE
+Eye,0,12,FALSE
+Vulva/Vagina,0,2,FALSE
+Adrenal Gland,0,1,FALSE
+Testis,0,5,FALSE

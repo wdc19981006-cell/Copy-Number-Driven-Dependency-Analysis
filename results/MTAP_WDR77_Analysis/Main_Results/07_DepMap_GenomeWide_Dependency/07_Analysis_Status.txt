@@ -1,0 +1,4 @@
+分析状态：COMPLETED
+CN-Low n=234；CN-Normal n=624
+当前最低每组样本数要求 n>=3
+筛选已完成；效应、P、FDR与Eligible_Rank见本模块CSV。
