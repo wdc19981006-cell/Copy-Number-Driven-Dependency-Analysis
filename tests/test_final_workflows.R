@@ -10,8 +10,8 @@ source("scripts/R/workflow_plots.R")
 source("scripts/R/final_workflow.R")
 GENE_A<-"A";GENE_B<-"B";GENE_B_PROVIDED<-TRUE;MIN_N<-3L
 wf_route_supplements()
-stopifnot(grepl("Supplementary/01_Lineage",paste(deparse(body(run_lineage)),collapse=" "),fixed=TRUE),
- grepl("Supplementary/02_Adjusted",paste(deparse(body(run_adjusted)),collapse=" "),fixed=TRUE))
+stopifnot(grepl("Supplementary/B/01_Lineage",paste(deparse(body(run_lineage)),collapse=" "),fixed=TRUE),
+ grepl("Supplementary/B/02_Adjusted",paste(deparse(body(run_adjusted)),collapse=" "),fixed=TRUE))
 stopifnot(identical(workflow_modules("geneA_screen"),c("tcga","genomewide_dependency","cn_covariation")),
  !any(c("reverse_dependency","mutation_dependency","expression_dependency","genomewide_expression_dependency","genomewide_adjusted_dependency") %in% workflow_modules("geneA_geneB")),
  sum(workflow_modules("geneA_geneB")=="genomewide_dependency")==1L)

@@ -17,8 +17,8 @@ from collections import Counter
 def validate_current(case, gene):
     """Independent selection/classification and processed-column re-reads."""
     folder = ROOT / 'data/processed/tcga/gdc_DR46'
-    saved = pd.read_csv(case / 'Tables/TCGA_Current_Samples.csv')
-    baseline = pd.read_csv(case / 'Tables/TCGA_Sample_Baselines.csv')
+    saved = pd.read_csv(case / 'Provenance/Data_Audit/TCGA_Current_Samples.csv')
+    baseline = pd.read_csv(case / 'Provenance/Data_Audit/TCGA_Sample_Baselines.csv')
     cn = get_tcga_cn(gene, layer='current')
     rna = gdc_gene('TCGA_STAR_TPM', gene, 'TPM')
     assert not saved.SampleID.duplicated().any() and not baseline.SampleID.duplicated().any()
@@ -73,14 +73,16 @@ def validate_current(case, gene):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--case', default='VPS4B_VPS4A_Analysis')
+    p.add_argument('--case', default='MTAP_Analysis')
     a = p.parse_args()
     case = (ROOT / 'results' / a.case).resolve()
     if not case.is_relative_to((ROOT / 'results').resolve()):
         raise ValueError('Case outside results')
     provenance = case / 'Provenance'
     info = json.loads((provenance / 'Run_Metadata.json').read_text(encoding='utf-8'))
-    gene_a, gene_b = info['geneA'], info['geneB']
+    gene_a = info['geneA']
+    gene_b_root = case / 'Main_Results/06_GeneB_Dependency'
+    gene_bs = sorted(path.name for path in gene_b_root.iterdir() if path.is_dir()) if gene_b_root.exists() else []
     checks = {}
     checks.update(validate_current(case, gene_a))
     assert info['TCGA_main_layer'] == 'gdc_current_DR46'
@@ -90,17 +92,17 @@ def main():
     checks['all_main_TCGA_actual_inputs_current_DR46'] = True
     cn = depmap_gene('OmicsCNGeneWGS', gene_a, 'CN_relative')
     checks['DepMap_processed_readable'] = len(cn) > 0
-    if gene_b:
+    for gene_b in gene_bs:
         direct = cn.merge(get_depmap_dependency(gene_b).rename(columns={'GeneEffect': 'Chronos'}),
                           on='ModelID', validate='one_to_one')
         direct['CN_log'] = np.log2(direct.CN_relative + 1)
         direct = direct.loc[np.isfinite(direct.CN_log) & np.isfinite(direct.Chronos)]
-        pair = pd.read_csv(case / 'Tables' / f'{gene_a}_{gene_b}_CellLines.csv')
+        pair = pd.read_csv(gene_b_root / gene_b / f'01_{gene_a}_CN_vs_{gene_b}_Dependency' / f'{gene_a}_{gene_b}_CellLines.csv')
         columns = ['ModelID', 'CN_relative', 'CN_log', 'Chronos']
         pd.testing.assert_frame_equal(direct[columns].sort_values('ModelID').reset_index(drop=True),
                                       pair[columns].sort_values('ModelID').reset_index(drop=True),
                                       check_dtype=False, rtol=1e-12, atol=1e-12)
-        checks['targeted_processed_source_exact_model_join'] = True
+        checks[f'targeted_processed_source_exact_model_join_{gene_b}'] = True
     index = set(pd.read_csv(provenance / 'File_Index.csv').Path)
     actual = {p.relative_to(case).as_posix() for p in case.rglob('*') if p.is_file()}
     assert index == actual

@@ -1,0 +1,844 @@
+{
+  "status": "PASS",
+  "legacy_root": "D:/CodexProjects/Copy Number–Driven Dependency Analysis/results/MTAP_WDR77_Analysis",
+  "statistics_recomputed": false,
+  "redrawn_PDF": "Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/04_DepMap_MTAP_CN_vs_WDR77_Dependency.pdf",
+  "base_outputs_unchanged": true,
+  "duplicated_statistics": {
+    "Main_Results/02_TCGA_CopyNumber_Landscape/TCGA_Cancer_Order.csv": {
+      "legacy_path": "Main_Results/02_TCGA_CopyNumber_Landscape/TCGA_Cancer_Order.csv",
+      "sha256": "a1cf234b648f465a7cfe027b60b39749ea38ac5730ee21fc6ee207dddd8c8ef2",
+      "content_identical": true
+    },
+    "Main_Results/01_TCGA_CNA_Percentage/TCGA_CNA_Percentage.csv": {
+      "legacy_path": "Main_Results/01_TCGA_CNA_Percentage/TCGA_CNA_Percentage.csv",
+      "sha256": "6fdd111fc9a387d0439fc6d86c80db35946a05c49703d73fdf197362ffbad8a8",
+      "content_identical": true
+    },
+    "Provenance/Data_Audit/TCGA_Current_Samples.csv": {
+      "legacy_path": "Provenance/Data_Audit/TCGA_Current_Samples.csv",
+      "sha256": "8dab6f714c75007217d16d5312281ba20a7d6fdd86dac12b3e3f17b6ada095d6",
+      "content_identical": true
+    },
+    "Provenance/Data_Audit/TCGA_Sample_Baselines.csv": {
+      "legacy_path": "Provenance/Data_Audit/TCGA_Sample_Baselines.csv",
+      "sha256": "b296d4a93a1da5879967f5503ad243719a973e5580fd6ac1b60a7479fbc5f38e",
+      "content_identical": true
+    },
+    "Provenance/Data_Audit/TCGA_RNA_Representative_Selection.csv": {
+      "legacy_path": "Provenance/Data_Audit/TCGA_RNA_Representative_Selection.csv",
+      "sha256": "c04e17ccba7223779bd7bf607542e2db700d83b540ca4dbabd9f29f0d22ef928",
+      "content_identical": true
+    },
+    "Main_Results/03_TCGA_CN_mRNA/TCGA_MTAP_CN_mRNA_AllCancer_Statistics.csv": {
+      "legacy_path": "Main_Results/03_TCGA_CN_mRNA/TCGA_MTAP_CN_mRNA_AllCancer_Statistics.csv",
+      "sha256": "63a9ac374f20127bcdd168be06f6be84021fef00447268547259758e4be7b2ff",
+      "content_identical": true
+    },
+    "Main_Results/03_TCGA_CN_mRNA/TCGA_CN_mRNA_CNA_Counts.csv": {
+      "legacy_path": "Main_Results/03_TCGA_CN_mRNA/TCGA_CN_mRNA_CNA_Counts.csv",
+      "sha256": "ceab51aae4a73ee4f75b424fd57a9217f50e6fd645302eb6105b16885f0f7599",
+      "content_identical": true
+    },
+    "Main_Results/04_DepMap_GenomeWide_Dependency/GenomeWide_Dependency.csv": {
+      "legacy_path": "Main_Results/07_DepMap_GenomeWide_Dependency/GenomeWide_Dependency.csv",
+      "sha256": "70a55c3197be4742c4bdbe649ae8db032c759e766be8d7b5412c576983e9df77",
+      "content_identical": true
+    },
+    "Main_Results/04_DepMap_GenomeWide_Dependency/Top_Dependency_Candidates.csv": {
+      "legacy_path": "Main_Results/07_DepMap_GenomeWide_Dependency/Top_Dependency_Candidates.csv",
+      "sha256": "b4634f52e78bd689fe0704acf73ade06ab4036d10c177672dac5a0487bba6173",
+      "content_identical": true
+    },
+    "Main_Results/05_DepMap_CN_Covariation/MTAP_CN_Covariation.csv": {
+      "legacy_path": "Main_Results/08_DepMap_CN_Covariation/MTAP_CN_Covariation.csv",
+      "sha256": "77369d7a4ebd255c6ec19b1c99529ea8e12dfd1d699217c10c3af63a724feb10",
+      "content_identical": true
+    },
+    "Main_Results/05_DepMap_CN_Covariation/Top_CN_Covariation.csv": {
+      "legacy_path": "Main_Results/08_DepMap_CN_Covariation/Top_CN_Covariation.csv",
+      "sha256": "1d1c99b8c280ff617fb1828302835c2ca39abeefa39d491fc48d05e31416aee0",
+      "content_identical": true
+    }
+  },
+  "duplicated_PDFs": {
+    "Main_Results/01_TCGA_CNA_Percentage/01_TCGA_MTAP_CNA_Percentage.pdf": {
+      "sha256_base": "b3c31dc3f145a7c0846414998043848d7976296a264bf1623cd0babaf4c2a865",
+      "sha256_legacy": "f50dd6af83b6121e21a854c30c4e14258162588b59606e5c5f075f8260d09c54",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/02_TCGA_CopyNumber_Landscape/02_TCGA_MTAP_CopyNumber_Landscape.pdf": {
+      "sha256_base": "e4b5c40863baf8656446ee9d9c95180a8da21da94ccec4644ee138c7bb82725d",
+      "sha256_legacy": "846869e4a576f1a8daae3e9b721f6425bd0c15d9da0e107eb5ba54a83ae6a31b",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/ACC_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "e4399d6fddcd6432cbb1b999543420aac5b681cb8bac21cff2e3e837c20d96b0",
+      "sha256_legacy": "75879165104e1f20fb970b18c47f148e2898ea3d9c92a5652be2279553ca1812",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/BLCA_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "c3e7397826df72005e7c94c807e827b7e35230d35da30749b256dcc1c8a0db81",
+      "sha256_legacy": "7588333c7800ec2476a42a253e454ef7198356ca87c7e8a83e12fc6b41973957",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/BRCA_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "2bf71138eab81dd607a6fde39445d48aff2f8f474cabc5a002714c34f5f3b6b6",
+      "sha256_legacy": "f4733b367341883e5ba3ef3964ebb5386cbd11ec35c5b919c4ab1d633a2d4061",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/CESC_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "cf813d567d676675a92a76c4cb7d34a1e8bdd3c11fdc854e3865ffc38134cc43",
+      "sha256_legacy": "ad9b5b1beb6343fcaf4b1cafbe359501b4a1624a654b784fa5b8149ed1b095e9",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/CHOL_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "0559273ed3dbdca124cda70ba7a63dc1b50acce291489b4981dc7e08a6259736",
+      "sha256_legacy": "b24c153b866f6b2ed246f711d26fce2584b3852530e8791dbc34866b5c7be9ef",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/COAD_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "658143a9b4feb6822c8de07b5b008ee078d8cfbb0b9a63a174b0b0395c883b2f",
+      "sha256_legacy": "1140e141bb9acd945d107b2d066282f7610fbdf8198d8470e427cd9da78aaa1c",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/DLBC_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "62f026d4eab5886e823ff4365f6cda432e3c6576533da2e10738f8318075d478",
+      "sha256_legacy": "98ee3705ec2816933306341064337c86949ea7ccc480d9eefd6970dd6536dd55",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/ESCA_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "e3d2083962ec9421300d54303d77064b91bda95e9f38b0e5e8b594c2a199da5a",
+      "sha256_legacy": "f1377201e97dffd3f1eb0a8d38f75c2bffc5e2ee7c6172e32feb7e9bea94aa64",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/GBM_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "44ef134af65626518bf1ad1413e5ec317ba1a24580aac78642cf8ef502d806d0",
+      "sha256_legacy": "2edd47557982d816068dd1024933e800bdf31ad15a97f0a255b27229dbbcaf38",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/HNSC_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "54af3ff8f3e9a7e00bd876a72d9b0a99b99a550afc90cb85bf8585dd3693015a",
+      "sha256_legacy": "249fee8fe3c6408a7082162505be8c433c07b04dc513626954e7375ec70a0c1b",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/KICH_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "8ac726732a1d821a15b2ca89cf29c02126acac5f701caffee4f5b0ea0f975d9b",
+      "sha256_legacy": "b4ad447a45b1433293729439c6ac1337c89d1a3ae813f50bf70978b740aa0efe",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/KIRC_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "c153a3944576050c705b1963951456fc00c363ecddbb3627a8e3bef2d9b28f85",
+      "sha256_legacy": "1e263d72ac68bd5700c9d0a1ef2be35640aab63b1172824c4eed33a4732d8ffb",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/KIRP_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "7e51cfd8e414a936ee8dc126f903c3a54db9f2982edd77dd7c1aa7c5ee55b0b6",
+      "sha256_legacy": "7ce200941408715a978e5beae76c509b43ba38ec21f9a968adc3cb8861c123be",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/LAML_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "903f4262e6ed5be209a3829cb7a31c28066d2986fefb1f7d7a83c4a299cb96d6",
+      "sha256_legacy": "02cc2602335238a4a19e31467369183932d8aee4204d77d3de90c2cea30c35df",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/LGG_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "4bf9b12815127c398ce9b836fea4d9d1e562abdca8ce752c8f2f68f5634e0741",
+      "sha256_legacy": "9cfe5213c90a314408046efc33d1539bb302f971863224e6aa1e770a60a6602e",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/LIHC_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "44e4d481d6e939ee684b89329950cfa9a18c4b3a5adce7324dee3202e7cb7857",
+      "sha256_legacy": "652ce844a615969d38e18d6d5005084fa1527f6ac3f05c86d175f4ed9b0eec4f",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/LUAD_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "ef0c71a35c3fcef00979a20be47d3ca0d7ede339abe5f858be8674184c7feedd",
+      "sha256_legacy": "13486a1303ac8d13340aa3966041bca35d440a60af21750dd1cd5575408180db",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/LUSC_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "ba447666150b02cd1117cca0cbab0c6fd06346d59db02c18b3c882986bfa4860",
+      "sha256_legacy": "f1bb78d85ee0dd94817339cee57366f0a8b36d23fdd847f5cf802e01fb336c32",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/MESO_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "f7c90f34715d35211738d01b2b39411492a25f4e4c7c348aa544c28466731b53",
+      "sha256_legacy": "53759d3836a5a115cfbb6c707ea93388368132c60b04da3eb5eb2a6cbec52c5d",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/OV_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "030738264411e03ef0a483d3fe5817ad596120379d5d245960f2a833c46d0416",
+      "sha256_legacy": "7c355b3da75292a319be34caf22d29c5afe2e99ac5f489999b5af574860eb036",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/PAAD_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "5a8d975bc95bd9e2a70782933a0191c1e1f8457423a30296abf13bf1f96b8cac",
+      "sha256_legacy": "d11ee5435731fbdff925cb6f27e4e3f6d9bdc4ac30faa7df9ca20eaa480ff156",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/PCPG_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "74394cc5a9a9c51bbd2ffeb34f10cecb0fe228320cddfd0bb7cd25f40a7e033c",
+      "sha256_legacy": "7077f75e335131c22db7962a7ada6980d967e94bedb2b0dd3a559ab2b180bc61",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/PRAD_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "0d2710742d5ff6f286af5ba680ff40fe74526ff5d3136f0dbc343d18799a3b92",
+      "sha256_legacy": "206206d00b6921c3d7c3f4f4c00327ca82a5778677ee2ffafe6c0c66b6ed0736",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/READ_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "b2c85f6eabf4a5b5f10a3be374afacdc525d4f9020b8101bd66fbea9fa0fd226",
+      "sha256_legacy": "e3676365a91c64a8b6eea150402402a390534a71355b26f3ef291f401187fa5a",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/SARC_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "53291de8a97ea33537eeda0d26c3b38bdd91737f422ae8f825db0d6d604cf3f8",
+      "sha256_legacy": "a524a571a33f11f6288e4f6db422aec671c6bfb59de0fe5e6ac53cd87ba9883a",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/SKCM_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "3506b59075349e525d39c54122aa65a3f641b4b2cf156b9c8c82854ba773ceb5",
+      "sha256_legacy": "8a799376e8012120fda06fff4a38d2c18df1242efe3a0baf6efd6c4d7d6b3116",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/STAD_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "78f80dd797f524abcbfc866286930d13e3ac092484c30a97e6214ef7618aa3c5",
+      "sha256_legacy": "f2801b0526b037e1b0f9c9a2c8a37ee3da5f0795b9b4e7380e6b24bee36c5af8",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/TGCT_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "5a5e2aa60706de0cc5474099c750e56af4c3e05f26c39009735a62bc5eda015c",
+      "sha256_legacy": "251b51493261a0b02aea8fb4f1fe59c718d179cbb753adf2be1ceec1c78fbd60",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/THCA_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "bd8227abac6090e8c6d65757439869b4263358701a76a72e0517298ed76eb668",
+      "sha256_legacy": "42118e27321b5ed238e04563cc189487796d749928ef46b7fe33ef6441303e71",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/THYM_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "a8eccf8b5bf95a466f85f9e9d17ed7710d914c9d9f4a0d6876e3f52e9d04efdf",
+      "sha256_legacy": "a6f2fc62a7a8a51103f7f662b71e28776a003b2420bf5dfde4c6e10eb8ab0c24",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/UCEC_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "7fa3c67c7e9b7bb00ad4a47d03b1d17e227c17afce3420ca1892a888a672e1cd",
+      "sha256_legacy": "d10335263adfc4acdd9f7ef801833ee3875b00e41c0b3995254f2356e51ffa11",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/UCS_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "24595098cfb3d6f112222301cb8ee37858800710d3825ca2d3d90539edc9556e",
+      "sha256_legacy": "ffce8d0912684083e92ca3fd6b72d915060e2afc7098b9748f25c8ad0f4c052f",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/03_TCGA_CN_mRNA/UVM_MTAP_CN_mRNA.pdf": {
+      "sha256_base": "d5d1874d489c45179d8b7dcb2461b8a013ade529b4c10520055d3133de90bde1",
+      "sha256_legacy": "5ccae0f527f8c40f6ab7bdebb4dc7eaa4e8af28a61f01ec4f356ad3c91c05ef5",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/04_DepMap_GenomeWide_Dependency/04_DepMap_MTAP_GenomeWide_Dependency_Volcano.pdf": {
+      "sha256_base": "9c3050fa56c6c63b9ee5c469a352efef32a6da9a00bb7a32e3c980a34dac27d8",
+      "sha256_legacy": "bdeb7e24b7addc305038b9c72c2322263459b1aa61fd0a69fb2b255ffe940bee",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    },
+    "Main_Results/05_DepMap_CN_Covariation/05_DepMap_MTAP_CN_Covariation.pdf": {
+      "sha256_base": "4558afbb2050d66e973274fb770f32683549b54fd82ab111ead88963a115aa85",
+      "sha256_legacy": "9af77496d2b33051c3ec405f19d57c59c7352281730ac38a999210caca77c912",
+      "statistics_identical": true,
+      "retained": "Existing Gene A PDF; no regeneration. Legacy PDF may include timestamps / candidate highlighting."
+    }
+  },
+  "files": [
+    {
+      "before": "00_Analysis_Summary.txt",
+      "after": "Provenance/GeneB/WDR77/Legacy/00_Analysis_Summary.txt",
+      "sha256_before": "047d1c5a05a9c4c5adc5c503d15e66d6531904d8ddae03e979850c2f6513f166",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Main_Results/01_TCGA_CNA_Percentage/01_TCGA_MTAP_CNA_Percentage.pdf",
+      "after": {},
+      "sha256_before": "f50dd6af83b6121e21a854c30c4e14258162588b59606e5c5f075f8260d09c54",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/01_TCGA_CNA_Percentage/TCGA_CNA_Percentage.csv",
+      "after": {},
+      "sha256_before": "6fdd111fc9a387d0439fc6d86c80db35946a05c49703d73fdf197362ffbad8a8",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/02_TCGA_CopyNumber_Landscape/02_TCGA_MTAP_CopyNumber_Landscape.pdf",
+      "after": {},
+      "sha256_before": "846869e4a576f1a8daae3e9b721f6425bd0c15d9da0e107eb5ba54a83ae6a31b",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/02_TCGA_CopyNumber_Landscape/TCGA_Cancer_Order.csv",
+      "after": {},
+      "sha256_before": "a1cf234b648f465a7cfe027b60b39749ea38ac5730ee21fc6ee207dddd8c8ef2",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/ACC_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "75879165104e1f20fb970b18c47f148e2898ea3d9c92a5652be2279553ca1812",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/BLCA_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "7588333c7800ec2476a42a253e454ef7198356ca87c7e8a83e12fc6b41973957",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/BRCA_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "f4733b367341883e5ba3ef3964ebb5386cbd11ec35c5b919c4ab1d633a2d4061",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/CESC_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "ad9b5b1beb6343fcaf4b1cafbe359501b4a1624a654b784fa5b8149ed1b095e9",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/CHOL_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "b24c153b866f6b2ed246f711d26fce2584b3852530e8791dbc34866b5c7be9ef",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/COAD_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "1140e141bb9acd945d107b2d066282f7610fbdf8198d8470e427cd9da78aaa1c",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/DLBC_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "98ee3705ec2816933306341064337c86949ea7ccc480d9eefd6970dd6536dd55",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/ESCA_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "f1377201e97dffd3f1eb0a8d38f75c2bffc5e2ee7c6172e32feb7e9bea94aa64",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/GBM_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "2edd47557982d816068dd1024933e800bdf31ad15a97f0a255b27229dbbcaf38",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/HNSC_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "249fee8fe3c6408a7082162505be8c433c07b04dc513626954e7375ec70a0c1b",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/KICH_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "b4ad447a45b1433293729439c6ac1337c89d1a3ae813f50bf70978b740aa0efe",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/KIRC_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "1e263d72ac68bd5700c9d0a1ef2be35640aab63b1172824c4eed33a4732d8ffb",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/KIRP_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "7ce200941408715a978e5beae76c509b43ba38ec21f9a968adc3cb8861c123be",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/LAML_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "02cc2602335238a4a19e31467369183932d8aee4204d77d3de90c2cea30c35df",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/LGG_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "9cfe5213c90a314408046efc33d1539bb302f971863224e6aa1e770a60a6602e",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/LIHC_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "652ce844a615969d38e18d6d5005084fa1527f6ac3f05c86d175f4ed9b0eec4f",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/LUAD_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "13486a1303ac8d13340aa3966041bca35d440a60af21750dd1cd5575408180db",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/LUSC_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "f1bb78d85ee0dd94817339cee57366f0a8b36d23fdd847f5cf802e01fb336c32",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/MESO_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "53759d3836a5a115cfbb6c707ea93388368132c60b04da3eb5eb2a6cbec52c5d",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/OV_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "7c355b3da75292a319be34caf22d29c5afe2e99ac5f489999b5af574860eb036",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/PAAD_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "d11ee5435731fbdff925cb6f27e4e3f6d9bdc4ac30faa7df9ca20eaa480ff156",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/PCPG_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "7077f75e335131c22db7962a7ada6980d967e94bedb2b0dd3a559ab2b180bc61",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/PRAD_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "206206d00b6921c3d7c3f4f4c00327ca82a5778677ee2ffafe6c0c66b6ed0736",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/READ_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "e3676365a91c64a8b6eea150402402a390534a71355b26f3ef291f401187fa5a",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/SARC_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "a524a571a33f11f6288e4f6db422aec671c6bfb59de0fe5e6ac53cd87ba9883a",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/SKCM_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "8a799376e8012120fda06fff4a38d2c18df1242efe3a0baf6efd6c4d7d6b3116",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/STAD_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "f2801b0526b037e1b0f9c9a2c8a37ee3da5f0795b9b4e7380e6b24bee36c5af8",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/TCGA_CN_mRNA_CNA_Counts.csv",
+      "after": {},
+      "sha256_before": "ceab51aae4a73ee4f75b424fd57a9217f50e6fd645302eb6105b16885f0f7599",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/TCGA_MTAP_CN_mRNA_AllCancer_Statistics.csv",
+      "after": {},
+      "sha256_before": "63a9ac374f20127bcdd168be06f6be84021fef00447268547259758e4be7b2ff",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/TGCT_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "251b51493261a0b02aea8fb4f1fe59c718d179cbb753adf2be1ceec1c78fbd60",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/THCA_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "42118e27321b5ed238e04563cc189487796d749928ef46b7fe33ef6441303e71",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/THYM_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "a6f2fc62a7a8a51103f7f662b71e28776a003b2420bf5dfde4c6e10eb8ab0c24",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/UCEC_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "d10335263adfc4acdd9f7ef801833ee3875b00e41c0b3995254f2356e51ffa11",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/UCS_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "ffce8d0912684083e92ca3fd6b72d915060e2afc7098b9748f25c8ad0f4c052f",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/03_TCGA_CN_mRNA/UVM_MTAP_CN_mRNA.pdf",
+      "after": {},
+      "sha256_before": "5ccae0f527f8c40f6ab7bdebb4dc7eaa4e8af28a61f01ec4f356ad3c91c05ef5",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/04_DepMap_CN_vs_Dependency/04_DepMap_MTAP_CN_vs_WDR77_Dependency.pdf",
+      "after": "Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/04_DepMap_MTAP_CN_vs_WDR77_Dependency.pdf",
+      "sha256_before": "1e3f90dc0bd9bf02e93fd0adab4c0612ff56be37c1b86f812229f4164d2d3c1d",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Main_Results/04_DepMap_CN_vs_Dependency/MTAP_WDR77_CellLines.csv",
+      "after": "Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/MTAP_WDR77_CellLines.csv",
+      "sha256_before": "ba5c8822200ccba342275f45583a6f9e3360c273b2cb5674bd290cf44699dc84",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Main_Results/04_DepMap_CN_vs_Dependency/MTAP_WDR77_Targeted_Statistics.csv",
+      "after": "Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/MTAP_WDR77_Targeted_Statistics.csv",
+      "sha256_before": "f3e0524ea141b21726df13bf13f9da818c6eb1f1cdf169ff32fd710e64b12d09",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Main_Results/05_DepMap_Dependency_Waterfall/05_DepMap_WDR77_Dependency_Waterfall.pdf",
+      "after": "Main_Results/06_GeneB_Dependency/WDR77/02_WDR77_Dependency_Waterfall/05_DepMap_WDR77_Dependency_Waterfall.pdf",
+      "sha256_before": "792fa548b91c0fa675d4a2d48c01a9ab4b80a916162136e51ec61974df603610",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Main_Results/05_DepMap_Dependency_Waterfall/MTAP_WDR77_Waterfall_Order.csv",
+      "after": "Main_Results/06_GeneB_Dependency/WDR77/02_WDR77_Dependency_Waterfall/MTAP_WDR77_Waterfall_Order.csv",
+      "sha256_before": "b35eb39a738cc2353b8ba8932b08dacfca46043c60f6ebc8dde13b18186d646d",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Main_Results/06_DepMap_Dependency_CNlow_vs_Normal/06_DepMap_WDR77_Dependency_CNlow_vs_Normal.pdf",
+      "after": "Main_Results/06_GeneB_Dependency/WDR77/03_WDR77_CNlow_vs_Normal/06_DepMap_WDR77_Dependency_CNlow_vs_Normal.pdf",
+      "sha256_before": "98f271a7fcfed057ac4f30bcf621090c50afd36b55ce8039cf58303af9e5c280",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Main_Results/06_DepMap_Dependency_CNlow_vs_Normal/MTAP_WDR77_CNlow_vs_Normal_Statistics.csv",
+      "after": "Main_Results/06_GeneB_Dependency/WDR77/03_WDR77_CNlow_vs_Normal/MTAP_WDR77_CNlow_vs_Normal_Statistics.csv",
+      "sha256_before": "8f0571c5cc461c059ebb2734d855cb64e90e34eb0cf2350f77429197d11b85ad",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Main_Results/07_DepMap_GenomeWide_Dependency/07_Analysis_Status.txt",
+      "after": {},
+      "sha256_before": "76e1a7a3a6843d73b5c6ec615bbbe72da42efd2b02d80fc87ab19fe691b8391a",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/07_DepMap_GenomeWide_Dependency/07_DepMap_MTAP_GenomeWide_Dependency_Volcano.pdf",
+      "after": {},
+      "sha256_before": "bdeb7e24b7addc305038b9c72c2322263459b1aa61fd0a69fb2b255ffe940bee",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/07_DepMap_GenomeWide_Dependency/GenomeWide_Dependency.csv",
+      "after": {},
+      "sha256_before": "70a55c3197be4742c4bdbe649ae8db032c759e766be8d7b5412c576983e9df77",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/07_DepMap_GenomeWide_Dependency/Top_Dependency_Candidates.csv",
+      "after": {},
+      "sha256_before": "b4634f52e78bd689fe0704acf73ade06ab4036d10c177672dac5a0487bba6173",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/08_DepMap_CN_Covariation/08_DepMap_MTAP_CN_Covariation.pdf",
+      "after": {},
+      "sha256_before": "9af77496d2b33051c3ec405f19d57c59c7352281730ac38a999210caca77c912",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/08_DepMap_CN_Covariation/MTAP_CN_Covariation.csv",
+      "after": {},
+      "sha256_before": "77369d7a4ebd255c6ec19b1c99529ea8e12dfd1d699217c10c3af63a724feb10",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Main_Results/08_DepMap_CN_Covariation/Top_CN_Covariation.csv",
+      "after": {},
+      "sha256_before": "1d1c99b8c280ff617fb1828302835c2ca39abeefa39d491fc48d05e31416aee0",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Provenance/Cache_adjusted_dependency.json",
+      "after": "Provenance/GeneB/WDR77/Legacy/Cache_adjusted_dependency.json",
+      "sha256_before": "884c02c773671025f9233075c8e4304c6fc7afc90b3d262c36079f2d0970d34d",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/Cache_cn_covariation.json",
+      "after": "Provenance/GeneB/WDR77/Legacy/Cache_cn_covariation.json",
+      "sha256_before": "5601fc8f6a30630f3d4be438daae2197d08e422353ae7f37e376aa6e368d6c26",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/Cache_cn_threshold_sensitivity.json",
+      "after": "Provenance/GeneB/WDR77/Legacy/Cache_cn_threshold_sensitivity.json",
+      "sha256_before": "5889b14403bcbfa0c07a985f135fa529bfddeed01929c0bf1497a69a87fd0f93",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/Cache_genomewide_dependency.json",
+      "after": "Provenance/GeneB/WDR77/Legacy/Cache_genomewide_dependency.json",
+      "sha256_before": "80a7e729f208b1a55c735df8d3d3f0a91266c1c9761462157a21ae6d0b409c47",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/Cache_lineage_dependency.json",
+      "after": "Provenance/GeneB/WDR77/Legacy/Cache_lineage_dependency.json",
+      "sha256_before": "590a5cd3b9233c7dd47591872d31fd6872fcdfd9ebe4cf7ef3c3850e77133bd5",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/Cache_targeted_dependency.json",
+      "after": "Provenance/GeneB/WDR77/Legacy/Cache_targeted_dependency.json",
+      "sha256_before": "b7515546ed2e28776b44214cb3f733c012035165ffaa7d7b9ea8eace607a4de5",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/Cache_tcga.json",
+      "after": "Provenance/GeneB/WDR77/Legacy/Cache_tcga.json",
+      "sha256_before": "4fc004d23aec8b5fdf2cbbec2f5ee223fe0423e3c7bb568789b4d038f3f23b5d",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/Data_Audit/TCGA_Current_Samples.csv",
+      "after": {},
+      "sha256_before": "8dab6f714c75007217d16d5312281ba20a7d6fdd86dac12b3e3f17b6ada095d6",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Provenance/Data_Audit/TCGA_RNA_Representative_Selection.csv",
+      "after": {},
+      "sha256_before": "c04e17ccba7223779bd7bf607542e2db700d83b540ca4dbabd9f29f0d22ef928",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Provenance/Data_Audit/TCGA_Sample_Baselines.csv",
+      "after": {},
+      "sha256_before": "b296d4a93a1da5879967f5503ad243719a973e5580fd6ac1b60a7479fbc5f38e",
+      "disposition": "Duplicate Gene A artifact; canonical statistics compared"
+    },
+    {
+      "before": "Provenance/File_Index.csv",
+      "after": "Provenance/GeneB/WDR77/Legacy/File_Index.csv",
+      "sha256_before": "314f505f486e49eb90986aa51cd2c4c4eb611eb8918a5dcd641d42127bfe5a1e",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/GenomeWide_Dependency_Status.json",
+      "after": "Provenance/GeneB/WDR77/Legacy/GenomeWide_Dependency_Status.json",
+      "sha256_before": "b400819c95d29c76dc1f44966e27957f84970977396230024654aecebf15911a",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/Input_Versions.json",
+      "after": "Provenance/GeneB/WDR77/Legacy/Input_Versions.json",
+      "sha256_before": "3760b03abd7de906026d1b70b22c0642399be7f202da54447ca1ba61dc4671b1",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/Input_Versions.txt",
+      "after": "Provenance/GeneB/WDR77/Legacy/Input_Versions.txt",
+      "sha256_before": "aebdbdcb73837a7c5221aefe7f545da235cedf972a17241f725ae703ba4c88da",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/Module_Runs.csv",
+      "after": "Provenance/GeneB/WDR77/Legacy/Module_Runs.csv",
+      "sha256_before": "61a87fbd22a45c55072210b3cf977f307111e27273c73932b983ae3f64d46e78",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/Run_Metadata.json",
+      "after": "Provenance/GeneB/WDR77/Legacy/Run_Metadata.json",
+      "sha256_before": "43e4f073e561561485affe01d0feaf1f5c19c633b178dc23a465af9499e94b1f",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/SessionInfo.txt",
+      "after": "Provenance/GeneB/WDR77/Legacy/SessionInfo.txt",
+      "sha256_before": "5f13f040e806454ee74a991c028728e941859078cd0b7aed3f7603091ac9aac8",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/Source_Metadata.txt",
+      "after": "Provenance/GeneB/WDR77/Legacy/Source_Metadata.txt",
+      "sha256_before": "c4e4278796a24d47ee83acf36b3e4412dbefa67884c0e2fd20b20e56f1c79f8b",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/TCGA_Baseline_Method.json",
+      "after": "Provenance/GeneB/WDR77/Legacy/TCGA_Baseline_Method.json",
+      "sha256_before": "009168993f92cbca381841fdd2b992d07ded7c44f72b1732ab760fe4e0940862",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/TCGA_Plot_Order.json",
+      "after": "Provenance/GeneB/WDR77/Legacy/TCGA_Plot_Order.json",
+      "sha256_before": "b06825d71a47e2fe90f696e074fcba92e0496ec3917ca74d8ae1b82f1d8ab218",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Provenance/Validation.json",
+      "after": "Provenance/GeneB/WDR77/Legacy/Validation.json",
+      "sha256_before": "d636a18c01bee1b2b49c7e5ef7f8f7e45a84735d36537ab1feec5bf814e1146b",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Supplementary/01_Lineage/Lineage_Dependency.csv",
+      "after": "Supplementary/WDR77/01_Lineage/Lineage_Dependency.csv",
+      "sha256_before": "db922c18e9af60314dd0050773ee8fbcc3d1c0961f15256c416884719014c6d6",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Supplementary/01_Lineage/Lineage_Dependency_Forest.pdf",
+      "after": "Supplementary/WDR77/01_Lineage/Lineage_Dependency_Forest.pdf",
+      "sha256_before": "594008f5ea158f4d7ff14c8eb7ebd44a8251da387490a2de20983dbc4f10bade",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Supplementary/01_Lineage/Lineage_Eligibility.csv",
+      "after": "Supplementary/WDR77/01_Lineage/Lineage_Eligibility.csv",
+      "sha256_before": "84e316ccd084dae8b7e499b447c59d3afbd2d3080996881e42231fd2d8ef23e2",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Supplementary/02_Adjusted/Adjusted_CN_Coefficient.pdf",
+      "after": "Supplementary/WDR77/02_Adjusted/Adjusted_CN_Coefficient.pdf",
+      "sha256_before": "27950213e366221ce9afe06457215d63176d7d13379ac640deba64bc371ba92c",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Supplementary/02_Adjusted/CNLow_Adjusted.csv",
+      "after": "Supplementary/WDR77/02_Adjusted/CNLow_Adjusted.csv",
+      "sha256_before": "bd24f27dc5b9e46b9d82b85080e4c9ff909ed6bc323689bb3ad83de10f7c0332",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Supplementary/02_Adjusted/Continuous_CN_Adjusted.csv",
+      "after": "Supplementary/WDR77/02_Adjusted/Continuous_CN_Adjusted.csv",
+      "sha256_before": "7e525ad8418d52b2b146f8979673050449d4dbd621453c996a26b9d00969d050",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Supplementary/03_CN_Threshold_Sensitivity/CN_Threshold_Continuous_Statistics.csv",
+      "after": "Supplementary/WDR77/03_CN_Threshold_Sensitivity/CN_Threshold_Continuous_Statistics.csv",
+      "sha256_before": "d75e6f874b9e5a8bb7d94176c869adaba0247b14a2040900428393a541042c0e",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Supplementary/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.csv",
+      "after": "Supplementary/WDR77/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.csv",
+      "sha256_before": "817655457db33a70d4648e3cc104d8bce56795d9c2a6d6ba64a9ca7ba1a3ea8d",
+      "disposition": "Copied and SHA256 verified"
+    },
+    {
+      "before": "Supplementary/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.pdf",
+      "after": "Supplementary/WDR77/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.pdf",
+      "sha256_before": "f47a2637e4ce3a9b8f1dffc2fe6420f56b90b264cf89b24524f327740c2946b0",
+      "disposition": "Copied and SHA256 verified"
+    }
+  ],
+  "visual_review": "PASS",
+  "legacy_removed": true,
+  "verified_caches": [
+    "tcga",
+    "genomewide_dependency",
+    "cn_covariation",
+    "targeted_dependency",
+    "lineage_dependency",
+    "adjusted_dependency",
+    "cn_threshold_sensitivity"
+  ],
+  "independent_statistics_validation": {
+    "status": "PASS",
+    "checks": 146,
+    "report": "Provenance/Validation.json",
+    "analysis_modules_run": false
+  },
+  "staged_deletion_verification": {
+    "status": "PASS",
+    "deleted_paths_only_legacy_duplicate_root": true,
+    "canonical_A_01_05_unchanged": [
+      "results/MTAP_Analysis/Main_Results/01_TCGA_CNA_Percentage",
+      "results/MTAP_Analysis/Main_Results/02_TCGA_CopyNumber_Landscape",
+      "results/MTAP_Analysis/Main_Results/03_TCGA_CN_mRNA",
+      "results/MTAP_Analysis/Main_Results/04_DepMap_GenomeWide_Dependency",
+      "results/MTAP_Analysis/Main_Results/05_DepMap_CN_Covariation"
+    ],
+    "deleted_files": 50,
+    "byte_identical_retained": 12,
+    "graphics_identical_retained": 36,
+    "authorized_visual_changes": [
+      {
+        "deleted": "results/MTAP_WDR77_Analysis/Main_Results/04_DepMap_CN_vs_Dependency/04_DepMap_MTAP_CN_vs_WDR77_Dependency.pdf",
+        "original_blob": "bcb16042b980acb2917fb882a2436508b7e8452e",
+        "retained_exact": [],
+        "retained_figure": "results/MTAP_Analysis/Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/04_DepMap_MTAP_CN_vs_WDR77_Dependency.pdf",
+        "decoded_graphics_identical": false,
+        "authorized_visual_change": "Only authorized scatter redraw; all original matched data/statistics preserved"
+      },
+      {
+        "deleted": "results/MTAP_WDR77_Analysis/Main_Results/07_DepMap_GenomeWide_Dependency/07_DepMap_MTAP_GenomeWide_Dependency_Volcano.pdf",
+        "original_blob": "d7a457069505c2597b02ab0fff9e431deb93ed59",
+        "retained_exact": [],
+        "retained_figure": "results/MTAP_Analysis/Main_Results/04_DepMap_GenomeWide_Dependency/04_DepMap_MTAP_GenomeWide_Dependency_Volcano.pdf",
+        "decoded_graphics_identical": false,
+        "authorized_visual_change": "Shared Gene A discovery plot retained without B highlighting"
+      }
+    ],
+    "all_deleted_statistical_and_audit_files_retained_byte_identically": true
+  }
+}

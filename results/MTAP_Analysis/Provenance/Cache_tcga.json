@@ -1,11 +1,9 @@
 {
   "module": "tcga",
-  "key": "448bf9cdbd2751fee4923616f6b010eb96364525e090744c57d45984affc92be",
+  "key": "a75e2251529549bb8fea8b2077c26b80dacca9adbe5a7d7445419aa040632839",
   "parameters": {
     "geneA": "MTAP",
     "geneB": {},
-    "geneB_provided": {},
-    "workflow": "geneA_screen",
     "bootstrap": {},
     "min_group_n": 3,
     "low": 0.585,
@@ -13,8 +11,8 @@
     "seed": 1234,
     "thresholds": [0.585, 0.5, 0.4, 0.35]
   },
-  "parameter_hash": "dccbb52f427eaf39432e7cf3f213a78aadbea8d1e2c5ba6420fb6cdd1dc3dbb9",
-  "code_hash": "953950187b4247816e393aec3824bf609e1cbc381f34cab16a250e9760cf7b3b",
+  "parameter_hash": "af6f6728a766c66b24cecf683da696f341226273cd3c65953d956a2cbcceb5b6",
+  "code_hash": "cd08a0776e6ef2ee7f3e066294973505f694968eb53c8c98e71e9808735e017d",
   "code_functions": ["tcga_relative_cn", "cancer_order", "ordered_cancer", "current_cancer_statistics", "current_prevalence", "tcga_prevalence_plot", "tcga_landscape_plot", "tcga_expression_plot", "tcga_cna_pie", "wf_run_tcga", "pair_correlations", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_table", "wf_table_relative", "wf_group_statistics", "wf_write_screen_status", "wf_screen_status_path", "wf_validate_artifact", "p_text", "p_star"],
   "data_versions": [
     {
@@ -122,5 +120,7 @@
   "validated": true,
   "analysis_status": "computed",
   "detail": "",
-  "statistics_key": {}
+  "statistics_key": {},
+  "previous_key": "448bf9cdbd2751fee4923616f6b010eb96364525e090744c57d45984affc92be",
+  "previous_code_hash": "953950187b4247816e393aec3824bf609e1cbc381f34cab16a250e9760cf7b3b"
 }

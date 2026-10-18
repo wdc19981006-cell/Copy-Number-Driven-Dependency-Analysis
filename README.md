@@ -11,23 +11,24 @@ Rscript scripts/R/run_analysis.R --workflow geneA_screen --geneA VPS4B
 Rscript scripts/R/run_analysis.R --workflow geneA_geneB --geneA VPS4B --geneB VPS4A
 ```
 
-只有 Gene A：TCGA CNA、CN 分布、逐癌种自身 CN–mRNA，接着 DepMap 全基因 dependency 与 CN covariation。A+B：先 TCGA，再 targeted 三图与三个补充分析，最后全基因筛选和 CN covariation。
+只有 Gene A：TCGA CNA、CN 分布、逐癌种自身 CN–mRNA，接着 DepMap 全基因 dependency 与 CN covariation。A+B：先验证并复用 Gene A 的01–05，仅运行缺失或失效模块，再追加指定 Gene B 的三张主图及三个补充分析。
 
 缺少本地 processed 数据立即报错，不联网补齐。有效缓存默认跳过计算；`--force` 强制重算。默认不运行 reverse、mutation、expression dependency、genomewide expression 或 genomewide adjusted。已有 `--mode` 仅用于显式开发/单模块调用，普通用户使用上述 workflow。案例入口 `Rscript modules/VPS4B_VPS4A/run_case.R` 默认使用 A+B workflow。
 
 ## 结果
 
 ```text
-results/<GeneA>[_<GeneB>]_Analysis/
+results/<GeneA>_Analysis/
   00_Analysis_Summary.txt
-  Main_Results/       A-only 01–05；A+B 01–08：每个编号独立文件夹，PDF及对应CSV放在一起
-                      A-only 37 PDF；A+B 40 PDF，均含33癌种 CN–mRNA
-  Supplementary/      仅A+B：Lineage、Adjusted、CN Threshold Sensitivity；CSV在对应模块内
+  Main_Results/       共享01–05，37张PDF（含固定33癌种CN–mRNA）；CSV在对应模块内
+    06_GeneB_Dependency/<GeneB>/  独立TXT摘要及三张主图，各自保存PDF/CSV；可追加多个Gene B
+  Supplementary/<GeneB>/  Lineage、Adjusted、CN Threshold Sensitivity；CSV在对应模块内
   Provenance/         数据来源、版本/哈希、sessionInfo、运行与验证记录
     Data_Audit/       公共TCGA样本、RNA代表选择和baseline明细；无集中Tables目录
+    GeneB/<GeneB>/    各Gene B独立缓存、输入版本和运行记录
 ```
 
-[VPS4B/VPS4A 中文结果指南](results/VPS4B_VPS4A_Analysis/00_Analysis_Summary.txt) · [最终工作流与统计定义](docs/FINAL_WORKFLOWS.md)
+[MTAP 中文结果指南](results/MTAP_Analysis/00_Analysis_Summary.txt) · [最终工作流与统计定义](docs/FINAL_WORKFLOWS.md)
 
 ## 数据与统计
 

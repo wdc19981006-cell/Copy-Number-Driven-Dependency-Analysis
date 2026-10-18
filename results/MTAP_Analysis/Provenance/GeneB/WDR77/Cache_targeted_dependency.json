@@ -1,0 +1,71 @@
+{
+  "module": "targeted_dependency",
+  "key": "9e7cf4cee2bfd22fdc93339e83636d1e674ec52ee89731711cd72e91739b4e05",
+  "parameters": {
+    "geneA": "MTAP",
+    "geneB": "WDR77",
+    "bootstrap": {},
+    "min_group_n": 3,
+    "low": 0.585,
+    "deep": 0.35,
+    "seed": 1234,
+    "thresholds": [
+      0.585,
+      0.5,
+      0.4,
+      0.35
+    ]
+  },
+  "parameter_hash": "329d6a0c857aa30d4a612723b67a806b3022aea3922afab8b8e894bcc9fe3520",
+  "code_hash": "7664e3f3a72bc86f24766d0f4b1ae4ac05ec5cbfa19d568280bd584eb023ebe2",
+  "code_functions": ["targeted_statistics", "targeted_plots", "targeted_scatter_plot", "waterfall_order", "wf_run_targeted", "wf_targeted_statistics_key", "pair_correlations", "group_effect", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_table", "wf_table_relative", "wf_group_statistics", "wf_write_screen_status", "wf_screen_status_path", "wf_validate_artifact", "p_text", "p_star"],
+  "data_versions": [
+    {
+      "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+      "bytes": 218424120,
+      "mtime": "2026-10-02T17:52:03.793706+0800",
+      "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+      "provenance": {
+        "release": "26Q1",
+        "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+        "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+        "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+        "created_at": "2026-10-02T17:52:04+08:00",
+        "source_type": "user_supplied_portal_export",
+        "full_release_completeness": "unverified",
+        "orientation": "models x gene symbols"
+      }
+    },
+    {
+      "path": "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet",
+      "bytes": 232669929,
+      "mtime": "2026-10-02T17:52:29.330560+0800",
+      "prepared_sha256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+      "provenance": {
+        "release": "26Q1",
+        "raw_sha256": "55fdef5bccdf78116aa4c790febc09a6815b143e7c11a7095cbb930adf8dc51d",
+        "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+        "raw_source": "data/raw/depmap/26Q1/CRISPR_Chronos_26Q1.csv",
+        "created_at": "2026-10-02T17:52:30+08:00",
+        "source_type": "user_supplied_portal_export",
+        "full_release_completeness": "unverified",
+        "orientation": "models x gene symbols"
+      }
+    }
+  ],
+  "outputs": {
+    "Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/04_DepMap_MTAP_CN_vs_WDR77_Dependency.pdf": "bc7fef6ac59d485b8363053dace95ea49431cb7cd3e485767ea1fe938f3fb2fc",
+    "Main_Results/06_GeneB_Dependency/WDR77/02_WDR77_Dependency_Waterfall/05_DepMap_WDR77_Dependency_Waterfall.pdf": "792fa548b91c0fa675d4a2d48c01a9ab4b80a916162136e51ec61974df603610",
+    "Main_Results/06_GeneB_Dependency/WDR77/03_WDR77_CNlow_vs_Normal/06_DepMap_WDR77_Dependency_CNlow_vs_Normal.pdf": "98f271a7fcfed057ac4f30bcf621090c50afd36b55ce8039cf58303af9e5c280",
+    "Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/MTAP_WDR77_Targeted_Statistics.csv": "f3e0524ea141b21726df13bf13f9da818c6eb1f1cdf169ff32fd710e64b12d09",
+    "Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/MTAP_WDR77_CellLines.csv": "ba5c8822200ccba342275f45583a6f9e3360c273b2cb5674bd290cf44699dc84",
+    "Main_Results/06_GeneB_Dependency/WDR77/02_WDR77_Dependency_Waterfall/MTAP_WDR77_Waterfall_Order.csv": "b35eb39a738cc2353b8ba8932b08dacfca46043c60f6ebc8dde13b18186d646d",
+    "Main_Results/06_GeneB_Dependency/WDR77/03_WDR77_CNlow_vs_Normal/MTAP_WDR77_CNlow_vs_Normal_Statistics.csv": "8f0571c5cc461c059ebb2734d855cb64e90e34eb0cf2350f77429197d11b85ad"
+  },
+  "validated": true,
+  "analysis_status": "computed",
+  "detail": "",
+  "statistics_key": "65f29a88bb23c8a62cdaaa269dac5a5672a114fd88b0dd258e8d0355cce0a727",
+  "previous_key": "121778ec0586c9685ead7244ec9a4966ecceb9f1c34047812a9bbb73a4b60dd1",
+  "previous_code_hash": "484a7c3660f1aa8a62b4987c42cdf64394f82ad6662c6d519d37236cdfedc2f6"
+}

@@ -12,21 +12,23 @@ Rscript scripts/R/run_analysis.R --workflow geneA_screen --geneA VPS4B
 Rscript scripts/R/run_analysis.R --workflow geneA_geneB --geneA VPS4B --geneB VPS4A
 ```
 
-`--force` 强制重新计算必要模块。`--project` 指定项目路径；`--output_case` 可指定安全的单层目录名。默认 `--min_group_n=3`、`--bootstrap=1000`，不为预期结果调整阈值。
+`--force` 强制重新计算必要模块。`--project` 指定项目路径；公开工作流固定使用 Gene A 根目录，不接受 `--output_case`（仅开发 mode 保留该参数）。默认 `--min_group_n=3`、`--bootstrap=1000`，不为预期结果调整阈值。
 
 ```text
-results/<GeneA>[_<GeneB>]_Analysis/
+results/<GeneA>_Analysis/
   00_Analysis_Summary.txt
   Main_Results/
     01_TCGA_CNA_Percentage/          PDF + TCGA_CNA_Percentage.csv
     02_TCGA_CopyNumber_Landscape/    PDF + TCGA_Cancer_Order.csv
     03_TCGA_CN_mRNA/                33 癌种 PDF + 汇总统计 + CNA counts
-    04_DepMap_CN_vs_Dependency/     仅 A+B：PDF + targeted 统计 + matched cell lines
-    05_DepMap_Dependency_Waterfall/ 仅 A+B：PDF + waterfall order
-    06_DepMap_Dependency_CNlow_vs_Normal/ 仅 A+B：PDF + 已有 targeted 统计的分组字段
-    04或07_DepMap_GenomeWide_Dependency/  PDF + 全筛选/候选 CSV + 编号_Analysis_Status.txt
-    05或08_DepMap_CN_Covariation/    PDF + 全共变/Top CSV
-  Supplementary/                 仅 A+B
+    04_DepMap_GenomeWide_Dependency/  PDF + 全筛选/候选 CSV + 04_Analysis_Status.txt
+    05_DepMap_CN_Covariation/        PDF + 全共变/Top CSV
+    06_GeneB_Dependency/<GeneB>/
+      00_GeneB_Summary.txt
+      01_<GeneA>_CN_vs_<GeneB>_Dependency/  PDF + targeted统计 + matched cell lines
+      02_<GeneB>_Dependency_Waterfall/     PDF + waterfall order
+      03_<GeneB>_CNlow_vs_Normal/          PDF + 已有targeted统计的分组字段
+  Supplementary/<GeneB>/
     01_Lineage/
     02_Adjusted/
     03_CN_Threshold_Sensitivity/
@@ -34,11 +36,13 @@ results/<GeneA>[_<GeneB>]_Analysis/
     Data_Audit/                  TCGA_Current_Samples.csv、TCGA_RNA_Representative_Selection.csv、TCGA_Sample_Baselines.csv
 ```
 
-Gene A-only 共 **37** 张主 PDF；A+B 共 **40** 张主 PDF。默认不运行 reverse、mutation、expression dependency、genomewide expression 或 genomewide adjusted。研究反向依赖时交换 A/B 后运行同一个 A+B workflow。
+Gene A-only 共 **37** 张主 PDF；每追加一个 Gene B 增加 **3** 张。A+B 首先校验并复用共享01–05，只运行必要失效模块。基础缓存与 workflow、Gene B 无关；B模块独立缓存（A/B、相关输入/参数、代码与输出哈希），记录于 Provenance/GeneB/<GeneB>/。根 TXT 保留最初 Gene A 总结，逐个追加 Gene B 记录并更新精确文件索引；再次运行 A-only 也保留已有 Gene B。默认不运行 reverse、mutation、expression dependency、genomewide expression 或 genomewide adjusted。研究反向依赖时交换 A/B 后运行同一个 A+B workflow。
 
-每个主编号文件夹包含该图及其 CSV，Supplementary 的 CSV 也直接保存在所属模块内；不再生成集中 `Tables/`，不复制同一结果表。06 的分组表仅提取现有 targeted 结果字段，不新增检验。所有 PDF 的原文件名保持不变。
+每个主编号文件夹包含该图及其 CSV，Supplementary 的 CSV 也直接保存在所属模块内；不再生成集中 `Tables/`，不复制同一结果表。Gene B 的03分组表仅提取现有 targeted 结果字段，不新增检验。所有 PDF 的原文件名保持不变。
 
 目录迁移使用 `scripts/R/migrate_result_layout.R` 的 `migrate_result_layout(previous_workflow, previous_file_sources)`，在已初始化的通用工作流环境调用；旧工作流源文件保存在结果包外。旧 TCGA 导出助手的文件快照通过具名列表 `list("scripts/utils/export_workflow_tcga.py"="旧源文件快照路径")` 传入，逐字核对只改变 baseline JSON 的输出目的地。迁移先验证旧缓存代码/输入签名与输出哈希，确认统计和绘图函数不变，记录 SHA256 后移动，再独立核对字节并更新缓存路径与签名。若旧签名不能验证，报告受影响模块并停止，不运行分析。`File_Index.csv` 按授权更新，其旧哈希保存在迁移审计 JSON；原始 PDF、结果/样本 CSV 和 Module_Runs.csv 的字节保持一致。原统计验证记录保留，另附结构迁移验证；不声称重新执行统计验证。
+
+合并旧 A+B 项目使用 `scripts/R/migrate_geneA_project.R`，由 `PREVIOUS_WORKFLOW_DIR` 指定旧框架源码快照（结果包外）。先验证两处旧缓存签名及全部输出 SHA256，比较重复统计 CSV 的哈希与表内容，保留现有 A 的01–05，复制 B 的主图/CSV/补充分析并保留来源审计，仅重绘 scatter。重复 PDF 的旧/新 SHA256 均记录；时间戳或候选高亮差异不覆盖原 A 图。此维护入口不执行统计模块。结构、统计字节、缓存和视觉验证通过后，以 `MIGRATION_VISUAL_REVIEW=PASS` 再运行同一维护入口，核对完整旧目录快照与新结果后删除明确命名的旧目录。普通分析不自动合并历史目录；旧 Tables 迁移助手仅供显式历史维护。
 
 ## TCGA 数据层与共同顺序
 
@@ -56,11 +60,11 @@ TCGA 主图 01–03 **统一使用本地 current DR46 processed dataset**，只�
 
 使用本地 26Q1 WGS CN 和 Chronos Parquet：单基因读必要列；genome-wide 和 CN covariation 各读取一次必要完整矩阵。用户提供 portal exports 的完整性相对官方全 release 未验证，使用其全部提供的 Chronos 基因列。
 
-保留原始数值核心与 `CN_log=log2(relative CN+1)`、low `<0.585`。Genome-wide `Delta_median=median(low)-median(nonlow)`：负值表示 low 组更依赖，正值表示更弱。Wilcoxon P 和全筛选 BH FDR 不更改；历史 Rank 保留，主排名 Eligible_Rank 排除 undefined FDR。火山图标记每个方向 Top10，并额外高亮提供的 Gene B；候选表每方向 Top20。
+保留原始数值核心与 `CN_log=log2(relative CN+1)`、low `<0.585`。Genome-wide `Delta_median=median(low)-median(nonlow)`：负值表示 low 组更依赖，正值表示更弱。Wilcoxon P 和全筛选 BH FDR 不更改；历史 Rank 保留，主排名 Eligible_Rank 排除 undefined FDR。火山图标记每个方向 Top10；共享 Gene A 图不随以后提供的 Gene B 改变；候选表每方向 Top20。
 
 Targeted scatter 的横轴和角落统计是 **CN_relative**；为保留历史定义，统计表另保留 CN_log Pearson/Spearman，不把两种 Pearson 默认为相同。Waterfall 按 Chronos 从高到低（弱到强）排序，并列按 ModelID；CN-Normal 为黑色，low 红色。Boxplot 展示全部点、N、组 median、Delta median、Wilcoxon P 和星号。
 
-04 包含 y=0 灰色水平点线、CN-Low threshold=`2^0.585-1` 深灰垂直虚线、Deep CN Loss=`2^0.35-1` 黑色垂直点线。Deep 仅为视觉参考，分组仍只有 CN-Low/CN-Normal。只有散点图函数变化时直接复用已验证统计和05/06，只重新生成04。
+Gene B 散点图包含 y=0 灰色水平点线、CN-Low threshold=`2^0.585-1` 深灰垂直虚线、Deep CN Loss=`2^0.35-1` 黑色垂直点线。Deep 仅为视觉参考，分组仍只有 CN-Low/CN-Normal。点更小（size=.75）、alpha=.38；CN<0.01 的有限样本至少10个时，在空白处显示真实坐标放大图，不使用 jitter。只有散点图函数变化时直接复用已验证统计和其余两张主图，仅重绘 scatter PDF，不重跑全基因统计。
 
 Covariation 报告 positive Top20 与 negative Top20，排除 Gene A 自身；底部说明 Pearson r 是 Gene A 与各基因 CN 在 DepMap 细胞系中的线性相关系数，r > 0 倾向同向，r < 0 倾向反向，|r| 越接近 1 相关越强。panel 标题使用 usually，相关不解释为因果关系。TCGA 相对变化字段不进入任何 DepMap 分组或 dependency 统计。
 
@@ -68,12 +72,12 @@ Genome-wide 模块先以原有 CN_log 分组匹配 Chronos ModelID。如果任�
 
 ## 缓存与验收
 
-每个必要模块只调用一次。缓存键包含 Gene A/B、输入版本及已有 SHA256、文件大小/mtime、参数哈希、涉及的统计/绘图函数体和文件哈希。缓存记录各输出 SHA256；只有参数/输入/代码一致且所有输出存在、结构有效、内容哈希一致才跳过。修改某模块的绘图/统计函数只使相应模块失效，共用数据访问或阈值变动会使依赖它的模块失效。Provenance 的 `Cache_*.json` 是小型校验 metadata，不含中间矩阵。
+每个必要模块只调用一次。基础缓存键不包含 Gene B 或 workflow；Gene B 模块包含 Gene A/B。其余包含输入版本及已有 SHA256、文件大小/mtime、参数哈希、涉及的统计/绘图函数体和文件哈希。缓存记录各输出 SHA256；只有参数/输入/代码一致且所有输出存在、结构有效、内容哈希一致才跳过。修改某模块的绘图/统计函数只使相应模块失效，共用数据访问或阈值变动会使依赖它的模块失效。Provenance 的 `Cache_*.json` 是小型校验 metadata，不含中间矩阵。
 
 运行后内置验证会检查五级计数、排序、全部点数、样本匹配、逐癌种相关独立重算/BH、targeted 统计、waterfall 和完整文件索引；额外的 processed-source 验证：
 
 ```bat
-C:/Python312/python.exe scripts/utils/validate_final_sources.py --case VPS4B_VPS4A_Analysis
+C:/Python312/python.exe scripts/utils/validate_final_sources.py --case MTAP_Analysis
 Rscript --vanilla tests/run_synthetic_tests.R
 C:/Python312/python.exe tests/test_git_size_guard.py
 ```

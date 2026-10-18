@@ -1,14 +1,15 @@
 # Orchestration, module caches and the final user-facing result contract.
+source("scripts/R/geneA_project.R",encoding="UTF-8")
 workflow_paths <- function(workflow,geneA,geneB=NULL) {
  pair<-identical(workflow,"geneA_geneB")
  c(cna=paste0("Main_Results/01_TCGA_CNA_Percentage/01_TCGA_",geneA,"_CNA_Percentage.pdf"),
  landscape=paste0("Main_Results/02_TCGA_CopyNumber_Landscape/02_TCGA_",geneA,"_CopyNumber_Landscape.pdf"),
  rna="Main_Results/03_TCGA_CN_mRNA",
- if(pair)c(scatter=paste0("Main_Results/04_DepMap_CN_vs_Dependency/04_DepMap_",geneA,"_CN_vs_",geneB,"_Dependency.pdf"),
- waterfall=paste0("Main_Results/05_DepMap_Dependency_Waterfall/05_DepMap_",geneB,"_Dependency_Waterfall.pdf"),
- box=paste0("Main_Results/06_DepMap_Dependency_CNlow_vs_Normal/06_DepMap_",geneB,"_Dependency_CNlow_vs_Normal.pdf")),
- volcano=paste0("Main_Results/",if(pair)"07" else "04","_DepMap_GenomeWide_Dependency/",if(pair)"07" else "04","_DepMap_",geneA,"_GenomeWide_Dependency_Volcano.pdf"),
- covariation=paste0("Main_Results/",if(pair)"08" else "05","_DepMap_CN_Covariation/",if(pair)"08" else "05","_DepMap_",geneA,"_CN_Covariation.pdf"))
+ if(pair)c(scatter=paste0("Main_Results/06_GeneB_Dependency/",geneB,"/01_",geneA,"_CN_vs_",geneB,"_Dependency/04_DepMap_",geneA,"_CN_vs_",geneB,"_Dependency.pdf"),
+ waterfall=paste0("Main_Results/06_GeneB_Dependency/",geneB,"/02_",geneB,"_Dependency_Waterfall/05_DepMap_",geneB,"_Dependency_Waterfall.pdf"),
+ box=paste0("Main_Results/06_GeneB_Dependency/",geneB,"/03_",geneB,"_CNlow_vs_Normal/06_DepMap_",geneB,"_Dependency_CNlow_vs_Normal.pdf")),
+ volcano=paste0("Main_Results/04_DepMap_GenomeWide_Dependency/04_DepMap_",geneA,"_GenomeWide_Dependency_Volcano.pdf"),
+ covariation=paste0("Main_Results/05_DepMap_CN_Covariation/05_DepMap_",geneA,"_CN_Covariation.pdf"))
 }
 wf_table_relative <- function(name) {
  key<-switch(name,TCGA_CNA_Percentage.csv="cna",TCGA_Cancer_Order.csv="landscape",
@@ -25,16 +26,23 @@ wf_table_relative <- function(name) {
  supplements<-c(Lineage_Dependency.csv="01_Lineage",Lineage_Eligibility.csv="01_Lineage",
   Continuous_CN_Adjusted.csv="02_Adjusted",CNLow_Adjusted.csv="02_Adjusted",
   CN_Threshold_Sensitivity.csv="03_CN_Threshold_Sensitivity",CN_Threshold_Continuous_Statistics.csv="03_CN_Threshold_Sensitivity")
- if(name %in% names(supplements))return(file.path("Supplementary",supplements[[name]],name))
+ if(name %in% names(supplements))return(file.path("Supplementary",GENE_B,supplements[[name]],name))
  if(is.null(key)||!key %in% names(PATHS))stop("No output module assigned to table: ",name)
  file.path(if(key=="rna")PATHS[[key]] else dirname(PATHS[[key]]),name)
 }
 wf_table <- function(name)file.path(RESULT_ROOT,wf_table_relative(name))
 wf_provenance <- function(name)file.path(RESULT_ROOT,"Provenance",name)
+wf_base_modules <- function()c("tcga","genomewide_dependency","cn_covariation")
+wf_geneB_modules <- function()setdiff(workflow_modules("geneA_geneB"),wf_base_modules())
+wf_module_provenance <- function(module,name) {
+ if(module %in% wf_base_modules())wf_provenance(name) else wf_provenance(file.path("GeneB",GENE_B,name))
+}
+wf_supplement <- function(folder)file.path("Supplementary",GENE_B,folder)
 wf_write <- function(x,name) data.table::fwrite(x,wf_table(name),scipen=0)
 wf_create_directories <- function() {
  folders<-c("Provenance/Data_Audit",PATHS["rna"],dirname(PATHS[names(PATHS)!="rna"]))
- if(GENE_B_PROVIDED)folders<-c(folders,"Supplementary/01_Lineage","Supplementary/02_Adjusted","Supplementary/03_CN_Threshold_Sensitivity")
+ if(GENE_B_PROVIDED)folders<-c(folders,wf_supplement(c("01_Lineage","02_Adjusted","03_CN_Threshold_Sensitivity")),
+  file.path("Provenance/GeneB",GENE_B))
  for(p in unique(folders))dir.create(file.path(RESULT_ROOT,p),recursive=TRUE,showWarnings=FALSE)
 }
 wf_group_statistics <- function(s) {
@@ -42,7 +50,7 @@ wf_group_statistics <- function(s) {
  fields<-c("geneA","geneB","N_low","N_nonlow","Median_low","Median_nonlow","Delta_median","Wilcoxon_P")
  s[,intersect(fields,names(s)),with=FALSE]
 }
-wf_screen_status_path <- function()file.path(dirname(PATHS[["volcano"]]),paste0(if(GENE_B_PROVIDED)"07" else "04","_Analysis_Status.txt"))
+wf_screen_status_path <- function()file.path(dirname(PATHS[["volcano"]]),"04_Analysis_Status.txt")
 wf_write_screen_status <- function(status) {
  lines<-c(paste0("分析状态：",status$Status),paste0("CN-Low n=",status$N_low,"；CN-Normal n=",status$N_nonlow),
   paste0("当前最低每组样本数要求 n>=",status$min_group_n))
@@ -54,12 +62,14 @@ wf_route_supplements <- function() {
  # adapters.R had already substituted legacy folder literals in these supplied
  # functions. Route those literals to final supplementary folders at runtime.
  for(nm in c("run_lineage","run_adjusted")) {
-  f<-get(nm);code<-paste(deparse(body(f),width.cutoff=500L),collapse="\n")
+  f<-get(nm)
+  if(is.null(attr(f,"workflow_unrouted_body")))attr(f,"workflow_unrouted_body")<-body(f)
+  code<-paste(deparse(attr(f,"workflow_unrouted_body"),width.cutoff=500L),collapse="\n")
   for(pair in list(c("04_Lineage_Dependency","Supplementary/01_Lineage"),
                   c("05_Adjusted_Dependency","Supplementary/02_Adjusted"),
                   c("lineage_dependency","Supplementary/01_Lineage"),
                   c("adjusted_dependency","Supplementary/02_Adjusted")))
-   code<-gsub(paste0('"',pair[1],'"'),paste0('"',pair[2],'"'),code,fixed=TRUE)
+   code<-gsub(paste0('"',pair[1],'"'),paste0('"',wf_supplement(basename(pair[2])),'"'),code,fixed=TRUE)
   body(f)<-parse(text=code)[[1]];assign(nm,f,envir=.GlobalEnv)
  }
 }
@@ -117,9 +127,9 @@ wf_expected <- function(module) {
  genomewide_dependency=c(PATHS["volcano"],tables(c("GenomeWide_Dependency.csv","Top_Dependency_Candidates.csv")),
                         "Provenance/GenomeWide_Dependency_Status.json",wf_screen_status_path()),
  cn_covariation=c(PATHS["covariation"],tables(c(paste0(GENE_A,"_CN_Covariation.csv"),"Top_CN_Covariation.csv"))),
- lineage_dependency=c("Supplementary/01_Lineage/Lineage_Dependency_Forest.pdf",tables(c("Lineage_Dependency.csv","Lineage_Eligibility.csv"))),
- adjusted_dependency=c("Supplementary/02_Adjusted/Adjusted_CN_Coefficient.pdf",tables(c("Continuous_CN_Adjusted.csv","CNLow_Adjusted.csv"))),
- cn_threshold_sensitivity=c("Supplementary/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.pdf",
+ lineage_dependency=c(file.path(wf_supplement("01_Lineage"),"Lineage_Dependency_Forest.pdf"),tables(c("Lineage_Dependency.csv","Lineage_Eligibility.csv"))),
+ adjusted_dependency=c(file.path(wf_supplement("02_Adjusted"),"Adjusted_CN_Coefficient.pdf"),tables(c("Continuous_CN_Adjusted.csv","CNLow_Adjusted.csv"))),
+ cn_threshold_sensitivity=c(file.path(wf_supplement("03_CN_Threshold_Sensitivity"),"CN_Threshold_Sensitivity.pdf"),
                             tables(c("CN_Threshold_Sensitivity.csv","CN_Threshold_Continuous_Statistics.csv"))))
 }
 wf_validate_artifact <- function(path) {
@@ -134,8 +144,7 @@ wf_validate_artifact <- function(path) {
 }
 wf_hash_outputs <- function(paths)setNames(lapply(paths,function(p)digest::digest(file=file.path(RESULT_ROOT,p),algo="sha256")),paths)
 wf_parameters <- function(module)list(geneA=GENE_A,
- geneB=if(module %in% c("targeted_dependency","lineage_dependency","adjusted_dependency","cn_threshold_sensitivity","genomewide_dependency"))GENE_B else NULL,
- geneB_provided=if(module=="genomewide_dependency")GENE_B_PROVIDED else NULL,workflow=WORKFLOW,
+ geneB=if(module %in% wf_geneB_modules())GENE_B else NULL,
  bootstrap=if(module=="lineage_dependency")BOOT_R else NULL,min_group_n=MIN_N,low=.585,deep=.35,seed=1234,thresholds=c(.585,.50,.40,.35))
 wf_cache_valid <- function(old,key,outputs) {
  if(is.null(old)||!identical(old$key,key)||!identical(names(old$outputs),outputs))return(FALSE)
@@ -184,7 +193,7 @@ wf_targeted_statistics_key <- function() {
   code=lapply(functions,function(n)list(formals(get(n)),paste(deparse(body(get(n)),width.cutoff=500L),collapse="\n")))),algo="sha256")
 }
 wf_run_targeted <- function() {
- cache<-wf_provenance("Cache_targeted_dependency.json")
+ cache<-wf_module_provenance("targeted_dependency","Cache_targeted_dependency.json")
  old<-if(file.exists(cache))jsonlite::fromJSON(cache,simplifyVector=FALSE) else NULL
  preserved<-setdiff(unname(wf_expected("targeted_dependency")),unname(PATHS["scatter"]))
  if(!opt$force&&!is.null(old$statistics_key)&&identical(old$statistics_key,wf_targeted_statistics_key())&&
@@ -192,7 +201,6 @@ wf_run_targeted <- function() {
     identical(old$outputs[preserved],wf_hash_outputs(preserved))) {
   pair<-fread(wf_table(paste0(GENE_A,"_",GENE_B,"_CellLines.csv")))
   s<-fread(wf_table(paste0(GENE_A,"_",GENE_B,"_Targeted_Statistics.csv")))
-  wf_write(wf_group_statistics(s),paste0(GENE_A,"_",GENE_B,"_CNlow_vs_Normal_Statistics.csv"))
   workflow_save(targeted_scatter_plot(pair,s),file.path(RESULT_ROOT,PATHS["scatter"]))
   return("plot_regenerated")
  }
@@ -206,6 +214,9 @@ wf_run_targeted <- function() {
  invisible(NULL)
 }
 wf_run_screen <- function() {
+ # A discovery plot is shared by every Gene B and cannot highlight a later B.
+ supplied<-GENE_B_PROVIDED;GENE_B_PROVIDED<<-FALSE
+ on.exit(GENE_B_PROVIDED<<-supplied)
  counts<-screen_group_counts()
  skipped<-counts$N_low<MIN_N||counts$N_nonlow<MIN_N
  detail<-if(skipped)paste0("Insufficient CN group N: CN-Low n=",counts$N_low,
@@ -257,7 +268,7 @@ wf_run_supplement <- function(module) {
  }
  if(module=="cn_threshold_sensitivity")run_threshold_sensitivity()
 }
-wf_summary <- function() {
+wf_summary_base <- function() {
  old<-options(scipen=0);on.exit(options(old))
  separator<-paste(rep("=",50),collapse="")
  section<-function(title)c("",separator,title,separator)
@@ -329,7 +340,7 @@ run_final_workflow <- function() {
  wf_create_directories()
  if(dir.exists(file.path(RESULT_ROOT,"Tables")))stop("Legacy Tables layout: migrate existing results before running this workflow")
  OUTPUT_DIRS[c("lineage_dependency","adjusted_dependency","cn_threshold_sensitivity")]<<-
-  c("Supplementary/01_Lineage","Supplementary/02_Adjusted","Supplementary/03_CN_Threshold_Sensitivity")
+  wf_supplement(c("01_Lineage","02_Adjusted","03_CN_Threshold_Sensitivity"))
  wf_route_supplements()
  if(GENE_B_PROVIDED)for(p in OUTPUT_DIRS[c("lineage_dependency","adjusted_dependency","cn_threshold_sensitivity")])dir.create(file.path(RESULT_ROOT,p),recursive=TRUE,showWarnings=FALSE)
  # Legacy supplement functions write their tables through this scoped adapter.
@@ -344,7 +355,7 @@ run_final_workflow <- function() {
   code<-wf_code_signature(module)
   params<-wf_parameters(module)
   key<-digest::digest(list(inputs=versions,params=params,code=code$hash),algo="sha256")
-  cache_path<-wf_provenance(paste0("Cache_",module,".json"))
+  cache_path<-wf_module_provenance(module,paste0("Cache_",module,".json"))
   old<-if(file.exists(cache_path))tryCatch(jsonlite::fromJSON(cache_path,simplifyVector=FALSE),error=function(e)NULL) else NULL
   state<-"computed";execution<-"computed";detail<-""
   if(!opt$force&&wf_cache_valid(old,key,outputs)) {
@@ -367,16 +378,28 @@ run_final_workflow <- function() {
   runs[[module]]<-data.table(Module=module,Status=state,Execution=execution,Detail=detail,Seconds=as.numeric(difftime(Sys.time(),start,units="secs")))
   gc()
  }
- data.table::fwrite(rbindlist(runs),wf_provenance("Module_Runs.csv"))
+ run_path<-if(GENE_B_PROVIDED)wf_module_provenance("targeted_dependency","Module_Runs.csv") else wf_provenance("Module_Runs.csv")
+ data.table::fwrite(rbindlist(runs),run_path)
  metadata<-list(geneA=GENE_A,geneB=if(GENE_B_PROVIDED)GENE_B else NULL,workflow=WORKFLOW,DATA_MODE=DATA_MODE,
   R_version=as.character(getRversion()),run_date=format(Sys.time(),tz="Asia/Shanghai",usetz=TRUE),
   TCGA_main_layer="gdc_current_DR46",TCGA_current_source="NCI GDC DR46",TCGA_database="TCGA",TCGA_release="46.0",
   DepMap_release="26Q1",DepMap_full_release_completeness="unverified; all supplied Chronos gene columns tested",
   input_versions=inputs,parameters=list(low=.585,deep=.35,min_group_n=MIN_N,bootstrap=BOOT_R,seed=1234),
   code_files=setNames(lapply(list.files("scripts/R",pattern="\\.R$",full.names=TRUE),function(f)digest::digest(file=f,algo="sha256")),list.files("scripts/R",pattern="\\.R$",full.names=TRUE)))
- jsonlite::write_json(metadata,wf_provenance("Run_Metadata.json"),pretty=TRUE,auto_unbox=TRUE)
- writeLines(trimws(capture.output(sessionInfo()),which="right"),wf_provenance("SessionInfo.txt"))
- jsonlite::write_json(inputs,wf_provenance("Input_Versions.json"),pretty=TRUE,auto_unbox=TRUE)
+ # An initial A+B call must leave a complete standalone Gene A provenance too.
+ if(GENE_B_PROVIDED&&(!file.exists(wf_provenance("Run_Metadata.json"))||
+    any(vapply(runs[wf_base_modules()],function(r)r$Execution!="cached",logical(1))))) {
+  base_metadata<-metadata;base_metadata$geneB<-NULL;base_metadata$workflow<-"geneA_screen"
+  base_metadata$input_versions<-inputs[wf_base_modules()]
+  jsonlite::write_json(base_metadata,wf_provenance("Run_Metadata.json"),pretty=TRUE,auto_unbox=TRUE)
+  jsonlite::write_json(inputs[wf_base_modules()],wf_provenance("Input_Versions.json"),pretty=TRUE,auto_unbox=TRUE)
+  writeLines(trimws(capture.output(sessionInfo()),which="right"),wf_provenance("SessionInfo.txt"))
+  data.table::fwrite(rbindlist(runs[wf_base_modules()]),wf_provenance("Module_Runs.csv"))
+ }
+ scope_path<-function(name)if(GENE_B_PROVIDED)wf_module_provenance("targeted_dependency",name) else wf_provenance(name)
+ jsonlite::write_json(metadata,scope_path("Run_Metadata.json"),pretty=TRUE,auto_unbox=TRUE)
+ writeLines(trimws(capture.output(sessionInfo()),which="right"),scope_path("SessionInfo.txt"))
+ jsonlite::write_json(inputs,scope_path("Input_Versions.json"),pretty=TRUE,auto_unbox=TRUE)
  writeLines(c("Database = TCGA", "Source = NCI GDC", "Release = DR46 / 46.0",
   "TCGA user-facing database: TCGA", "Underlying source: NCI GDC", "Main data layer: gdc_current_DR46",
   "RNA: STAR TPM; analysis: log2(TPM + 1).", "Gene-level CN: current TCGA absolute Gene-Level Copy Number.",

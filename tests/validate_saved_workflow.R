@@ -10,7 +10,7 @@ wf_route_supplements()
 PATHS<-workflow_paths(WORKFLOW,GENE_A,GENE_B)
 TCGA_CANCERS<-sort(unique(unname(unlist(jsonlite::fromJSON(file.path(PROJECT_ROOT,"config/tcga_cancer_types.json"))$mapping))))
 for(module in workflow_modules(WORKFLOW)) {
- old<-jsonlite::fromJSON(wf_provenance(paste0("Cache_",module,".json")),simplifyVector=FALSE)
+ old<-jsonlite::fromJSON(wf_module_provenance(module,paste0("Cache_",module,".json")),simplifyVector=FALSE)
  key<-digest::digest(list(inputs=wf_input_versions(wf_input_paths(module)),params=wf_parameters(module),
                          code=wf_code_signature(module)$hash),algo="sha256")
  stopifnot(wf_cache_valid(old,key,unname(wf_expected(module))))

@@ -84,9 +84,34 @@ Key Findings
 - CN-mRNA：33 癌种图；29 癌种 Pearson BH-FDR < 0.05。
 - 以上为观察性相关与依赖差异，不能解释为 CN 缺失导致 dependency 或其他基因 CN 改变。
 
-==================================================
+06. MTAP → WDR77 Dependency
+MTAP → WDR77 Dependency
+分析目的：检验 MTAP relative CN 与 WDR77 Chronos dependency 的关联。
+N=858；CN-Low N=234；CN-Normal N=624
+Relative CN Pearson r=0.301963215728516；Spearman rho=0.231976289148726
+Median Chronos：low=-1.56003423555；normal=-1.2802829004
+Delta median=-0.27975133515；Wilcoxon P=0.0000000000000000236460845683589
+分组仍使用原始 CN_log < 0.585；统计仍使用原始观测值；相关不代表因果。
+三张主图：
+Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/04_DepMap_MTAP_CN_vs_WDR77_Dependency.pdf
+Main_Results/06_GeneB_Dependency/WDR77/02_WDR77_Dependency_Waterfall/05_DepMap_WDR77_Dependency_Waterfall.pdf
+Main_Results/06_GeneB_Dependency/WDR77/03_WDR77_CNlow_vs_Normal/06_DepMap_WDR77_Dependency_CNlow_vs_Normal.pdf
+统计CSV位置：
+Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/MTAP_WDR77_Targeted_Statistics.csv
+Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/MTAP_WDR77_CellLines.csv
+Main_Results/06_GeneB_Dependency/WDR77/02_WDR77_Dependency_Waterfall/MTAP_WDR77_Waterfall_Order.csv
+Main_Results/06_GeneB_Dependency/WDR77/03_WDR77_CNlow_vs_Normal/MTAP_WDR77_CNlow_vs_Normal_Statistics.csv
+Supplementary/WDR77/01_Lineage/Lineage_Dependency.csv
+Supplementary/WDR77/01_Lineage/Lineage_Eligibility.csv
+Supplementary/WDR77/02_Adjusted/Continuous_CN_Adjusted.csv
+Supplementary/WDR77/02_Adjusted/CNLow_Adjusted.csv
+Supplementary/WDR77/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.csv
+Supplementary/WDR77/03_CN_Threshold_Sensitivity/CN_Threshold_Continuous_Statistics.csv
+Supplementary位置：Supplementary/WDR77/
+补充分析：Lineage、Adjusted、CN Threshold Sensitivity。
+
 File Index
-==================================================
+00_Analysis_Summary.txt
 Main_Results/01_TCGA_CNA_Percentage/01_TCGA_MTAP_CNA_Percentage.pdf
 Main_Results/01_TCGA_CNA_Percentage/TCGA_CNA_Percentage.csv
 Main_Results/02_TCGA_CopyNumber_Landscape/02_TCGA_MTAP_CopyNumber_Landscape.pdf
@@ -133,7 +158,23 @@ Main_Results/04_DepMap_GenomeWide_Dependency/Top_Dependency_Candidates.csv
 Main_Results/05_DepMap_CN_Covariation/05_DepMap_MTAP_CN_Covariation.pdf
 Main_Results/05_DepMap_CN_Covariation/MTAP_CN_Covariation.csv
 Main_Results/05_DepMap_CN_Covariation/Top_CN_Covariation.csv
-00_Analysis_Summary.txt
+Main_Results/06_GeneB_Dependency/WDR77/00_GeneB_Summary.txt
+Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/04_DepMap_MTAP_CN_vs_WDR77_Dependency.pdf
+Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/MTAP_WDR77_CellLines.csv
+Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/MTAP_WDR77_Targeted_Statistics.csv
+Main_Results/06_GeneB_Dependency/WDR77/02_WDR77_Dependency_Waterfall/05_DepMap_WDR77_Dependency_Waterfall.pdf
+Main_Results/06_GeneB_Dependency/WDR77/02_WDR77_Dependency_Waterfall/MTAP_WDR77_Waterfall_Order.csv
+Main_Results/06_GeneB_Dependency/WDR77/03_WDR77_CNlow_vs_Normal/06_DepMap_WDR77_Dependency_CNlow_vs_Normal.pdf
+Main_Results/06_GeneB_Dependency/WDR77/03_WDR77_CNlow_vs_Normal/MTAP_WDR77_CNlow_vs_Normal_Statistics.csv
+Supplementary/WDR77/01_Lineage/Lineage_Dependency.csv
+Supplementary/WDR77/01_Lineage/Lineage_Dependency_Forest.pdf
+Supplementary/WDR77/01_Lineage/Lineage_Eligibility.csv
+Supplementary/WDR77/02_Adjusted/Adjusted_CN_Coefficient.pdf
+Supplementary/WDR77/02_Adjusted/CNLow_Adjusted.csv
+Supplementary/WDR77/02_Adjusted/Continuous_CN_Adjusted.csv
+Supplementary/WDR77/03_CN_Threshold_Sensitivity/CN_Threshold_Continuous_Statistics.csv
+Supplementary/WDR77/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.csv
+Supplementary/WDR77/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.pdf
 技术审计、版本和验证信息保存在Provenance
 Provenance/Cache_cn_covariation.json
 Provenance/Cache_genomewide_dependency.json
@@ -141,6 +182,32 @@ Provenance/Cache_tcga.json
 Provenance/Data_Audit/TCGA_Current_Samples.csv
 Provenance/Data_Audit/TCGA_RNA_Representative_Selection.csv
 Provenance/Data_Audit/TCGA_Sample_Baselines.csv
+Provenance/File_Index.csv
+Provenance/GeneA_Project_Migration.json
+Provenance/GeneA_Summary.txt
+Provenance/GeneB/WDR77/Cache_adjusted_dependency.json
+Provenance/GeneB/WDR77/Cache_cn_threshold_sensitivity.json
+Provenance/GeneB/WDR77/Cache_lineage_dependency.json
+Provenance/GeneB/WDR77/Cache_targeted_dependency.json
+Provenance/GeneB/WDR77/Legacy/00_Analysis_Summary.txt
+Provenance/GeneB/WDR77/Legacy/Cache_adjusted_dependency.json
+Provenance/GeneB/WDR77/Legacy/Cache_cn_covariation.json
+Provenance/GeneB/WDR77/Legacy/Cache_cn_threshold_sensitivity.json
+Provenance/GeneB/WDR77/Legacy/Cache_genomewide_dependency.json
+Provenance/GeneB/WDR77/Legacy/Cache_lineage_dependency.json
+Provenance/GeneB/WDR77/Legacy/Cache_targeted_dependency.json
+Provenance/GeneB/WDR77/Legacy/Cache_tcga.json
+Provenance/GeneB/WDR77/Legacy/File_Index.csv
+Provenance/GeneB/WDR77/Legacy/GenomeWide_Dependency_Status.json
+Provenance/GeneB/WDR77/Legacy/Input_Versions.json
+Provenance/GeneB/WDR77/Legacy/Input_Versions.txt
+Provenance/GeneB/WDR77/Legacy/Module_Runs.csv
+Provenance/GeneB/WDR77/Legacy/Run_Metadata.json
+Provenance/GeneB/WDR77/Legacy/SessionInfo.txt
+Provenance/GeneB/WDR77/Legacy/Source_Metadata.txt
+Provenance/GeneB/WDR77/Legacy/TCGA_Baseline_Method.json
+Provenance/GeneB/WDR77/Legacy/TCGA_Plot_Order.json
+Provenance/GeneB/WDR77/Legacy/Validation.json
 Provenance/GenomeWide_Dependency_Status.json
 Provenance/Input_Versions.json
 Provenance/Input_Versions.txt
@@ -151,4 +218,3 @@ Provenance/Source_Metadata.txt
 Provenance/TCGA_Baseline_Method.json
 Provenance/TCGA_Plot_Order.json
 Provenance/Validation.json
-Provenance/File_Index.csv

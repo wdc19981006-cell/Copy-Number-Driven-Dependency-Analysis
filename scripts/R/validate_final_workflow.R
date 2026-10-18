@@ -1,14 +1,16 @@
 # Structural-only validation for result migrations: no data matrix or statistics.
 validate_result_layout <- function() {
  files<-sort(list.files(RESULT_ROOT,recursive=TRUE))
- expected<-unname(unlist(lapply(workflow_modules(WORKFLOW),wf_expected)))
+ stopifnot(!any(grepl("\\.(py|[Rr]|rds|RData|parquet|duckdb|zip|exe|pyc)$",files)),
+  !any(grepl("(^|/)(raw|processed|Tables|cache|logs)/",files)))
+ expected<-wf_project_expected()
  stopifnot(!dir.exists(file.path(RESULT_ROOT,"Tables")),
   all(vapply(file.path(RESULT_ROOT,expected),wf_validate_artifact,logical(1))))
  main<-sort(expected[startsWith(expected,"Main_Results/")])
  stopifnot(identical(paste0("Main_Results/",sort(list.files(file.path(RESULT_ROOT,"Main_Results"),recursive=TRUE))),main),
-  length(list.dirs(file.path(RESULT_ROOT,"Main_Results"),recursive=FALSE))==if(GENE_B_PROVIDED)8L else 5L,
+  length(list.dirs(file.path(RESULT_ROOT,"Main_Results"),recursive=FALSE))==if(length(wf_geneBs()))6L else 5L,
   identical(sort(list.files(file.path(RESULT_ROOT,PATHS["rna"]),pattern="\\.pdf$")),sort(paste0(TCGA_CANCERS,"_",GENE_A,"_CN_mRNA.pdf"))),
-  length(list.files(file.path(RESULT_ROOT,"Main_Results"),pattern="\\.pdf$",recursive=TRUE))==if(GENE_B_PROVIDED)40L else 37L)
+  length(list.files(file.path(RESULT_ROOT,"Main_Results"),pattern="\\.pdf$",recursive=TRUE))==37L+3L*length(wf_geneBs()))
  index<-data.table::fread(wf_provenance("File_Index.csv"))
  summary<-readLines(file.path(RESULT_ROOT,"00_Analysis_Summary.txt"),encoding="UTF-8",warn=FALSE)
  stopifnot(!anyDuplicated(index$Path),identical(sort(index$Path),files),
@@ -125,7 +127,8 @@ validate_final_workflow <- function() {
   s<-data.table::fread(wf_table(paste0(GENE_A,"_",GENE_B,"_Targeted_Statistics.csv")))
   check("targeted_unique_finite_cohort",!anyDuplicated(pair$ModelID)&&all(is.finite(pair$CN_relative)&is.finite(pair$Chronos)))
   check("targeted_CN_groups",all((pair$CN_binary=="CN-Low")== (log2(pair$CN_relative+1)<.585)))
-  pb<-ggplot_build(targeted_scatter_plot(pair,s))
+  scatter<-targeted_scatter_plot(pair,s)
+  pb<-ggplot_build(if(inherits(scatter,"patchwork"))scatter[[1]] else scatter)
   check("targeted_three_reference_lines",identical(pb$data[[2]]$yintercept,0)&&
    equal(pb$data[[3]]$xintercept,2^.585-1)&&equal(pb$data[[4]]$xintercept,2^.35-1))
   check("targeted_two_visual_groups",length(unique(pb$data[[1]]$colour))==length(unique(pair$CN_binary)))
@@ -149,15 +152,15 @@ validate_final_workflow <- function() {
  check("covariation_Pearson_explanation",all(vapply(c("Pearson r","r > 0","r < 0","|r|","correlation","causation"),
   function(term)grepl(term,caption,fixed=TRUE),logical(1))))
  files<-sort(list.files(RESULT_ROOT,recursive=TRUE))
- expected<-unname(unlist(lapply(workflow_modules(WORKFLOW),wf_expected)))
+ expected<-wf_project_expected()
  check("all_expected_files",all(vapply(file.path(RESULT_ROOT,expected),wf_validate_artifact,logical(1))))
  expected_main<-sort(sub("^Main_Results/","",expected[startsWith(expected,"Main_Results/")]))
  check("exact_main_outputs",identical(sort(list.files(file.path(RESULT_ROOT,"Main_Results"),recursive=TRUE)),expected_main))
  check("exact_33_CN_mRNA_PDF_names",identical(sort(list.files(file.path(RESULT_ROOT,PATHS["rna"]),pattern="\\.pdf$")),
   sort(paste0(TCGA_CANCERS,"_",GENE_A,"_CN_mRNA.pdf"))))
- check("main_PDF_count",length(list.files(file.path(RESULT_ROOT,"Main_Results"),pattern="\\.pdf$",recursive=TRUE))==if(GENE_B_PROVIDED)40L else 37L)
+ check("main_PDF_count",length(list.files(file.path(RESULT_ROOT,"Main_Results"),pattern="\\.pdf$",recursive=TRUE))==37L+3L*length(wf_geneBs()))
  check("no_central_Tables",!dir.exists(file.path(RESULT_ROOT,"Tables")))
- check("main_module_folder_count",length(list.dirs(file.path(RESULT_ROOT,"Main_Results"),recursive=FALSE))==if(GENE_B_PROVIDED)8L else 5L)
+ check("main_module_folder_count",length(list.dirs(file.path(RESULT_ROOT,"Main_Results"),recursive=FALSE))==if(length(wf_geneBs()))6L else 5L)
  check("shared_sample_audit",all(file.exists(file.path(RESULT_ROOT,"Provenance/Data_Audit",
   c("TCGA_Current_Samples.csv","TCGA_RNA_Representative_Selection.csv","TCGA_Sample_Baselines.csv")))))
  if(GENE_B_PROVIDED) {

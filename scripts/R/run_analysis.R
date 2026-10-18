@@ -36,9 +36,10 @@ if(MODE=="genomewide_adjusted_dependency"&&!GENE_B_PROVIDED)GENE_B<-"ALL"
 BOOT_R <- opt$bootstrap;MIN_N <- opt$min_group_n
 stopifnot(BOOT_R>0,MIN_N>=3,grepl("^[A-Z0-9_.-]+$",GENE_A),!nzchar(GENE_B)||grepl("^[A-Z0-9_.-]+$",GENE_B))
 RESULT_ROOT <- file.path(PROJECT_ROOT,"results",paste0(GENE_A,"_",GENE_B))
-if(!is.null(WORKFLOW))RESULT_ROOT<-file.path(PROJECT_ROOT,"results",paste0(GENE_A,if(GENE_B_PROVIDED)paste0("_",GENE_B),"_Analysis"))
+if(!is.null(WORKFLOW))RESULT_ROOT<-file.path(PROJECT_ROOT,"results",paste0(GENE_A,"_Analysis"))
 if(MODE=="genomewide_adjusted_dependency"&&!GENE_B_PROVIDED)RESULT_ROOT<-file.path(PROJECT_ROOT,"results",paste0(GENE_A,"_GenomeWide"))
 if(!is.null(opt$output_case)){
+ if(!is.null(WORKFLOW))stop("Public workflows use the fixed <GeneA>_Analysis directory")
  if(!grepl("^[A-Za-z0-9_.-]+$",opt$output_case)||opt$output_case %in% c(".",".."))stop("Invalid output case folder")
  RESULT_ROOT<-file.path(PROJECT_ROOT,"results",opt$output_case)
 }

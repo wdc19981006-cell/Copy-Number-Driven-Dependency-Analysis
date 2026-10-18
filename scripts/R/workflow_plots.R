@@ -72,18 +72,33 @@ targeted_scatter_plot <- function(pair,stat) {
  colors<-setNames(c("black","red"),levels(d$Group))
  annotation<-paste0("Pearson r = ",signif(stat$Relative_CN_Pearson_r,3),
  "\nSpearman rho = ",signif(stat$Relative_CN_Spearman_rho,3),"\nN = ",stat$N)
- p<-ggplot(d,aes(CN_relative,Chronos))+geom_point(aes(color=Group),alpha=.55,size=1.2)+
+ p<-ggplot(d,aes(CN_relative,Chronos))+geom_point(aes(color=Group),alpha=.38,size=.75)+
  geom_hline(yintercept=0,linetype="dotted",color="grey55",linewidth=.5)+
  geom_vline(xintercept=2^.585-1,linetype="dashed",color="grey30",linewidth=.6)+
  geom_vline(xintercept=2^.35-1,linetype="dotted",color="black",linewidth=.6)+
  scale_color_manual(values=colors)+workflow_theme()+
- scale_y_continuous(expand=expansion(mult=c(.16,.08)))+
+ scale_y_continuous(expand=expansion(mult=c(.20,.08)))+
+ scale_x_continuous(expand=expansion(mult=c(.02,.06)))+
  annotate("label",x=2^.35-1,y=-Inf,label="Deep CN Loss",hjust=0,vjust=-1.3,size=3,linewidth=0,fill="white")+
  annotate("label",x=2^.585-1,y=-Inf,label="CN-Low threshold",hjust=0,vjust=-.05,size=3,linewidth=0,fill="white")+
- annotate("label",x=Inf,y=Inf,label=annotation,hjust=1.04,vjust=1.1,size=3.3,linewidth=0,fill="white")+
  labs(title=paste(GENE_B,"Dependency in Cells with Low",GENE_A,"Copy Number"),
+ subtitle=paste0(gsub("\n",";  ",annotation),"\nCN-Low n = ",stat$N_low,"; CN-Normal n = ",stat$N_nonlow),
  x=paste(GENE_A,"Relative Copy Number"),y=paste(GENE_B,"Chronos Gene Effect"),color=NULL,
- caption="More negative Chronos indicates stronger dependency. Deep CN Loss is a visual reference only.")
+ caption="More negative Chronos indicates stronger dependency. Deep CN Loss is a visual reference only.\nPoints use observed relative CN and Chronos; no jitter or coordinate alteration.")
+ near<-d[is.finite(CN_relative)&CN_relative>=0&CN_relative<.01&is.finite(Chronos)]
+ if(nrow(near)>=10L) {
+  yr<-range(c(d$Chronos,0),finite=TRUE);span<-max(diff(yr),.1)
+  xr<-range(c(0,d$CN_relative,2^.585-1),finite=TRUE)
+  inset<-ggplot(near,aes(CN_relative,Chronos,color=Group))+geom_point(size=.65,alpha=.4)+
+   scale_color_manual(values=colors,drop=FALSE)+scale_x_continuous(limits=c(0,.01),breaks=c(0,.005,.01),expand=expansion(mult=.02))+
+   coord_cartesian(ylim=yr)+theme_classic(base_size=8)+
+   theme(legend.position="none",plot.background=element_rect(fill="white",color="grey65",linewidth=.3),
+         plot.margin=margin(4,5,4,5),plot.title=element_text(size=8))+
+   labs(title=paste0("Observed CN < 0.01 (n = ",nrow(near),")"),x="Relative CN",y="Chronos")
+  p<-p+coord_cartesian(xlim=c(xr[1]-.02*diff(xr),xr[2]+.06*diff(xr)),
+   ylim=c(yr[1]-.20*span,yr[2]+.72*span),expand=FALSE)+
+   patchwork::inset_element(inset,left=.57,bottom=.67,right=.99,top=.99,align_to="panel")
+ }
  p
 }
 targeted_plots <- function(pair,stat,paths) {

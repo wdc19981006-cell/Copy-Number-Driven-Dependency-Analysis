@@ -125,6 +125,15 @@
     "screen_insufficient_groups_SKIP": true,
     "genomewide_complete_BH": true,
     "eligible_rank": true,
+    "targeted_unique_finite_cohort": true,
+    "targeted_CN_groups": true,
+    "targeted_three_reference_lines": true,
+    "targeted_two_visual_groups": true,
+    "targeted_independent_correlations": true,
+    "targeted_independent_Wilcoxon": true,
+    "targeted_group_medians_and_N": true,
+    "waterfall_weak_to_strong": true,
+    "screen_targeted_agree": true,
     "covariation_direction": true,
     "covariation_Pearson_explanation": true,
     "all_expected_files": true,
@@ -134,11 +143,12 @@
     "no_central_Tables": true,
     "main_module_folder_count": true,
     "shared_sample_audit": true,
+    "box_statistics_from_targeted": true,
     "no_default_hidden_modules": true,
     "summary_TXT": true,
     "file_index_matches_actual_files": true
   },
-  "number_of_checks": 136,
+  "number_of_checks": 146,
   "processed_source_checks": {
     "current_source_exact_sample_join": true,
     "STAR_TPM_and_log2_processed_agree": true,
@@ -170,5 +180,20 @@
     "status": "PASS",
     "TCGA_PDFs_rendered_and_reviewed": 35,
     "DepMap_PDFs_rendered_and_reviewed": 2
+  },
+  "PDF_visual_validation": {
+    "status": "PASS",
+    "main_PDFs": 40,
+    "supplementary_PDFs": 3,
+    "single_page": true,
+    "scatter_vector": true,
+    "scatter_raster_images": 0,
+    "near_zero_inset": "Observed CN < 0.01; n=172; no jitter"
+  },
+  "statistics_preservation": {
+    "status": "PASS",
+    "duplicated_CSVs": 11,
+    "targeted_CSVs": "SHA256 identical to original git baseline",
+    "statistical_modules_recomputed": false
   }
 }

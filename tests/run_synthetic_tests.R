@@ -1,4 +1,4 @@
-tests<-c("test_r_core.R","test_cn_threshold_sensitivity.R","test_expression_dependency.R","test_tcga_by_cancer.R","test_genomewide_adjusted.R","test_tcga_sample_selection.R","test_final_workflows.R","test_output_case_finalize.R")
+tests<-c("test_r_core.R","test_cn_threshold_sensitivity.R","test_expression_dependency.R","test_tcga_by_cancer.R","test_genomewide_adjusted.R","test_tcga_sample_selection.R","test_final_workflows.R","test_output_case_finalize.R","test_geneA_project.R")
 reports<-list()
 for(name in tests){
  cat("\nRunning",name,"\n")

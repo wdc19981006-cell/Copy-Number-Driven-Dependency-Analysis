@@ -33,12 +33,12 @@ for(workflow in c("geneA_screen","geneA_geneB")) {
   wf_write(s,paste0(GENE_A,"_",GENE_B,"_Targeted_Statistics.csv"))
   wf_write(wf_group_statistics(s),paste0(GENE_A,"_",GENE_B,"_CNlow_vs_Normal_Statistics.csv"))
   wf_write(data.table(Lineage=character(),FDR=numeric(),Delta_median=numeric()),"Lineage_Dependency.csv")
-  stopifnot(grepl("04_DepMap_CN_vs_Dependency/",wf_table(paste0(GENE_A,"_",GENE_B,"_CellLines.csv")),fixed=TRUE),
-   grepl("05_DepMap_Dependency_Waterfall/",wf_table(paste0(GENE_A,"_",GENE_B,"_Waterfall_Order.csv")),fixed=TRUE),
-   grepl("06_DepMap_Dependency_CNlow_vs_Normal/",wf_table(paste0(GENE_A,"_",GENE_B,"_CNlow_vs_Normal_Statistics.csv")),fixed=TRUE),
-   grepl("Supplementary/01_Lineage/",wf_table("Lineage_Eligibility.csv"),fixed=TRUE),
-   grepl("Supplementary/02_Adjusted/",wf_table("Continuous_CN_Adjusted.csv"),fixed=TRUE),
-   grepl("Supplementary/03_CN_Threshold_Sensitivity/",wf_table("CN_Threshold_Sensitivity.csv"),fixed=TRUE))
+  stopifnot(grepl(paste0("01_",GENE_A,"_CN_vs_",GENE_B,"_Dependency/"),wf_table(paste0(GENE_A,"_",GENE_B,"_CellLines.csv")),fixed=TRUE),
+   grepl(paste0("02_",GENE_B,"_Dependency_Waterfall/"),wf_table(paste0(GENE_A,"_",GENE_B,"_Waterfall_Order.csv")),fixed=TRUE),
+   grepl(paste0("03_",GENE_B,"_CNlow_vs_Normal/"),wf_table(paste0(GENE_A,"_",GENE_B,"_CNlow_vs_Normal_Statistics.csv")),fixed=TRUE),
+   grepl(paste0("Supplementary/",GENE_B,"/01_Lineage/"),wf_table("Lineage_Eligibility.csv"),fixed=TRUE),
+   grepl(paste0("Supplementary/",GENE_B,"/02_Adjusted/"),wf_table("Continuous_CN_Adjusted.csv"),fixed=TRUE),
+   grepl(paste0("Supplementary/",GENE_B,"/03_CN_Threshold_Sensitivity/"),wf_table("CN_Threshold_Sensitivity.csv"),fixed=TRUE))
  }
  wf_summary()
  read_gene<-function(...)stop("Structural validation must not read data")
@@ -54,6 +54,8 @@ for(workflow in c("geneA_screen","geneA_geneB")) {
  data.table::fwrite(index[-1],wf_provenance("File_Index.csv"))
  stopifnot(inherits(try(validate_result_layout(),silent=TRUE),"try-error"))
  data.table::fwrite(index,wf_provenance("File_Index.csv"))
+ forbidden<-file.path(RESULT_ROOT,"unplanned.py");writeLines("# fixture",forbidden)
+ stopifnot(inherits(try(validate_result_layout(),silent=TRUE),"try-error"));unlink(forbidden)
  dir.create(file.path(RESULT_ROOT,"Tables"))
  stopifnot(inherits(try(validate_result_layout(),silent=TRUE),"try-error"))
  stopifnot(dirname(normalizePath(file.path(RESULT_ROOT,"Tables"),winslash="/"))==normalizePath(RESULT_ROOT,winslash="/"),

@@ -1,11 +1,9 @@
 {
   "module": "genomewide_dependency",
-  "key": "e789ebc68ddc1f2f15728d89a194dec08dcf5e44cae8636e52b0cdfa4a1e8219",
+  "key": "135de8432bc2b4add8a29aba2789a64bb72d6dd82896e0b17d283a8c99ea433e",
   "parameters": {
     "geneA": "MTAP",
-    "geneB": "",
-    "geneB_provided": false,
-    "workflow": "geneA_screen",
+    "geneB": {},
     "bootstrap": {},
     "min_group_n": 3,
     "low": 0.585,
@@ -13,8 +11,8 @@
     "seed": 1234,
     "thresholds": [0.585, 0.5, 0.4, 0.35]
   },
-  "parameter_hash": "0d426a45353d4d7ca65a598ab180048e86e199bb0c21e4485a2a231c2a2a330a",
-  "code_hash": "bcaa8002a473f0a6067813efae3cf0e6770f833c5f141fe4750afbea94b0b5f9",
+  "parameter_hash": "af6f6728a766c66b24cecf683da696f341226273cd3c65953d956a2cbcceb5b6",
+  "code_hash": "3ac485d713d8252baa6e09d99f892510c68d92c194657f4523d39685d3c2dbfc",
   "code_functions": ["run_genomewide", "screen_core_statistics", "screen_group_counts", "empty_screen_statistics", "eligible_rank", "dependency_top", "volcano_plot", "wf_run_screen", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_table", "wf_table_relative", "wf_group_statistics", "wf_write_screen_status", "wf_screen_status_path", "wf_validate_artifact", "p_text", "p_star"],
   "data_versions": [
     {
@@ -60,5 +58,7 @@
   "validated": true,
   "analysis_status": "computed",
   "detail": "",
-  "statistics_key": {}
+  "statistics_key": {},
+  "previous_key": "e789ebc68ddc1f2f15728d89a194dec08dcf5e44cae8636e52b0cdfa4a1e8219",
+  "previous_code_hash": "bcaa8002a473f0a6067813efae3cf0e6770f833c5f141fe4750afbea94b0b5f9"
 }

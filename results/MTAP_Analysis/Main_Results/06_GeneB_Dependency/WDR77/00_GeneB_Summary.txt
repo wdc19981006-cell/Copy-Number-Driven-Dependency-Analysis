@@ -1,0 +1,24 @@
+MTAP → WDR77 Dependency
+分析目的：检验 MTAP relative CN 与 WDR77 Chronos dependency 的关联。
+N=858；CN-Low N=234；CN-Normal N=624
+Relative CN Pearson r=0.301963215728516；Spearman rho=0.231976289148726
+Median Chronos：low=-1.56003423555；normal=-1.2802829004
+Delta median=-0.27975133515；Wilcoxon P=0.0000000000000000236460845683589
+分组仍使用原始 CN_log < 0.585；统计仍使用原始观测值；相关不代表因果。
+三张主图：
+Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/04_DepMap_MTAP_CN_vs_WDR77_Dependency.pdf
+Main_Results/06_GeneB_Dependency/WDR77/02_WDR77_Dependency_Waterfall/05_DepMap_WDR77_Dependency_Waterfall.pdf
+Main_Results/06_GeneB_Dependency/WDR77/03_WDR77_CNlow_vs_Normal/06_DepMap_WDR77_Dependency_CNlow_vs_Normal.pdf
+统计CSV位置：
+Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/MTAP_WDR77_Targeted_Statistics.csv
+Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/MTAP_WDR77_CellLines.csv
+Main_Results/06_GeneB_Dependency/WDR77/02_WDR77_Dependency_Waterfall/MTAP_WDR77_Waterfall_Order.csv
+Main_Results/06_GeneB_Dependency/WDR77/03_WDR77_CNlow_vs_Normal/MTAP_WDR77_CNlow_vs_Normal_Statistics.csv
+Supplementary/WDR77/01_Lineage/Lineage_Dependency.csv
+Supplementary/WDR77/01_Lineage/Lineage_Eligibility.csv
+Supplementary/WDR77/02_Adjusted/Continuous_CN_Adjusted.csv
+Supplementary/WDR77/02_Adjusted/CNLow_Adjusted.csv
+Supplementary/WDR77/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.csv
+Supplementary/WDR77/03_CN_Threshold_Sensitivity/CN_Threshold_Continuous_Statistics.csv
+Supplementary位置：Supplementary/WDR77/
+补充分析：Lineage、Adjusted、CN Threshold Sensitivity。

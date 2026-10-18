@@ -1,11 +1,9 @@
 {
   "module": "cn_covariation",
-  "key": "e132005bd48ba405ee26211b7ccabe108a416a26c92ba6691390b11e7615a4b8",
+  "key": "bd8e77dc023495753d1bbd95bec044d5c7c9a26bbf32f708ca27266aa012a7bc",
   "parameters": {
     "geneA": "MTAP",
     "geneB": {},
-    "geneB_provided": {},
-    "workflow": "geneA_screen",
     "bootstrap": {},
     "min_group_n": 3,
     "low": 0.585,
@@ -13,8 +11,8 @@
     "seed": 1234,
     "thresholds": [0.585, 0.5, 0.4, 0.35]
   },
-  "parameter_hash": "dccbb52f427eaf39432e7cf3f213a78aadbea8d1e2c5ba6420fb6cdd1dc3dbb9",
-  "code_hash": "67c935e6a81a6f2e7c35bdf1c21ea6d56c398f56fee89e61c2c59f2a4e999b9a",
+  "parameter_hash": "af6f6728a766c66b24cecf683da696f341226273cd3c65953d956a2cbcceb5b6",
+  "code_hash": "16a0b88fda0d53252cde2d945b97d085165c6102ae094183f9da5ec50b85846c",
   "code_functions": ["covariation_statistics", "covariation_top", "covariation_plot", "wf_run_covariation", "prepare_cn", "load_target_pair", "read_gene", "load_model", "fread", "find_gene_col", "clean_gene", "processed_depmap", "processed_pair", "wf_write", "workflow_save", "workflow_theme", "save_pdf", "workflow_paths", "wf_table", "wf_table_relative", "wf_group_statistics", "wf_write_screen_status", "wf_screen_status_path", "wf_validate_artifact", "p_text", "p_star"],
   "data_versions": [
     {
@@ -42,5 +40,7 @@
   "validated": true,
   "analysis_status": "computed",
   "detail": "",
-  "statistics_key": {}
+  "statistics_key": {},
+  "previous_key": "e132005bd48ba405ee26211b7ccabe108a416a26c92ba6691390b11e7615a4b8",
+  "previous_code_hash": "67c935e6a81a6f2e7c35bdf1c21ea6d56c398f56fee89e61c2c59f2a4e999b9a"
 }

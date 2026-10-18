@@ -22,8 +22,8 @@ tcga_relative_cn <- function(dat) {
 }
 workflow_modules <- function(workflow) {
  switch(workflow,geneA_screen=c("tcga","genomewide_dependency","cn_covariation"),
- geneA_geneB=c("tcga","targeted_dependency","lineage_dependency","adjusted_dependency",
-              "cn_threshold_sensitivity","genomewide_dependency","cn_covariation"),
+ geneA_geneB=c("tcga","genomewide_dependency","cn_covariation","targeted_dependency",
+              "lineage_dependency","adjusted_dependency","cn_threshold_sensitivity"),
  stop("Unsupported workflow: ",workflow))
 }
 cancer_order <- function(dat,cancers) {
