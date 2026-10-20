@@ -29,6 +29,7 @@ def forbidden(name):
 
 
 def inspect_worktree(paths, root=ROOT):
+    root = Path(root).resolve()
     issues = []
     for name in paths:
         target = (root / name).resolve()

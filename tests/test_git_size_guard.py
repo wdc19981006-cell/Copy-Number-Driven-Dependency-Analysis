@@ -2,6 +2,7 @@ import importlib.util
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 spec = importlib.util.spec_from_file_location('guard', Path(__file__).resolve().parents[1] / 'scripts/utils/git_size_guard.py')
@@ -36,6 +37,20 @@ class GuardTests(unittest.TestCase):
             report = guard.inspect_index(root)
             self.assertEqual(report['largest_files'][0][0], 5)
             self.assertEqual(report['issues'], [])
+
+    def test_root_alias_keeps_size_and_containment_checks(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / 'project'
+            (root / 'step').mkdir(parents=True)
+            alias = root / 'step' / '..'
+            (root / 'large.csv').write_bytes(b'12345')
+            (root.parent / 'outside.csv').write_bytes(b'outside')
+            with patch.object(guard, 'LIMIT', 4):
+                issues = guard.inspect_worktree(['large.csv'], alias)
+            self.assertEqual(len(issues), 1)
+            self.assertIn('larger than', issues[0][1])
+            self.assertEqual(guard.inspect_worktree(['../outside.csv'], alias),
+                             [('../outside.csv', 'outside project')])
 
 
 if __name__ == '__main__':

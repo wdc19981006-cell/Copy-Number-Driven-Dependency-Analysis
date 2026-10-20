@@ -71,7 +71,7 @@ DepMap：CN 18,613 基因 × 1,118 模型；Chronos 18,531 基因 × 1,208 模�
 - 仅提供核心文件的安全隔离项目完成 geneA_screen 和 geneA_geneB；raw 和待删除 processed 在环境中均不存在，Python/R 网络入口受到阻止，未调用数据维护/下载。
 - MTAP→WDR77 的 21 份 main/supplementary/audit CSV 全部 SHA256 相同，字节级一致，最大数值差异 0，包括 Pearson/Spearman/P/FDR、CNA、relative CN、全基因筛选、Eligible_Rank、targeted、lineage/adjusted/sensitivity 和 CN covariation。
 - A+B 验证复用 A 的三个模块；原始全基因组统计只运行一次。7 个有效 MTAP 模块缓存的精确新旧 key 映射通过独立复核；9 个原本失效的其他案例旧参数/布局缓存保持原样，未标记为有效。
-- R 4.5.0 九组 synthetic suites 和 Python 22 项测试通过。覆盖 CN-Low N=0/1/2 或任一组不足时 SKIPPED、缺失/常量、baseline 并列、RNA 选择、数据/输出篡改、删除越界、微小 P 值变零拒绝和活跃进程保护。
+- 删除前 R 4.5.0 九组 synthetic suites 和 Python 22 项测试通过。覆盖 CN-Low N=0/1/2 或任一组不足时 SKIPPED、缺失/常量、baseline 并列、RNA 选择、数据/输出篡改、删除越界、微小 P 值变零拒绝和活跃进程保护。
 - 43 页 PDF 经 Poppler 渲染并完成视觉检查；固定 33 癌种 PDF 和 COAD/READ 独立覆盖通过。
 - 删除后重新读取 MTAP TCGA、任意基因 TP53 表达及 858 个 MTAP→WDR77 匹配模型；完整 DepMap CN/Chronos/Model 矩阵读取通过；原 21 份结果 CSV 保持不变。跨语言源值复核以 round-trip CSV 解析和 rtol=5e-13、atol=0 处理序列化/机器精度，未修改分析值。
 - 项目 raw 目录已清空移除，processed 只剩上述十个核心 Parquet。隔离测试矩阵别名已移除；代码、结果、配置、运行库和必要溯源文件保留。
@@ -81,3 +81,5 @@ DepMap：CN 18,613 基因 × 1,118 模型；Chronos 18,531 基因 × 1,208 模�
 [核心验证](../data/manifests/analysis_ready_validation.json) · [真实回归](../data/manifests/analysis_ready_regression.json) · [删除后验证](../data/manifests/analysis_ready_post_cleanup.json) · [精简报告 JSON](../data/manifests/data_cleanup_report.json) · [精确删除清单](../data/manifests/data_cleanup_files.jsonl) · [逐项删除记录](../data/manifests/data_cleanup_deleted.jsonl) · [缓存迁移元数据](../data/manifests/analysis_storage_cache_migration.json)
 
 本地工作区开始时已有 96 个旧结果文件的未提交删除；本任务保留这些用户改动，不纳入本次 Git 提交。GitHub commit、push、CI 和远程 SHA 一致性见最终交付消息。
+
+后续 CI 补充验收：Windows staging guard 的短/长路径根目录规范化已修复；新增路径别名、超限拒绝及越界拒绝测试后，Python 共 23 项通过。此修改仅影响 Git staging 安全检查，分析读取程序与统计代码未变，真实回归报告保留为当时执行的历史证据。

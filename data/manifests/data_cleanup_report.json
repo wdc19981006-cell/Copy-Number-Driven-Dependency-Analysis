@@ -368,5 +368,13 @@
   "project_after_bytes": 4834187143,
   "project_net_reduction_bytes": 106563070594,
   "project_size_measurement": "Same os.walk/stat file-byte sum before and after; test fixture removed; before Git commit",
-  "measured_at": "2026-10-20T15:20:45+08:00"
+  "measured_at": "2026-10-20T15:20:45+08:00",
+  "post_cleanup_CI_guard_fix": {
+    "file": "scripts/utils/git_size_guard.py",
+    "SHA256": "a86cb116715650cccd6405e4db34218c1230f1e7c3475003409687293b119666",
+    "reason": "Normalize Windows short/long root aliases before containment and relative-path checks",
+    "analysis_sources_changed": false,
+    "local_Python_tests_after_fix": 23,
+    "pre_cleanup_regression_report_preserved_as_historical_execution_evidence": true
+  }
 }
