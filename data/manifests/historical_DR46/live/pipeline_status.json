@@ -1,0 +1,5 @@
+{
+  "updated_at": "2026-10-02T20:16:08+08:00",
+  "phase": "complete",
+  "note": "Raw downloaded, publisher MD5/SHA256 verified, current ETL and validation complete. Repository/case snapshots remain timestamped; rerun desired TCGA modes to update example results."
+}

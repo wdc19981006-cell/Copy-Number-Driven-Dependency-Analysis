@@ -38,3 +38,10 @@ jobs:
           renv::restore(packages = c('data.table', 'dplyr', 'ggplot2', 'jsonlite', 'digest', 'patchwork', 'ggrepel'), prompt = FALSE)
       - name: Synthetic and unchanged-core tests (no TCGA or DepMap data)
         run: Rscript --vanilla tests/run_synthetic_tests.R
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Python test dependencies (no analysis data)
+        run: python -m pip install -r requirements.txt
+      - name: Analysis-ready storage and sample-selection fixtures
+        run: python -m unittest discover -s tests -p "test_*.py"

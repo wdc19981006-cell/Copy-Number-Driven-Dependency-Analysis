@@ -1,10 +1,8 @@
 # Python bridge reads only requested genes from Parquet; no R arrow dependency.
 tcga_ready <- function(){
- cfg<-jsonlite::fromJSON(file.path(PROJECT_ROOT,"config/tcga_layers.json"))
- live<-file.path(PROJECT_ROOT,"data/raw/tcga/gdc_current_DR46/manifests/live/current_layer_status.json")
- if(file.exists(live))cfg<-jsonlite::fromJSON(live)
- if(!identical(cfg$current_status,"complete"))return(FALSE)
- TRUE
+ folder<-file.path(PROJECT_ROOT,"data/processed/tcga/gdc_DR46")
+ all(file.exists(file.path(folder,paste0(c("TCGA_GeneLevel_CN","TCGA_STAR_TPM",
+     "TCGA_Sample_Baselines","TCGA_Sample_Metadata","TCGA_RNA_Selection"),".parquet"))))
 }
 tcga_gene <- function(dataset,layer="current"){
  target<-file.path(out_dir("tcga"),paste0(GENE_A,"_",dataset,"_",layer,".csv"))

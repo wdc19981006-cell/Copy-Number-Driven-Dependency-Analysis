@@ -1,0 +1,289 @@
+{
+  "status": "PASS",
+  "validated_at": "2026-10-20T14:30:13+08:00",
+  "geneA": "MTAP",
+  "geneB": "WDR77",
+  "synthetic_R": true,
+  "synthetic_Python": true,
+  "isolated_geneA_screen": true,
+  "isolated_geneA_geneB": true,
+  "all_saved_CSVs_equal": true,
+  "no_raw_or_network": true,
+  "independent_source_check": true,
+  "base_modules_reused": true,
+  "core_only_fixture": ".runtime/database_optimization/core_only",
+  "comparison_tolerance": "rtol=5e-13, atol=0; missing masks/order/identifiers must match",
+  "maximum_absolute_CSV_difference": 0.0,
+  "compared_CSVs": [
+    {
+      "path": "Main_Results/01_TCGA_CNA_Percentage/TCGA_CNA_Percentage.csv",
+      "rows": 165,
+      "columns": 6,
+      "reference_SHA256": "6fdd111fc9a387d0439fc6d86c80db35946a05c49703d73fdf197362ffbad8a8",
+      "actual_SHA256": "6fdd111fc9a387d0439fc6d86c80db35946a05c49703d73fdf197362ffbad8a8"
+    },
+    {
+      "path": "Main_Results/02_TCGA_CopyNumber_Landscape/TCGA_Cancer_Order.csv",
+      "rows": 33,
+      "columns": 6,
+      "reference_SHA256": "a1cf234b648f465a7cfe027b60b39749ea38ac5730ee21fc6ee207dddd8c8ef2",
+      "actual_SHA256": "a1cf234b648f465a7cfe027b60b39749ea38ac5730ee21fc6ee207dddd8c8ef2"
+    },
+    {
+      "path": "Main_Results/03_TCGA_CN_mRNA/TCGA_CN_mRNA_CNA_Counts.csv",
+      "rows": 165,
+      "columns": 3,
+      "reference_SHA256": "ceab51aae4a73ee4f75b424fd57a9217f50e6fd645302eb6105b16885f0f7599",
+      "actual_SHA256": "ceab51aae4a73ee4f75b424fd57a9217f50e6fd645302eb6105b16885f0f7599"
+    },
+    {
+      "path": "Main_Results/03_TCGA_CN_mRNA/TCGA_MTAP_CN_mRNA_AllCancer_Statistics.csv",
+      "rows": 33,
+      "columns": 12,
+      "reference_SHA256": "63a9ac374f20127bcdd168be06f6be84021fef00447268547259758e4be7b2ff",
+      "actual_SHA256": "63a9ac374f20127bcdd168be06f6be84021fef00447268547259758e4be7b2ff"
+    },
+    {
+      "path": "Main_Results/04_DepMap_GenomeWide_Dependency/GenomeWide_Dependency.csv",
+      "rows": 18531,
+      "columns": 18,
+      "reference_SHA256": "70a55c3197be4742c4bdbe649ae8db032c759e766be8d7b5412c576983e9df77",
+      "actual_SHA256": "70a55c3197be4742c4bdbe649ae8db032c759e766be8d7b5412c576983e9df77"
+    },
+    {
+      "path": "Main_Results/04_DepMap_GenomeWide_Dependency/Top_Dependency_Candidates.csv",
+      "rows": 40,
+      "columns": 19,
+      "reference_SHA256": "b4634f52e78bd689fe0704acf73ade06ab4036d10c177672dac5a0487bba6173",
+      "actual_SHA256": "b4634f52e78bd689fe0704acf73ade06ab4036d10c177672dac5a0487bba6173"
+    },
+    {
+      "path": "Main_Results/05_DepMap_CN_Covariation/MTAP_CN_Covariation.csv",
+      "rows": 18613,
+      "columns": 5,
+      "reference_SHA256": "77369d7a4ebd255c6ec19b1c99529ea8e12dfd1d699217c10c3af63a724feb10",
+      "actual_SHA256": "77369d7a4ebd255c6ec19b1c99529ea8e12dfd1d699217c10c3af63a724feb10"
+    },
+    {
+      "path": "Main_Results/05_DepMap_CN_Covariation/Top_CN_Covariation.csv",
+      "rows": 40,
+      "columns": 6,
+      "reference_SHA256": "1d1c99b8c280ff617fb1828302835c2ca39abeefa39d491fc48d05e31416aee0",
+      "actual_SHA256": "1d1c99b8c280ff617fb1828302835c2ca39abeefa39d491fc48d05e31416aee0"
+    },
+    {
+      "path": "Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/MTAP_WDR77_CellLines.csv",
+      "rows": 858,
+      "columns": 6,
+      "reference_SHA256": "ba5c8822200ccba342275f45583a6f9e3360c273b2cb5674bd290cf44699dc84",
+      "actual_SHA256": "ba5c8822200ccba342275f45583a6f9e3360c273b2cb5674bd290cf44699dc84"
+    },
+    {
+      "path": "Main_Results/06_GeneB_Dependency/WDR77/01_MTAP_CN_vs_WDR77_Dependency/MTAP_WDR77_Targeted_Statistics.csv",
+      "rows": 1,
+      "columns": 21,
+      "reference_SHA256": "f3e0524ea141b21726df13bf13f9da818c6eb1f1cdf169ff32fd710e64b12d09",
+      "actual_SHA256": "f3e0524ea141b21726df13bf13f9da818c6eb1f1cdf169ff32fd710e64b12d09"
+    },
+    {
+      "path": "Main_Results/06_GeneB_Dependency/WDR77/02_WDR77_Dependency_Waterfall/MTAP_WDR77_Waterfall_Order.csv",
+      "rows": 858,
+      "columns": 8,
+      "reference_SHA256": "b35eb39a738cc2353b8ba8932b08dacfca46043c60f6ebc8dde13b18186d646d",
+      "actual_SHA256": "b35eb39a738cc2353b8ba8932b08dacfca46043c60f6ebc8dde13b18186d646d"
+    },
+    {
+      "path": "Main_Results/06_GeneB_Dependency/WDR77/03_WDR77_CNlow_vs_Normal/MTAP_WDR77_CNlow_vs_Normal_Statistics.csv",
+      "rows": 1,
+      "columns": 8,
+      "reference_SHA256": "8f0571c5cc461c059ebb2734d855cb64e90e34eb0cf2350f77429197d11b85ad",
+      "actual_SHA256": "8f0571c5cc461c059ebb2734d855cb64e90e34eb0cf2350f77429197d11b85ad"
+    },
+    {
+      "path": "Provenance/Data_Audit/TCGA_Current_Samples.csv",
+      "rows": 11339,
+      "columns": 31,
+      "reference_SHA256": "8dab6f714c75007217d16d5312281ba20a7d6fdd86dac12b3e3f17b6ada095d6",
+      "actual_SHA256": "8dab6f714c75007217d16d5312281ba20a7d6fdd86dac12b3e3f17b6ada095d6"
+    },
+    {
+      "path": "Provenance/Data_Audit/TCGA_RNA_Representative_Selection.csv",
+      "rows": 11505,
+      "columns": 13,
+      "reference_SHA256": "c04e17ccba7223779bd7bf607542e2db700d83b540ca4dbabd9f29f0d22ef928",
+      "actual_SHA256": "c04e17ccba7223779bd7bf607542e2db700d83b540ca4dbabd9f29f0d22ef928"
+    },
+    {
+      "path": "Provenance/Data_Audit/TCGA_Sample_Baselines.csv",
+      "rows": 11339,
+      "columns": 6,
+      "reference_SHA256": "b296d4a93a1da5879967f5503ad243719a973e5580fd6ac1b60a7479fbc5f38e",
+      "actual_SHA256": "b296d4a93a1da5879967f5503ad243719a973e5580fd6ac1b60a7479fbc5f38e"
+    },
+    {
+      "path": "Supplementary/WDR77/01_Lineage/Lineage_Dependency.csv",
+      "rows": 19,
+      "columns": 10,
+      "reference_SHA256": "db922c18e9af60314dd0050773ee8fbcc3d1c0961f15256c416884719014c6d6",
+      "actual_SHA256": "db922c18e9af60314dd0050773ee8fbcc3d1c0961f15256c416884719014c6d6"
+    },
+    {
+      "path": "Supplementary/WDR77/01_Lineage/Lineage_Eligibility.csv",
+      "rows": 29,
+      "columns": 4,
+      "reference_SHA256": "84e316ccd084dae8b7e499b447c59d3afbd2d3080996881e42231fd2d8ef23e2",
+      "actual_SHA256": "84e316ccd084dae8b7e499b447c59d3afbd2d3080996881e42231fd2d8ef23e2"
+    },
+    {
+      "path": "Supplementary/WDR77/02_Adjusted/CNLow_Adjusted.csv",
+      "rows": 30,
+      "columns": 5,
+      "reference_SHA256": "bd24f27dc5b9e46b9d82b85080e4c9ff909ed6bc323689bb3ad83de10f7c0332",
+      "actual_SHA256": "bd24f27dc5b9e46b9d82b85080e4c9ff909ed6bc323689bb3ad83de10f7c0332"
+    },
+    {
+      "path": "Supplementary/WDR77/02_Adjusted/Continuous_CN_Adjusted.csv",
+      "rows": 30,
+      "columns": 5,
+      "reference_SHA256": "7e525ad8418d52b2b146f8979673050449d4dbd621453c996a26b9d00969d050",
+      "actual_SHA256": "7e525ad8418d52b2b146f8979673050449d4dbd621453c996a26b9d00969d050"
+    },
+    {
+      "path": "Supplementary/WDR77/03_CN_Threshold_Sensitivity/CN_Threshold_Continuous_Statistics.csv",
+      "rows": 1,
+      "columns": 5,
+      "reference_SHA256": "d75e6f874b9e5a8bb7d94176c869adaba0247b14a2040900428393a541042c0e",
+      "actual_SHA256": "d75e6f874b9e5a8bb7d94176c869adaba0247b14a2040900428393a541042c0e"
+    },
+    {
+      "path": "Supplementary/WDR77/03_CN_Threshold_Sensitivity/CN_Threshold_Sensitivity.csv",
+      "rows": 4,
+      "columns": 13,
+      "reference_SHA256": "817655457db33a70d4648e3cc104d8bce56795d9c2a6d6ba64a9ca7ba1a3ea8d",
+      "actual_SHA256": "817655457db33a70d4648e3cc104d8bce56795d9c2a6d6ba64a9ca7ba1a3ea8d"
+    }
+  ],
+  "code_sha256": {
+    "scripts/__init__.py": "cbef877e8b3e92bb83a0b08f61155e7e6b81caa764ed93c88a6af3e46f11c672",
+    "scripts/data_access.py": "2c093e7d390bccd20c3b7433967c75b21918ca4f4b731b3dfd18dc6ea8047004",
+    "scripts/download/__init__.py": "8dc70573611604c8ba276c3a3ccca7100326517a473e9c0d0cf6b02b10a5fc53",
+    "scripts/download/check_updates.py": "98f1c5a2186baa016d30cccc2f11b51bc19e834108e6f42b32711b4c66307c53",
+    "scripts/download/discover_gdc.py": "3d542f364b3768e5911a0b5794800c35049f8fca506ea803f7da6f70fa26fc05",
+    "scripts/download/download_depmap.py": "9d9ac3b4636bdef4eabdd3dd6ff8acc7760112ba0a0745a83bc9a032b898e22f",
+    "scripts/download/download_gdc.py": "21e7b9427f99b82e68cf1696e6c34bd9584f1cce8699d857659cef09b849087f",
+    "scripts/download/download_gdc_api.py": "442ed71a6d06b7136dd8efd98c7688feadfd8890c49322cc0d32aa88c21f9d8e",
+    "scripts/download/download_gdc_bundles.py": "f287955da79a3e9e027d3bb87dc97a761a3a506b0b14a2b5720611d5b00f5b56",
+    "scripts/download/download_gdc_clinical.py": "a41dbe212bfff92b54b26c10b60d5bd92e72d52cd0d0f0e570ba9cbc162c4518",
+    "scripts/download/download_tcga.py": "f1d3bd5cc1a9b2216553652ad23fc6371ece6a34e076ddc0da295b4a4a7f94c1",
+    "scripts/download/install_gdc_client.py": "09658e7c7b7411ee9d7a9e9d1da43a3a1e8bf26a959a5c9c0a93b2b66ce65fc2",
+    "scripts/maintain_data.py": "4d8fbfa655d6e8d57028b1a712ed21c9ced2a4c2e8497655ea0af576fb03b573",
+    "scripts/preprocess/__init__.py": "7bb33ed13d8402b346a06d5cc19094ae53c8782f62388b35a1ffa80c6584392e",
+    "scripts/preprocess/preprocess_depmap.py": "b0ceb1ee00b360c3a3acb946209044c7f66228110d8e31f545597700dce23ad0",
+    "scripts/preprocess/preprocess_gdc.py": "706511f64b1e35e953137c78f40478516d629c51c5551a1105b54ce42cbb7253",
+    "scripts/preprocess/preprocess_gdc_clinical.py": "36861561ec1e8aa074b2e5405dcca50e3ec24b95c9cd04269dfcee816d8d0be9",
+    "scripts/preprocess/preprocess_local_depmap.py": "fa36e30c2dcfd3d54d6b03507f1e9e82f2396492b971590a3e258a521efac8e8",
+    "scripts/preprocess/preprocess_tcga.py": "bd0a8049e92d67061f93c77d668dfd2aa3cf8e33d9557a097df7eacd0cf6d3ad",
+    "scripts/preprocess/preprocess_tcga_mutation.py": "6b8301875674664a8e4af3cb48b7bd9989fdd1dc3cd69078c65ff48a1043c576",
+    "scripts/R/adapters.R": "0d1f952148f647e9a8cc4f1add619dc01ee5fa90194393f2ee41118d438330f9",
+    "scripts/R/additional_modes.R": "6ae8baaa2c7c47b24f37f3737bd68d274a5cefc5cec7d7fd96118a8e4161749a",
+    "scripts/R/data_access.R": "d5e968a476308aa2397d53ee42c7f4c37f0e35be406973b45b42ed273cb13fed",
+    "scripts/R/dependency_screen.R": "b70db346e05b13ec8559c8cb43ac289964db358e60089a401ba1f79a3fb7182b",
+    "scripts/R/diagnose_environment.R": "10c51d1171d5b5d6d13441a934152440734a94e0df9029a62fdc6ac22e51d645",
+    "scripts/R/extension_modules.R": "6aff719f01e4c3c60d06be1d0581329bf1730887c738f7086b103e578d26e2d4",
+    "scripts/R/extension_summary.R": "0fec62d8c9b4d5db175a496cfbc791a725001c8efcc5fd8195a48d359da9b5ad",
+    "scripts/R/extensions_statistics.R": "783f055923e735f9b5f896a05fa8805ad11960a212c887889095f8480919c5a2",
+    "scripts/R/final_workflow.R": "51cd90e49afd57eaa69bf680181f705a1078a2d49b797179d7a2f5f796b552cd",
+    "scripts/R/finalize_environment.R": "9d15e79872ca219c4582a9606127a4949cff24d2fe83f6319f23b101eb95ee63",
+    "scripts/R/geneA_project.R": "0acc7c86cfe9260c055cc2538c18eab3e6d314cfef17d0f762e19a60878e85b7",
+    "scripts/R/install_compatible_dependencies.R": "44b6de60944471e83c5b0e5540020a4463c66905901187592e90339e9cf8bf37",
+    "scripts/R/install_native_direct.R": "c2fcde080fa6e6dd32a63b45fc9d3316f96b85731989bec95db46afd1564d02e",
+    "scripts/R/install_optional_parquet_packages.R": "0a258428e87f01c59ef089afe08f3772863adffb0add1ae39b7bb4991ab91d86",
+    "scripts/R/lineage_analysis.R": "7b213d5652de007f1861735e983939d228d9da2a2b9ed4dede0c88f10a13d122",
+    "scripts/R/local_data.R": "247f8e5a751df5e84d45f0c5268d49340241a975f8aca45cace36df8bffc457f",
+    "scripts/R/lock_environment.R": "82e80b2a8987875ee970a29ca5194c98df05bcb92acc63c3432ffada29ccac98",
+    "scripts/R/migrate_analysis_storage_cache.R": "d12e347b8be06c392e177dea33588eb206091404a3577694fdd2cd6fc9eacb89",
+    "scripts/R/migrate_geneA_project.R": "3f4f7e97ee5754dc593cdf8477245fa928fb567e5d9e1afdb5545bfbedbdda79",
+    "scripts/R/migrate_result_layout.R": "5f651a3a6a64d9045f7c1e0e9d7717e532bbcd9f0ec4d5a65f9341d3d552dc13",
+    "scripts/R/plotting.R": "5389588b4e9067dc7240a1ae5b4ab9026791058b0433f5ae28fe836a4e01b047",
+    "scripts/R/probe_package.R": "9fc2758575fbd6bbca4873c5d7e382a6335347a1276497cdcb351b814a523dee",
+    "scripts/R/rebuild_native_dependencies.R": "88b2bd4432b592a0ff45c7d57563e6f26078d4c86a63baef49e07d1c354355bf",
+    "scripts/R/redraw_final_plots.R": "92c408a2c26b1237b5a9d8c294e446f5aa0ad031b483aacd76ca20d3f7c5f719",
+    "scripts/R/restore_original_packages.R": "de6edf0626e0455b7efa150a912ca80961fcc65ad9acbfb84350bada01ab4196",
+    "scripts/R/run_analysis.R": "9ee82b62940814f58e3afee0a8b7f591e760b620b1e01ed52251ef2575312926",
+    "scripts/R/serialize_case_statistics.R": "83ff531de9384419c6693ce863f2bc4597a52b69dd76cdf51a31b24c738b09fd",
+    "scripts/R/setup_environment.R": "025a2b5b538f2ca7ceed434af356b5b31d97ad7478bd5fc96b40fb0add422e26",
+    "scripts/R/tcga_analysis.R": "ca7370d770c835af051f8d37fcfcd172f6f943dfa0eb084011dde25475b99685",
+    "scripts/R/validate_final_workflow.R": "6f64d1a82c198d64bbf9c49a26b9b43540dc1428eb3cf314c2a1da2c7905dee8",
+    "scripts/R/verify_environment.R": "2ab5c5b09804703808e4fe81eed3083284c7f304fd1daef6f9af678a1d95a1b3",
+    "scripts/R/workflow_plots.R": "b905aa03d1cb453f39b75e6274ec0a9915c254af9dcb8612165570b10daa02f0",
+    "scripts/R/workflow_statistics.R": "0b31d1252c1afce0aa79daa34df9ef554752bf95e0a3bf225870dd5f606f43ec",
+    "scripts/utils/__init__.py": "299f72b1bdc05b0717e412dd7d87a97b2a6cccfac34d89cefb9fdaecec6d85ef",
+    "scripts/utils/adapt_r_core.py": "7313c3ceeb4307b675e0456a721d7f0b80d844fbbb2cf9c5393079ce10202d22",
+    "scripts/utils/add_eligible_rank.py": "da9fb8f3a67c66c600660b634d768b74f326e3f6dd71ffba5debf4756f6bc378",
+    "scripts/utils/audit_git_index.py": "64b6148c1d9c2ffd367b7de3ad9248d0c2b6cec49d3226849593e979b58aa366",
+    "scripts/utils/audit_maf_identity.py": "2dbbffcdd735a099663d4c4c1c06fc2ef7f9732dd3034a7c335932b1cb0632a1",
+    "scripts/utils/benchmark_queries.py": "6060bcc6b8508247b6630f7f9587c5a91d730cd0825b99510777c551e0d72ac5",
+    "scripts/utils/build_report.py": "19369faa801bd4bf4739e05d0e9ca5205d78a4e7f584f05f57aba39592f8e5ce",
+    "scripts/utils/common.py": "c4ca6a4ade41db437d5259b73dea7fd1fb0a1429abe83c4c2b41532facc89b03",
+    "scripts/utils/complete_gdc_pipeline.py": "3f692d57259952cf1ce30d4a3240ec7b81f8a54776aba3a3ae74fb193ae1eac6",
+    "scripts/utils/debug_r_exit.py": "5004719cac016dd32c9d7a189d5235c48221b95bbd703ccc3c06b72404e788d6",
+    "scripts/utils/download_optional_r_binaries.py": "18b10d9fe28687e3be892accf7eccfb71aa5883e4a022e07f8191a2880273fd0",
+    "scripts/utils/export_tcga_gene.py": "d10a33b4ef72a632539cb3f0837635dd3498402d93b7bcfcf5b51d9603505cae",
+    "scripts/utils/export_workflow_tcga.py": "13211901ca959e5ed5ddd1ec6eac5096082fc5256410c2b8c2db7ff878a8e6f0",
+    "scripts/utils/gdc.py": "38dc2e2d329e6464cf6da2eca67da703bff08dd872b76178a869463e3b3cefcd",
+    "scripts/utils/gdc_progress.py": "eb51181f77f5196d2a3ca4e17b1e4035e6bf8cdf164ff8b10a5719f6e0e44ad6",
+    "scripts/utils/git_size_guard.py": "56f5fde19db37e6a9cd1ec12fdc1c4c97fafa56c68cd09e3d7cf09e12ee3957b",
+    "scripts/utils/inspect_cli_native.py": "b2f52585fdcae3dfdd35702321a38de713d99d0acc0e802197103ad9fa2aa080",
+    "scripts/utils/inspect_gdc_schemas.py": "8fecf1cf1954b3c7769e2614c1fd1ef17afcc793be77be5c589924d71324b578",
+    "scripts/utils/inspect_owned_processes.py": "daf6275de9e5d31fe29ffecfd231e17adad90596d525969c6613936b74786f06",
+    "scripts/utils/optimize_analysis_data.py": "f3393923ff722d0dc4e2eb86ce2ac8754db4fb6f04aff53e37fcf387d0839000",
+    "scripts/utils/organize_depmap.py": "3dee96031fe4d76ae8ca3eaf4511a76f92a7e4dba350307d5a1b4c683bbd998a",
+    "scripts/utils/organize_tcga_reference.py": "c577b7976dc81b3372d6b3e57036df2a3a7d0f02ffc61dc2d7753f3b81cafc3f",
+    "scripts/utils/preparation.py": "45e84a12d70fc5ad84b081e951809cf0baa0df61c2e28f699adae8651f2ad7c9",
+    "scripts/utils/prepare_clean_r450.py": "545fe73c66689fffa8ae5b44c70dff0f01be06fa5fd181e403490c1c93badae5",
+    "scripts/utils/probe_clean_runtime.py": "47d43941593b12308d051d2be4bb63fa418091ec0211dd304985cf655ca42fbe",
+    "scripts/utils/probe_r_locations.py": "4085d8faa445aa9af66061c905032414fd733bbe84e84ee9bd4571cc117c1ca0",
+    "scripts/utils/probe_r_shutdown.py": "530880530279c63b51285d80f3887ea4f7f8aedfe295c893bd00e6e9ee435a05",
+    "scripts/utils/publish_gdc_snapshot.py": "764e99e53ae0a0fe51baabe56f6f02e42a80eac5d2caf1915c085700e3277520",
+    "scripts/utils/record_skipped_depmap.py": "53623394b1fd0c1a1451bf820ec2b61331b036a160c9bd82c8727f6e05c08e15",
+    "scripts/utils/review_final_pdfs.py": "55e085081e3da0ecd8b5f6408eacc6048927ce163270a4aaa370b5cfc07e6a6d",
+    "scripts/utils/run_r_case.py": "19a745b401c7bdaf93dc7d8c23ea14e5fe4bd9a98475cb5d6aee446c8b4b4840",
+    "scripts/utils/start_live_gdc_tracking.py": "25b04c9b90ee3edaae058a59fd8f1b21d0ef559ae00f1229b05a4598360ecabc",
+    "scripts/utils/stop_owned_gdc_transfers.py": "8949bc7e27cd6cbb4c4c9594ecc004b06a859787f2f5b34877e963794a2a5c92",
+    "scripts/utils/tcga_current.py": "07332f68df34594f91570098f4da10d6a7ee4518f96dace0982247cd1f089ca9",
+    "scripts/utils/validate_analysis_ready.py": "ef1aec01bde21d5510cf61236b019e4b26084c189ff612f081be87480247b96d",
+    "scripts/utils/validate_database.py": "0b3bbb0f81b9fea815b94ab2bbadfd97bcf3e592f935816624590289aa3c5f73",
+    "scripts/utils/validate_final_sources.py": "5d15c0ae3813856b1e91e048e54909fa48e0e6ed5c1a5b30298cdffa20e7828a",
+    "scripts/utils/validate_gdc_current.py": "7373a5306647d4a1df896eba4eb352a34282fb48847ff72561550052782e540c",
+    "scripts/utils/verify_gdc_raw.py": "9e197455d784c11bc686b86486db2d88eb2f4c103509648dabf72a9d5ecd1700",
+    "scripts/utils/write_framework_docs.py": "3a2b5cbb5966647317ea565f51ace9823a8f0994415666d887f11bb42fd95a57"
+  },
+  "logs": {
+    "cleanup_plan.log": "3af8271d8f2df94202fe691c26d2ef1950c3714c1634816e1fd4565ee83be83a",
+    "geneA_geneB.log": "c1c704e966ad3286101f6a7b1f807c293f49169b98d25053d1a19498723ad4af",
+    "geneA_screen.log": "512cf8ba7e0ef4b6759ba4fa6419eeb9563df51e86ffc7cd16ab01bf900abd86",
+    "independent_sources.log": "7b55457134437e375839131d207fb6c544647d7d802993b4d9fa31ada48f1eca",
+    "offline_access.log": "2d223ae14be01c12b3335e47d64c7bc9682b110d48104bbafac64894b1e6483f",
+    "prepare.log": "9780fbca9c6a6cbf0e526e2e32cd87fd29f5257389f33ea6d67a4ac329cb041a",
+    "regression.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "synthetic_Python.log": "56d97b01554a95f0099839c0ce5128320479c9940bebbd0f0b93bb300de2eab9",
+    "synthetic_R.log": "14420209843f9cecd6c04f2cefc8dd233b8a59512dfdcead9b45b07ea60a4751"
+  },
+  "PDF_visual_review": true,
+  "PDF_visual_review_detail": {
+    "pages_rendered_and_reviewed": 43,
+    "renderer": "Poppler pdftoppm",
+    "contact_sheets_reviewed": 5,
+    "status": "PASS"
+  },
+  "all_compared_CSVs_byte_identical": true,
+  "maintenance_only_code_review": {
+    "files": [
+      "scripts/R/migrate_analysis_storage_cache.R",
+      "scripts/utils/optimize_analysis_data.py"
+    ],
+    "reason": "Historical cache JSON/stale-cache handling and precise project-worker discrimination only; numerical/runtime readers unchanged.",
+    "Python_synthetic_tests": 22,
+    "cache_reuse_checks": 7
+  }
+}

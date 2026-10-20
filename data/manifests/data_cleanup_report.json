@@ -1,0 +1,372 @@
+{
+  "status": "PASS",
+  "created_at": "2026-10-20T14:27:38+08:00",
+  "exact_file_inventory": "data/manifests/data_cleanup_files.jsonl",
+  "inventory_SHA256": "ce1175fdfd090ce1ffefe0a43f2132ed18ffbfc8f49dbdd3a168dea1a8c2b935",
+  "planned_files": 45702,
+  "planned_bytes": 106630813611,
+  "historical_provenance": [
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/gdc_download_size_estimate.csv",
+      "retained": "data/manifests/gdc_download_size_estimate.csv",
+      "SHA256": "d8f25d032e593883ec4da090fa6dc6756a440cffa6f2fa0fbc6d6f43e97ef916"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/current_layer_status.json",
+      "retained": "data/manifests/historical_DR46/live/current_layer_status.json",
+      "SHA256": "810c14275856adab7e909a6c7fc18fd1c4c8e05edf67fa5e1f8fedccfca7165f"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/gdc_clinical_qc.json",
+      "retained": "data/manifests/gdc_clinical_qc.json",
+      "SHA256": "f0d8c8d6635f8d52150a00cac60cb28215063e29f817d7adc311c9239a754880"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/gdc_cn_qc.json",
+      "retained": "data/manifests/gdc_cn_qc.json",
+      "SHA256": "1d484a4fff2b49d380495f03ff0d901e0d6116162b7f700c90c2fa5dbbf1e292"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/gdc_data_manifest.csv",
+      "retained": "data/manifests/gdc_data_manifest.csv",
+      "SHA256": "6b036b99030354f181a265a07defd85590b03c28d7422215382ce1020df8c917"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/gdc_download_summary.json",
+      "retained": "data/manifests/historical_DR46/live/gdc_download_summary.json",
+      "SHA256": "c92dd560253ad3239b52d953f581b6007949206bfe273380bc676c9b80c0b5c1"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/gdc_expression_qc.json",
+      "retained": "data/manifests/gdc_expression_qc.json",
+      "SHA256": "b6c0c03a148ccaf552b82f9672279f24f272ec91e05e5a1ccb5344eb22435149"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/gdc_maf_identity_qc.json",
+      "retained": "data/manifests/gdc_maf_identity_qc.json",
+      "SHA256": "39c04cc1cae70f4284c25f844d574a204f1ff9c96a4d3f24ca956899972b9868"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/gdc_manifest_migrations.json",
+      "retained": "data/manifests/gdc_manifest_migrations.json",
+      "SHA256": "8426fb885763906f1df031ca4ad34a8390c3f147953626771eae67579881cae9"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/gdc_mc3_lookup.json",
+      "retained": "data/manifests/gdc_mc3_lookup.json",
+      "SHA256": "e6c5147a80539d630a88276ecbdce1349994fbe6aba6a25e29efe9feccf75ae6"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/gdc_mutation_qc.json",
+      "retained": "data/manifests/gdc_mutation_qc.json",
+      "SHA256": "fac6a7b5487a312a1c2a0ca207b47977fecc922096a3a46e7f8ca3db0d605aa1"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/gdc_raw_integrity.json",
+      "retained": "data/manifests/gdc_raw_integrity.json",
+      "SHA256": "93100f961a23ab4a8dd0ffcaac4fe303820bc669435a3b4c55bdf6953b70314e"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/gdc_segments_qc.json",
+      "retained": "data/manifests/gdc_segments_qc.json",
+      "SHA256": "decd6279df89990375eee2f177d415d45b6f5cbdfeb0828a5da796ca4dd500fa"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/gdc_status_probe.json",
+      "retained": "data/manifests/gdc_status_probe.json",
+      "SHA256": "a8b1c69f9cfc678486e1c897aee6d878f47fab9cb4c60eb6818598bbe30a7139"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/gdc_validation_report.json",
+      "retained": "data/manifests/gdc_validation_report.json",
+      "SHA256": "0ed81c563e7006b969de28ec480a83a888fdd0b19f0e7efd855a99694384efb4"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/live/pipeline_status.json",
+      "retained": "data/manifests/historical_DR46/live/pipeline_status.json",
+      "SHA256": "a7cdf3c9627377b88f42fc947f21291f3820b5e7fcd34be6f60e02924058897c"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/tcga_cn_segments_selected_manifest.tsv",
+      "retained": "data/manifests/historical_DR46/tcga_cn_segments_selected_manifest.tsv",
+      "SHA256": "8cd3a8bc6f1fe50ba550ac1322e1354b148605e2b8deaa2b824991c5378e3ea5"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/tcga_gene_level_cn_selected_manifest.tsv",
+      "retained": "data/manifests/historical_DR46/tcga_gene_level_cn_selected_manifest.tsv",
+      "SHA256": "3618b5a3bd2de52867c1f05034bb3bd615a9dbb62e19122a78ee105ed95da150"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/tcga_masked_somatic_mutation_manifest.tsv",
+      "retained": "data/manifests/historical_DR46/tcga_masked_somatic_mutation_manifest.tsv",
+      "SHA256": "dba1b5cd8dfd71fd1e5e54119d6e9c2cf5d1abff0276f3adb5adb42088b2f400"
+    },
+    {
+      "source": "data/raw/tcga/gdc_current_DR46/manifests/tcga_star_counts_manifest.tsv",
+      "retained": "data/manifests/historical_DR46/tcga_star_counts_manifest.tsv",
+      "SHA256": "791620948c879eadbd69f365d4b997381a60de5c67044afd84bb248b3f73ade5"
+    }
+  ],
+  "retained_core": {
+    "data/processed/tcga/gdc_DR46/TCGA_GeneLevel_CN.parquet": {
+      "bytes": 232306410,
+      "mtime_ns": 1790942937458313100,
+      "SHA256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63"
+    },
+    "data/processed/tcga/gdc_DR46/TCGA_GeneLevel_CN.genes.parquet": {
+      "bytes": 1317700,
+      "mtime_ns": 1790942937722588600,
+      "SHA256": "079751b0a3370f1482ebc5ba05b314fe58b009beb4d2ca23d98a95016a1c74f4"
+    },
+    "data/processed/tcga/gdc_DR46/TCGA_STAR_TPM.parquet": {
+      "bytes": 2682181013,
+      "mtime_ns": 1790942150541849300,
+      "SHA256": "e1923bb4d64bb67d921166a0360bdff998a4b4f498850251c9ee5fa3234e3ebc"
+    },
+    "data/processed/tcga/gdc_DR46/TCGA_STAR_TPM.genes.parquet": {
+      "bytes": 698877,
+      "mtime_ns": 1790942150974884600,
+      "SHA256": "3d7b914202d763f5032d43b5df6aefc4c89e6fef4860524b32132895a5322103"
+    },
+    "data/processed/tcga/gdc_DR46/TCGA_Sample_Baselines.parquet": {
+      "bytes": 323465,
+      "mtime_ns": 1792468545306030400,
+      "SHA256": "0e5ccf479e7ea5b19095f276f228327ed33f6295142107b28d074140e225d5dd"
+    },
+    "data/processed/tcga/gdc_DR46/TCGA_Sample_Metadata.parquet": {
+      "bytes": 3931144,
+      "mtime_ns": 1792468548663564200,
+      "SHA256": "b3a9d734c169dcdd14ca759b25e39e45f3727b057882e9976b7572cc0d7ce9e4"
+    },
+    "data/processed/tcga/gdc_DR46/TCGA_RNA_Selection.parquet": {
+      "bytes": 1477209,
+      "mtime_ns": 1792468548181254000,
+      "SHA256": "6f3bea2431f8c0bebc84ab324afbc03cbe9a703df26bb21cbcfea91ce5c11276"
+    },
+    "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet": {
+      "bytes": 218424120,
+      "mtime_ns": 1790934723793707100,
+      "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab"
+    },
+    "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet": {
+      "bytes": 232669929,
+      "mtime_ns": 1790934749330561000,
+      "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81"
+    },
+    "data/processed/depmap/26Q1/Model.parquet": {
+      "bytes": 139521,
+      "mtime_ns": 1790934825120104100,
+      "SHA256": "7e821496f6c95c8f0a6ffe627669fbec1b563548391ccabaadd3f2e2ee13c7d4"
+    }
+  },
+  "deletion_prerequisites": [
+    "core hashes",
+    "synthetic tests",
+    "isolated workflows",
+    "real statistics equality",
+    "no active project workers"
+  ],
+  "finished_at": "2026-10-20T15:04:36+08:00",
+  "deleted_files": 45702,
+  "deleted_bytes": 106630813611,
+  "deleted_by_category": {
+    "data/processed/depmap/26Q1": 10,
+    "data/processed/tcga/gdc_DR46": 14,
+    "data/processed/tcga/pancanatlas_reference": 11,
+    "data/raw/depmap/26Q1": 13,
+    "data/raw/tcga/gdc_current_DR46": 45649,
+    "data/raw/tcga/pancanatlas_reference": 5
+  },
+  "deleted_bytes_by_category": {
+    "data/processed/depmap/26Q1": 538283541,
+    "data/processed/tcga/gdc_DR46": 10834768544,
+    "data/processed/tcga/pancanatlas_reference": 2169669161,
+    "data/raw/depmap/26Q1": 1369113749,
+    "data/raw/tcga/gdc_current_DR46": 90166316728,
+    "data/raw/tcga/pancanatlas_reference": 1552661888
+  },
+  "empty_directories_removed": 45382,
+  "validation_evidence": "data/manifests/analysis_ready_regression.json",
+  "historical_raw_integrity_note": "Prior raw QC reports are historical records; deleted files are no longer present.",
+  "additional_preexisting_empty_directories_removed": [
+    "data/raw/tcga/pancan",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/0fc29c53-7240-46a1-9a00-a66699405029/logs",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/3264e0fb-cb47-4d8a-a129-21288d008629/logs",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/4c4a2272-fd94-4243-8515-d407a06be7ad/logs",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/59bb8b6d-9827-4d5c-8714-cbc8ec3b8be5/logs",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/8b982cfb-9013-4a59-b6b6-a112a3f953d0/logs",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/c0c8dbec-6583-4589-bab3-a5824bef3270/logs",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/cf282dd2-fc71-41e4-a22d-87ea9de78b71/logs",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/e2dad1ec-1a90-4ab5-bb54-9d4fa0c62524/logs",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/f13ca22a-ad44-45c0-806b-678bacee6135/logs",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/0fc29c53-7240-46a1-9a00-a66699405029",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/3264e0fb-cb47-4d8a-a129-21288d008629",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/4c4a2272-fd94-4243-8515-d407a06be7ad",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/59bb8b6d-9827-4d5c-8714-cbc8ec3b8be5",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/8b982cfb-9013-4a59-b6b6-a112a3f953d0",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/c0c8dbec-6583-4589-bab3-a5824bef3270",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/cf282dd2-fc71-41e4-a22d-87ea9de78b71",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/e2dad1ec-1a90-4ab5-bb54-9d4fa0c62524",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files/f13ca22a-ad44-45c0-806b-678bacee6135",
+    "data/raw/tcga/gdc_current_DR46/expression/raw_files",
+    "data/raw/tcga/gdc_current_DR46/expression",
+    "data/raw/tcga/gdc_current_DR46",
+    "data/raw/tcga",
+    "data/raw"
+  ],
+  "post_cleanup_validation": "data/manifests/analysis_ready_post_cleanup.json",
+  "deleted_raw_files": 45667,
+  "deleted_raw_bytes": 93088092365,
+  "deleted_processed_files": 35,
+  "deleted_processed_bytes": 13542721246,
+  "user_approval": "User explicitly approved the exact 45,702-file, 99.31-GiB inventory in chat before deletion.",
+  "validation_artifact_cleanup": {
+    "removed": ".runtime/database_optimization/core_only",
+    "core_data_and_library_originals_preserved": true,
+    "test_matrix_aliases_removed": 10
+  },
+  "deleted_by_data_type": {
+    "DepMap 非核心 processed": {
+      "files": 10,
+      "bytes": 538283541
+    },
+    "TCGA 其他冗余 processed 小表": {
+      "files": 4,
+      "bytes": 29084389
+    },
+    "TCGA_CN_Segments": {
+      "files": 1,
+      "bytes": 94409553
+    },
+    "TCGA_Masked_Somatic_Mutation": {
+      "files": 1,
+      "bytes": 1216475251
+    },
+    "TCGA_STAR_FPKM": {
+      "files": 2,
+      "bytes": 2528619548
+    },
+    "TCGA_STAR_FPKMUQ": {
+      "files": 2,
+      "bytes": 2540230618
+    },
+    "TCGA_STAR_log2TPMplus1": {
+      "files": 2,
+      "bytes": 3494401728
+    },
+    "TCGA_STAR_UnstrandedCounts": {
+      "files": 2,
+      "bytes": 931547457
+    },
+    "TCGA 历史 reference processed": {
+      "files": 11,
+      "bytes": 2169669161
+    },
+    "DepMap 原始 CSV": {
+      "files": 13,
+      "bytes": 1369113749
+    },
+    "TCGA 下载临时文件": {
+      "files": 38,
+      "bytes": 373403563
+    },
+    "TCGA 原始 clinical/API 快照": {
+      "files": 48,
+      "bytes": 646521922
+    },
+    "TCGA 原始 Gene-Level CN": {
+      "files": 11390,
+      "bytes": 38946385701
+    },
+    "TCGA 原始 segments": {
+      "files": 11189,
+      "bytes": 72026450
+    },
+    "TCGA 原始 RNA": {
+      "files": 12138,
+      "bytes": 48783790938
+    },
+    "TCGA 原始清单（必要溯源已保留）": {
+      "files": 20,
+      "bytes": 40861387
+    },
+    "TCGA 原始 API 检索页": {
+      "files": 185,
+      "bytes": 482601681
+    },
+    "TCGA 原始 mutation": {
+      "files": 10641,
+      "bytes": 820725086
+    },
+    "TCGA 历史 reference raw": {
+      "files": 5,
+      "bytes": 1552661888
+    }
+  },
+  "retained_files": [
+    {
+      "path": "data/processed/tcga/gdc_DR46/TCGA_GeneLevel_CN.parquet",
+      "bytes": 232306410,
+      "SHA256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63"
+    },
+    {
+      "path": "data/processed/tcga/gdc_DR46/TCGA_GeneLevel_CN.genes.parquet",
+      "bytes": 1317700,
+      "SHA256": "079751b0a3370f1482ebc5ba05b314fe58b009beb4d2ca23d98a95016a1c74f4"
+    },
+    {
+      "path": "data/processed/tcga/gdc_DR46/TCGA_STAR_TPM.parquet",
+      "bytes": 2682181013,
+      "SHA256": "e1923bb4d64bb67d921166a0360bdff998a4b4f498850251c9ee5fa3234e3ebc"
+    },
+    {
+      "path": "data/processed/tcga/gdc_DR46/TCGA_STAR_TPM.genes.parquet",
+      "bytes": 698877,
+      "SHA256": "3d7b914202d763f5032d43b5df6aefc4c89e6fef4860524b32132895a5322103"
+    },
+    {
+      "path": "data/processed/tcga/gdc_DR46/TCGA_Sample_Baselines.parquet",
+      "bytes": 323465,
+      "SHA256": "0e5ccf479e7ea5b19095f276f228327ed33f6295142107b28d074140e225d5dd"
+    },
+    {
+      "path": "data/processed/tcga/gdc_DR46/TCGA_Sample_Metadata.parquet",
+      "bytes": 3931144,
+      "SHA256": "b3a9d734c169dcdd14ca759b25e39e45f3727b057882e9976b7572cc0d7ce9e4"
+    },
+    {
+      "path": "data/processed/tcga/gdc_DR46/TCGA_RNA_Selection.parquet",
+      "bytes": 1477209,
+      "SHA256": "6f3bea2431f8c0bebc84ab324afbc03cbe9a703df26bb21cbcfea91ce5c11276"
+    },
+    {
+      "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+      "bytes": 218424120,
+      "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab"
+    },
+    {
+      "path": "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet",
+      "bytes": 232669929,
+      "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81"
+    },
+    {
+      "path": "data/processed/depmap/26Q1/Model.parquet",
+      "bytes": 139521,
+      "SHA256": "7e821496f6c95c8f0a6ffe627669fbec1b563548391ccabaadd3f2e2ee13c7d4"
+    }
+  ],
+  "disk_space_release": {
+    "volume_free_increase_bytes": 106666090496,
+    "measurement": "D volume free-space increase measured separately from project file-byte totals"
+  },
+  "cache_validation": {
+    "equivalent_caches_mapped": 7,
+    "preexisting_stale_caches_retained_without_blessing": 9,
+    "statistics_recomputed_for_migration": false
+  },
+  "project_before_bytes": 111397257737,
+  "project_after_bytes": 4834187143,
+  "project_net_reduction_bytes": 106563070594,
+  "project_size_measurement": "Same os.walk/stat file-byte sum before and after; test fixture removed; before Git commit",
+  "measured_at": "2026-10-20T15:20:45+08:00"
+}

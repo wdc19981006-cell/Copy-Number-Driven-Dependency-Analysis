@@ -35,7 +35,7 @@ def validate_current(case, gene):
     assert exact.FileID.fillna('').tolist() == saved.RNA_FileID.fillna('').tolist()
     np.testing.assert_allclose(exact.TPM, saved.RNA_TPM, rtol=1e-13, equal_nan=True)
     np.testing.assert_allclose(np.log2(exact.TPM+1), saved.Expression, rtol=1e-13, equal_nan=True)
-    # A separately prepared log2TPM matrix must agree for the chosen RNA files.
+    # Public single-gene expression API computes log2 from the retained TPM.
     logged = get_tcga_expression(gene, layer='current').set_index('FileID').Expression
     use = saved.RNA_FileID.notna()
     np.testing.assert_allclose(logged.loc[saved.loc[use, 'RNA_FileID']], saved.loc[use, 'Expression'], rtol=1e-13)
@@ -64,7 +64,7 @@ def validate_current(case, gene):
         mode = sorted(counter, key=lambda value: (-counter[value], value))[0]
         assert mode == indexed.loc[ids[i], 'BaselineCN']
         assert sum(counter.values()) == indexed.loc[ids[i], 'AutosomalFiniteGenes']
-    return dict(current_source_exact_sample_join=True, STAR_TPM_and_log2_processed_agree=True,
+    return dict(current_source_exact_sample_join=True, STAR_TPM_and_expression_API_agree=True,
                 analysis_defined_CN_states=True, unique_positive_integer_baselines=True,
                 independently_reread_baseline_samples=len(indices), random_sample_seed=4106,
                 baseline_distribution={str(k): int(v) for k, v in baseline.BaselineCN.value_counts().sort_index().items()},

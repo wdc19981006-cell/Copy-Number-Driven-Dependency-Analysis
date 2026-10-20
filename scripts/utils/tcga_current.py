@@ -49,9 +49,47 @@ def select_rna(cn, rna):
     return rna.loc[rna.Selected].copy(), rna
 
 
-def sample_baselines(folder=FOLDER, cache_dir=None, chunk_genes=512):
+def prepared_table(name, folder=FOLDER):
+    """Fail closed if a persisted analysis table or its inputs changed."""
+    path = required(folder / f'{name}.parquet')
+    meta = json.loads(required(path.with_suffix('.provenance.json')).read_text(encoding='utf-8'))
+    if meta.get('release') != '46.0' or meta.get('algorithm_version') != 'analysis-ready-v1':
+        raise ValueError(f'Unverified analysis-ready table: {name}')
+    if hashlib.sha256(path.read_bytes()).hexdigest() != meta['SHA256']:
+        raise ValueError(f'Analysis-ready SHA256 mismatch: {name}')
+    for filename, identity in meta['inputs'].items():
+        source = required(folder / filename)
+        stat = source.stat()
+        if stat.st_size != identity['bytes'] or stat.st_mtime_ns != identity['mtime_ns']:
+            raise ValueError(f'Stale analysis-ready input: {filename}; run preparation separately')
+    return pq.read_table(path).to_pandas(), meta
+
+
+def selected_rna(cn, rna, folder=FOLDER):
+    """Apply the gene-independent, validated representative selection by FileID."""
+    saved, _ = prepared_table('TCGA_RNA_Selection', folder)
+    if rna.FileID.duplicated().any() or set(saved.FileID) != set(rna.FileID):
+        raise ValueError('Persisted RNA file coverage differs from TPM')
+    audit = rna.set_index('FileID', drop=False).loc[saved.FileID].reset_index(drop=True)
+    for field in ['SampleID', 'AliquotID', 'CaseID', 'ProjectID']:
+        if not audit[field].equals(saved[field]):
+            raise ValueError(f'Persisted RNA identity mismatch: {field}')
+    preferred = cn.set_index('SampleID').AliquotID.reindex(audit.SampleID).to_numpy()
+    if not np.array_equal(audit.AliquotID.eq(preferred), saved.Matches_CN_Aliquot):
+        raise ValueError('Persisted RNA/CN aliquot matching changed')
+    audit['Matches_CN_Aliquot'] = saved.Matches_CN_Aliquot.to_numpy()
+    audit['Selected'] = saved.Selected.to_numpy()
+    return audit.loc[audit.Selected].copy(), audit
+
+
+def sample_baselines(folder=FOLDER, cache_dir=None, chunk_genes=512, recompute=False):
     """Count integer CNs in bounded gene-column blocks; cache only sample summaries."""
     path = required(folder / 'TCGA_GeneLevel_CN.parquet')
+    if not recompute and cache_dir is None:
+        frame, meta = prepared_table('TCGA_Sample_Baselines', folder)
+        if meta['report']['method'] != BASELINE_METHOD:
+            raise ValueError('Persisted CN baseline algorithm changed')
+        return frame, meta['report']
     annotation_path = required(folder / 'TCGA_GeneLevel_CN.genes.parquet')
     identity = dict(source=source_identity(path), method=BASELINE_METHOD,
                     annotation_sha256=hashlib.sha256(annotation_path.read_bytes()).hexdigest())

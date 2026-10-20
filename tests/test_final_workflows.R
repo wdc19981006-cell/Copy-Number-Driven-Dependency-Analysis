@@ -134,6 +134,22 @@ jsonlite::write_json(old,file.path(RESULT_ROOT,"cache.json"),auto_unbox=TRUE)
 roundtrip<-jsonlite::fromJSON(file.path(RESULT_ROOT,"cache.json"),simplifyVector=FALSE)
 stopifnot(wf_cache_valid(roundtrip,"same",path))
 writeLines("%PDF-1.4 modified",file.path(RESULT_ROOT,path));stopifnot(!wf_cache_valid(old,"same",path))
+# Storage migration is exact-key and output-hash constrained. It cannot bless a
+# new parameter/code/input key, altered evidence, or corrupt saved artifacts.
+saved_root<-if(exists("PROJECT_ROOT"))PROJECT_ROOT else NULL
+PROJECT_ROOT<-tempfile("storage_cache_",tmpdir=".runtime")
+dir.create(file.path(PROJECT_ROOT,"data/manifests"),recursive=TRUE)
+evidence<-file.path(PROJECT_ROOT,"data/manifests/analysis_ready_regression.json")
+writeLines('{"status":"PASS"}',evidence)
+jsonlite::write_json(list(validation_SHA256=digest::digest(file=evidence,algo="sha256"),
+ records=list(list(previous_key="old-storage",key="new-storage"))),
+ file.path(PROJECT_ROOT,"data/manifests/analysis_storage_cache_migration.json"),auto_unbox=TRUE)
+old<-list(key="old-storage",outputs=wf_hash_outputs(path))
+stopifnot(wf_cache_valid(old,"new-storage",path),!wf_cache_valid(old,"changed-statistics",path))
+writeLines("changed evidence",evidence);stopifnot(!wf_cache_valid(old,"new-storage",path))
+stopifnot(startsWith(normalizePath(PROJECT_ROOT,winslash="/"),paste0(normalizePath(".runtime",winslash="/"),"/")))
+unlink(PROJECT_ROOT,recursive=TRUE)
+if(is.null(saved_root))rm(PROJECT_ROOT) else PROJECT_ROOT<-saved_root
 unlink(RESULT_ROOT,recursive=TRUE)
 source("scripts/R/local_data.R")
 e<-tryCatch(local_required("missing.parquet"),error=conditionMessage)

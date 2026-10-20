@@ -1,0 +1,20 @@
+{
+  "version": "analysis-ready-v1",
+  "DATA_MODE": "local",
+  "TCGA_release": "46.0",
+  "DepMap_release": "26Q1",
+  "compression": "ZSTD",
+  "precision": "unchanged source types; float64 is not downcast",
+  "TCGA_core": [
+    "TCGA_GeneLevel_CN.parquet", "TCGA_GeneLevel_CN.genes.parquet",
+    "TCGA_STAR_TPM.parquet", "TCGA_STAR_TPM.genes.parquet",
+    "TCGA_Sample_Baselines.parquet", "TCGA_Sample_Metadata.parquet",
+    "TCGA_RNA_Selection.parquet"
+  ],
+  "DepMap_core": ["OmicsCNGeneWGS.parquet", "CRISPRGeneEffect.parquet", "Model.parquet"],
+  "expression": "log2(TPM + 1), calculated for the requested gene in memory",
+  "baseline_algorithm": "autosomal_gene_CN_integer_mode_v1; ties choose smallest mode",
+  "RNA_selection": "matching CN aliquot first, then lexical FileID; exact SampleID join",
+  "optional_modules_after_cleanup": "unavailable when required non-core data is absent; no substitution",
+  "historical_scripts": ["scripts/download/", "scripts/preprocess/", "scripts/utils/validate_gdc_current.py", "scripts/utils/validate_database.py", "scripts/utils/verify_gdc_raw.py"]
+}

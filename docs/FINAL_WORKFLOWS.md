@@ -46,7 +46,7 @@ Gene A-only 共 **37** 张主 PDF；每追加一个 Gene B 增加 **3** 张。A+
 
 ## TCGA 数据层与共同顺序
 
-TCGA 主图 01–03 **统一使用本地 current DR46 processed dataset**，只读取 `data/processed/tcga/gdc_DR46/`。Database=TCGA，Source=NCI GDC，Release=DR46 / 46.0。01 保持 analysis-defined current CN categories；02 和 03 使用 `TCGA_Relative_CN_Change = CopyNumber / BaselineCN - 1`，直接复用现有 sample-specific baseline。03 的表达仍为 STAR `log2(TPM + 1)`。这是 analysis-derived relative copy-number change，不是 GISTIC score、log2 GISTIC 或 DepMap CN_relative。PanCanAtlas/Xena 仅作为 historical/reference 保留，不在默认 workflow 中。实际输入、prepared SHA256 与数据层记录于 Provenance。
+TCGA 主图 01–03 **统一使用本地 current DR46 processed dataset**，只读取 `data/processed/tcga/gdc_DR46/`。Database=TCGA，Source=NCI GDC，Release=DR46 / 46.0。01 保持 analysis-defined current CN categories；02 和 03 使用 `TCGA_Relative_CN_Change = CopyNumber / BaselineCN - 1`，直接复用已持久化的 sample-specific baseline。03 从所请求基因的完整 STAR TPM 列在内存计算 `log2(TPM + 1)`，RNA 代表选择已持久化。这是 analysis-derived relative copy-number change，不是 GISTIC score、log2 GISTIC 或 DepMap CN_relative。PanCanAtlas/Xena 矩阵已精简删除，仅保留历史来源记录，不在默认 workflow 中。实际输入、prepared SHA256 与数据层记录于 Provenance。精确保留清单及验证见 [核心数据库说明](ANALYSIS_READY_STORAGE.md)。
 
 01 使用所有有效分类的 current tumor samples 作为各癌种分母，五类颜色固定。当前没有可靠实测 ploidy，使用常染色体 gene-level CN 整数众数估算 sample-specific baseline（并列取较小值；不舍入 CN；不统一固定为 2）。按 CN=0、0<CN<baseline、CN=baseline、baseline<CN<2×baseline、CN≥2×baseline 分成 Deep Deletion、Shallow Deletion、Diploid、Gain、Amplification。此为项目分析定义，不是 PanCanAtlas GISTIC 五级值。baseline 在 bounded gene-column blocks 中计算，样本级缓存绑定源版本及哈希；普通单基因提取只读必要列。`TCGA_Sample_Baselines.csv` 和 `TCGA_Baseline_Method.json` 保留分布、众数支持度、并列与极端值。
 

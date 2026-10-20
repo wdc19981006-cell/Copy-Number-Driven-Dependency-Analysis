@@ -32,9 +32,9 @@ results/<GeneA>_Analysis/
 
 ## 数据与统计
 
-TCGA 主图 01–03 默认使用本地 **current DR46 processed dataset**：`data/processed/tcga/gdc_DR46/`。01 为 current absolute gene-level CN 与 sample-specific baseline 的 analysis-defined 五分类；02 为 current gene-level CN；03 为 current CN 与 STAR `log2(TPM + 1)`。来源为 NCI GDC，Release 为 DR46 / 46.0，完整记录于 Provenance。PanCanAtlas/Xena 仅保留为 historical/reference，默认 workflow 不使用。
+TCGA 主图 01–03 默认使用本地 **current DR46 processed dataset**：`data/processed/tcga/gdc_DR46/`。01 为 current absolute gene-level CN 与 sample-specific baseline 的 analysis-defined 五分类；02 为 current gene-level CN；03 为 current CN 与 STAR `log2(TPM + 1)`，按所请求基因直接从完整 TPM 计算。来源为 NCI GDC，Release 为 DR46 / 46.0，完整记录于 Provenance。PanCanAtlas/Xena 是历史参考来源；精简后不保留其矩阵，默认 workflow 不使用。
 
-当前 processed 数据没有可用的实测 ploidy；baseline 取每个样本常染色体整数 CN 的众数（并列取较小值），分块读取并缓存样本级摘要，独立抽样验证。五分类为 CN=0、0<CN<baseline、CN=baseline、baseline<CN<2×baseline、CN≥2×baseline，依次标为 Deep Deletion、Shallow Deletion、Diploid、Gain、Amplification；它们不是官方 GISTIC 五级值，baseline 也不是实测 ploidy。
+当前 processed 数据没有可用的实测 ploidy；baseline 取每个样本完整常染色体整数 CN 的众数（并列取较小值），验证后持久化为 `TCGA_Sample_Baselines.parquet`；普通分析直接加载，RNA 代表样本选择也已持久化。五分类为 CN=0、0<CN<baseline、CN=baseline、baseline<CN<2×baseline、CN≥2×baseline，依次标为 Deep Deletion、Shallow Deletion、Diploid、Gain、Amplification；它们不是官方 GISTIC 五级值，baseline 也不是实测 ploidy。
 
 所有 TCGA 主图按 Gene A finite continuous CN 的癌种 median 从小到大排列，视觉从上到下；CN landscape 展示每个有限样本点和实际 N，保留极端值。33癌种分别分析自身 CN–mRNA，固定 N<20 或常量变量时保留图并不编造相关统计。
 
@@ -43,6 +43,8 @@ DepMap 使用全部提供的 Chronos 基因列，用户导出相对官方完整 
 `CN_log=log2(relative CN+1)`，CN-low `<0.585`，Deep `<0.35`，均为分析定义，不是官方 GISTIC 分类。`Delta_median=median(low)-median(nonlow)`：负值表示 CN-low 组依赖更强。全筛选 Wilcoxon/BH-FDR/效应与历史数值保持一致；主排名 `Eligible_Rank` 排除 undefined FDR，历史 Rank 仅用于复核。Targeted scatter 使用 relative CN，并明确保留表中的历史 CN_log Pearson/Spearman。**所有结果描述相关或依赖差异，不作因果解释。**
 
 ## 验证与维护
+
+最小数据库清单、删除门槛、隔离回归和历史维护脚本范围见 [精简数据库说明](docs/ANALYSIS_READY_STORAGE.md)。默认分析仅依赖完整 CN/TPM、完整 DepMap CN/Chronos/Model 及必要的小型注释/审计表；缺少非核心数据的可选模块明确不可用。
 
 ```bat
 Rscript --vanilla tests/run_synthetic_tests.R

@@ -1,0 +1,607 @@
+{
+  "status": "PASS",
+  "created_at": "2026-10-20T11:55:48+08:00",
+  "initial_project": {
+    "total_bytes": 111397257737,
+    "groups": {
+      ".gitattributes": [
+        1,
+        89
+      ],
+      ".gitignore": [
+        1,
+        878
+      ],
+      ".R-version": [
+        1,
+        6
+      ],
+      ".Rbuildignore": [
+        1,
+        43
+      ],
+      ".renvignore": [
+        1,
+        38
+      ],
+      ".Rprofile": [
+        1,
+        567
+      ],
+      "AGENTS.md": [
+        1,
+        6173
+      ],
+      "DESCRIPTION": [
+        1,
+        547
+      ],
+      "LICENSE": [
+        1,
+        1210
+      ],
+      "README.md": [
+        1,
+        5325
+      ],
+      "renv.lock": [
+        1,
+        264222
+      ],
+      "requirements.txt": [
+        1,
+        59
+      ],
+      ".git": [
+        1220,
+        93675183
+      ],
+      ".githooks": [
+        1,
+        151
+      ],
+      ".github": [
+        1,
+        1076
+      ],
+      ".runtime": [
+        11181,
+        543009656
+      ],
+      "config": [
+        8,
+        7491
+      ],
+      "data/manifests/current_missing_data.csv": [
+        1,
+        604
+      ],
+      "data/manifests/data_manifest.csv": [
+        1,
+        7776
+      ],
+      "data/manifests/depmap_26Q1_local_qc.json": [
+        1,
+        2788
+      ],
+      "data/manifests/depmap_26Q1_manifest.csv": [
+        1,
+        4061
+      ],
+      "data/manifests/depmap_26Q1_qc.json": [
+        1,
+        1289
+      ],
+      "data/manifests/depmap_catalog.csv": [
+        1,
+        163720
+      ],
+      "data/manifests/depmap_catalog_20261002_162455.csv": [
+        1,
+        163720
+      ],
+      "data/manifests/depmap_download_catalog_response.txt": [
+        1,
+        5175
+      ],
+      "data/manifests/eligible_rank_validation.json": [
+        1,
+        775
+      ],
+      "data/manifests/extension_results_validation.json": [
+        1,
+        530
+      ],
+      "data/manifests/gdc_clinical_qc.json": [
+        1,
+        826
+      ],
+      "data/manifests/gdc_cn_qc.json": [
+        1,
+        725
+      ],
+      "data/manifests/gdc_data_manifest.csv": [
+        1,
+        33354037
+      ],
+      "data/manifests/gdc_download_size_estimate.csv": [
+        1,
+        310
+      ],
+      "data/manifests/gdc_download_summary.json": [
+        1,
+        985
+      ],
+      "data/manifests/gdc_expression_qc.json": [
+        1,
+        2918
+      ],
+      "data/manifests/gdc_maf_identity_qc.json": [
+        1,
+        5549
+      ],
+      "data/manifests/gdc_manifest_migrations.json": [
+        1,
+        1029
+      ],
+      "data/manifests/gdc_mc3_lookup.json": [
+        1,
+        136
+      ],
+      "data/manifests/gdc_mutation_qc.json": [
+        1,
+        423
+      ],
+      "data/manifests/gdc_raw_integrity.json": [
+        1,
+        1569
+      ],
+      "data/manifests/gdc_segments_qc.json": [
+        1,
+        420
+      ],
+      "data/manifests/gdc_status_probe.json": [
+        1,
+        221
+      ],
+      "data/manifests/gdc_transfer_tool_page.html": [
+        1,
+        83188
+      ],
+      "data/manifests/gdc_validation_report.json": [
+        1,
+        14320
+      ],
+      "data/manifests/Gistic2_CopyNumber_Gistic2_all_data_by_genes.tsv.gz.source.json": [
+        1,
+        2345
+      ],
+      "data/manifests/Gistic2_CopyNumber_Gistic2_all_thresholded.by_genes.tsv.gz.source.json": [
+        1,
+        2773
+      ],
+      "data/manifests/mc3.v0.2.8.PUBLIC.xena.tsv.gz.source.json": [
+        1,
+        1356
+      ],
+      "data/manifests/not_downloaded.csv": [
+        1,
+        3127
+      ],
+      "data/manifests/original_statistics_preservation.json": [
+        1,
+        5680
+      ],
+      "data/manifests/preparation_summary.json": [
+        1,
+        19047
+      ],
+      "data/manifests/query_timing.json": [
+        1,
+        453
+      ],
+      "data/manifests/README.md": [
+        1,
+        1428
+      ],
+      "data/manifests/reference_relocation.json": [
+        1,
+        2246
+      ],
+      "data/manifests/R_optional_downloads.json": [
+        1,
+        509
+      ],
+      "data/manifests/R_package_versions.csv": [
+        1,
+        302
+      ],
+      "data/manifests/synthetic_test_results.csv": [
+        1,
+        362
+      ],
+      "data/manifests/tcga_case_validation.json": [
+        1,
+        637
+      ],
+      "data/manifests/tcga_mc3_qc.json": [
+        1,
+        395
+      ],
+      "data/manifests/TCGA_phenotype_denseDataOnlyDownload.tsv.gz.source.json": [
+        1,
+        530
+      ],
+      "data/manifests/tcga_qc.json": [
+        1,
+        2390
+      ],
+      "data/manifests/tcga_RSEM_Hugo_norm_count.tsv.gz.source.json": [
+        1,
+        740
+      ],
+      "data/manifests/validation_report.json": [
+        1,
+        3971
+      ],
+      "data/processed/depmap": [
+        26,
+        989522838
+      ],
+      "data/processed/tcga": [
+        45,
+        15938274952
+      ],
+      "data/raw/depmap": [
+        13,
+        1369113749
+      ],
+      "data/raw/tcga": [
+        45654,
+        91718978616
+      ],
+      "docs": [
+        18,
+        1694046
+      ],
+      "logs": [
+        596,
+        3172765
+      ],
+      "modules": [
+        4,
+        3940
+      ],
+      "renv": [
+        7553,
+        320964806
+      ],
+      "results": [
+        296,
+        64312982
+      ],
+      "scripts": [
+        145,
+        847890
+      ],
+      "tests": [
+        26,
+        83155
+      ],
+      "tools": [
+        4477,
+        319449899
+      ]
+    },
+    "largest": [
+      [
+        3493702851,
+        "data/processed/tcga/gdc_DR46/TCGA_STAR_log2TPMplus1.parquet"
+      ],
+      [
+        2682181013,
+        "data/processed/tcga/gdc_DR46/TCGA_STAR_TPM.parquet"
+      ],
+      [
+        2539531741,
+        "data/processed/tcga/gdc_DR46/TCGA_STAR_FPKMUQ.parquet"
+      ],
+      [
+        2527920671,
+        "data/processed/tcga/gdc_DR46/TCGA_STAR_FPKM.parquet"
+      ],
+      [
+        1545181917,
+        "data/processed/tcga/pancanatlas_reference/Expression.parquet"
+      ],
+      [
+        1216475251,
+        "data/processed/tcga/gdc_DR46/TCGA_Masked_Somatic_Mutation.parquet"
+      ],
+      [
+        935272500,
+        "data/raw/tcga/pancanatlas_reference/tcga_RSEM_Hugo_norm_count.tsv.gz"
+      ],
+      [
+        930848580,
+        "data/processed/tcga/gdc_DR46/TCGA_STAR_UnstrandedCounts.parquet"
+      ],
+      [
+        488879753,
+        "data/processed/tcga/pancanatlas_reference/CN.parquet"
+      ],
+      [
+        468113188,
+        "data/raw/tcga/pancanatlas_reference/Gistic2_CopyNumber_Gistic2_all_data_by_genes.tsv.gz"
+      ],
+      [
+        374394483,
+        "data/raw/depmap/26Q1/Expression_26Q1.csv"
+      ],
+      [
+        308448404,
+        "data/raw/tcga/gdc_current_DR46/clinical/tcga_cases.json"
+      ],
+      [
+        290986634,
+        "data/raw/depmap/26Q1/CRISPR_Chronos_26Q1.csv"
+      ],
+      [
+        286512785,
+        "data/processed/depmap/26Q1/ExpressionProteinCoding.parquet"
+      ],
+      [
+        274918748,
+        "data/raw/depmap/26Q1/CRISPR_GeneDependency_26Q1.csv"
+      ],
+      [
+        268313701,
+        "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv"
+      ],
+      [
+        232669929,
+        "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet"
+      ],
+      [
+        232306410,
+        "data/processed/tcga/gdc_DR46/TCGA_GeneLevel_CN.parquet"
+      ],
+      [
+        226968005,
+        "data/processed/depmap/26Q1/CRISPRGeneDependency.parquet"
+      ],
+      [
+        218424120,
+        "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet"
+      ],
+      [
+        153693958,
+        "data/raw/depmap/26Q1/Mutation_Damaging_26Q1.csv"
+      ]
+    ]
+  },
+  "coverage": {
+    "TCGA_GeneLevel_CN.parquet": {
+      "bytes": 232306410,
+      "mtime_ns": 1790942937458313100,
+      "SHA256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63",
+      "rows": 11339,
+      "columns": 60633,
+      "codecs": {
+        "ZSTD": 181899
+      },
+      "numerical_types": {
+        "string": 10,
+        "double": 60623
+      },
+      "optimization": "retain existing ZSTD bytes; no re-encoding or precision change",
+      "unique_ids": 11339,
+      "ordered_ids_sha256": "3d83e55410ca124d5428ce2ee382a2e23561171dc19355953099fbe97323bb7b"
+    },
+    "TCGA_GeneLevel_CN.genes.parquet": {
+      "bytes": 1317700,
+      "mtime_ns": 1790942937722588600,
+      "SHA256": "079751b0a3370f1482ebc5ba05b314fe58b009beb4d2ca23d98a95016a1c74f4",
+      "rows": 60623,
+      "columns": 5,
+      "codecs": {
+        "ZSTD": 5
+      },
+      "numerical_types": {
+        "string": 3,
+        "int64": 2
+      },
+      "optimization": "retain existing ZSTD bytes; no re-encoding or precision change"
+    },
+    "TCGA_STAR_TPM.parquet": {
+      "bytes": 2682181013,
+      "mtime_ns": 1790942150541849300,
+      "SHA256": "e1923bb4d64bb67d921166a0360bdff998a4b4f498850251c9ee5fa3234e3ebc",
+      "rows": 11505,
+      "columns": 60669,
+      "codecs": {
+        "ZSTD": 728028
+      },
+      "numerical_types": {
+        "string": 9,
+        "double": 60660
+      },
+      "optimization": "retain existing ZSTD bytes; no re-encoding or precision change",
+      "unique_ids": 11370,
+      "ordered_ids_sha256": "de63ade08ef390ba941397fc80975c90e02cbdd590714165e16f34ad8d91e614"
+    },
+    "TCGA_STAR_TPM.genes.parquet": {
+      "bytes": 698877,
+      "mtime_ns": 1790942150974884600,
+      "SHA256": "3d7b914202d763f5032d43b5df6aefc4c89e6fef4860524b32132895a5322103",
+      "rows": 60660,
+      "columns": 3,
+      "codecs": {
+        "ZSTD": 3
+      },
+      "numerical_types": {
+        "string": 3
+      },
+      "optimization": "retain existing ZSTD bytes; no re-encoding or precision change"
+    },
+    "OmicsCNGeneWGS.parquet": {
+      "bytes": 218424120,
+      "mtime_ns": 1790934723793707100,
+      "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+      "rows": 1118,
+      "columns": 18614,
+      "codecs": {
+        "ZSTD": 148912
+      },
+      "numerical_types": {
+        "string": 1,
+        "double": 18613
+      },
+      "optimization": "retain existing ZSTD bytes; no re-encoding or precision change",
+      "unique_ids": 1118,
+      "ordered_ids_sha256": "784e6fd4866ef6f329844ad726acd3f9333323b6f7df2d28b8e3a516805b783b"
+    },
+    "CRISPRGeneEffect.parquet": {
+      "bytes": 232669929,
+      "mtime_ns": 1790934749330561000,
+      "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+      "rows": 1208,
+      "columns": 18532,
+      "codecs": {
+        "ZSTD": 166788
+      },
+      "numerical_types": {
+        "string": 1,
+        "double": 18531
+      },
+      "optimization": "retain existing ZSTD bytes; no re-encoding or precision change",
+      "unique_ids": 1208,
+      "ordered_ids_sha256": "28e6af1599e87f8b9626c222f1a6d458769933076f4e190c3828544c86d4d43a"
+    },
+    "Model.parquet": {
+      "bytes": 139521,
+      "mtime_ns": 1790934825120104100,
+      "SHA256": "7e821496f6c95c8f0a6ffe627669fbec1b563548391ccabaadd3f2e2ee13c7d4",
+      "rows": 2154,
+      "columns": 49,
+      "codecs": {
+        "ZSTD": 49
+      },
+      "numerical_types": {
+        "string": 49
+      },
+      "optimization": "retain existing ZSTD bytes; no re-encoding or precision change",
+      "unique_ids": 2154,
+      "ordered_ids_sha256": "a56cfa9e2c7fc99f79e858fa4a70f9845fbb4b28d230ae48d4af2e112cd3fb0f"
+    }
+  },
+  "cancers": [
+    "ACC",
+    "BLCA",
+    "BRCA",
+    "CESC",
+    "CHOL",
+    "COAD",
+    "DLBC",
+    "ESCA",
+    "GBM",
+    "HNSC",
+    "KICH",
+    "KIRC",
+    "KIRP",
+    "LAML",
+    "LGG",
+    "LIHC",
+    "LUAD",
+    "LUSC",
+    "MESO",
+    "OV",
+    "PAAD",
+    "PCPG",
+    "PRAD",
+    "READ",
+    "SARC",
+    "SKCM",
+    "STAD",
+    "TGCT",
+    "THCA",
+    "THYM",
+    "UCEC",
+    "UCS",
+    "UVM"
+  ],
+  "tcga": {
+    "CN_genes": 60623,
+    "TPM_genes": 60660,
+    "CN_samples": 11339,
+    "RNA_rows": 11505,
+    "RNA_samples": 11370,
+    "metadata_rows": 44673,
+    "baseline_samples": 11339,
+    "baseline_exact_match": true,
+    "TPM_log_all_genes_checked": true,
+    "TPM_missing_cells": 0,
+    "log_max_absolute_error": 0.0,
+    "log_tolerance": "rtol=2e-15, atol=0; NaN and Arrow-null masks identical",
+    "patient_deduplication": false
+  },
+  "core": {
+    "data/processed/tcga/gdc_DR46/TCGA_GeneLevel_CN.parquet": {
+      "bytes": 232306410,
+      "mtime_ns": 1790942937458313100,
+      "SHA256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63"
+    },
+    "data/processed/tcga/gdc_DR46/TCGA_GeneLevel_CN.genes.parquet": {
+      "bytes": 1317700,
+      "mtime_ns": 1790942937722588600,
+      "SHA256": "079751b0a3370f1482ebc5ba05b314fe58b009beb4d2ca23d98a95016a1c74f4"
+    },
+    "data/processed/tcga/gdc_DR46/TCGA_STAR_TPM.parquet": {
+      "bytes": 2682181013,
+      "mtime_ns": 1790942150541849300,
+      "SHA256": "e1923bb4d64bb67d921166a0360bdff998a4b4f498850251c9ee5fa3234e3ebc"
+    },
+    "data/processed/tcga/gdc_DR46/TCGA_STAR_TPM.genes.parquet": {
+      "bytes": 698877,
+      "mtime_ns": 1790942150974884600,
+      "SHA256": "3d7b914202d763f5032d43b5df6aefc4c89e6fef4860524b32132895a5322103"
+    },
+    "data/processed/tcga/gdc_DR46/TCGA_Sample_Baselines.parquet": {
+      "bytes": 323465,
+      "mtime_ns": 1792468545306030400,
+      "SHA256": "0e5ccf479e7ea5b19095f276f228327ed33f6295142107b28d074140e225d5dd"
+    },
+    "data/processed/tcga/gdc_DR46/TCGA_Sample_Metadata.parquet": {
+      "bytes": 3931144,
+      "mtime_ns": 1792468548663564200,
+      "SHA256": "b3a9d734c169dcdd14ca759b25e39e45f3727b057882e9976b7572cc0d7ce9e4"
+    },
+    "data/processed/tcga/gdc_DR46/TCGA_RNA_Selection.parquet": {
+      "bytes": 1477209,
+      "mtime_ns": 1792468548181254000,
+      "SHA256": "6f3bea2431f8c0bebc84ab324afbc03cbe9a703df26bb21cbcfea91ce5c11276"
+    },
+    "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet": {
+      "bytes": 218424120,
+      "mtime_ns": 1790934723793707100,
+      "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab"
+    },
+    "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet": {
+      "bytes": 232669929,
+      "mtime_ns": 1790934749330561000,
+      "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81"
+    },
+    "data/processed/depmap/26Q1/Model.parquet": {
+      "bytes": 139521,
+      "mtime_ns": 1790934825120104100,
+      "SHA256": "7e821496f6c95c8f0a6ffe627669fbec1b563548391ccabaadd3f2e2ee13c7d4"
+    }
+  },
+  "maintenance_code_sha256": {
+    "scripts/data_access.py": "2c093e7d390bccd20c3b7433967c75b21918ca4f4b731b3dfd18dc6ea8047004",
+    "scripts/utils/tcga_current.py": "07332f68df34594f91570098f4da10d6a7ee4518f96dace0982247cd1f089ca9",
+    "scripts/utils/export_workflow_tcga.py": "13211901ca959e5ed5ddd1ec6eac5096082fc5256410c2b8c2db7ff878a8e6f0",
+    "scripts/R/local_data.R": "247f8e5a751df5e84d45f0c5268d49340241a975f8aca45cace36df8bffc457f"
+  },
+  "validated_for_cleanup_at": "2026-10-20T15:04:36+08:00"
+}

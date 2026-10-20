@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from scripts.data_access import get_tcga_cn, gdc_gene
 from scripts.utils.tcga_current import (FOLDER, STATES, classify_cn, sample_baselines,
-                                       select_rna, source_identity)
+                                       selected_rna, source_identity, prepared_table)
 import numpy as np
 
 
@@ -16,7 +16,8 @@ def current_samples(gene):
     source_identity(FOLDER / 'TCGA_STAR_TPM.parquet')
     cn = get_tcga_cn(gene, layer='current')
     rna = gdc_gene('TCGA_STAR_TPM', gene, 'TPM')
-    selected, audit = select_rna(cn, rna)
+    prepared_table('TCGA_Sample_Metadata')
+    selected, audit = selected_rna(cn, rna)
     baseline, report = sample_baselines()
     fields = ['SampleID', 'CaseID', 'ProjectID', 'AliquotID', 'FileID', 'TPM']
     selected = selected[fields].rename(columns={c: 'RNA_' + c for c in fields if c != 'SampleID'})

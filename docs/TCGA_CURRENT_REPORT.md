@@ -1,5 +1,7 @@
 # GDC current preparation snapshot
 
+Historical 2026-10-02 preparation/verification record. Raw files referenced here were deleted during the validated 2026-10-20 cleanup; this snapshot does not certify their present existence. The retained core matrices and current availability are documented in [analysis-ready storage](ANALYSIS_READY_STORAGE.md) and [cleanup results](../data/manifests/data_cleanup_report.json).
+
 Snapshot: **2026-10-02T21:49:41+08:00**. Current status: **complete**. All selected raw files, complete RNA/CN ETL, DuckDB views and identity/numerical validation have completed. The current layer is available; case output status is determined by its latest R run.
 
 1. Official release: **46.0**, API version 1, tag 8.5.0; query snapshot 2026-10-02T17:01:45+08:00.

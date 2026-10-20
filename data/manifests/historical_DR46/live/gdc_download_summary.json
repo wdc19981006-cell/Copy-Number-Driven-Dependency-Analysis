@@ -1,0 +1,27 @@
+{
+  "created_at": "2026-10-02T20:13:45+08:00",
+  "method": "Official GDC data API: multi-UUID POST bundles / per-file curl fallback; DTT attempted first",
+  "counts": {
+    "rna": {
+      "files": 11505,
+      "verified": 11505,
+      "verified_bytes": 48743334626
+    },
+    "cn": {
+      "files": 11339,
+      "verified": 11339,
+      "verified_bytes": 38946368973
+    },
+    "segments": {
+      "files": 11189,
+      "verified": 11189,
+      "verified_bytes": 72026450
+    },
+    "mutation": {
+      "files": 10640,
+      "verified": 10640,
+      "verified_bytes": 820724927
+    }
+  },
+  "failures": []
+}

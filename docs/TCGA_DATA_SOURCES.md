@@ -1,5 +1,7 @@
 # TCGA source layers
 
+Historical acquisition record. After the verified 2026-10-20 cleanup, only the [analysis-ready core](ANALYSIS_READY_STORAGE.md) remains. Raw files and the separate log2TPM/counts/FPKM/segments/mutation/reference matrices described below are no longer present; source UUIDs, hashes and preparation records remain. Expression is now calculated per gene from retained TPM.
+
 Official current query snapshot: 2026-10-02T17:01:45+08:00, GDC DR46.0 / API 1 / tag 8.5.0. [GDC API downloads](https://docs.gdc.cancer.gov/API/Users_Guide/Downloading_Files/) and [GDC Portal](https://portal.gdc.cancer.gov/) are the sources. Filters are TCGA program, open access, released state. All 33 TCGA projects and complete source gene tables are retained; no candidate-gene-only acquisition.
 
 STAR Counts supplies original Ensembl versioned IDs, unstranded counts, TPM, FPKM and FPKM-UQ; log2(TPM+1) is a separate derived matrix. Special N_* summary rows are stored separately. Gene-level CN keeps source total CN and genomic annotations. CN workflow priority is ABSOLUTE LiftOver > ASCAT3 > AscatNGS > ASCAT2 per sample UUID, without averaging different pipelines. Segment fallback/missing cases are audited. Masked somatic MAF retains original columns plus source-validated case/sample/aliquot and VAF where depth permits. Clinical and full biospecimen hierarchy come from official cases API.

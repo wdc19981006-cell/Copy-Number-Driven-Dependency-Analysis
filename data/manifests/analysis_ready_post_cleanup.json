@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-20T15:14:23+08:00",
+  "core_SHA256_unchanged": true,
+  "exact_core_Parquets": 10,
+  "raw_path_exists": false,
+  "fresh_MTAP_TCGA_samples_match_saved": true,
+  "arbitrary_gene_TP53_expression_rows": 11505,
+  "fresh_MTAP_WDR77_matched_models": 858,
+  "full_DepMap_matrices_readable": {
+    "OmicsCNGeneWGS": {
+      "rows": 1118,
+      "columns": 18614
+    },
+    "CRISPRGeneEffect": {
+      "rows": 1208,
+      "columns": 18532
+    },
+    "Model": {
+      "rows": 2154,
+      "columns": 49
+    }
+  },
+  "original_result_CSVs_byte_unchanged": 21,
+  "volume_free_bytes_before": 221776125952,
+  "volume_free_bytes_after": 328442216448,
+  "volume_free_increase_bytes": 106666090496
+}

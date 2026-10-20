@@ -10,6 +10,7 @@ from scripts.utils.common import ROOT, current_release
 import pandas as pd
 import pyarrow.parquet as pq
 import duckdb
+import numpy as np
 
 
 class DataUnavailableError(FileNotFoundError):
@@ -140,7 +141,10 @@ def get_tcga_gistic(gene, layer='reference'):
 
 def get_tcga_expression(gene, layer='current'):
     if layer == 'current':
-        return gdc_gene('TCGA_STAR_log2TPMplus1', gene, 'Expression')
+        frame = gdc_gene('TCGA_STAR_TPM', gene, 'Expression')
+        frame['Expression'] = np.log2(frame.Expression + 1)
+        frame.attrs['unit'] = 'log2(TPM+1)'
+        return frame
     if layer != 'reference':
         raise ValueError('layer must be current or reference')
     return tcga_gene('Expression', gene)
@@ -148,7 +152,7 @@ def get_tcga_expression(gene, layer='current'):
 
 def get_tcga_metadata(layer='current'):
     if layer=='current':
-        return pq.read_table(required(ROOT/'data/processed/tcga/gdc_DR46/TCGA_Sample_Map.parquet')).to_pandas()
+        return pq.read_table(required(ROOT/'data/processed/tcga/gdc_DR46/TCGA_Sample_Metadata.parquet')).to_pandas()
     if layer!='reference':
         raise ValueError('layer must be current or reference')
     return pq.read_table(required(ROOT / 'data/processed/tcga/pancanatlas_reference/Metadata.parquet')).to_pandas()

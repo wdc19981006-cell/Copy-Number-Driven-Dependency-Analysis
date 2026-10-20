@@ -1,0 +1,540 @@
+{
+  "validation_SHA256": "433405f2ce9729e284320a500e26b1b7cc77db71c4731589c5db3a0583005d42",
+  "records": [
+    {
+      "case": "MTAP_Analysis",
+      "geneB": "",
+      "module": "tcga",
+      "statistics_recomputed": false,
+      "outputs_unchanged": true,
+      "previous_key": "a75e2251529549bb8fea8b2077c26b80dacca9adbe5a7d7445419aa040632839",
+      "key": "0f00714b14c7a13f4b2e3298a4d1eb654f49d1c2edcc79e3ea0681c741194dac",
+      "previous_code_hash": "cd08a0776e6ef2ee7f3e066294973505f694968eb53c8c98e71e9808735e017d",
+      "code_hash": "63e5f541983285524e7c4f458580dd42964f65677745ba45c610a5094e5ed1cc",
+      "data_versions": [
+        {
+          "path": "data/processed/tcga/gdc_DR46/TCGA_GeneLevel_CN.parquet",
+          "bytes": 232306410,
+          "mtime": "2026-10-02T20:08:57.458312+0800",
+          "prepared_sha256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63",
+          "provenance": {
+            "created_at": "2026-10-02T20:08:57+08:00",
+            "release": "46.0",
+            "processor_version": "gdc-DR46-v1",
+            "source_set_sha256": "4a0865d2ad6dd1645bd1923cbd14fdb41e2dabeb514d7c44046dc1def2760cae",
+            "SHA256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63",
+            "bytes": 232306410,
+            "rows": 11339,
+            "genes": 60623,
+            "missing_cells": 50027665,
+            "compression": "ZSTD",
+            "orientation": "samples/aliquots x genes",
+            "parsed_all_inputs": true,
+            "row_group_size": 4096
+          }
+        },
+        {
+          "path": "data/processed/tcga/gdc_DR46/TCGA_GeneLevel_CN.genes.parquet",
+          "bytes": 1317700,
+          "mtime": "2026-10-02T20:08:57.722589+0800",
+          "prepared_sha256": {},
+          "provenance": {}
+        },
+        {
+          "path": "data/processed/tcga/gdc_DR46/TCGA_STAR_TPM.parquet",
+          "bytes": 2682181013,
+          "mtime": "2026-10-02T19:55:50.541849+0800",
+          "prepared_sha256": "e1923bb4d64bb67d921166a0360bdff998a4b4f498850251c9ee5fa3234e3ebc",
+          "provenance": {
+            "created_at": "2026-10-02T19:55:50+08:00",
+            "release": "46.0",
+            "processor_version": "gdc-DR46-v1",
+            "source_set_sha256": "eafdf12a1958db896f3e34493b29ec4cf2e74b15bafe543ab48e8164bf1b07c3",
+            "SHA256": "e1923bb4d64bb67d921166a0360bdff998a4b4f498850251c9ee5fa3234e3ebc",
+            "bytes": 2682181013,
+            "rows": 11505,
+            "genes": 60660,
+            "missing_cells": 0,
+            "compression": "ZSTD",
+            "orientation": "samples/aliquots x genes",
+            "parsed_all_inputs": true
+          }
+        },
+        {
+          "path": "data/processed/tcga/gdc_DR46/TCGA_STAR_TPM.genes.parquet",
+          "bytes": 698877,
+          "mtime": "2026-10-02T19:55:50.974884+0800",
+          "prepared_sha256": {},
+          "provenance": {}
+        },
+        {
+          "path": "data/processed/tcga/gdc_DR46/TCGA_Sample_Baselines.parquet",
+          "bytes": 323465,
+          "mtime": "2026-10-20T11:55:45.306030+0800",
+          "prepared_sha256": "0e5ccf479e7ea5b19095f276f228327ed33f6295142107b28d074140e225d5dd",
+          "provenance": {
+            "release": "46.0",
+            "algorithm_version": "analysis-ready-v1",
+            "created_at": "2026-10-20T11:55:45+08:00",
+            "SHA256": "0e5ccf479e7ea5b19095f276f228327ed33f6295142107b28d074140e225d5dd",
+            "inputs": {
+              "TCGA_GeneLevel_CN.parquet": {
+                "bytes": 232306410,
+                "mtime_ns": 1.7909429374583132e+18,
+                "SHA256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63"
+              },
+              "TCGA_GeneLevel_CN.genes.parquet": {
+                "bytes": 1317700,
+                "mtime_ns": 1.7909429377225887e+18,
+                "SHA256": "079751b0a3370f1482ebc5ba05b314fe58b009beb4d2ca23d98a95016a1c74f4"
+              }
+            },
+            "rows": 11339,
+            "method": "autosomal_gene_CN_integer_mode_v1; ties choose smallest mode",
+            "report": {
+              "method": "autosomal_gene_CN_integer_mode_v1; ties choose smallest mode",
+              "source_identity": {
+                "source": {
+                  "path": "TCGA_GeneLevel_CN.parquet",
+                  "bytes": 232306410,
+                  "mtime_ns": 1.7909429374583132e+18,
+                  "provenance": {
+                    "created_at": "2026-10-02T20:08:57+08:00",
+                    "release": "46.0",
+                    "processor_version": "gdc-DR46-v1",
+                    "source_set_sha256": "4a0865d2ad6dd1645bd1923cbd14fdb41e2dabeb514d7c44046dc1def2760cae",
+                    "SHA256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63",
+                    "bytes": 232306410,
+                    "rows": 11339,
+                    "genes": 60623,
+                    "missing_cells": 50027665,
+                    "compression": "ZSTD",
+                    "orientation": "samples/aliquots x genes",
+                    "parsed_all_inputs": true,
+                    "row_group_size": 4096
+                  }
+                },
+                "method": "autosomal_gene_CN_integer_mode_v1; ties choose smallest mode",
+                "annotation_sha256": "079751b0a3370f1482ebc5ba05b314fe58b009beb4d2ca23d98a95016a1c74f4"
+              },
+              "samples": 11339,
+              "autosomal_genes": 57633,
+              "distribution": {
+                "1": 125,
+                "2": 7999,
+                "3": 1647,
+                "4": 1419,
+                "5": 80,
+                "6": 34,
+                "7": 33,
+                "8": 2
+              },
+              "tied_samples": 0,
+              "extreme_samples": [],
+              "interpretation": "Estimated sample-specific baseline; not measured ploidy or official GISTIC",
+              "published_ploidy": "No available ploidy in wide CN/clinical/biospecimen schema; processed segment ploidy is null by its preparer"
+            }
+          }
+        },
+        {
+          "path": "data/processed/tcga/gdc_DR46/TCGA_Sample_Metadata.parquet",
+          "bytes": 3931144,
+          "mtime": "2026-10-20T11:55:48.663564+0800",
+          "prepared_sha256": "b3a9d734c169dcdd14ca759b25e39e45f3727b057882e9976b7572cc0d7ce9e4",
+          "provenance": {
+            "release": "46.0",
+            "algorithm_version": "analysis-ready-v1",
+            "created_at": "2026-10-20T11:55:48+08:00",
+            "SHA256": "b3a9d734c169dcdd14ca759b25e39e45f3727b057882e9976b7572cc0d7ce9e4",
+            "inputs": {
+              "TCGA_GeneLevel_CN.parquet": {
+                "bytes": 232306410,
+                "mtime_ns": 1.7909429374583132e+18,
+                "SHA256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63"
+              },
+              "TCGA_STAR_TPM.parquet": {
+                "bytes": 2682181013,
+                "mtime_ns": 1.7909421505418493e+18,
+                "SHA256": "e1923bb4d64bb67d921166a0360bdff998a4b4f498850251c9ee5fa3234e3ebc"
+              }
+            },
+            "rows": 44673,
+            "retired_source": {
+              "path": "data/processed/tcga/gdc_DR46/TCGA_Sample_Map.parquet",
+              "bytes": 3905657,
+              "mtime_ns": 1.7909373490781187e+18,
+              "SHA256": "16e50b5918d9981b48bba34c3347b5f3a81968d3bdbc9e49b2443d9838350fc2"
+            }
+          }
+        },
+        {
+          "path": "data/processed/tcga/gdc_DR46/TCGA_RNA_Selection.parquet",
+          "bytes": 1477209,
+          "mtime": "2026-10-20T11:55:48.181255+0800",
+          "prepared_sha256": "6f3bea2431f8c0bebc84ab324afbc03cbe9a703df26bb21cbcfea91ce5c11276",
+          "provenance": {
+            "release": "46.0",
+            "algorithm_version": "analysis-ready-v1",
+            "created_at": "2026-10-20T11:55:48+08:00",
+            "SHA256": "6f3bea2431f8c0bebc84ab324afbc03cbe9a703df26bb21cbcfea91ce5c11276",
+            "inputs": {
+              "TCGA_GeneLevel_CN.parquet": {
+                "bytes": 232306410,
+                "mtime_ns": 1.7909429374583132e+18,
+                "SHA256": "0414dbc07b7058e8b2e493a9586c0007254768020ee6e0907f31bed7a4cb8a63"
+              },
+              "TCGA_STAR_TPM.parquet": {
+                "bytes": 2682181013,
+                "mtime_ns": 1.7909421505418493e+18,
+                "SHA256": "e1923bb4d64bb67d921166a0360bdff998a4b4f498850251c9ee5fa3234e3ebc"
+              }
+            },
+            "rows": 11505
+          }
+        }
+      ]
+    },
+    {
+      "case": "MTAP_Analysis",
+      "geneB": "",
+      "module": "genomewide_dependency",
+      "statistics_recomputed": false,
+      "outputs_unchanged": true,
+      "previous_key": "135de8432bc2b4add8a29aba2789a64bb72d6dd82896e0b17d283a8c99ea433e",
+      "key": "5a9003f81e06f0aaa0cb10a6cfed0972f14260e7a630fb7e8e6fedc2ecec2dbc",
+      "previous_code_hash": "3ac485d713d8252baa6e09d99f892510c68d92c194657f4523d39685d3c2dbfc",
+      "code_hash": "cd0fb02b52796d10d7b9fea64aed007eb96b15c11848b739550d6a9fe3fab166",
+      "data_versions": [
+        {
+          "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+          "bytes": 218424120,
+          "mtime": "2026-10-02T17:52:03.793706+0800",
+          "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+          "provenance": {
+            "release": "26Q1",
+            "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+            "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+            "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+            "created_at": "2026-10-02T17:52:04+08:00",
+            "source_type": "user_supplied_portal_export",
+            "full_release_completeness": "unverified",
+            "orientation": "models x gene symbols"
+          }
+        },
+        {
+          "path": "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet",
+          "bytes": 232669929,
+          "mtime": "2026-10-02T17:52:29.330560+0800",
+          "prepared_sha256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+          "provenance": {
+            "release": "26Q1",
+            "raw_sha256": "55fdef5bccdf78116aa4c790febc09a6815b143e7c11a7095cbb930adf8dc51d",
+            "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+            "raw_source": "data/raw/depmap/26Q1/CRISPR_Chronos_26Q1.csv",
+            "created_at": "2026-10-02T17:52:30+08:00",
+            "source_type": "user_supplied_portal_export",
+            "full_release_completeness": "unverified",
+            "orientation": "models x gene symbols"
+          }
+        }
+      ]
+    },
+    {
+      "case": "MTAP_Analysis",
+      "geneB": "",
+      "module": "cn_covariation",
+      "statistics_recomputed": false,
+      "outputs_unchanged": true,
+      "previous_key": "bd8e77dc023495753d1bbd95bec044d5c7c9a26bbf32f708ca27266aa012a7bc",
+      "key": "57d628322b3fb3e3a5715462e1ff08975ca751125139844aecc6e8ec6a26d15a",
+      "previous_code_hash": "16a0b88fda0d53252cde2d945b97d085165c6102ae094183f9da5ec50b85846c",
+      "code_hash": "4081140e3a2716fbfb6129abb9d270214665dd5e85bda833297cd7b174b79b3a",
+      "data_versions": [
+        {
+          "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+          "bytes": 218424120,
+          "mtime": "2026-10-02T17:52:03.793706+0800",
+          "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+          "provenance": {
+            "release": "26Q1",
+            "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+            "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+            "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+            "created_at": "2026-10-02T17:52:04+08:00",
+            "source_type": "user_supplied_portal_export",
+            "full_release_completeness": "unverified",
+            "orientation": "models x gene symbols"
+          }
+        }
+      ]
+    },
+    {
+      "case": "MTAP_Analysis",
+      "geneB": "WDR77",
+      "module": "targeted_dependency",
+      "statistics_recomputed": false,
+      "outputs_unchanged": true,
+      "previous_key": "9e7cf4cee2bfd22fdc93339e83636d1e674ec52ee89731711cd72e91739b4e05",
+      "key": "79829f41ca240be5a9fc5f0d4728697ee1290292613eab38b3a3fff12733238f",
+      "previous_code_hash": "7664e3f3a72bc86f24766d0f4b1ae4ac05ec5cbfa19d568280bd584eb023ebe2",
+      "code_hash": "e15a5871d4a9ab6946d11546a4dd489180f9909dba58bc0fc6fc55163fe8241a",
+      "data_versions": [
+        {
+          "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+          "bytes": 218424120,
+          "mtime": "2026-10-02T17:52:03.793706+0800",
+          "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+          "provenance": {
+            "release": "26Q1",
+            "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+            "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+            "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+            "created_at": "2026-10-02T17:52:04+08:00",
+            "source_type": "user_supplied_portal_export",
+            "full_release_completeness": "unverified",
+            "orientation": "models x gene symbols"
+          }
+        },
+        {
+          "path": "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet",
+          "bytes": 232669929,
+          "mtime": "2026-10-02T17:52:29.330560+0800",
+          "prepared_sha256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+          "provenance": {
+            "release": "26Q1",
+            "raw_sha256": "55fdef5bccdf78116aa4c790febc09a6815b143e7c11a7095cbb930adf8dc51d",
+            "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+            "raw_source": "data/raw/depmap/26Q1/CRISPR_Chronos_26Q1.csv",
+            "created_at": "2026-10-02T17:52:30+08:00",
+            "source_type": "user_supplied_portal_export",
+            "full_release_completeness": "unverified",
+            "orientation": "models x gene symbols"
+          }
+        }
+      ]
+    },
+    {
+      "case": "MTAP_Analysis",
+      "geneB": "WDR77",
+      "module": "lineage_dependency",
+      "statistics_recomputed": false,
+      "outputs_unchanged": true,
+      "previous_key": "35bda4fcbb76af4fe92dacb110ce1f7d0f9e8bb4d50a2fe4ee4dc97f7e70a630",
+      "key": "77e93667f2039f13bb8ff0cd09d05f3bb92254f5ac493f851da74ee796f0c3a6",
+      "previous_code_hash": "5dcccb3d7d327066d980869ba4834eabda0a076fa6d1b7d5c2607487e2dc3641",
+      "code_hash": "8e930f4d4e6747b739320278713e570a8fb6af66cd42592bbf1dc39b155509a9",
+      "data_versions": [
+        {
+          "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+          "bytes": 218424120,
+          "mtime": "2026-10-02T17:52:03.793706+0800",
+          "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+          "provenance": {
+            "release": "26Q1",
+            "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+            "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+            "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+            "created_at": "2026-10-02T17:52:04+08:00",
+            "source_type": "user_supplied_portal_export",
+            "full_release_completeness": "unverified",
+            "orientation": "models x gene symbols"
+          }
+        },
+        {
+          "path": "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet",
+          "bytes": 232669929,
+          "mtime": "2026-10-02T17:52:29.330560+0800",
+          "prepared_sha256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+          "provenance": {
+            "release": "26Q1",
+            "raw_sha256": "55fdef5bccdf78116aa4c790febc09a6815b143e7c11a7095cbb930adf8dc51d",
+            "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+            "raw_source": "data/raw/depmap/26Q1/CRISPR_Chronos_26Q1.csv",
+            "created_at": "2026-10-02T17:52:30+08:00",
+            "source_type": "user_supplied_portal_export",
+            "full_release_completeness": "unverified",
+            "orientation": "models x gene symbols"
+          }
+        },
+        {
+          "path": "data/processed/depmap/26Q1/Model.parquet",
+          "bytes": 139521,
+          "mtime": "2026-10-02T17:53:45.120103+0800",
+          "prepared_sha256": "7e821496f6c95c8f0a6ffe627669fbec1b563548391ccabaadd3f2e2ee13c7d4",
+          "provenance": {
+            "release": "26Q1",
+            "raw_sha256": "ea4e0b2a3bc806f81df62689a5ae75f1a100135727a3d7b8a4c7ccc8815183f8",
+            "SHA256": "7e821496f6c95c8f0a6ffe627669fbec1b563548391ccabaadd3f2e2ee13c7d4",
+            "raw_source": "data/raw/depmap/26Q1/Model.csv",
+            "created_at": "2026-10-02T17:53:45+08:00",
+            "source_type": "user_supplied_portal_export",
+            "full_release_completeness": "unverified",
+            "orientation": "source metadata table"
+          }
+        }
+      ]
+    },
+    {
+      "case": "MTAP_Analysis",
+      "geneB": "WDR77",
+      "module": "adjusted_dependency",
+      "statistics_recomputed": false,
+      "outputs_unchanged": true,
+      "previous_key": "9dc99c4febb2eeb5ff11e1facbb992afe8fee17110ab71c07e43ee09e3fcfd32",
+      "key": "d51dfb8b008506bf8357c0ae91ad34ea9fcea48872b7046eb3cf2f2ed66865ce",
+      "previous_code_hash": "eae46bc8ae04342cc6a3e1f2880da0e8ffa7953a313e0909298607ac40ad02e8",
+      "code_hash": "2b72343982e7c604b0ec65f3746643aece2783d138db18194a2e9c0de3cdcde1",
+      "data_versions": [
+        {
+          "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+          "bytes": 218424120,
+          "mtime": "2026-10-02T17:52:03.793706+0800",
+          "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+          "provenance": {
+            "release": "26Q1",
+            "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+            "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+            "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+            "created_at": "2026-10-02T17:52:04+08:00",
+            "source_type": "user_supplied_portal_export",
+            "full_release_completeness": "unverified",
+            "orientation": "models x gene symbols"
+          }
+        },
+        {
+          "path": "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet",
+          "bytes": 232669929,
+          "mtime": "2026-10-02T17:52:29.330560+0800",
+          "prepared_sha256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+          "provenance": {
+            "release": "26Q1",
+            "raw_sha256": "55fdef5bccdf78116aa4c790febc09a6815b143e7c11a7095cbb930adf8dc51d",
+            "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+            "raw_source": "data/raw/depmap/26Q1/CRISPR_Chronos_26Q1.csv",
+            "created_at": "2026-10-02T17:52:30+08:00",
+            "source_type": "user_supplied_portal_export",
+            "full_release_completeness": "unverified",
+            "orientation": "models x gene symbols"
+          }
+        },
+        {
+          "path": "data/processed/depmap/26Q1/Model.parquet",
+          "bytes": 139521,
+          "mtime": "2026-10-02T17:53:45.120103+0800",
+          "prepared_sha256": "7e821496f6c95c8f0a6ffe627669fbec1b563548391ccabaadd3f2e2ee13c7d4",
+          "provenance": {
+            "release": "26Q1",
+            "raw_sha256": "ea4e0b2a3bc806f81df62689a5ae75f1a100135727a3d7b8a4c7ccc8815183f8",
+            "SHA256": "7e821496f6c95c8f0a6ffe627669fbec1b563548391ccabaadd3f2e2ee13c7d4",
+            "raw_source": "data/raw/depmap/26Q1/Model.csv",
+            "created_at": "2026-10-02T17:53:45+08:00",
+            "source_type": "user_supplied_portal_export",
+            "full_release_completeness": "unverified",
+            "orientation": "source metadata table"
+          }
+        }
+      ]
+    },
+    {
+      "case": "MTAP_Analysis",
+      "geneB": "WDR77",
+      "module": "cn_threshold_sensitivity",
+      "statistics_recomputed": false,
+      "outputs_unchanged": true,
+      "previous_key": "7903b479e9d92c2976999c7221ccf84dd097ce227715f659b395f39244ecf6e1",
+      "key": "92ee2f771dce21eda98986436d074ed57b81f80bd3b9df242d3be1a062c5a609",
+      "previous_code_hash": "541acd5648f61aadcbfb59b2e9307677ce2ec40f5b5daf726509ee64ddc8a8c7",
+      "code_hash": "032b15b0bde45dedc22946075e54492f892007a29e24e372d6f20280ab18a6f5",
+      "data_versions": [
+        {
+          "path": "data/processed/depmap/26Q1/OmicsCNGeneWGS.parquet",
+          "bytes": 218424120,
+          "mtime": "2026-10-02T17:52:03.793706+0800",
+          "prepared_sha256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+          "provenance": {
+            "release": "26Q1",
+            "raw_sha256": "a99614c6ab67278b789940501b3c33cb4aeb8d6315db39153960334ee0adc93d",
+            "SHA256": "4f6aae4f9bbab0d0f99bc94c6152b974415bd2af5a6957e4c262301c0d5a67ab",
+            "raw_source": "data/raw/depmap/26Q1/CopyNumber_WGS_26Q1.csv",
+            "created_at": "2026-10-02T17:52:04+08:00",
+            "source_type": "user_supplied_portal_export",
+            "full_release_completeness": "unverified",
+            "orientation": "models x gene symbols"
+          }
+        },
+        {
+          "path": "data/processed/depmap/26Q1/CRISPRGeneEffect.parquet",
+          "bytes": 232669929,
+          "mtime": "2026-10-02T17:52:29.330560+0800",
+          "prepared_sha256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+          "provenance": {
+            "release": "26Q1",
+            "raw_sha256": "55fdef5bccdf78116aa4c790febc09a6815b143e7c11a7095cbb930adf8dc51d",
+            "SHA256": "45c1fa85e8749f9996fbe3371a0d8c3ad1b04df91878029f9decebc2c5e83a81",
+            "raw_source": "data/raw/depmap/26Q1/CRISPR_Chronos_26Q1.csv",
+            "created_at": "2026-10-02T17:52:30+08:00",
+            "source_type": "user_supplied_portal_export",
+            "full_release_completeness": "unverified",
+            "orientation": "models x gene symbols"
+          }
+        }
+      ]
+    }
+  ],
+  "retained_without_migration": [
+    {
+      "case": "MYC_Analysis",
+      "geneB": "",
+      "module": "tcga",
+      "reason": "Existing cache parameter hash predates current framework; retained unchanged and not declared equivalent"
+    },
+    {
+      "case": "MYC_Analysis",
+      "geneB": "",
+      "module": "genomewide_dependency",
+      "reason": "Existing cache parameter hash predates current framework; retained unchanged and not declared equivalent"
+    },
+    {
+      "case": "MYC_Analysis",
+      "geneB": "",
+      "module": "cn_covariation",
+      "reason": "Existing cache parameter hash predates current framework; retained unchanged and not declared equivalent"
+    },
+    {
+      "case": "NUDT18_Analysis",
+      "geneB": "",
+      "module": "tcga",
+      "reason": "Pre-existing cache output names/hashes do not match current layout; retained unchanged and not declared equivalent"
+    },
+    {
+      "case": "NUDT18_Analysis",
+      "geneB": "",
+      "module": "genomewide_dependency",
+      "reason": "Pre-existing cache output names/hashes do not match current layout; retained unchanged and not declared equivalent"
+    },
+    {
+      "case": "NUDT18_Analysis",
+      "geneB": "",
+      "module": "cn_covariation",
+      "reason": "Pre-existing cache output names/hashes do not match current layout; retained unchanged and not declared equivalent"
+    },
+    {
+      "case": "PTGS2_Analysis",
+      "geneB": "",
+      "module": "tcga",
+      "reason": "Pre-existing cache output names/hashes do not match current layout; retained unchanged and not declared equivalent"
+    },
+    {
+      "case": "PTGS2_Analysis",
+      "geneB": "",
+      "module": "genomewide_dependency",
+      "reason": "Pre-existing cache output names/hashes do not match current layout; retained unchanged and not declared equivalent"
+    },
+    {
+      "case": "PTGS2_Analysis",
+      "geneB": "",
+      "module": "cn_covariation",
+      "reason": "Pre-existing cache output names/hashes do not match current layout; retained unchanged and not declared equivalent"
+    }
+  ]
+}

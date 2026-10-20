@@ -1,5 +1,7 @@
 # 数据设置与复现
 
+2026-10-20：两个正式工作流现在只需 [精简后的 processed 核心库](ANALYSIS_READY_STORAGE.md)。raw、历史参考矩阵和非核心 processed 已在验证后删除；无需重新下载即可运行正式工作流。以下获取/协调/旧模式命令属于历史或独立数据重建流程，不能当作当前普通分析的准备步骤。可选 expression、mutation、reference 模块的数据现已不可用。
+
 固定使用 **R 4.5.0**，运行 `renv::restore()` 和 `renv::status()`。包版本来自 renv.lock。基础 DepMap 分析只需普通 CRAN 包；R arrow/duckdb 为可选项，TCGA 通过 Python 单基因桥接读取。
 
 在 [DepMap Portal](https://depmap.org/portal/download/all/) 自行取得 Public 26Q1 文件或合法导出，放在项目根目录后运行 `scripts/utils/organize_depmap.py`，或按下表放到 `data/raw/depmap/26Q1/`。不提供浏览器验证后的受保护链接。raw 内容不编辑；移动、重命名前后比较 SHA256。同类导出依据模型/基因覆盖选择 active，其余保留到 `data/archive/duplicates/`。
@@ -38,7 +40,7 @@ project_root='D:/CodexProjects/Copy Number–Driven Dependency Analysis'
 /c/Python312/python.exe "$project_root/scripts/preprocess/preprocess_local_depmap.py"
 ```
 
-processed 由脚本生成，不与 raw 混放。单基因查询读取 requested columns / row groups；DuckDB 仅保存 views。没有 raw 数据不要声称复现完成；新的合法导出可能改变本例样本数和结果。
+processed 由脚本生成，不与 raw 混放。单基因查询读取 requested columns / row groups。运行既有两个正式工作流不需要 raw；从原始来源重新建立已删除的数据层则必须另行准备。新的合法导出可能改变本例样本数和结果。
 
 本项目已有完整 current 数据。继续现有清单时只运行下面的协调入口，不再执行发现或重下全量 RNA/CN。协调入口保留已校验 raw，补齐缺失文件，完成 ETL 和 validation；拒绝竞争协调器。
 
@@ -76,4 +78,4 @@ Rscript scripts/R/run_analysis.R --mode expression_dependency --geneA ENO1 --gen
 
 The two genome-wide extension commands are opt-in; full includes only the targeted sensitivity/expression extensions. ENO1/ENO2 is a method test without a required positive result. --output_case only accepts a single safe result-directory name. A genomewide_adjusted_dependency invocation without --geneB emits the complete screen/volcano without a candidate table.
 
-The Windows GitHub Actions job installs R 4.5.0 and restores only data.table/dplyr/ggplot2 and their dependencies from the existing renv.lock. All six CI tests use synthetic fixtures or parse the supplied R function definitions; none reads raw or processed biological data. The CI environment intentionally omits optional arrow/duckdb because those libraries are only needed for actual local data analyses.
+The Windows GitHub Actions job uses R 4.5.0, nine R synthetic suites, and Python storage/selection/safety fixtures. Python test dependencies include pyarrow/duckdb/pandas/psutil; all biological data in tests is synthetic. CI never downloads TCGA or DepMap data.

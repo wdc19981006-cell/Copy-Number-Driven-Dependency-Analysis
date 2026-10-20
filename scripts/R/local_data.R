@@ -33,6 +33,8 @@ fread <- function(input,...,nrows=NULL,select=NULL,check.names=FALSE,showProgres
 }
 tcga_ready <- function() {
  local_required(file.path(PROJECT_ROOT,"data/processed/tcga/gdc_DR46/TCGA_GeneLevel_CN.parquet"))
- local_required(file.path(PROJECT_ROOT,"data/processed/tcga/gdc_DR46/TCGA_STAR_log2TPMplus1.parquet"))
+ for(name in c("TCGA_GeneLevel_CN.genes","TCGA_STAR_TPM","TCGA_STAR_TPM.genes",
+               "TCGA_Sample_Baselines","TCGA_Sample_Metadata","TCGA_RNA_Selection"))
+  local_required(file.path(PROJECT_ROOT,"data/processed/tcga/gdc_DR46",paste0(name,".parquet")))
  TRUE
 }

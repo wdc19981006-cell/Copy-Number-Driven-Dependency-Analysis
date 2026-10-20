@@ -76,7 +76,9 @@ wf_route_supplements <- function() {
 wf_input_paths <- function(module) {
  ref<-file.path(PROJECT_ROOT,"data/processed/tcga/gdc_DR46")
  switch(module,tcga=file.path(ref,c("TCGA_GeneLevel_CN.parquet","TCGA_GeneLevel_CN.genes.parquet",
-                                   "TCGA_STAR_TPM.parquet","TCGA_STAR_TPM.genes.parquet")),
+                                   "TCGA_STAR_TPM.parquet","TCGA_STAR_TPM.genes.parquet",
+                                   "TCGA_Sample_Baselines.parquet","TCGA_Sample_Metadata.parquet",
+                                   "TCGA_RNA_Selection.parquet")),
  genomewide_dependency=c(FILES$cn,FILES$chronos),cn_covariation=FILES$cn,
  c(FILES$cn,FILES$chronos,if(module %in% c("lineage_dependency","adjusted_dependency"))FILES$model))
 }
@@ -146,8 +148,18 @@ wf_hash_outputs <- function(paths)setNames(lapply(paths,function(p)digest::diges
 wf_parameters <- function(module)list(geneA=GENE_A,
  geneB=if(module %in% wf_geneB_modules())GENE_B else NULL,
  bootstrap=if(module=="lineage_dependency")BOOT_R else NULL,min_group_n=MIN_N,low=.585,deep=.35,seed=1234,thresholds=c(.585,.50,.40,.35))
+wf_storage_cache_equivalent <- function(previous,key) {
+ if(!exists("PROJECT_ROOT",inherits=TRUE))return(FALSE)
+ path<-file.path(PROJECT_ROOT,"data/manifests/analysis_storage_cache_migration.json")
+ if(!file.exists(path))return(FALSE)
+ map<-jsonlite::fromJSON(path,simplifyVector=FALSE)
+ evidence<-file.path(PROJECT_ROOT,"data/manifests/analysis_ready_regression.json")
+ if(!file.exists(evidence)||!identical(digest::digest(file=evidence,algo="sha256"),map$validation_SHA256))return(FALSE)
+ any(vapply(map$records,function(x)identical(x$previous_key,previous)&&identical(x$key,key),logical(1)))
+}
 wf_cache_valid <- function(old,key,outputs) {
- if(is.null(old)||!identical(old$key,key)||!identical(names(old$outputs),outputs))return(FALSE)
+ if(is.null(old)||!identical(names(old$outputs),outputs))return(FALSE)
+ if(!identical(old$key,key)&&!wf_storage_cache_equivalent(old$key,key))return(FALSE)
  if(!all(vapply(file.path(RESULT_ROOT,outputs),wf_validate_artifact,logical(1))))return(FALSE)
  identical(old$outputs,wf_hash_outputs(outputs))
 }
@@ -409,7 +421,7 @@ run_final_workflow <- function() {
   "No verified measured ploidy available. Baseline estimate: modal integer autosomal gene-level CN; ties choose smallest mode; never fixed CN=2.",
   "Deep Deletion: CN=0; Shallow Deletion: 0<CN<baseline; Diploid: CN=baseline; Gain: baseline<CN<2*baseline; Amplification: CN>=2*baseline.",
   "These categories are not PanCanAtlas GISTIC -2/-1/0/+1/+2. CNAState numeric codes are internal analysis labels only.",
-  "PanCanAtlas/Xena: available locally as historical/reference layer; not used in default 01-03 main results.",
+  "PanCanAtlas/Xena: historical/reference source; not used in default 01-03; availability is explicit, never a fallback.",
   "Exact SampleID joins, with CaseID/ProjectID consistency checks. RNA representative: matching CN aliquot first, then lexical FileID; audit in Provenance/Data_Audit.",
   "Scatter/pie denominator: current cancer finite matched CN/STAR expression/five-state cohort. Pearson and Spearman BH: separate eligible cancer tests.",
   "Landscape/order: all finite current CN tumor samples; no outlier exclusion.",
